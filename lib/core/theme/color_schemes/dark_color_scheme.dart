@@ -6,7 +6,7 @@ const ColorScheme darkColorScheme = ColorScheme(
   onPrimary: Colors.white,
   secondary: Color(0xFF212148),
   onSecondary: Colors.white,
-  surface: Color(0xFF2A1B4A),
+  surface: Colors.black,
   onSurface: Colors.white,
   error: Color(0xFFF2B8B5),
   onError: Colors.white,
