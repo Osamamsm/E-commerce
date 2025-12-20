@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/theme/color_schemes/dark_color_scheme.dart';
+import 'package:e_commerce/core/theme/components/button_theme.dart';
 import 'package:e_commerce/core/theme/components/input_theme.dart';
 import 'package:e_commerce/core/theme/extensions/blurry_background_theme.dart';
 import 'package:e_commerce/core/theme/typography.dart';
@@ -10,6 +11,7 @@ ThemeData buildDarkTheme() {
     colorScheme: darkColorScheme,
     textTheme: AppTypography.textTheme,
     inputDecorationTheme: InputThemes.darkInputTheme,
+    elevatedButtonTheme: ButtonThemes.elevatedButtonTheme(darkColorScheme),
     extensions: const [
       BlurryBackgroundTheme(
         primaryBlob: Color.fromARGB(255, 108, 1, 189),
