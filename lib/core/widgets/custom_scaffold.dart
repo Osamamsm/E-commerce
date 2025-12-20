@@ -16,9 +16,11 @@ class CustomScaffold extends StatelessWidget {
           Column(
             children: [
               AppBar(backgroundColor: Colors.transparent, title: Text(title)),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                child: child,
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  child: child,
+                ),
               ),
             ],
           ),

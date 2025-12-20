@@ -1,4 +1,6 @@
 {
     "search_hint": "Search for products...",
-    "shop_by_category": "Shop By Category"
+    "shop_by_category": "Shop By Category",
+    "featured_products": "Featured Products",
+    "add_to_cart": "Add To Cart"
 }

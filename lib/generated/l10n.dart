@@ -73,6 +73,21 @@ class S {
       args: [],
     );
   }
+
+  /// `Featured Products`
+  String get featured_products {
+    return Intl.message(
+      'Featured Products',
+      name: 'featured_products',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add To Cart`
+  String get add_to_cart {
+    return Intl.message('Add To Cart', name: 'add_to_cart', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
