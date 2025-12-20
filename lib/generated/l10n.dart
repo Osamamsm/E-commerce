@@ -53,6 +53,41 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Search for products...`
+  String get search_hint {
+    return Intl.message(
+      'Search for products...',
+      name: 'search_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shop By Category`
+  String get shop_by_category {
+    return Intl.message(
+      'Shop By Category',
+      name: 'shop_by_category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Featured Products`
+  String get featured_products {
+    return Intl.message(
+      'Featured Products',
+      name: 'featured_products',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add To Cart`
+  String get add_to_cart {
+    return Intl.message('Add To Cart', name: 'add_to_cart', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
