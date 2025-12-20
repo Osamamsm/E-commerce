@@ -63,6 +63,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Shop By Category`
+  String get shop_by_category {
+    return Intl.message(
+      'Shop By Category',
+      name: 'shop_by_category',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

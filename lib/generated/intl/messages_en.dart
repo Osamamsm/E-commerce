@@ -25,5 +25,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "search_hint": MessageLookupByLibrary.simpleMessage(
       "Search for products...",
     ),
+    "shop_by_category": MessageLookupByLibrary.simpleMessage(
+      "Shop By Category",
+    ),
   };
 }
