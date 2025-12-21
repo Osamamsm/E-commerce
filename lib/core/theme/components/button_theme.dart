@@ -11,4 +11,19 @@ class ButtonThemes {
       ),
     );
   }
+
+  static TextButtonThemeData textButtonTheme(ColorScheme scheme) {
+    return TextButtonThemeData(
+      style:
+          TextButton.styleFrom(
+            foregroundColor: scheme.primary,
+            padding: .zero,
+            minimumSize: .zero,
+          ).copyWith(
+            textStyle: WidgetStateProperty.all(
+              const TextStyle(decoration: TextDecoration.underline),
+            ),
+          ),
+    );
+  }
 }

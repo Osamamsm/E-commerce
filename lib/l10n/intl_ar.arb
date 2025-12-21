@@ -10,7 +10,7 @@
     "email_hint": "أدخل البريد الالكتروني",
     "password": "كلمه المرور",
     "password_hint": "أدخل كلمه المرور",
-    "forgot_password": "هل نسيت كلمه المرور؟",
+    "forgot_password": " هل نسيت كلمه المرور؟",
     "no_account": "ليس لديك حساب؟",
     "register": "سجل الآن"
 }

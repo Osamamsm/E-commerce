@@ -37,7 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Login to continue your journey",
     ),
     "no_account": MessageLookupByLibrary.simpleMessage(
-      "Don\'t have an account?",
+      "Don\'t have an account? ",
     ),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "password_hint": MessageLookupByLibrary.simpleMessage(

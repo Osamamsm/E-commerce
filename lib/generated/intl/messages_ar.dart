@@ -31,7 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "المنتجات المميزة",
     ),
     "forgot_password": MessageLookupByLibrary.simpleMessage(
-      "هل نسيت كلمه المرور؟",
+      " هل نسيت كلمه المرور؟",
     ),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "login_welcome_message": MessageLookupByLibrary.simpleMessage(
