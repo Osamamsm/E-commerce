@@ -2,9 +2,9 @@ import 'package:e_commerce/core/widgets/blurry_background.dart';
 import 'package:flutter/material.dart';
 
 class CustomScaffold extends StatelessWidget {
-  const CustomScaffold({super.key, required this.title, required this.child});
+  const CustomScaffold({super.key, this.title, required this.child});
 
-  final String title;
+  final String? title;
   final Widget child;
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,11 @@ class CustomScaffold extends StatelessWidget {
           const BlurryBackground(),
           Column(
             children: [
-              AppBar(backgroundColor: Colors.transparent, title: Text(title)),
+              AppBar(
+                backgroundColor: Colors.transparent,
+                title: Text(title??''),
+                centerTitle: true,
+              ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12.0),

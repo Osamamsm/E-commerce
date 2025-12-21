@@ -23,9 +23,27 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى العربة"),
+    "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
+    "email_hint": MessageLookupByLibrary.simpleMessage(
+      "أدخل البريد الالكتروني",
+    ),
     "featured_products": MessageLookupByLibrary.simpleMessage(
       "المنتجات المميزة",
     ),
+    "forgot_password": MessageLookupByLibrary.simpleMessage(
+      "هل نسيت كلمه المرور؟",
+    ),
+    "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "login_welcome_message": MessageLookupByLibrary.simpleMessage(
+      "مرحبا بعودتك!",
+    ),
+    "login_welcome_subtitle": MessageLookupByLibrary.simpleMessage(
+      "سجّل الدخول لمتابعة رحلتك",
+    ),
+    "no_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "password": MessageLookupByLibrary.simpleMessage("كلمه المرور"),
+    "password_hint": MessageLookupByLibrary.simpleMessage("أدخل كلمه المرور"),
+    "register": MessageLookupByLibrary.simpleMessage("سجل الآن"),
     "search_hint": MessageLookupByLibrary.simpleMessage("بحث عن المنتجات..."),
     "shop_by_category": MessageLookupByLibrary.simpleMessage("تسوق حسب الفئة"),
   };

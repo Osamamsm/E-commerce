@@ -2,5 +2,15 @@
     "search_hint": "بحث عن المنتجات...",
     "shop_by_category": "تسوق حسب الفئة",
     "featured_products": "المنتجات المميزة",
-    "add_to_cart": "أضف إلى العربة"
+    "add_to_cart": "أضف إلى العربة",
+    "login": "تسجيل الدخول",
+    "login_welcome_message": "مرحبا بعودتك!",
+    "login_welcome_subtitle": "سجّل الدخول لمتابعة رحلتك",
+    "email": "البريد الالكتروني",
+    "email_hint": "أدخل البريد الالكتروني",
+    "password": "كلمه المرور",
+    "password_hint": "أدخل كلمه المرور",
+    "forgot_password": "هل نسيت كلمه المرور؟",
+    "no_account": "ليس لديك حساب؟",
+    "register": "سجل الآن"
 }

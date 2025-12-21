@@ -2,5 +2,15 @@
     "search_hint": "Search for products...",
     "shop_by_category": "Shop By Category",
     "featured_products": "Featured Products",
-    "add_to_cart": "Add To Cart"
+    "add_to_cart": "Add To Cart",
+    "login": "Login",
+    "login_welcome_message": "Welcome back!",
+    "login_welcome_subtitle": "Login to continue your journey",
+    "email": "Email",
+    "email_hint": "Enter your email",
+    "password": "Password",
+    "password_hint": "Enter your password",
+    "forgot_password": "Forgot Password?",
+    "no_account": "Don't have an account?",
+    "register": "Register"
 }
