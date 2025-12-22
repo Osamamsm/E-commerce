@@ -19,4 +19,21 @@ class Validators {
     }
     return null;
   }
+
+  static String? fullNameValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Full Name is required';
+    }
+    return null;
+  }
+
+  static String? confirmPasswordValidator(String? value , String password) {
+    if (value == null || value.isEmpty) {
+      return 'Confirm Password is required';
+    }
+    if (value != password) {
+      return 'Confirm Password must match Password';
+    }
+    return null;
+  }
 }

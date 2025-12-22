@@ -1,12 +1,21 @@
-import 'package:e_commerce/core/helpers/validators.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/auth_text_field.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/password_visibility_toggle.dart';
-import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class PasswordTextField extends StatefulWidget {
-  const PasswordTextField({super.key, required this.onSaved});
+  const PasswordTextField({
+    super.key,
+    required this.onSaved,
+    required this.validator,
+    required this.hintText,
+    required this.label,
+    this.passwordController,
+  });
   final void Function(String?) onSaved;
+  final String? Function(String?) validator;
+  final String hintText;
+  final String label;
+  final TextEditingController? passwordController;
   @override
   State<PasswordTextField> createState() => _PasswordTextFieldState();
 }
@@ -22,16 +31,16 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final s = S.of(context);
     return LabeledAuthTextField(
-      label: s.password,
+      controller: widget.passwordController,
+      label: widget.label,
       prefixIcon: Icon(
         Icons.lock,
         color: theme.colorScheme.onSurface.withValues(alpha: .5),
       ),
       onSaved: widget.onSaved,
-      hintText: s.password_hint,
-      validator: Validators.passwordValidator,
+      hintText: widget.hintText,
+      validator: widget.validator,
       suffixIcon: PasswordVisibilityToggle(
         onToggle: _togglePasswordVisibility,
         isVisible: isPasswordVisible,

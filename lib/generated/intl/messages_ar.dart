@@ -23,6 +23,12 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى العربة"),
+    "confirm_password": MessageLookupByLibrary.simpleMessage(
+      "تأكيد كلمه المرور",
+    ),
+    "confirm_password_hint": MessageLookupByLibrary.simpleMessage(
+      "أدخل تأكيد كلمه المرور",
+    ),
     "create_account": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "email_hint": MessageLookupByLibrary.simpleMessage(
@@ -34,6 +40,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "forgot_password": MessageLookupByLibrary.simpleMessage(
       " هل نسيت كلمه المرور؟",
     ),
+    "full_name": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
+    "full_name_hint": MessageLookupByLibrary.simpleMessage("أدخل الاسم الكامل"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "login_welcome_message": MessageLookupByLibrary.simpleMessage(
       "مرحبا بعودتك!",

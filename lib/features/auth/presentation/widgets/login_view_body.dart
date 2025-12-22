@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
+import 'package:e_commerce/core/helpers/validators.dart';
 import 'package:e_commerce/features/auth/presentation/views/register_view.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/email_text_field.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/password_text_field.dart';
@@ -22,50 +23,61 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final s = S.of(context);
-    return Form(
-      key: _formKey,
-      child: Column(
-        children: [
-          Text(s.login_welcome_message, style: theme.textTheme.titleLarge),
-          Text(s.login_welcome_subtitle, style: theme.textTheme.bodyMedium),
-          vGap(40),
-          EmailTextField(
-            onSaved: (value) {
-              email = value!;
-            },
-          ),
-          vGap(20),
-          PasswordTextField(
-            onSaved: (value) {
-              password = value!;
-            },
-          ),
-          vGap(5),
-          Align(
-            alignment: Alignment.centerRight,
-            child: TextButton(onPressed: () {}, child: Text(s.forgot_password)),
-          ),
-          vGap(5),
-          ElevatedButton(
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
-                _formKey.currentState!.save();
-                context.push(HomeView.routeName);
-              }
-            },
-            child: Text(s.login),
-          ),
-          Spacer(flex: 1),
-          Row(
-            mainAxisSize: .min,
-            children: [
-              Text(s.no_account, style: theme.textTheme.bodyMedium),
-              TextButton(onPressed: () {
-                context.push(RegisterView.routeName);
-              }, child: Text(s.register)),
-            ],
-          ),
-        ],
+    return SingleChildScrollView(
+      child: Form(
+        key: _formKey,
+        child: Column(
+          children: [
+            Text(s.login_welcome_message, style: theme.textTheme.titleLarge),
+            Text(s.login_welcome_subtitle, style: theme.textTheme.bodyMedium),
+            vGap(40),
+            EmailTextField(
+              onSaved: (value) {
+                email = value!;
+              },
+            ),
+            vGap(20),
+            PasswordTextField(
+              validator: Validators.passwordValidator,
+              hintText: s.password_hint,
+              label: s.password,
+              onSaved: (value) {
+                password = value!;
+              },
+            ),
+            vGap(5),
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                onPressed: () {},
+                child: Text(s.forgot_password),
+              ),
+            ),
+            vGap(5),
+            ElevatedButton(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  _formKey.currentState!.save();
+                  context.push(HomeView.routeName);
+                }
+              },
+              child: Text(s.login),
+            ),
+            vGap(20),
+            Row(
+              mainAxisSize: .min,
+              children: [
+                Text(s.no_account, style: theme.textTheme.bodyMedium),
+                TextButton(
+                  onPressed: () {
+                    context.push(RegisterView.routeName);
+                  },
+                  child: Text(s.register),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

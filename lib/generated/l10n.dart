@@ -178,6 +178,41 @@ class S {
       args: [],
     );
   }
+
+  /// `Full Name`
+  String get full_name {
+    return Intl.message('Full Name', name: 'full_name', desc: '', args: []);
+  }
+
+  /// `Enter your full name`
+  String get full_name_hint {
+    return Intl.message(
+      'Enter your full name',
+      name: 'full_name_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Password`
+  String get confirm_password {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirm_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm your password`
+  String get confirm_password_hint {
+    return Intl.message(
+      'Confirm your password',
+      name: 'confirm_password_hint',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

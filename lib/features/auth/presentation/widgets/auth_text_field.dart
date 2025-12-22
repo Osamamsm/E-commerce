@@ -11,7 +11,7 @@ class LabeledAuthTextField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.keyboardType,
-    this.obscureText,
+    this.obscureText, this.controller,
   });
 
   final String label;
@@ -22,6 +22,7 @@ class LabeledAuthTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final TextInputType? keyboardType;
   final bool? obscureText;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +33,7 @@ class LabeledAuthTextField extends StatelessWidget {
         Text(label, style: Theme.of(context).textTheme.bodyLarge),
         vGap(5),
         TextFormField(
+          controller: controller,
           keyboardType: keyboardType,
           onSaved: onSaved,
           validator: validator,

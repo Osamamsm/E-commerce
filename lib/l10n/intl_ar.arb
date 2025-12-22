@@ -13,5 +13,9 @@
     "forgot_password": " هل نسيت كلمه المرور؟",
     "no_account": "ليس لديك حساب؟",
     "register": "سجل الآن",
-    "create_account": "إنشاء حساب"
+    "create_account": "إنشاء حساب",
+    "full_name": "الاسم الكامل",
+    "full_name_hint": "أدخل الاسم الكامل",
+    "confirm_password": "تأكيد كلمه المرور",
+    "confirm_password_hint": "أدخل تأكيد كلمه المرور"
 }
