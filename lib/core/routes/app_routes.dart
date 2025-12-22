@@ -1,4 +1,5 @@
 import 'package:e_commerce/features/auth/presentation/views/login_view.dart';
+import 'package:e_commerce/features/auth/presentation/views/register_view.dart';
 import 'package:e_commerce/features/home/presentation/views/home_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,6 +14,10 @@ GoRouter router = GoRouter(
     GoRoute(
       path: '/login-view',
       builder: (context, state) => const LoginView(),
+    ),
+    GoRoute(
+      path: '/register-view',
+      builder: (context, state) => const RegisterView(),
     ),
   ],
 );

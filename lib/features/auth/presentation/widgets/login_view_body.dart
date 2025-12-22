@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
+import 'package:e_commerce/features/auth/presentation/views/register_view.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/email_text_field.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/password_text_field.dart';
 import 'package:e_commerce/features/home/presentation/views/home_view.dart';
@@ -59,7 +60,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             mainAxisSize: .min,
             children: [
               Text(s.no_account, style: theme.textTheme.bodyMedium),
-              TextButton(onPressed: () {}, child: Text(s.register)),
+              TextButton(onPressed: () {
+                context.push(RegisterView.routeName);
+              }, child: Text(s.register)),
             ],
           ),
         ],
