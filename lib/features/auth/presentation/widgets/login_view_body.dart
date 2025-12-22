@@ -22,12 +22,12 @@ class LoginViewBody extends StatelessWidget {
         ),
         vGap(5),
         TextField(decoration: InputDecoration(hintText: s.email_hint)),
-        vGap(10),
+        vGap(20),
         Align(
           alignment: Alignment.centerLeft,
           child: Text(s.password, style: theme.textTheme.bodyLarge),
         ),
-        vGap(10),
+        vGap(5),
         TextField(
           decoration: InputDecoration(
             hintText: s.password_hint,
