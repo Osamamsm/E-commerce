@@ -1,4 +1,6 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
+import 'package:e_commerce/features/auth/presentation/widgets/email_text_field.dart';
+import 'package:e_commerce/features/auth/presentation/widgets/password_text_field.dart';
 import 'package:e_commerce/features/home/presentation/views/home_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -21,40 +23,14 @@ class LoginViewBody extends StatelessWidget {
           child: Text(s.email, style: theme.textTheme.bodyLarge),
         ),
         vGap(5),
-        TextField(decoration: InputDecoration(hintText: s.email_hint)),
+        EmailTextField(),
         vGap(20),
         Align(
           alignment: Alignment.centerLeft,
           child: Text(s.password, style: theme.textTheme.bodyLarge),
         ),
         vGap(5),
-        TextField(
-          decoration: InputDecoration(
-            hintText: s.password_hint,
-            suffixIcon: SizedBox(
-              width: 50,
-              child: Row(
-                mainAxisSize: .min,
-                children: [
-                  Container(
-                    width: 1,
-                    height: 50,
-                    color: theme.colorScheme.onSurface.withValues(alpha: .25),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.visibility_off,
-                      size: 20,
-                      color: theme.colorScheme.onSurface.withValues(alpha: .5),
-                    ),
-                    splashRadius: 10,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+        PasswordTextField(),
         vGap(5),
         Align(
           alignment: Alignment.centerRight,
