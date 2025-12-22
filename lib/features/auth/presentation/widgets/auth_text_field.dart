@@ -1,8 +1,10 @@
+import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:flutter/material.dart';
 
-class AuthTextField extends StatelessWidget {
-  const AuthTextField({
+class LabeledAuthTextField extends StatelessWidget {
+  const LabeledAuthTextField({
     super.key,
+    required this.label,
     required this.hintText,
     this.onSaved,
     this.validator,
@@ -12,6 +14,7 @@ class AuthTextField extends StatelessWidget {
     this.obscureText,
   });
 
+  final String label;
   final String hintText;
   final void Function(String?)? onSaved;
   final String? Function(String?)? validator;
@@ -22,16 +25,24 @@ class AuthTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      keyboardType: keyboardType,
-      onSaved: onSaved,
-      validator: validator,
-      obscureText: obscureText ?? false,
-      decoration: InputDecoration(
-        hintText: hintText,
-        prefixIcon: prefixIcon,
-        suffixIcon: suffixIcon,
-      ),
+    return Column(
+      crossAxisAlignment: .start,
+      mainAxisSize: .min,
+      children: [
+        Text(label, style: Theme.of(context).textTheme.bodyLarge),
+        vGap(5),
+        TextFormField(
+          keyboardType: keyboardType,
+          onSaved: onSaved,
+          validator: validator,
+          obscureText: obscureText ?? false,
+          decoration: InputDecoration(
+            hintText: hintText,
+            prefixIcon: prefixIcon,
+            suffixIcon: suffixIcon,
+          ),
+        ),
+      ],
     );
   }
 }

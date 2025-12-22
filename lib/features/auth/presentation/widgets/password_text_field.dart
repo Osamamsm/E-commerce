@@ -5,8 +5,8 @@ import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class PasswordTextField extends StatefulWidget {
-  const PasswordTextField({super.key});
-
+  const PasswordTextField({super.key, required this.onSaved});
+  final void Function(String?) onSaved;
   @override
   State<PasswordTextField> createState() => _PasswordTextFieldState();
 }
@@ -23,12 +23,13 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final s = S.of(context);
-    return AuthTextField(
+    return LabeledAuthTextField(
+      label: s.password,
       prefixIcon: Icon(
         Icons.lock,
         color: theme.colorScheme.onSurface.withValues(alpha: .5),
       ),
-      onSaved: (value) {},
+      onSaved: widget.onSaved,
       hintText: s.password_hint,
       validator: Validators.passwordValidator,
       suffixIcon: PasswordVisibilityToggle(
