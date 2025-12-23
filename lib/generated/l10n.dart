@@ -88,6 +88,151 @@ class S {
   String get add_to_cart {
     return Intl.message('Add To Cart', name: 'add_to_cart', desc: '', args: []);
   }
+
+  /// `Login`
+  String get login {
+    return Intl.message('Login', name: 'login', desc: '', args: []);
+  }
+
+  /// `Welcome back!`
+  String get login_welcome_message {
+    return Intl.message(
+      'Welcome back!',
+      name: 'login_welcome_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login to continue your journey`
+  String get login_welcome_subtitle {
+    return Intl.message(
+      'Login to continue your journey',
+      name: 'login_welcome_subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
+  }
+
+  /// `Enter your email`
+  String get email_hint {
+    return Intl.message(
+      'Enter your email',
+      name: 'email_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message('Password', name: 'password', desc: '', args: []);
+  }
+
+  /// `Enter your password`
+  String get password_hint {
+    return Intl.message(
+      'Enter your password',
+      name: 'password_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password?`
+  String get forgot_password {
+    return Intl.message(
+      'Forgot Password?',
+      name: 'forgot_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account? `
+  String get no_account {
+    return Intl.message(
+      'Don\'t have an account? ',
+      name: 'no_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register`
+  String get register {
+    return Intl.message('Register', name: 'register', desc: '', args: []);
+  }
+
+  /// `Create Account`
+  String get create_account {
+    return Intl.message(
+      'Create Account',
+      name: 'create_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Name`
+  String get full_name {
+    return Intl.message('Full Name', name: 'full_name', desc: '', args: []);
+  }
+
+  /// `Enter your full name`
+  String get full_name_hint {
+    return Intl.message(
+      'Enter your full name',
+      name: 'full_name_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Password`
+  String get confirm_password {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirm_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm your password`
+  String get confirm_password_hint {
+    return Intl.message(
+      'Confirm your password',
+      name: 'confirm_password_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email to reset your password`
+  String get forgot_password_subtitle {
+    return Intl.message(
+      'Enter your email to reset your password',
+      name: 'forgot_password_subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset Password`
+  String get reset_password {
+    return Intl.message(
+      'Reset Password',
+      name: 'reset_password',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

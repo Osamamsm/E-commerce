@@ -12,6 +12,7 @@ ThemeData buildDarkTheme() {
     textTheme: AppTypography.textTheme,
     inputDecorationTheme: InputThemes.darkInputTheme,
     elevatedButtonTheme: ButtonThemes.elevatedButtonTheme(darkColorScheme),
+    textButtonTheme: ButtonThemes.textButtonTheme(darkColorScheme),
     extensions: const [
       BlurryBackgroundTheme(
         primaryBlob: Color.fromARGB(255, 108, 1, 189),

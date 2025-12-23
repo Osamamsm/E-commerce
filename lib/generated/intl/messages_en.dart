@@ -23,9 +23,42 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "add_to_cart": MessageLookupByLibrary.simpleMessage("Add To Cart"),
+    "confirm_password": MessageLookupByLibrary.simpleMessage(
+      "Confirm Password",
+    ),
+    "confirm_password_hint": MessageLookupByLibrary.simpleMessage(
+      "Confirm your password",
+    ),
+    "create_account": MessageLookupByLibrary.simpleMessage("Create Account"),
+    "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "email_hint": MessageLookupByLibrary.simpleMessage("Enter your email"),
     "featured_products": MessageLookupByLibrary.simpleMessage(
       "Featured Products",
     ),
+    "forgot_password": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+    "forgot_password_subtitle": MessageLookupByLibrary.simpleMessage(
+      "Enter your email to reset your password",
+    ),
+    "full_name": MessageLookupByLibrary.simpleMessage("Full Name"),
+    "full_name_hint": MessageLookupByLibrary.simpleMessage(
+      "Enter your full name",
+    ),
+    "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "login_welcome_message": MessageLookupByLibrary.simpleMessage(
+      "Welcome back!",
+    ),
+    "login_welcome_subtitle": MessageLookupByLibrary.simpleMessage(
+      "Login to continue your journey",
+    ),
+    "no_account": MessageLookupByLibrary.simpleMessage(
+      "Don\'t have an account? ",
+    ),
+    "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "password_hint": MessageLookupByLibrary.simpleMessage(
+      "Enter your password",
+    ),
+    "register": MessageLookupByLibrary.simpleMessage("Register"),
+    "reset_password": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "search_hint": MessageLookupByLibrary.simpleMessage(
       "Search for products...",
     ),

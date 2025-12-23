@@ -12,6 +12,7 @@ ThemeData buildLightTheme() {
     textTheme: AppTypography.textTheme,
     inputDecorationTheme: InputThemes.lightInputTheme,
     elevatedButtonTheme: ButtonThemes.elevatedButtonTheme(lightColorScheme),
+    textButtonTheme: ButtonThemes.textButtonTheme(lightColorScheme),
     extensions: const [
       BlurryBackgroundTheme(
         primaryBlob: Color(0xFF5A6BFF),
