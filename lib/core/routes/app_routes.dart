@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:e_commerce/features/auth/presentation/views/login_view.dart';
 import 'package:e_commerce/features/auth/presentation/views/register_view.dart';
 import 'package:e_commerce/features/home/presentation/views/home_view.dart';
@@ -18,6 +19,10 @@ GoRouter router = GoRouter(
     GoRoute(
       path: '/register-view',
       builder: (context, state) => const RegisterView(),
+    ),
+    GoRoute(
+      path: '/forgot-password-view',
+      builder: (context, state) => const ForgotPasswordView(),
     ),
   ],
 );

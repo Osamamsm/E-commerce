@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/validators.dart';
+import 'package:e_commerce/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:e_commerce/features/auth/presentation/views/register_view.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/email_text_field.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/password_text_field.dart';
@@ -49,7 +50,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.push(ForgotPasswordView.routeName);
+                },
                 child: Text(s.forgot_password),
               ),
             ),

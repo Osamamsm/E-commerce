@@ -40,6 +40,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "forgot_password": MessageLookupByLibrary.simpleMessage(
       " هل نسيت كلمه المرور؟",
     ),
+    "forgot_password_subtitle": MessageLookupByLibrary.simpleMessage(
+      "أدخل البريد الالكتروني لاستعادة كلمه المرور",
+    ),
     "full_name": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
     "full_name_hint": MessageLookupByLibrary.simpleMessage("أدخل الاسم الكامل"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -53,6 +56,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "password": MessageLookupByLibrary.simpleMessage("كلمه المرور"),
     "password_hint": MessageLookupByLibrary.simpleMessage("أدخل كلمه المرور"),
     "register": MessageLookupByLibrary.simpleMessage("سجل الآن"),
+    "reset_password": MessageLookupByLibrary.simpleMessage(
+      "إعادة تعيين كلمه المرور",
+    ),
     "search_hint": MessageLookupByLibrary.simpleMessage("بحث عن المنتجات..."),
     "shop_by_category": MessageLookupByLibrary.simpleMessage("تسوق حسب الفئة"),
   };

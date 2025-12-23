@@ -17,5 +17,7 @@
     "full_name": "الاسم الكامل",
     "full_name_hint": "أدخل الاسم الكامل",
     "confirm_password": "تأكيد كلمه المرور",
-    "confirm_password_hint": "أدخل تأكيد كلمه المرور"
+    "confirm_password_hint": "أدخل تأكيد كلمه المرور",
+    "forgot_password_subtitle": "أدخل البريد الالكتروني لاستعادة كلمه المرور",
+    "reset_password": "إعادة تعيين كلمه المرور"
 }

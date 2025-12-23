@@ -213,6 +213,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Enter your email to reset your password`
+  String get forgot_password_subtitle {
+    return Intl.message(
+      'Enter your email to reset your password',
+      name: 'forgot_password_subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset Password`
+  String get reset_password {
+    return Intl.message(
+      'Reset Password',
+      name: 'reset_password',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -36,6 +36,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Featured Products",
     ),
     "forgot_password": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+    "forgot_password_subtitle": MessageLookupByLibrary.simpleMessage(
+      "Enter your email to reset your password",
+    ),
     "full_name": MessageLookupByLibrary.simpleMessage("Full Name"),
     "full_name_hint": MessageLookupByLibrary.simpleMessage(
       "Enter your full name",
@@ -55,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Enter your password",
     ),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
+    "reset_password": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "search_hint": MessageLookupByLibrary.simpleMessage(
       "Search for products...",
     ),
