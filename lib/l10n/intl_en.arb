@@ -19,5 +19,7 @@
     "confirm_password": "Confirm Password",
     "confirm_password_hint": "Confirm your password",
     "forgot_password_subtitle": "Enter your email to reset your password",
-    "reset_password": "Reset Password"
+    "reset_password": "Reset Password",
+    "cart": "Cart",
+    "my_cart": "My Cart"
 }

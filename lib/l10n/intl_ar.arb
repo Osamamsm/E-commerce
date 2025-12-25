@@ -19,5 +19,7 @@
     "confirm_password": "تأكيد كلمه المرور",
     "confirm_password_hint": "أدخل تأكيد كلمه المرور",
     "forgot_password_subtitle": "أدخل البريد الالكتروني لاستعادة كلمه المرور",
-    "reset_password": "إعادة تعيين كلمه المرور"
+    "reset_password": "إعادة تعيين كلمه المرور",
+    "cart": "العربة",
+    "my_cart": "عربتي"
 }

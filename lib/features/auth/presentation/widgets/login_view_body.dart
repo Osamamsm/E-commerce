@@ -61,7 +61,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
-                  context.push(HomeView.routeName);
+                  context.replace(HomeView.routeName);
                 }
               },
               child: Text(s.login),

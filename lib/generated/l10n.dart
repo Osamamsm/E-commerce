@@ -233,6 +233,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Cart`
+  String get cart {
+    return Intl.message('Cart', name: 'cart', desc: '', args: []);
+  }
+
+  /// `My Cart`
+  String get my_cart {
+    return Intl.message('My Cart', name: 'my_cart', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

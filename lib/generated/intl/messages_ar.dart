@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى العربة"),
+    "cart": MessageLookupByLibrary.simpleMessage("العربة"),
     "confirm_password": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمه المرور",
     ),
@@ -52,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "login_welcome_subtitle": MessageLookupByLibrary.simpleMessage(
       "سجّل الدخول لمتابعة رحلتك",
     ),
+    "my_cart": MessageLookupByLibrary.simpleMessage("عربتي"),
     "no_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "password": MessageLookupByLibrary.simpleMessage("كلمه المرور"),
     "password_hint": MessageLookupByLibrary.simpleMessage("أدخل كلمه المرور"),

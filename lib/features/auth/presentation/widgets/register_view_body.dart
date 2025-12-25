@@ -76,7 +76,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
-                    context.push(HomeView.routeName);
+                    context.replace(HomeView.routeName);
                   }
                 },
                 child: Text(S.of(context).register),
