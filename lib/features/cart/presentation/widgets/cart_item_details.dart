@@ -14,11 +14,11 @@ class CartItemDetails extends StatelessWidget {
         children: [
           Text(
             'Product Name',
-            maxLines: 2,
+            maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: Theme.of(
               context,
-            ).textTheme.titleMedium!.copyWith(height: 1.3),
+            ).textTheme.titleSmall!.copyWith(height: 1.3),
           ),
           Text(
             '${s.color} : Lavender\n${s.size}   : M',

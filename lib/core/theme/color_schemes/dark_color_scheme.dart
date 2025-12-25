@@ -8,6 +8,8 @@ const ColorScheme darkColorScheme = ColorScheme(
   onSecondary: Colors.white,
   surface: Colors.black,
   onSurface: Colors.white,
+  primaryContainer: Color.fromARGB(255, 24, 24, 36),
+  onPrimaryContainer: Color(0xFF12121b),
   error: Color(0xFFF2B8B5),
   onError: Colors.white,
 );
