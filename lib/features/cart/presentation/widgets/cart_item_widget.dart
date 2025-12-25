@@ -9,8 +9,7 @@ class CartItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      clipBehavior: .hardEdge,
-      padding: const .all(15),
+      padding: const .all(10),
       height: 150,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
@@ -18,7 +17,7 @@ class CartItemWidget extends StatelessWidget {
       ),
       width: double.infinity,
       child: Row(
-        crossAxisAlignment: .start,
+        crossAxisAlignment: .center,
         children: [
           ProductImage(
             imageUrl:
