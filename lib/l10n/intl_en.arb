@@ -21,5 +21,7 @@
     "forgot_password_subtitle": "Enter your email to reset your password",
     "reset_password": "Reset Password",
     "cart": "Cart",
-    "my_cart": "My Cart"
+    "my_cart": "My Cart",
+    "color": "Color",
+    "size": "Size"
 }

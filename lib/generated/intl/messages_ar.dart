@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى العربة"),
     "cart": MessageLookupByLibrary.simpleMessage("العربة"),
+    "color": MessageLookupByLibrary.simpleMessage("اللون"),
     "confirm_password": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمه المرور",
     ),
@@ -63,5 +64,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "search_hint": MessageLookupByLibrary.simpleMessage("بحث عن المنتجات..."),
     "shop_by_category": MessageLookupByLibrary.simpleMessage("تسوق حسب الفئة"),
+    "size": MessageLookupByLibrary.simpleMessage("الحجم"),
   };
 }

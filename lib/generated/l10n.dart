@@ -243,6 +243,16 @@ class S {
   String get my_cart {
     return Intl.message('My Cart', name: 'my_cart', desc: '', args: []);
   }
+
+  /// `Color`
+  String get color {
+    return Intl.message('Color', name: 'color', desc: '', args: []);
+  }
+
+  /// `Size`
+  String get size {
+    return Intl.message('Size', name: 'size', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
