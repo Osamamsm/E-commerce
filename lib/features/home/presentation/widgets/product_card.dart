@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
+import 'package:e_commerce/core/widgets/product_image.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -21,15 +22,7 @@ class ProductCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: .start,
       children: [
-        ClipRRect(
-          borderRadius: .circular(20),
-          child: Image.network(
-            imageUrl,
-            height: 220,
-            width: double.infinity,
-            fit: BoxFit.cover,
-          ),
-        ),
+        ProductImage(imageUrl: imageUrl, height: 220, width: double.infinity),
         vGap(12),
         Text(
           title,

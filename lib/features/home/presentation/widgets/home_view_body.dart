@@ -1,5 +1,5 @@
+import 'package:e_commerce/core/helpers/constants.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
-import 'package:e_commerce/core/widgets/custom_scaffold.dart';
 import 'package:e_commerce/features/home/presentation/widgets/categories_list_view.dart';
 import 'package:e_commerce/features/home/presentation/widgets/custom_search_text_field.dart';
 import 'package:e_commerce/features/home/presentation/widgets/products_grid_view.dart';
@@ -11,8 +11,8 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
-      title: 'Store',
+    return Padding(
+      padding: Constants.kHorizontalPaddingMedium,
       child: CustomScrollView(
         scrollDirection: .vertical,
         slivers: [

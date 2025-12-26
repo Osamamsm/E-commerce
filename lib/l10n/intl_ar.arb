@@ -19,5 +19,15 @@
     "confirm_password": "تأكيد كلمه المرور",
     "confirm_password_hint": "أدخل تأكيد كلمه المرور",
     "forgot_password_subtitle": "أدخل البريد الالكتروني لاستعادة كلمه المرور",
-    "reset_password": "إعادة تعيين كلمه المرور"
+    "reset_password": "إعادة تعيين كلمه المرور",
+    "cart": "العربة",
+    "my_cart": "عربتي",
+    "color": "اللون",
+    "size": "الحجم",
+    "subtotal": "الإجمالي",
+    "shipping": "الشحن",
+    "tax": "الضريبة",
+    "discount": "الخصم",
+    "total": "الإجمالي",
+    "proceed_to_checkout": "الانتقال للدفع"
 }

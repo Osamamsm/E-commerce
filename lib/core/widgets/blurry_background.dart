@@ -28,9 +28,8 @@ class BlurryBackground extends StatelessWidget {
           right: -180,
           size: 500,
         ),
-
         BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
+          filter: ImageFilter.blur(sigmaX: 40, sigmaY: 40),
           child: Container(color: Colors.transparent),
         ),
       ],

@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى العربة"),
+    "cart": MessageLookupByLibrary.simpleMessage("العربة"),
+    "color": MessageLookupByLibrary.simpleMessage("اللون"),
     "confirm_password": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمه المرور",
     ),
@@ -30,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "أدخل تأكيد كلمه المرور",
     ),
     "create_account": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "discount": MessageLookupByLibrary.simpleMessage("الخصم"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "email_hint": MessageLookupByLibrary.simpleMessage(
       "أدخل البريد الالكتروني",
@@ -52,14 +55,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "login_welcome_subtitle": MessageLookupByLibrary.simpleMessage(
       "سجّل الدخول لمتابعة رحلتك",
     ),
+    "my_cart": MessageLookupByLibrary.simpleMessage("عربتي"),
     "no_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "password": MessageLookupByLibrary.simpleMessage("كلمه المرور"),
     "password_hint": MessageLookupByLibrary.simpleMessage("أدخل كلمه المرور"),
+    "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
+      "الانتقال للدفع",
+    ),
     "register": MessageLookupByLibrary.simpleMessage("سجل الآن"),
     "reset_password": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمه المرور",
     ),
     "search_hint": MessageLookupByLibrary.simpleMessage("بحث عن المنتجات..."),
+    "shipping": MessageLookupByLibrary.simpleMessage("الشحن"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage("تسوق حسب الفئة"),
+    "size": MessageLookupByLibrary.simpleMessage("الحجم"),
+    "subtotal": MessageLookupByLibrary.simpleMessage("الإجمالي"),
+    "tax": MessageLookupByLibrary.simpleMessage("الضريبة"),
+    "total": MessageLookupByLibrary.simpleMessage("الإجمالي"),
   };
 }

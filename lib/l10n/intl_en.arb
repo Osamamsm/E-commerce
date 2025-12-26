@@ -19,5 +19,15 @@
     "confirm_password": "Confirm Password",
     "confirm_password_hint": "Confirm your password",
     "forgot_password_subtitle": "Enter your email to reset your password",
-    "reset_password": "Reset Password"
+    "reset_password": "Reset Password",
+    "cart": "Cart",
+    "my_cart": "My Cart",
+    "color": "Color",
+    "size": "Size",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "tax": "Tax",
+    "discount": "Discount",
+    "total": "Total",
+    "proceed_to_checkout": "Proceed To Checkout"
 }

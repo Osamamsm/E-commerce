@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "add_to_cart": MessageLookupByLibrary.simpleMessage("Add To Cart"),
+    "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+    "color": MessageLookupByLibrary.simpleMessage("Color"),
     "confirm_password": MessageLookupByLibrary.simpleMessage(
       "Confirm Password",
     ),
@@ -30,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Confirm your password",
     ),
     "create_account": MessageLookupByLibrary.simpleMessage("Create Account"),
+    "discount": MessageLookupByLibrary.simpleMessage("Discount"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "email_hint": MessageLookupByLibrary.simpleMessage("Enter your email"),
     "featured_products": MessageLookupByLibrary.simpleMessage(
@@ -50,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "login_welcome_subtitle": MessageLookupByLibrary.simpleMessage(
       "Login to continue your journey",
     ),
+    "my_cart": MessageLookupByLibrary.simpleMessage("My Cart"),
     "no_account": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account? ",
     ),
@@ -57,13 +61,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "password_hint": MessageLookupByLibrary.simpleMessage(
       "Enter your password",
     ),
+    "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
+      "Proceed To Checkout",
+    ),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "reset_password": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "search_hint": MessageLookupByLibrary.simpleMessage(
       "Search for products...",
     ),
+    "shipping": MessageLookupByLibrary.simpleMessage("Shipping"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage(
       "Shop By Category",
     ),
+    "size": MessageLookupByLibrary.simpleMessage("Size"),
+    "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
+    "tax": MessageLookupByLibrary.simpleMessage("Tax"),
+    "total": MessageLookupByLibrary.simpleMessage("Total"),
   };
 }
