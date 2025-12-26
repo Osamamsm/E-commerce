@@ -3,9 +3,7 @@ import 'package:e_commerce/features/cart/presentation/widgets/cart_item_widget.d
 import 'package:flutter/material.dart';
 
 class CartItemsListView extends StatelessWidget {
-  const CartItemsListView({
-    super.key,
-  });
+  const CartItemsListView({super.key});
 
   @override
   Widget build(BuildContext context) {

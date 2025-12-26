@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "أدخل تأكيد كلمه المرور",
     ),
     "create_account": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "discount": MessageLookupByLibrary.simpleMessage("الخصم"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "email_hint": MessageLookupByLibrary.simpleMessage(
       "أدخل البريد الالكتروني",
@@ -63,7 +64,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "إعادة تعيين كلمه المرور",
     ),
     "search_hint": MessageLookupByLibrary.simpleMessage("بحث عن المنتجات..."),
+    "shipping": MessageLookupByLibrary.simpleMessage("الشحن"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage("تسوق حسب الفئة"),
     "size": MessageLookupByLibrary.simpleMessage("الحجم"),
+    "subtotal": MessageLookupByLibrary.simpleMessage("الإجمالي"),
+    "tax": MessageLookupByLibrary.simpleMessage("الضريبة"),
+    "total": MessageLookupByLibrary.simpleMessage("الإجمالي"),
   };
 }

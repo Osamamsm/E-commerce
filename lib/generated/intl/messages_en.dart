@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Confirm your password",
     ),
     "create_account": MessageLookupByLibrary.simpleMessage("Create Account"),
+    "discount": MessageLookupByLibrary.simpleMessage("Discount"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "email_hint": MessageLookupByLibrary.simpleMessage("Enter your email"),
     "featured_products": MessageLookupByLibrary.simpleMessage(
@@ -65,9 +66,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "search_hint": MessageLookupByLibrary.simpleMessage(
       "Search for products...",
     ),
+    "shipping": MessageLookupByLibrary.simpleMessage("Shipping"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage(
       "Shop By Category",
     ),
     "size": MessageLookupByLibrary.simpleMessage("Size"),
+    "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
+    "tax": MessageLookupByLibrary.simpleMessage("Tax"),
+    "total": MessageLookupByLibrary.simpleMessage("Total"),
   };
 }

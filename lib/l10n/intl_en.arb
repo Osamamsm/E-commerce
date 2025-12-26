@@ -23,5 +23,10 @@
     "cart": "Cart",
     "my_cart": "My Cart",
     "color": "Color",
-    "size": "Size"
+    "size": "Size",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "tax": "Tax",
+    "discount": "Discount",
+    "total": "Total"
 }
