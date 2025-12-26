@@ -30,9 +30,7 @@ class SummaryRow extends StatelessWidget {
         Text(
           value,
           style: isTotal
-              ? theme.textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                )
+              ? theme.textTheme.titleMedium
               : theme.textTheme.bodyMedium,
         ),
       ],

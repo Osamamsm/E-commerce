@@ -8,15 +8,13 @@ class CartViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
-        Expanded(
-          child: Padding(
-            padding: Constants.kHorizontalPaddingMedium,
-            child: CartItemsListView(),
-          ),
+        Padding(
+          padding: Constants.kHorizontalPaddingMedium,
+          child: CartItemsListView(),
         ),
-        OrderSummaryCard(),
+        Positioned(left: 0, right: 0, bottom: 0, child: OrderSummaryCard()),
       ],
     );
   }
