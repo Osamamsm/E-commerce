@@ -28,5 +28,6 @@
     "shipping": "الشحن",
     "tax": "الضريبة",
     "discount": "الخصم",
-    "total": "الإجمالي"
+    "total": "الإجمالي",
+    "proceed_to_checkout": "الانتقال للدفع"
 }

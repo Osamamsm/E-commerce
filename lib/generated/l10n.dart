@@ -278,6 +278,16 @@ class S {
   String get total {
     return Intl.message('Total', name: 'total', desc: '', args: []);
   }
+
+  /// `Proceed To Checkout`
+  String get proceed_to_checkout {
+    return Intl.message(
+      'Proceed To Checkout',
+      name: 'proceed_to_checkout',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

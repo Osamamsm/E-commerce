@@ -61,6 +61,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "password_hint": MessageLookupByLibrary.simpleMessage(
       "Enter your password",
     ),
+    "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
+      "Proceed To Checkout",
+    ),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "reset_password": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "search_hint": MessageLookupByLibrary.simpleMessage(

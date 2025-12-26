@@ -8,7 +8,8 @@ class CartItemsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      padding: .only(bottom: 200),
+      physics: const BouncingScrollPhysics(),
+      padding: .only(bottom: 260),
       itemCount: 5,
       itemBuilder: (context, index) => const CartItemWidget(),
       separatorBuilder: (context, index) => vGap(12),

@@ -28,5 +28,6 @@
     "shipping": "Shipping",
     "tax": "Tax",
     "discount": "Discount",
-    "total": "Total"
+    "total": "Total",
+    "proceed_to_checkout": "Proceed To Checkout"
 }
