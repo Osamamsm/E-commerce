@@ -26,6 +26,8 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
     return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.only(
+          right: 12,
+          left: 12,
           bottom: MediaQuery.of(context).viewInsets.bottom,
         ),
         child: Form(

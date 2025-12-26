@@ -13,7 +13,6 @@ class OrderSummaryCard extends StatelessWidget {
       margin: .zero,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
         color: Theme.of(context).colorScheme.primaryContainer,
       ),
 

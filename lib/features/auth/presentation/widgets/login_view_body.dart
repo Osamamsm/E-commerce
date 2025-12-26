@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/helpers/constants.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/validators.dart';
 import 'package:e_commerce/features/auth/presentation/views/forgot_password_view.dart';
@@ -24,62 +25,65 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final s = S.of(context);
-    return SingleChildScrollView(
-      child: Form(
-        key: _formKey,
-        child: Column(
-          children: [
-            Text(s.login_welcome_message, style: theme.textTheme.titleLarge),
-            Text(s.login_welcome_subtitle, style: theme.textTheme.bodyMedium),
-            vGap(40),
-            EmailTextField(
-              onSaved: (value) {
-                email = value!;
-              },
-            ),
-            vGap(20),
-            PasswordTextField(
-              validator: Validators.passwordValidator,
-              hintText: s.password_hint,
-              label: s.password,
-              onSaved: (value) {
-                password = value!;
-              },
-            ),
-            vGap(5),
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {
-                  context.push(ForgotPasswordView.routeName);
+    return Padding(
+      padding: Constants.kHorizontalPaddingMedium,
+      child: SingleChildScrollView(
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              Text(s.login_welcome_message, style: theme.textTheme.titleLarge),
+              Text(s.login_welcome_subtitle, style: theme.textTheme.bodyMedium),
+              vGap(40),
+              EmailTextField(
+                onSaved: (value) {
+                  email = value!;
                 },
-                child: Text(s.forgot_password),
               ),
-            ),
-            vGap(5),
-            ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
-                  context.replace(HomeView.routeName);
-                }
-              },
-              child: Text(s.login),
-            ),
-            vGap(20),
-            Row(
-              mainAxisSize: .min,
-              children: [
-                Text(s.no_account, style: theme.textTheme.bodyMedium),
-                TextButton(
+              vGap(20),
+              PasswordTextField(
+                validator: Validators.passwordValidator,
+                hintText: s.password_hint,
+                label: s.password,
+                onSaved: (value) {
+                  password = value!;
+                },
+              ),
+              vGap(5),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
                   onPressed: () {
-                    context.push(RegisterView.routeName);
+                    context.push(ForgotPasswordView.routeName);
                   },
-                  child: Text(s.register),
+                  child: Text(s.forgot_password),
                 ),
-              ],
-            ),
-          ],
+              ),
+              vGap(5),
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
+                    context.replace(HomeView.routeName);
+                  }
+                },
+                child: Text(s.login),
+              ),
+              vGap(20),
+              Row(
+                mainAxisSize: .min,
+                children: [
+                  Text(s.no_account, style: theme.textTheme.bodyMedium),
+                  TextButton(
+                    onPressed: () {
+                      context.push(RegisterView.routeName);
+                    },
+                    child: Text(s.register),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

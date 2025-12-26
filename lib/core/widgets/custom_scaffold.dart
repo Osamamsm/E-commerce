@@ -28,10 +28,7 @@ class CustomScaffold extends StatelessWidget {
                 actions: actionWidgets,
               ),
               Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                  child: child,
-                ),
+                child: child,
               ),
             ],
           ),
