@@ -29,5 +29,6 @@
     "tax": "Tax",
     "discount": "Discount",
     "total": "Total",
-    "proceed_to_checkout": "Proceed To Checkout"
+    "proceed_to_checkout": "Proceed To Checkout",
+    "review":"{count, plural, =0{No reviews} =1{{count} review} other{{count} reviews}}"
 }

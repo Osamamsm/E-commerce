@@ -288,6 +288,19 @@ class S {
       args: [],
     );
   }
+
+  /// `{count, plural, =0{No reviews} =1{{count} review} other{{count} reviews}}`
+  String review(num count) {
+    return Intl.plural(
+      count,
+      zero: 'No reviews',
+      one: '$count review',
+      other: '$count reviews',
+      name: 'review',
+      desc: '',
+      args: [count],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

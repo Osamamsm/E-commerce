@@ -20,6 +20,9 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
+  static String m0(count) =>
+      "${Intl.plural(count, zero: 'لا مراجعات', one: '${count} مراجعة', two: '${count} مراجعتان', few: '${count} مراجعات', many: '${count} مراجعة', other: '${count} مراجعة')}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى العربة"),
@@ -66,6 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_password": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمه المرور",
     ),
+    "review": m0,
     "search_hint": MessageLookupByLibrary.simpleMessage("بحث عن المنتجات..."),
     "shipping": MessageLookupByLibrary.simpleMessage("الشحن"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage("تسوق حسب الفئة"),
