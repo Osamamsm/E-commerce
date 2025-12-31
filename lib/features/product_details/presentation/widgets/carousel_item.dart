@@ -19,7 +19,7 @@ class CarouselItem extends StatelessWidget {
   final VoidCallback onTap;
   final double maxHeight;
 
-  static const double _minHeight = 260;
+  static const double _minHeight = 250;
   static const double _scaleReduction = 0.12;
 
   @override

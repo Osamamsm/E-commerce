@@ -16,8 +16,8 @@ class _ProductImagesCarouselViewState extends State<ProductImagesCarouselView> {
 
   int _activeIndex = 0;
 
-  static const double _viewportFraction = 0.55;
-  static const double _maxItemHeight = 280;
+  static const double _viewportFraction = 0.5;
+  static const double _maxItemHeight = 260;
   static const Duration _animationDuration = Duration(milliseconds: 350);
 
   @override
@@ -43,13 +43,15 @@ class _ProductImagesCarouselViewState extends State<ProductImagesCarouselView> {
           setState(() => _activeIndex = index);
         },
         itemBuilder: (context, index) {
-          return CarouselItem(
-            controller: _pageController,
-            index: index,
-            activeIndex: _activeIndex,
-            imageUrl: widget.productImages[index],
-            onTap: () => _animateTo(index),
-            maxHeight: _maxItemHeight,
+          return RepaintBoundary(
+            child: CarouselItem(
+              controller: _pageController,
+              index: index,
+              activeIndex: _activeIndex,
+              imageUrl: widget.productImages[index],
+              onTap: () => _animateTo(index),
+              maxHeight: _maxItemHeight,
+            ),
           );
         },
       ),

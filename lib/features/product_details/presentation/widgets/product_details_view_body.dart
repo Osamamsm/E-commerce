@@ -1,6 +1,7 @@
 import 'package:e_commerce/core/helpers/constants.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/features/product_details/presentation/widgets/custom_rating_bar.dart';
+import 'package:e_commerce/features/product_details/presentation/widgets/product_color_selector.dart';
 import 'package:e_commerce/features/product_details/presentation/widgets/product_images_carousel_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +43,13 @@ class ProductDetailsViewBody extends StatelessWidget {
               ),
             ],
           ),
+          vGap(10),
+          Text(
+            S.of(context).color,
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          vGap(10),
+          ProductColorSelector(),
         ],
       ),
     );

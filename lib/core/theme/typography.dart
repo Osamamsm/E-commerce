@@ -8,5 +8,11 @@ class AppTypography {
     bodyLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
     bodyMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
     bodySmall: TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
+    labelLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+    labelMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+    labelSmall: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+    headlineLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+    headlineMedium: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+    headlineSmall: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
   );
 }
