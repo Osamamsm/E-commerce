@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "add_review": MessageLookupByLibrary.simpleMessage("Add Your Review"),
     "add_to_cart": MessageLookupByLibrary.simpleMessage("Add To Cart"),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
     "color": MessageLookupByLibrary.simpleMessage("Color"),
@@ -67,9 +68,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
       "Proceed To Checkout",
     ),
+    "product_description": MessageLookupByLibrary.simpleMessage(
+      "Product Description",
+    ),
+    "product_reviews": MessageLookupByLibrary.simpleMessage("Customer Reviews"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "reset_password": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "review": m0,
+    "review_hint_text": MessageLookupByLibrary.simpleMessage(
+      "Share your thoughts about this product...",
+    ),
     "search_hint": MessageLookupByLibrary.simpleMessage(
       "Search for products...",
     ),
@@ -78,6 +86,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Shop By Category",
     ),
     "size": MessageLookupByLibrary.simpleMessage("Size"),
+    "submit_review": MessageLookupByLibrary.simpleMessage("Submit Review"),
     "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
     "tax": MessageLookupByLibrary.simpleMessage("Tax"),
     "total": MessageLookupByLibrary.simpleMessage("Total"),

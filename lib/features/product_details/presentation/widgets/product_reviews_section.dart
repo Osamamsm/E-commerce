@@ -1,17 +1,17 @@
+import 'package:e_commerce/core/helpers/spacing.dart';
+import 'package:e_commerce/features/product_details/presentation/widgets/create_review_sub_section.dart';
+import 'package:e_commerce/features/product_details/presentation/widgets/custom_rating_bar.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-class ProductDescriptionSection extends StatefulWidget {
-  const ProductDescriptionSection({super.key, required this.description});
-
-  final String description;
+class ProductReviewsSection extends StatefulWidget {
+  const ProductReviewsSection({super.key});
 
   @override
-  State<ProductDescriptionSection> createState() =>
-      _ProductDescriptionSectionState();
+  State<ProductReviewsSection> createState() => _ProductReviewsSectionState();
 }
 
-class _ProductDescriptionSectionState extends State<ProductDescriptionSection> {
+class _ProductReviewsSectionState extends State<ProductReviewsSection> {
   bool _isExpanded = false;
 
   void _toggle() {
@@ -37,7 +37,7 @@ class _ProductDescriptionSectionState extends State<ProductDescriptionSection> {
             children: [
               Expanded(
                 child: Text(
-                  S.of(context).product_description,
+                  S.of(context).product_reviews,
                   style: theme.textTheme.bodyLarge,
                 ),
               ),
@@ -60,13 +60,7 @@ class _ProductDescriptionSectionState extends State<ProductDescriptionSection> {
               child: _isExpanded
                   ? Padding(
                       padding: const EdgeInsets.only(top: 8),
-                      child: Text(
-                        widget.description,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: Colors.grey.shade400,
-                          height: 1.5,
-                        ),
-                      ),
+                      child: CreateReviewSubSection(),
                     )
                   : const SizedBox.shrink(),
             ),
@@ -76,3 +70,5 @@ class _ProductDescriptionSectionState extends State<ProductDescriptionSection> {
     );
   }
 }
+
+

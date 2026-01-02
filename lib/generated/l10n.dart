@@ -301,6 +301,56 @@ class S {
       args: [count],
     );
   }
+
+  /// `Product Description`
+  String get product_description {
+    return Intl.message(
+      'Product Description',
+      name: 'product_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Customer Reviews`
+  String get product_reviews {
+    return Intl.message(
+      'Customer Reviews',
+      name: 'product_reviews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Your Review`
+  String get add_review {
+    return Intl.message(
+      'Add Your Review',
+      name: 'add_review',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Share your thoughts about this product...`
+  String get review_hint_text {
+    return Intl.message(
+      'Share your thoughts about this product...',
+      name: 'review_hint_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit Review`
+  String get submit_review {
+    return Intl.message(
+      'Submit Review',
+      name: 'submit_review',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "add_review": MessageLookupByLibrary.simpleMessage("أضف رأيك"),
     "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى العربة"),
     "cart": MessageLookupByLibrary.simpleMessage("العربة"),
     "color": MessageLookupByLibrary.simpleMessage("اللون"),
@@ -65,15 +66,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
       "الانتقال للدفع",
     ),
+    "product_description": MessageLookupByLibrary.simpleMessage("وصف المنتج"),
+    "product_reviews": MessageLookupByLibrary.simpleMessage("اراء العملاء"),
     "register": MessageLookupByLibrary.simpleMessage("سجل الآن"),
     "reset_password": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمه المرور",
     ),
     "review": m0,
+    "review_hint_text": MessageLookupByLibrary.simpleMessage(
+      "شارك ارائك حول هذا المنتج",
+    ),
     "search_hint": MessageLookupByLibrary.simpleMessage("بحث عن المنتجات..."),
     "shipping": MessageLookupByLibrary.simpleMessage("الشحن"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage("تسوق حسب الفئة"),
     "size": MessageLookupByLibrary.simpleMessage("الحجم"),
+    "submit_review": MessageLookupByLibrary.simpleMessage("ارسال رأيك"),
     "subtotal": MessageLookupByLibrary.simpleMessage("الإجمالي"),
     "tax": MessageLookupByLibrary.simpleMessage("الضريبة"),
     "total": MessageLookupByLibrary.simpleMessage("الإجمالي"),
