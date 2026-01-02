@@ -3,6 +3,7 @@ import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/features/product_details/presentation/widgets/custom_rating_bar.dart';
 import 'package:e_commerce/features/product_details/presentation/widgets/product_color_selector.dart';
 import 'package:e_commerce/features/product_details/presentation/widgets/product_images_carousel_view.dart';
+import 'package:e_commerce/features/product_details/presentation/widgets/size_drop_down.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -50,6 +51,12 @@ class ProductDetailsViewBody extends StatelessWidget {
           ),
           vGap(10),
           ProductColorSelector(),
+          vGap(20),
+          SizeDropDown(
+            sizes: const ['S', 'M', 'L', 'XL', 'XXL'],
+            value: 'S',
+            onChanged: (value) {},
+          ),
         ],
       ),
     );
