@@ -3,6 +3,7 @@ import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/widgets/quantity_stepper.dart';
 import 'package:e_commerce/features/product_details/presentation/widgets/custom_rating_bar.dart';
 import 'package:e_commerce/features/product_details/presentation/widgets/product_color_selector.dart';
+import 'package:e_commerce/features/product_details/presentation/widgets/product_description_section.dart';
 import 'package:e_commerce/features/product_details/presentation/widgets/product_images_carousel_view.dart';
 import 'package:e_commerce/features/product_details/presentation/widgets/size_drop_down.dart';
 import 'package:e_commerce/generated/l10n.dart';
@@ -24,7 +25,7 @@ class ProductDetailsViewBody extends StatelessWidget {
     return Stack(
       children: [
         Padding(
-          padding: Constants.kHorizontalPaddingMedium,
+          padding: EdgeInsets.only(right: 16, left: 16, bottom: 100),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,9 +39,14 @@ class ProductDetailsViewBody extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
-                Text('599\$', style: Theme.of(context).textTheme.titleSmall),
+
                 Row(
                   children: [
+                    Text(
+                      '\$599',
+                      style: Theme.of(context).textTheme.titleSmall,
+                    ),
+                    Spacer(flex: 1),
                     CustomRatingBar(isReadOnly: true, initialRating: 4.5),
                     Text(
                       '(${S.of(context).review(121)})',
@@ -61,7 +67,11 @@ class ProductDetailsViewBody extends StatelessWidget {
                   value: 'S',
                   onChanged: (value) {},
                 ),
-                vGap(250),
+                vGap(10),
+                ProductDescriptionSection(
+                  description:
+                      'Experience the perfect blend of style and comfort with our Elegant Modern Armchair. Crafted with premium, durable fabric and a sturdy wooden frame, this chair is designed to be a timeless addition to any living space. Its ergonomic design provides excellent support, while the plush cushioning ensures maximum comfort. The minimalist aesthetic, characterized by clean lines and neutral tones, allows it to seamlessly integrate into various decor styles, from contemporary to classic. Whether you\'re curling up with a book or entertaining guests, this armchair offers a sophisticated seating solution that doesn\'t compromise on coziness.',
+                ),
               ],
             ),
           ),
@@ -97,3 +107,5 @@ class ProductDetailsViewBody extends StatelessWidget {
     );
   }
 }
+
+
