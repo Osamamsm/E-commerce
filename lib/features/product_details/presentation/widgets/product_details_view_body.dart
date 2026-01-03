@@ -35,8 +35,7 @@ class ProductDetailsViewBody extends StatelessWidget {
             vGap(20),
             SizeDropDown(
               sizes: const ['S', 'M', 'L', 'XL', 'XXL'],
-              value: 'S',
-              onChanged: (value) {},
+              initialValue: 'S',
             ),
             vGap(10),
             ProductDescriptionSection(

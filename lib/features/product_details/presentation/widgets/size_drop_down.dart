@@ -1,48 +1,39 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:e_commerce/core/helpers/spacing.dart';
-import 'package:e_commerce/generated/l10n.dart';
+import 'package:e_commerce/features/product_details/presentation/widgets/size_drop_down_trigger.dart';
 import 'package:flutter/material.dart';
 
-class SizeDropDown extends StatelessWidget {
+class SizeDropDown extends StatefulWidget {
   final List<String> sizes;
-  final String value;
-  final ValueChanged<String> onChanged;
+  final String initialValue;
 
   const SizeDropDown({
     super.key,
     required this.sizes,
-    required this.value,
-    required this.onChanged,
+    required this.initialValue,
   });
+
+  @override
+  State<SizeDropDown> createState() => _SizeDropDownState();
+}
+
+class _SizeDropDownState extends State<SizeDropDown> {
+  String value = '';
+
+  @override
+  void initState() {
+    value = widget.initialValue;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final borderRadius = BorderRadius.circular(999);
-
     return DropdownButtonHideUnderline(
       child: DropdownButton2<String>(
         value: value,
         isExpanded: true,
-        customButton: Container(
-          height: 50,
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          decoration: BoxDecoration(
-            color: theme.colorScheme.primaryContainer,
-            borderRadius: borderRadius,
-            border: Border.all(color: theme.colorScheme.outline),
-          ),
-          child: Row(
-            children: [
-              Text(S.of(context).size, style: theme.textTheme.titleMedium),
-              const Spacer(),
-              Text(value, style: theme.textTheme.titleMedium),
-              hGap(8),
-              const Icon(Icons.arrow_drop_down),
-            ],
-          ),
-        ),
-        items: sizes
+        customButton: SizeDropdownTrigger(value: value),
+        items: widget.sizes
             .map(
               (size) =>
                   DropdownMenuItem<String>(value: size, child: Text(size)),
@@ -50,7 +41,7 @@ class SizeDropDown extends StatelessWidget {
             .toList(),
 
         onChanged: (val) {
-          if (val != null) onChanged(val);
+          if (val != null) setState(() => value = val);
         },
         dropdownStyleData: DropdownStyleData(
           elevation: 0,
