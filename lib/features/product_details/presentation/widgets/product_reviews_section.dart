@@ -19,7 +19,29 @@ class ProductReviewsSection extends StatelessWidget {
           vGap(10),
           Divider(color: Theme.of(context).colorScheme.outline),
           vGap(10),
-          ReviewCard(),
+          Text(
+            S.of(context).review(121),
+            style: Theme.of(context).textTheme.labelLarge,
+          ),
+          //TODO: remove the shrinkWrap and physics to improve performance
+          ListView.separated(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) => ReviewCard(),
+            separatorBuilder: (context, index) => Divider(
+              color: Theme.of(context).colorScheme.outline,
+              height: 20,
+            ),
+            itemCount: 3,
+          ),
+          vGap(10),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text(
+              S.of(context).see_all_reviews,
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+          ),
         ],
       ),
     );

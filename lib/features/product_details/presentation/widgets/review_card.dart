@@ -12,16 +12,6 @@ class ReviewCard extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text(
-              S.of(context).review(121),
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-            Spacer(),
-          ],
-        ),
-        vGap(10),
-        Row(
-          children: [
             CircleAvatar(
               radius: 20,
               backgroundImage: NetworkImage(

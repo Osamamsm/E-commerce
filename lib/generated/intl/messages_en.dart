@@ -81,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "search_hint": MessageLookupByLibrary.simpleMessage(
       "Search for products...",
     ),
+    "see_all_reviews": MessageLookupByLibrary.simpleMessage("See All Reviews"),
     "shipping": MessageLookupByLibrary.simpleMessage("Shipping"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage(
       "Shop By Category",

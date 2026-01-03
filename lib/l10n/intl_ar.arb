@@ -35,5 +35,6 @@
     "product_reviews":"اراء العملاء",
     "add_review":"أضف رأيك",
     "review_hint_text":"شارك ارائك حول هذا المنتج",
-    "submit_review":"ارسال رأيك"
+    "submit_review":"ارسال رأيك",
+    "see_all_reviews":"شاهد جميع الاراء"
 }

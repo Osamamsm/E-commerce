@@ -351,6 +351,16 @@ class S {
       args: [],
     );
   }
+
+  /// `See All Reviews`
+  String get see_all_reviews {
+    return Intl.message(
+      'See All Reviews',
+      name: 'see_all_reviews',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

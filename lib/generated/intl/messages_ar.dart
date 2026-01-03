@@ -77,6 +77,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "شارك ارائك حول هذا المنتج",
     ),
     "search_hint": MessageLookupByLibrary.simpleMessage("بحث عن المنتجات..."),
+    "see_all_reviews": MessageLookupByLibrary.simpleMessage("شاهد جميع الاراء"),
     "shipping": MessageLookupByLibrary.simpleMessage("الشحن"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage("تسوق حسب الفئة"),
     "size": MessageLookupByLibrary.simpleMessage("الحجم"),
