@@ -4,7 +4,7 @@ import 'package:e_commerce/features/product_details/presentation/widgets/product
 import 'package:e_commerce/features/product_details/presentation/widgets/product_header_section.dart';
 import 'package:e_commerce/features/product_details/presentation/widgets/product_images_carousel_view.dart';
 import 'package:e_commerce/features/product_details/presentation/widgets/product_reviews_section.dart';
-import 'package:e_commerce/features/product_details/presentation/widgets/size_drop_down.dart';
+import 'package:e_commerce/features/product_details/presentation/widgets/size_selector.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailsViewBody extends StatelessWidget {
@@ -20,6 +20,8 @@ class ProductDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<String> sizes = ['S', 'M', 'L', 'XL', '2XL', '3XL'];
+    final childrenMap = {for (var size in sizes) size: Text(size)};
     return Padding(
       padding: EdgeInsets.only(right: 16, left: 16, bottom: 10),
       child: SingleChildScrollView(
@@ -33,10 +35,7 @@ class ProductDetailsViewBody extends StatelessWidget {
             vGap(10),
             ProductColorSelector(),
             vGap(20),
-            SizeDropDown(
-              sizes: const ['S', 'M', 'L', 'XL', 'XXL'],
-              initialValue: 'S',
-            ),
+            SizeSelector(childrenMap: childrenMap),
             vGap(10),
             ProductDescriptionSection(
               description:
