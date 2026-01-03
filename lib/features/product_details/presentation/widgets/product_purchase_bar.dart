@@ -4,10 +4,26 @@ import 'package:e_commerce/core/widgets/quantity_stepper.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-class ProductPurchaseBar extends StatelessWidget {
-  const ProductPurchaseBar({
-    super.key,
-  });
+class ProductPurchaseBar extends StatefulWidget {
+  const ProductPurchaseBar({super.key});
+
+  @override
+  State<ProductPurchaseBar> createState() => _ProductPurchaseBarState();
+}
+
+class _ProductPurchaseBarState extends State<ProductPurchaseBar> {
+  int quantity = 1;
+  void increment() {
+    setState(() {
+      quantity++;
+    });
+  }
+
+  void decrement() {
+    setState(() {
+      quantity--;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +34,11 @@ class ProductPurchaseBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          QuantityStepper(value: 1, onIncrement: () {}, onDecrement: () {}),
+          QuantityStepper(
+            value: quantity,
+            onIncrement: increment,
+            onDecrement: decrement,
+          ),
           hGap(20),
           Expanded(
             child: ElevatedButton(
