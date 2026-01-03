@@ -7,11 +7,13 @@ class CustomScaffold extends StatelessWidget {
     this.title,
     required this.child,
     this.actionWidgets,
+    this.customBottomNavigationBar,
   });
 
   final String? title;
   final Widget child;
   final List<Widget>? actionWidgets;
+  final Widget? customBottomNavigationBar;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,13 +29,12 @@ class CustomScaffold extends StatelessWidget {
                 centerTitle: true,
                 actions: actionWidgets,
               ),
-              Expanded(
-                child: child,
-              ),
+              Expanded(child: child),
             ],
           ),
         ],
       ),
+      bottomNavigationBar: customBottomNavigationBar,
     );
   }
 }
