@@ -24,6 +24,7 @@ class CreateReviewSubSection extends StatelessWidget {
           child: CustomRatingBar(
             isReadOnly: false,
             initialRating: 0,
+            itemSize: 20,
           ),
         ),
         vGap(10),

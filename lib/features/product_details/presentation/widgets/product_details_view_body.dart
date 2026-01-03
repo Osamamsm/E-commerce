@@ -48,7 +48,11 @@ class ProductDetailsViewBody extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleSmall,
                     ),
                     Spacer(flex: 1),
-                    CustomRatingBar(isReadOnly: true, initialRating: 4.5),
+                    CustomRatingBar(
+                      isReadOnly: true,
+                      initialRating: 4.5,
+                      itemSize: 20,
+                    ),
                     Text(
                       '(${S.of(context).review(121)})',
                       style: Theme.of(context).textTheme.bodySmall,
