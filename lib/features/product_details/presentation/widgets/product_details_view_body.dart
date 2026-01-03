@@ -1,11 +1,10 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
-import 'package:e_commerce/features/product_details/presentation/widgets/custom_rating_bar.dart';
 import 'package:e_commerce/features/product_details/presentation/widgets/product_color_selector.dart';
 import 'package:e_commerce/features/product_details/presentation/widgets/product_description_section.dart';
+import 'package:e_commerce/features/product_details/presentation/widgets/product_header_section.dart';
 import 'package:e_commerce/features/product_details/presentation/widgets/product_images_carousel_view.dart';
 import 'package:e_commerce/features/product_details/presentation/widgets/product_reviews_section.dart';
 import 'package:e_commerce/features/product_details/presentation/widgets/size_drop_down.dart';
-import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailsViewBody extends StatelessWidget {
@@ -30,33 +29,7 @@ class ProductDetailsViewBody extends StatelessWidget {
             vGap(10),
             ProductImagesCarouselView(productImages: productImages),
             vGap(20),
-            Text(
-              'Vest WaterProof With fiber',
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-
-            Row(
-              children: [
-                Text('\$599', style: Theme.of(context).textTheme.titleSmall),
-                Spacer(flex: 1),
-                CustomRatingBar(
-                  isReadOnly: true,
-                  initialRating: 4.5,
-                  itemSize: 20,
-                ),
-                Text(
-                  '(${S.of(context).review(121)})',
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              ],
-            ),
-            vGap(10),
-            Text(
-              S.of(context).color,
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            ProductHeaderSection(),
             vGap(10),
             ProductColorSelector(),
             vGap(20),

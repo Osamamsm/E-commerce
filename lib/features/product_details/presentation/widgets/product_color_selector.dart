@@ -1,4 +1,6 @@
+import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/features/product_details/presentation/widgets/color_selector.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class ProductColorSelector extends StatefulWidget {
@@ -12,29 +14,39 @@ class _ProductColorSelectorState extends State<ProductColorSelector> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return ColorSelector(
-      colors: [
-        {"color": Colors.red, "name": 'Red'},
-        {"color": Colors.green, "name": 'Green'},
-        {"color": Colors.blue, "name": 'Blue'},
-        {"color": Colors.yellow, "name": 'Yellow'},
-        {"color": Colors.purple, "name": 'Purple'},
-        {"color": Colors.orange, "name": 'Orange'},
-        {"color": Colors.pink, "name": 'Pink'},
-        {"color": Colors.brown, "name": 'Brown'},
-        {"color": Colors.grey, "name": 'Grey'},
-        {"color": Colors.black, "name": 'Black'},
-        {"color": Colors.white, "name": 'White'},
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          S.of(context).color,
+          style: Theme.of(context).textTheme.headlineMedium,
+        ),
+        vGap(10),
+        ColorSelector(
+          colors: [
+            {"color": Colors.red, "name": 'Red'},
+            {"color": Colors.green, "name": 'Green'},
+            {"color": Colors.blue, "name": 'Blue'},
+            {"color": Colors.yellow, "name": 'Yellow'},
+            {"color": Colors.purple, "name": 'Purple'},
+            {"color": Colors.orange, "name": 'Orange'},
+            {"color": Colors.pink, "name": 'Pink'},
+            {"color": Colors.brown, "name": 'Brown'},
+            {"color": Colors.grey, "name": 'Grey'},
+            {"color": Colors.black, "name": 'Black'},
+            {"color": Colors.white, "name": 'White'},
+          ],
+          size: 40,
+          selectedIndex: selectedIndex,
+          activeBorderColor: const Color(0xFF6C83FF),
+          onChanged: (index) {
+            if (selectedIndex == index) return;
+            setState(() {
+              selectedIndex = index;
+            });
+          },
+        ),
       ],
-      size: 40,
-      selectedIndex: selectedIndex,
-      activeBorderColor: const Color(0xFF6C83FF),
-      onChanged: (index) {
-        if (selectedIndex == index) return;
-        setState(() {
-          selectedIndex = index;
-        });
-      },
     );
   }
 }
