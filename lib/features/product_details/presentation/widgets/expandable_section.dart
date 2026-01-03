@@ -1,11 +1,16 @@
+import 'package:e_commerce/features/product_details/presentation/widgets/expandable_section_header.dart';
 import 'package:flutter/material.dart';
 
 class ExpandableSection extends StatefulWidget {
-  const ExpandableSection({super.key, required this.child, required this.title});
+  const ExpandableSection({
+    super.key,
+    required this.child,
+    required this.title,
+  });
 
   final Widget child;
 
-final String title;
+  final String title;
 
   @override
   State<ExpandableSection> createState() => _ExpandableSectionState();
@@ -31,23 +36,10 @@ class _ExpandableSectionState extends State<ExpandableSection> {
       ),
       child: Column(
         children: [
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  widget.title,
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-              ),
-              GestureDetector(
-                onTap: _toggle,
-                child: AnimatedRotation(
-                  turns: _isExpanded ? 0.5 : 0,
-                  duration: const Duration(milliseconds: 200),
-                  child: const Icon(Icons.keyboard_arrow_down),
-                ),
-              ),
-            ],
+          ExpandableSectionHeader(
+            title: widget.title,
+            isExpanded: _isExpanded,
+            onTap: _toggle,
           ),
           AnimatedSize(
             duration: const Duration(milliseconds: 250),
