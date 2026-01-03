@@ -12,4 +12,5 @@ const ColorScheme darkColorScheme = ColorScheme(
   onPrimaryContainer: Color(0xFF12121b),
   error: Color(0xFFF2B8B5),
   onError: Colors.white,
+  outline: Color.fromARGB(255, 44, 44, 45),
 );

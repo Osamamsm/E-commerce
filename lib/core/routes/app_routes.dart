@@ -3,6 +3,7 @@ import 'package:e_commerce/features/auth/presentation/views/login_view.dart';
 import 'package:e_commerce/features/auth/presentation/views/register_view.dart';
 import 'package:e_commerce/features/cart/presentation/views/cart_view.dart';
 import 'package:e_commerce/features/home/presentation/views/home_view.dart';
+import 'package:e_commerce/features/product_details/presentation/views/product_details_view.dart';
 import 'package:go_router/go_router.dart';
 
 GoRouter router = GoRouter(
@@ -28,6 +29,10 @@ GoRouter router = GoRouter(
     GoRoute(
       path: '/cart-view',
       builder: (context, state) => const CartView(),
+    ),
+    GoRoute(
+      path: '/product-details-view',
+      builder: (context, state) => const ProductDetailsView(),
     ),
   ],
 );

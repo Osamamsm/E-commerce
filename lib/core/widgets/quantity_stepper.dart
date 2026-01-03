@@ -29,7 +29,7 @@ class QuantityStepper extends StatelessWidget {
       height: 40,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
-        color: Theme.of(context).colorScheme.onPrimaryContainer,
+        color: Theme.of(context).colorScheme.primaryContainer,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -53,4 +53,3 @@ class QuantityStepper extends StatelessWidget {
     );
   }
 }
-

@@ -29,5 +29,12 @@
     "tax": "Tax",
     "discount": "Discount",
     "total": "Total",
-    "proceed_to_checkout": "Proceed To Checkout"
+    "proceed_to_checkout": "Proceed To Checkout",
+    "review":"{count, plural, =0{No reviews} =1{{count} review} other{{count} reviews}}",
+    "product_description":"Product Description",
+    "product_reviews":"Customer Reviews",
+    "add_review":"Add Your Review",
+    "review_hint_text":"Share your thoughts about this product...",
+    "submit_review":"Submit Review",
+    "see_all_reviews":"See All Reviews"
 }
