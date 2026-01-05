@@ -22,8 +22,10 @@ import 'package:e_commerce/features/auth/domain/use_cases/reset_password_use_cas
     as _i817;
 import 'package:e_commerce/features/auth/domain/use_cases/sign_up_use_case.dart'
     as _i691;
+import 'package:e_commerce/features/auth/presentation/logic/log_in_cubit/log_in_cubit.dart'
+    as _i635;
 import 'package:e_commerce/features/auth/presentation/logic/sign_up_cubit/sign_up_cubit.dart'
-    as _i387;
+    as _i927;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:supabase_flutter/supabase_flutter.dart' as _i454;
@@ -55,8 +57,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i691.SignUpUseCase>(
       () => _i691.SignUpUseCase(gh<_i380.AuthRepo>()),
     );
-    gh.factory<_i387.SignUpCubit>(
-      () => _i387.SignUpCubit(gh<_i691.SignUpUseCase>()),
+    gh.factory<_i927.SignUpCubit>(
+      () => _i927.SignUpCubit(gh<_i691.SignUpUseCase>()),
+    );
+    gh.factory<_i635.LogInCubit>(
+      () => _i635.LogInCubit(gh<_i785.LoginUseCase>()),
     );
     return this;
   }
