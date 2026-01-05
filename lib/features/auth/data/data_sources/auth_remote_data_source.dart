@@ -20,7 +20,11 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
 
   @override
   Future<AuthResponse> login({required String email, required String password}) async {
-    throw UnimplementedError();
+   AuthResponse response = await _service.auth.signInWithPassword(
+     email: email,
+     password: password,
+   );
+   return response;
   }
 
   @override

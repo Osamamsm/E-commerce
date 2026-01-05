@@ -1,6 +1,6 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/validators.dart';
-import 'package:e_commerce/features/auth/presentation/logic/cubit/sign_up_cubit.dart';
+import 'package:e_commerce/features/auth/presentation/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/auth_text_field.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/email_text_field.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/password_text_field.dart';

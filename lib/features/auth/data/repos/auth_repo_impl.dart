@@ -10,8 +10,14 @@ class AuthRepoImpl implements AuthRepo {
   AuthRepoImpl(this._remoteDataSource);
 
   @override
-  Future<AppUser?> login(String email, String password) {
-    throw UnimplementedError();
+  Future<AppUser?> login(String email, String password) async {
+    final response = await _remoteDataSource.login(
+      email: email,
+      password: password,
+    );
+    final user = response.user;
+    if (user == null) return null;
+    return AppUser(id: user.id, email: user.email!);
   }
 
   @override

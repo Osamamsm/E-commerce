@@ -1,5 +1,5 @@
 import 'package:e_commerce/core/despondency_injection/di.dart';
-import 'package:e_commerce/features/auth/presentation/logic/cubit/sign_up_cubit.dart';
+import 'package:e_commerce/features/auth/presentation/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:e_commerce/features/auth/presentation/views/login_view.dart';
 import 'package:e_commerce/features/auth/presentation/views/register_view.dart';

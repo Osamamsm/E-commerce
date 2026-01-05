@@ -1,5 +1,5 @@
 import 'package:e_commerce/features/auth/domain/use_cases/sign_up_use_case.dart';
-import 'package:e_commerce/features/auth/presentation/logic/cubit/sign_up_state.dart';
+import 'package:e_commerce/features/auth/presentation/logic/sign_up_cubit/sign_up_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
