@@ -37,11 +37,14 @@ extension GetItInjectableX on _i174.GetIt {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final supabaseClientProvider = _$SupabaseClientProvider();
     gh.lazySingleton<_i454.SupabaseClient>(() => supabaseClientProvider.client);
-    gh.lazySingleton<_i380.AuthRepo>(
-      () => _i562.AuthRepoImpl(gh<_i254.AuthRemoteDataSource>()),
-    );
     gh.lazySingleton<_i74.SupabaseService>(
       () => _i74.SupabaseService(gh<_i454.SupabaseClient>()),
+    );
+    gh.lazySingleton<_i254.AuthRemoteDataSource>(
+      () => _i254.AuthRemoteDataSourceImpl(gh<_i74.SupabaseService>()),
+    );
+    gh.lazySingleton<_i380.AuthRepo>(
+      () => _i562.AuthRepoImpl(gh<_i254.AuthRemoteDataSource>()),
     );
     gh.factory<_i785.LoginUseCase>(
       () => _i785.LoginUseCase(gh<_i380.AuthRepo>()),

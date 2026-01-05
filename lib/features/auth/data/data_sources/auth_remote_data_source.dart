@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/supabase/supabase_service.dart';
+import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 abstract class AuthRemoteDataSource {
@@ -11,6 +12,7 @@ abstract class AuthRemoteDataSource {
   Future<void> signOut();
 }
 
+@LazySingleton(as: AuthRemoteDataSource)
 class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
   final SupabaseService _service;
 

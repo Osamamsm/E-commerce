@@ -1,11 +1,13 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/validators.dart';
+import 'package:e_commerce/features/auth/presentation/logic/cubit/sign_up_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/auth_text_field.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/email_text_field.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/password_text_field.dart';
 import 'package:e_commerce/features/home/presentation/views/home_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class RegisterViewBody extends StatefulWidget {
@@ -78,6 +80,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
+                    context.read<SignUpCubit>().signUp(email, password);
                     context.replace(HomeView.routeName);
                   }
                 },
