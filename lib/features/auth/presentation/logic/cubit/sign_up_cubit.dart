@@ -1,0 +1,22 @@
+import 'package:e_commerce/features/auth/domain/use_cases/sign_up_use_case.dart';
+import 'package:e_commerce/features/auth/presentation/logic/cubit/sign_up_state.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
+
+
+@injectable
+class SignUpCubit extends Cubit<SignUpState> {
+  final SignUpUseCase _signUpUseCase;
+
+  SignUpCubit(this._signUpUseCase) : super(SignUpInitial());
+
+  Future<void> signUp(String email, String password) async {
+    emit(SignUpLoading());
+    try {
+      await _signUpUseCase(email, password);
+      emit(SignUpSuccess());
+    } catch (e) {
+      emit(SignUpFailure(e.toString()));
+    }
+  }
+}
