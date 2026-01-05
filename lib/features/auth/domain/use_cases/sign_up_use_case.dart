@@ -8,7 +8,7 @@ class SignUpUseCase {
 
   SignUpUseCase(this._authRepo);
 
-  Future<AppUser> call(String email, String password) async {
+  Future<AppUser?> call(String email, String password) async {
     return _authRepo.signUp(email, password);
   }
 }
