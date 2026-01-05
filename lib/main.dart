@@ -1,15 +1,20 @@
 import 'package:e_commerce/core/despondency_injection/di.dart';
 import 'package:e_commerce/core/routes/app_routes.dart';
-import 'package:e_commerce/core/supabase/supabase_client.dart';
+import 'package:e_commerce/core/supabase/supabase_config.dart';
 import 'package:e_commerce/core/theme/app_theme.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
-  setupDependencies();
-  SupabaseClientProvider.init();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+    url: SupabaseConfig.supabaseUrl,
+    anonKey: SupabaseConfig.anonKey,
+  );
+  await setupDependencies();
   runApp(const MyApp());
 }
 

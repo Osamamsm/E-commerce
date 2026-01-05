@@ -1,18 +1,15 @@
-
-
-import 'package:e_commerce/core/supabase/supabase_client.dart';
+import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-class SupabaseService{
+@lazySingleton
+class SupabaseService {
+  final SupabaseClient _client;
 
- SupabaseClient get _client => SupabaseClientProvider.client;
+  SupabaseService(this._client);
 
- GoTrueClient get auth => _client.auth;
+  GoTrueClient get auth => _client.auth;
 
- SupabaseQueryBuilder from(String table) => _client.from(table);
+  SupabaseQueryBuilder from(String table) => _client.from(table);
 
- SupabaseStorageClient get storage => _client.storage;
-
-
-
+  SupabaseStorageClient get storage => _client.storage;
 }

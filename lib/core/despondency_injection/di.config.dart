@@ -9,8 +9,11 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:e_commerce/core/supabase/supabase_client.dart' as _i4;
+import 'package:e_commerce/core/supabase/supabase_service.dart' as _i74;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
+import 'package:supabase_flutter/supabase_flutter.dart' as _i454;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -18,7 +21,14 @@ extension GetItInjectableX on _i174.GetIt {
     String? environment,
     _i526.EnvironmentFilter? environmentFilter,
   }) {
-    _i526.GetItHelper(this, environment, environmentFilter);
+    final gh = _i526.GetItHelper(this, environment, environmentFilter);
+    final supabaseClientProvider = _$SupabaseClientProvider();
+    gh.lazySingleton<_i454.SupabaseClient>(() => supabaseClientProvider.client);
+    gh.lazySingleton<_i74.SupabaseService>(
+      () => _i74.SupabaseService(gh<_i454.SupabaseClient>()),
+    );
     return this;
   }
 }
+
+class _$SupabaseClientProvider extends _i4.SupabaseClientProvider {}
