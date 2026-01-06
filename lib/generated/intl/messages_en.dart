@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "discount": MessageLookupByLibrary.simpleMessage("Discount"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "email_hint": MessageLookupByLibrary.simpleMessage("Enter your email"),
+    "error": MessageLookupByLibrary.simpleMessage("Error"),
     "featured_products": MessageLookupByLibrary.simpleMessage(
       "Featured Products",
     ),
@@ -61,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_account": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account? ",
     ),
+    "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "password_hint": MessageLookupByLibrary.simpleMessage(
       "Enter your password",

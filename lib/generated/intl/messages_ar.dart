@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "email_hint": MessageLookupByLibrary.simpleMessage(
       "أدخل البريد الالكتروني",
     ),
+    "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "featured_products": MessageLookupByLibrary.simpleMessage(
       "المنتجات المميزة",
     ),
@@ -61,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "my_cart": MessageLookupByLibrary.simpleMessage("عربتي"),
     "no_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "ok": MessageLookupByLibrary.simpleMessage("حسنا"),
     "password": MessageLookupByLibrary.simpleMessage("كلمه المرور"),
     "password_hint": MessageLookupByLibrary.simpleMessage("أدخل كلمه المرور"),
     "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(

@@ -36,5 +36,7 @@
     "add_review":"Add Your Review",
     "review_hint_text":"Share your thoughts about this product...",
     "submit_review":"Submit Review",
-    "see_all_reviews":"See All Reviews"
+    "see_all_reviews":"See All Reviews",
+    "error":"Error",
+    "ok":"Ok"
 }
