@@ -5,7 +5,10 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 abstract class AuthRemoteDataSource {
   Future<AuthResponse> login({required String email, required String password});
 
-  Future<AuthResponse> signUp({required String email, required String password});
+  Future<AuthResponse> signUp({
+    required String email,
+    required String password,
+  });
 
   Future<void> resetPassword({required String email});
 
@@ -19,16 +22,22 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
   AuthRemoteDataSourceImpl(this._service);
 
   @override
-  Future<AuthResponse> login({required String email, required String password}) async {
-   AuthResponse response = await _service.auth.signInWithPassword(
-     email: email,
-     password: password,
-   );
-   return response;
+  Future<AuthResponse> login({
+    required String email,
+    required String password,
+  }) async {
+    AuthResponse response = await _service.auth.signInWithPassword(
+      email: email,
+      password: password,
+    );
+    return response;
   }
 
   @override
-  Future<AuthResponse> signUp({required String email, required String password}) async {
+  Future<AuthResponse> signUp({
+    required String email,
+    required String password,
+  }) async {
     AuthResponse response = await _service.auth.signUp(
       email: email,
       password: password,
@@ -36,13 +45,13 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
     return response;
   }
 
-  @override 
+  @override
   Future<void> resetPassword({required String email}) {
     throw UnimplementedError();
   }
 
   @override
-  Future<void> signOut() {
-    throw UnimplementedError();
+  Future<void> signOut() async {
+    await _service.auth.signOut();
   }
 }

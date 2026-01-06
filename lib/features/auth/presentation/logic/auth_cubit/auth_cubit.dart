@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-@injectable
+@lazySingleton
 class AuthCubit extends Cubit<AppAuthState> {
   final SupabaseService _service;
   late final StreamSubscription<AuthState> _authSub;
