@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/despondency_injection/di.dart';
+import 'package:e_commerce/features/auth/presentation/logic/log_in_cubit/log_in_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:e_commerce/features/auth/presentation/views/login_view.dart';
@@ -16,7 +17,10 @@ GoRouter router = GoRouter(
     GoRoute(path: '/home-view', builder: (context, state) => const HomeView()),
     GoRoute(
       path: '/login-view',
-      builder: (context, state) => const LoginView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => getIt<LogInCubit>(),
+        child: const LoginView(),
+      ),
     ),
     GoRoute(
       path: '/register-view',
