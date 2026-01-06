@@ -22,6 +22,8 @@ import 'package:e_commerce/features/auth/domain/use_cases/reset_password_use_cas
     as _i817;
 import 'package:e_commerce/features/auth/domain/use_cases/sign_up_use_case.dart'
     as _i691;
+import 'package:e_commerce/features/auth/presentation/logic/auth_cubit/auth_cubit.dart'
+    as _i756;
 import 'package:e_commerce/features/auth/presentation/logic/log_in_cubit/log_in_cubit.dart'
     as _i635;
 import 'package:e_commerce/features/auth/presentation/logic/sign_up_cubit/sign_up_cubit.dart'
@@ -47,6 +49,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i380.AuthRepo>(
       () => _i562.AuthRepoImpl(gh<_i254.AuthRemoteDataSource>()),
+    );
+    gh.factory<_i756.AuthCubit>(
+      () => _i756.AuthCubit(gh<_i74.SupabaseService>()),
     );
     gh.factory<_i785.LoginUseCase>(
       () => _i785.LoginUseCase(gh<_i380.AuthRepo>()),
