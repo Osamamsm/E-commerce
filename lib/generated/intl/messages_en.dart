@@ -88,6 +88,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "shop_by_category": MessageLookupByLibrary.simpleMessage(
       "Shop By Category",
     ),
+    "sign_up_success_message": MessageLookupByLibrary.simpleMessage(
+      "If an account with this email exists, you will receive a verification email.",
+    ),
     "size": MessageLookupByLibrary.simpleMessage("Size"),
     "submit_review": MessageLookupByLibrary.simpleMessage("Submit Review"),
     "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),

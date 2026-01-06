@@ -38,5 +38,6 @@
     "submit_review":"Submit Review",
     "see_all_reviews":"See All Reviews",
     "error":"Error",
-    "ok":"Ok"
+    "ok":"Ok",
+    "sign_up_success_message":"If an account with this email exists, you will receive a verification email."
 }

@@ -371,6 +371,16 @@ class S {
   String get ok {
     return Intl.message('Ok', name: 'ok', desc: '', args: []);
   }
+
+  /// `If an account with this email exists, you will receive a verification email.`
+  String get sign_up_success_message {
+    return Intl.message(
+      'If an account with this email exists, you will receive a verification email.',
+      name: 'sign_up_success_message',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

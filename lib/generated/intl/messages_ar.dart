@@ -82,6 +82,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "see_all_reviews": MessageLookupByLibrary.simpleMessage("شاهد جميع الاراء"),
     "shipping": MessageLookupByLibrary.simpleMessage("الشحن"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage("تسوق حسب الفئة"),
+    "sign_up_success_message": MessageLookupByLibrary.simpleMessage(
+      "إذا كان هناك حساب بهذا البريد الإلكتروني، فسوف تتلقى رسالة بريد إلكتروني.",
+    ),
     "size": MessageLookupByLibrary.simpleMessage("الحجم"),
     "submit_review": MessageLookupByLibrary.simpleMessage("ارسال رأيك"),
     "subtotal": MessageLookupByLibrary.simpleMessage("الإجمالي"),
