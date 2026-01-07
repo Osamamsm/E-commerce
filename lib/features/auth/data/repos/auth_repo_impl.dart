@@ -1,3 +1,6 @@
+import 'package:dartz/dartz.dart';
+import 'package:e_commerce/core/error/exception_mapper.dart';
+import 'package:e_commerce/core/error/failure.dart';
 import 'package:e_commerce/features/auth/data/data_sources/auth_remote_data_source.dart';
 import 'package:e_commerce/features/auth/domain/entities/app_user.dart';
 import 'package:e_commerce/features/auth/domain/repos/auth_repo.dart';
@@ -10,34 +13,48 @@ class AuthRepoImpl implements AuthRepo {
   AuthRepoImpl(this._remoteDataSource);
 
   @override
-  Future<AppUser?> login(String email, String password) async {
-    final response = await _remoteDataSource.login(
-      email: email,
-      password: password,
-    );
-    final user = response.user;
-    if (user == null) return null;
-    return AppUser(id: user.id, email: user.email!);
+  Future<Either<Failure, AppUser?>> login(String email, String password) async {
+    try {
+      final response = await _remoteDataSource.login(
+        email: email,
+        password: password,
+      );
+      final user = response.user;
+      return Right(AppUser(id: user!.id, email: user.email!));
+    } catch (e) {
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
+    }
   }
 
   @override
-  Future<AppUser?> signUp(String email, String password) async {
-    final response = await _remoteDataSource.signUp(
-      email: email,
-      password: password,
-    );
-    final user = response.user;
-    if (user == null) return null;
-    return AppUser(id: user.id, email: user.email!);
+  Future<Either<Failure, AppUser?>> signUp(
+    String email,
+    String password,
+  ) async {
+    try {
+      final response = await _remoteDataSource.signUp(
+        email: email,
+        password: password,
+      );
+      final user = response.user;
+      return Right(AppUser(id: user!.id, email: user.email!));
+    } catch (e) {
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
+    }
   }
 
   @override
-  Future<void> resetPassword(String email) {
+  Future<Either<Failure, void>> resetPassword(String email) {
     throw UnimplementedError();
   }
 
   @override
-  Future<void> signOut() async {
-    await _remoteDataSource.signOut();
+  Future<Either<Failure, void>> signOut() async {
+    try {
+      await _remoteDataSource.signOut();
+      return Right(null);
+    } on Exception catch (e) {
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
+    }
   }
 }

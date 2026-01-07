@@ -1,13 +1,15 @@
+import 'package:dartz/dartz.dart';
+import 'package:e_commerce/core/error/failure.dart';
 import 'package:e_commerce/features/auth/domain/entities/app_user.dart' show AppUser;
 
 
 
 abstract class AuthRepo {
-  Future<AppUser?> login(String email, String password);
+  Future<Either<Failure, AppUser?>> login(String email, String password);
 
-  Future<AppUser?> signUp(String email, String password);
+  Future<Either<Failure, AppUser?>> signUp(String email, String password);
 
-  Future<void> resetPassword(String email);
+  Future<Either<Failure, void>> resetPassword(String email);
 
-  Future<void> signOut();
+  Future<Either<Failure, void>> signOut();
 }

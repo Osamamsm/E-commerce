@@ -1,5 +1,7 @@
 
 
+import 'package:dartz/dartz.dart';
+import 'package:e_commerce/core/error/failure.dart';
 import 'package:e_commerce/features/auth/domain/repos/auth_repo.dart';
 import 'package:injectable/injectable.dart';
 
@@ -9,7 +11,7 @@ class ResetPasswordUseCase {
 
   ResetPasswordUseCase(this._authRepo);
 
-  Future<void> call(String email) async {
+  Future<Either<Failure, void>> call(String email) async {
     return _authRepo.resetPassword(email);
   }
 }

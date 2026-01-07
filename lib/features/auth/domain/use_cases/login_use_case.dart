@@ -1,3 +1,5 @@
+import 'package:dartz/dartz.dart';
+import 'package:e_commerce/core/error/failure.dart';
 import 'package:e_commerce/features/auth/domain/entities/app_user.dart';
 import 'package:e_commerce/features/auth/domain/repos/auth_repo.dart';
 import 'package:injectable/injectable.dart';
@@ -8,7 +10,7 @@ class LoginUseCase {
 
   LoginUseCase(this._authRepo);
 
-  Future<AppUser?> call(String email, String password) async {
+  Future<Either<Failure, AppUser?>> call(String email, String password) async {
     return _authRepo.login(email, password);
   }
 }

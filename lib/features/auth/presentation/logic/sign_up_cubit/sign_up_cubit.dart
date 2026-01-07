@@ -12,11 +12,10 @@ class SignUpCubit extends Cubit<SignUpState> {
 
   Future<void> signUp(String email, String password) async {
     emit(SignUpLoading());
-    try {
-      await _signUpUseCase(email, password);
-      emit(SignUpSuccess());
-    } catch (e) {
-      emit(SignUpFailure(e.toString()));
-    }
+    final result = await _signUpUseCase(email, password);
+    result.fold(
+      (failure) => emit(SignUpFailure(failure.message)),
+      (user) => emit(SignUpSuccess()),
+    );
   }
 }

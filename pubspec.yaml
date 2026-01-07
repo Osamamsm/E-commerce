@@ -31,6 +31,7 @@ dependencies:
   awesome_dialog: ^3.3.0
   cached_network_image: ^3.4.1
   custom_sliding_segmented_control: ^1.8.5
+  dartz: ^0.10.1
   dropdown_button2: ^2.3.9
   flutter:
     sdk: flutter
