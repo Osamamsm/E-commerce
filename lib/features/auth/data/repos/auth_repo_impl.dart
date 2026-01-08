@@ -44,8 +44,13 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, void>> resetPassword(String email) {
-    throw UnimplementedError();
+  Future<Either<Failure, void>> requestPasswordReset(String email) async {
+    try {
+      await _remoteDataSource.requestPasswordReset(email: email);
+      return Right(null);
+    } catch (e) {
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
+    }
   }
 
   @override

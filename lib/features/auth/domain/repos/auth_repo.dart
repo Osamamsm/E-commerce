@@ -9,7 +9,7 @@ abstract class AuthRepo {
 
   Future<Either<Failure, AppUser?>> signUp(String email, String password);
 
-  Future<Either<Failure, void>> resetPassword(String email);
+  Future<Either<Failure, void>> requestPasswordReset(String email);
 
   Future<Either<Failure, void>> signOut();
 }

@@ -16,10 +16,10 @@ import 'package:e_commerce/features/auth/data/data_sources/auth_remote_data_sour
 import 'package:e_commerce/features/auth/data/repos/auth_repo_impl.dart'
     as _i562;
 import 'package:e_commerce/features/auth/domain/repos/auth_repo.dart' as _i380;
+import 'package:e_commerce/features/auth/domain/use_cases/forgot_password_use_case.dart'
+    as _i841;
 import 'package:e_commerce/features/auth/domain/use_cases/login_use_case.dart'
     as _i785;
-import 'package:e_commerce/features/auth/domain/use_cases/reset_password_use_case.dart'
-    as _i817;
 import 'package:e_commerce/features/auth/domain/use_cases/sign_out_use_case.dart'
     as _i956;
 import 'package:e_commerce/features/auth/domain/use_cases/sign_up_use_case.dart'
@@ -57,11 +57,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i756.AuthCubit>(
       () => _i756.AuthCubit(gh<_i74.SupabaseService>()),
     );
+    gh.factory<_i841.ForgotPasswordUseCase>(
+      () => _i841.ForgotPasswordUseCase(gh<_i380.AuthRepo>()),
+    );
     gh.factory<_i785.LoginUseCase>(
       () => _i785.LoginUseCase(gh<_i380.AuthRepo>()),
-    );
-    gh.factory<_i817.ResetPasswordUseCase>(
-      () => _i817.ResetPasswordUseCase(gh<_i380.AuthRepo>()),
     );
     gh.factory<_i956.SignOutUseCase>(
       () => _i956.SignOutUseCase(gh<_i380.AuthRepo>()),
