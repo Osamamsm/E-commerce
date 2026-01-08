@@ -29,6 +29,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_to_cart": MessageLookupByLibrary.simpleMessage("Add To Cart"),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
     "color": MessageLookupByLibrary.simpleMessage("Color"),
+    "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+    "confirm_new_password": MessageLookupByLibrary.simpleMessage(
+      "Confirm New Password",
+    ),
+    "confirm_new_password_hint": MessageLookupByLibrary.simpleMessage(
+      "Confirm your new password",
+    ),
     "confirm_password": MessageLookupByLibrary.simpleMessage(
       "Confirm Password",
     ),
@@ -39,6 +46,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "discount": MessageLookupByLibrary.simpleMessage("Discount"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "email_hint": MessageLookupByLibrary.simpleMessage("Enter your email"),
+    "enter_new_password": MessageLookupByLibrary.simpleMessage(
+      "Enter New Password",
+    ),
+    "enter_new_password_hint": MessageLookupByLibrary.simpleMessage(
+      "Enter your new password",
+    ),
     "error": MessageLookupByLibrary.simpleMessage("Error"),
     "featured_products": MessageLookupByLibrary.simpleMessage(
       "Featured Products",
@@ -59,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Login to continue your journey",
     ),
     "my_cart": MessageLookupByLibrary.simpleMessage("My Cart"),
+    "new_password": MessageLookupByLibrary.simpleMessage("New Password"),
     "no_account": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account? ",
     ),
@@ -76,6 +90,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "product_reviews": MessageLookupByLibrary.simpleMessage("Customer Reviews"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "reset_password": MessageLookupByLibrary.simpleMessage("Reset Password"),
+    "reset_password_success_message": MessageLookupByLibrary.simpleMessage(
+      "Password reset successfully.",
+    ),
     "review": m0,
     "review_hint_text": MessageLookupByLibrary.simpleMessage(
       "Share your thoughts about this product...",

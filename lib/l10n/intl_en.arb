@@ -39,5 +39,12 @@
     "see_all_reviews":"See All Reviews",
     "error":"Error",
     "ok":"Ok",
-    "sign_up_success_message":"If an account with this email exists, you will receive a verification email."
+    "sign_up_success_message":"If an account with this email exists, you will receive a verification email.",
+    "new_password":"New Password",
+    "enter_new_password":"Enter New Password",
+    "enter_new_password_hint":"Enter your new password",
+    "confirm_new_password":"Confirm New Password",
+    "confirm_new_password_hint":"Confirm your new password",
+    "reset_password_success_message":"Password reset successfully.",
+    "confirm":"Confirm"
 }

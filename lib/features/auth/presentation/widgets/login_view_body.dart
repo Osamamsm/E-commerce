@@ -55,7 +55,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
-                    context.push(ForgotPasswordView.routeName);
+                    GoRouter.of(context).push(ForgotPasswordView.routeName);
                   },
                   child: Text(s.forgot_password),
                 ),
@@ -77,7 +77,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   Text(s.no_account, style: theme.textTheme.bodyMedium),
                   TextButton(
                     onPressed: () {
-                      context.push(RegisterView.routeName);
+                      GoRouter.of(context).push(RegisterView.routeName);
                     },
                     child: Text(s.register),
                   ),

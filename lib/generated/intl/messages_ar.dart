@@ -29,6 +29,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى العربة"),
     "cart": MessageLookupByLibrary.simpleMessage("العربة"),
     "color": MessageLookupByLibrary.simpleMessage("اللون"),
+    "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
+    "confirm_new_password": MessageLookupByLibrary.simpleMessage(
+      "تأكيد كلمه المرور الجديدة",
+    ),
+    "confirm_new_password_hint": MessageLookupByLibrary.simpleMessage(
+      "تأكيد كلمه المرور الجديدة",
+    ),
     "confirm_password": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمه المرور",
     ),
@@ -40,6 +47,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "email_hint": MessageLookupByLibrary.simpleMessage(
       "أدخل البريد الالكتروني",
+    ),
+    "enter_new_password": MessageLookupByLibrary.simpleMessage(
+      "أدخل كلمه المرور الجديدة",
+    ),
+    "enter_new_password_hint": MessageLookupByLibrary.simpleMessage(
+      "أدخل كلمه المرور الجديدة",
     ),
     "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "featured_products": MessageLookupByLibrary.simpleMessage(
@@ -61,6 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "سجّل الدخول لمتابعة رحلتك",
     ),
     "my_cart": MessageLookupByLibrary.simpleMessage("عربتي"),
+    "new_password": MessageLookupByLibrary.simpleMessage("كلمه المرور الجديدة"),
     "no_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "ok": MessageLookupByLibrary.simpleMessage("حسنا"),
     "password": MessageLookupByLibrary.simpleMessage("كلمه المرور"),
@@ -73,6 +87,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "register": MessageLookupByLibrary.simpleMessage("سجل الآن"),
     "reset_password": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمه المرور",
+    ),
+    "reset_password_success_message": MessageLookupByLibrary.simpleMessage(
+      "تم تعيين كلمه المرور بنجاح.",
     ),
     "review": m0,
     "review_hint_text": MessageLookupByLibrary.simpleMessage(

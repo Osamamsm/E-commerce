@@ -381,6 +381,71 @@ class S {
       args: [],
     );
   }
+
+  /// `New Password`
+  String get new_password {
+    return Intl.message(
+      'New Password',
+      name: 'new_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter New Password`
+  String get enter_new_password {
+    return Intl.message(
+      'Enter New Password',
+      name: 'enter_new_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your new password`
+  String get enter_new_password_hint {
+    return Intl.message(
+      'Enter your new password',
+      name: 'enter_new_password_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm New Password`
+  String get confirm_new_password {
+    return Intl.message(
+      'Confirm New Password',
+      name: 'confirm_new_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm your new password`
+  String get confirm_new_password_hint {
+    return Intl.message(
+      'Confirm your new password',
+      name: 'confirm_new_password_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password reset successfully.`
+  String get reset_password_success_message {
+    return Intl.message(
+      'Password reset successfully.',
+      name: 'reset_password_success_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get confirm {
+    return Intl.message('Confirm', name: 'confirm', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

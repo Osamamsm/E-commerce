@@ -7,6 +7,7 @@ import 'package:e_commerce/features/auth/presentation/logic/sign_up_cubit/sign_u
 import 'package:e_commerce/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:e_commerce/features/auth/presentation/views/login_view.dart';
 import 'package:e_commerce/features/auth/presentation/views/register_view.dart';
+import 'package:e_commerce/features/auth/presentation/views/reset_password_view.dart';
 import 'package:e_commerce/features/cart/presentation/views/cart_view.dart';
 import 'package:e_commerce/features/home/presentation/views/home_view.dart';
 import 'package:e_commerce/features/product_details/presentation/views/product_details_view.dart';
@@ -23,7 +24,8 @@ GoRouter createRouter(AuthCubit authCubit) {
       final isOnAuthPage =
           state.matchedLocation == LoginView.routeName ||
           state.matchedLocation == RegisterView.routeName ||
-          state.matchedLocation == ForgotPasswordView.routeName;
+          state.matchedLocation == ForgotPasswordView.routeName ||
+          state.matchedLocation == ResetPasswordView.routeName;
 
       // Still loading auth state
       if (authStatus == AuthStatus.unknown) {
@@ -74,6 +76,10 @@ GoRouter createRouter(AuthCubit authCubit) {
       GoRoute(
         path: ForgotPasswordView.routeName,
         builder: (context, state) => const ForgotPasswordView(),
+      ),
+      GoRoute(
+        path: ResetPasswordView.routeName,
+        builder: (context, state) => const ResetPasswordView(),
       ),
       GoRoute(
         path: CartView.routeName,
