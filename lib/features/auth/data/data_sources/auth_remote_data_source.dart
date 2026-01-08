@@ -12,6 +12,8 @@ abstract class AuthRemoteDataSource {
 
   Future<void> requestPasswordReset({required String email});
 
+  Future<UserResponse> resetPassword({required String password});
+
   Future<void> signOut();
 }
 
@@ -48,6 +50,11 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
   @override
   Future<void> requestPasswordReset({required String email}) async {
     await _service.auth.resetPasswordForEmail(email);
+  }
+
+  @override
+  Future<UserResponse> resetPassword({required String password}) async {
+    return await _service.auth.updateUser(UserAttributes(password: password));
   }
 
   @override
