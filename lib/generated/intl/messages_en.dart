@@ -28,6 +28,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_review": MessageLookupByLibrary.simpleMessage("Add Your Review"),
     "add_to_cart": MessageLookupByLibrary.simpleMessage("Add To Cart"),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+    "check_email_for_reset_link_message": MessageLookupByLibrary.simpleMessage(
+      "Please check your email for a link to reset your password. The link is valid for a limited time.",
+    ),
     "color": MessageLookupByLibrary.simpleMessage("Color"),
     "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
     "confirm_new_password": MessageLookupByLibrary.simpleMessage(
@@ -80,6 +83,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "password_hint": MessageLookupByLibrary.simpleMessage(
       "Enter your password",
+    ),
+    "password_reset_success": MessageLookupByLibrary.simpleMessage(
+      "Password reset successfully.",
     ),
     "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
       "Proceed To Checkout",

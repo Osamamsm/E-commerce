@@ -46,5 +46,7 @@
     "enter_new_password_hint":"أدخل كلمه المرور الجديدة",
     "confirm_new_password":"تأكيد كلمه المرور الجديدة",
     "confirm_new_password_hint":"تأكيد كلمه المرور الجديدة",
-    "confirm":"تأكيد"
+    "confirm":"تأكيد",
+    "check_email_for_reset_link_message": "يرجى مراجعة بريدك الإلكتروني للحصول على رابط لإعادة تعيين كلمة المرور. الرابط صالح لفترة محدودة.",
+    "password_reset_success":"تم تعيين كلمه المرور بنجاح."
 }

@@ -28,6 +28,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_review": MessageLookupByLibrary.simpleMessage("أضف رأيك"),
     "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى العربة"),
     "cart": MessageLookupByLibrary.simpleMessage("العربة"),
+    "check_email_for_reset_link_message": MessageLookupByLibrary.simpleMessage(
+      "يرجى مراجعة بريدك الإلكتروني للحصول على رابط لإعادة تعيين كلمة المرور. الرابط صالح لفترة محدودة.",
+    ),
     "color": MessageLookupByLibrary.simpleMessage("اللون"),
     "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
     "confirm_new_password": MessageLookupByLibrary.simpleMessage(
@@ -79,6 +82,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "ok": MessageLookupByLibrary.simpleMessage("حسنا"),
     "password": MessageLookupByLibrary.simpleMessage("كلمه المرور"),
     "password_hint": MessageLookupByLibrary.simpleMessage("أدخل كلمه المرور"),
+    "password_reset_success": MessageLookupByLibrary.simpleMessage(
+      "تم تعيين كلمه المرور بنجاح.",
+    ),
     "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
       "الانتقال للدفع",
     ),

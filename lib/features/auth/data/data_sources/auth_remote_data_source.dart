@@ -50,7 +50,10 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
 
   @override
   Future<void> requestPasswordReset({required String email}) async {
-    await _service.auth.resetPasswordForEmail(email);
+    await _service.auth.resetPasswordForEmail(
+      email,
+      redirectTo: "my-e-commerce-app://auth/reset-password",
+    );
   }
 
   @override

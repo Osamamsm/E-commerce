@@ -446,6 +446,26 @@ class S {
   String get confirm {
     return Intl.message('Confirm', name: 'confirm', desc: '', args: []);
   }
+
+  /// `Please check your email for a link to reset your password. The link is valid for a limited time.`
+  String get check_email_for_reset_link_message {
+    return Intl.message(
+      'Please check your email for a link to reset your password. The link is valid for a limited time.',
+      name: 'check_email_for_reset_link_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password reset successfully.`
+  String get password_reset_success {
+    return Intl.message(
+      'Password reset successfully.',
+      name: 'password_reset_success',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

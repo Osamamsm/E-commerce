@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:e_commerce/core/despondency_injection/di.dart';
 import 'package:e_commerce/features/auth/presentation/logic/auth_cubit/auth_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/logic/auth_cubit/auth_state.dart';
+import 'package:e_commerce/features/auth/presentation/logic/forgot_password_cubit/forgot_password_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/logic/log_in_cubit/log_in_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/views/forgot_password_view.dart';
@@ -80,7 +81,10 @@ GoRouter createRouter(AuthCubit authCubit) {
       ),
       GoRoute(
         path: ForgotPasswordView.routeName,
-        builder: (context, state) => const ForgotPasswordView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => getIt<ForgotPasswordCubit>(),
+          child: const ForgotPasswordView(),
+        ),
       ),
       GoRoute(
         path: ResetPasswordView.routeName,
