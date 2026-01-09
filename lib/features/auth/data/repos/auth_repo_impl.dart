@@ -30,11 +30,13 @@ class AuthRepoImpl implements AuthRepo {
   Future<Either<Failure, AppUser?>> signUp(
     String email,
     String password,
+    String fullName,
   ) async {
     try {
       final response = await _remoteDataSource.signUp(
         email: email,
         password: password,
+        fullName: fullName,
       );
       final user = response.user;
       return Right(AppUser(id: user!.id, email: user.email!));

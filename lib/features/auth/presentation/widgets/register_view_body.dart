@@ -78,7 +78,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
-                    context.read<SignUpCubit>().signUp(email, password);
+                    context.read<SignUpCubit>().signUp(email, password, name);
                   }
                 },
                 child: Text(S.of(context).register),

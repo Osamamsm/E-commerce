@@ -10,7 +10,11 @@ class SignUpUseCase {
 
   SignUpUseCase(this._authRepo);
 
-  Future<Either<Failure, AppUser?>> call(String email, String password) async {
-    return _authRepo.signUp(email, password);
+  Future<Either<Failure, AppUser?>> call(
+    String email,
+    String password,
+    String fullName,
+  ) async {
+    return _authRepo.signUp(email, password, fullName);
   }
 }
