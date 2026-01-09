@@ -17,6 +17,12 @@ class AuthCubit extends Cubit<AppAuthState> {
   /// Expose stream for GoRouter refreshListenable
   Stream<AppAuthState> get authStateStream => stream;
 
+void clearRecoveryFlow() {
+  emit(const AppAuthState(AuthStatus.cleared));
+}
+
+
+
   Future<void> _init() async {
     User? user = _service.currentUser;
     emit(
@@ -25,6 +31,18 @@ class AuthCubit extends Cubit<AppAuthState> {
           : const AppAuthState(AuthStatus.unauthenticated),
     );
     _authSub = _service.auth.onAuthStateChange.listen((event) {
+      final authEvent = event.event;
+
+      if (authEvent == AuthChangeEvent.passwordRecovery) {
+        emit(
+          const AppAuthState(
+            AuthStatus.authenticated,
+            authFlow: AuthFlow.passwordReset,
+          ),
+        );
+        return;
+      }
+
       if (event.session != null) {
         emit(const AppAuthState(AuthStatus.authenticated));
       } else {

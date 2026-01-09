@@ -5,7 +5,6 @@ import 'package:e_commerce/features/auth/presentation/logic/auth_cubit/auth_stat
 import 'package:e_commerce/features/auth/presentation/logic/forgot_password_cubit/forgot_password_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/logic/log_in_cubit/log_in_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/logic/reset_password_cubit/reset_password_cubit.dart';
-import 'package:e_commerce/features/auth/presentation/logic/sign_out_cubit/sign_out_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:e_commerce/features/auth/presentation/views/login_view.dart';
@@ -14,14 +13,15 @@ import 'package:e_commerce/features/auth/presentation/views/reset_password_view.
 import 'package:e_commerce/features/cart/presentation/views/cart_view.dart';
 import 'package:e_commerce/features/home/presentation/views/home_view.dart';
 import 'package:e_commerce/features/product_details/presentation/views/product_details_view.dart';
+import 'package:e_commerce/features/splash/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 GoRouter createRouter(AuthCubit authCubit) {
   return GoRouter(
-    initialLocation: LoginView.routeName,
-    refreshListenable: GoRouterRefreshStream(authCubit.stream),
+    initialLocation: SplashView.routeName,
+    refreshListenable: GoRouterRefreshStream(authCubit),
     redirect: (context, state) {
       final authStatus = authCubit.state.status;
       final isOnAuthPage =
@@ -32,10 +32,22 @@ GoRouter createRouter(AuthCubit authCubit) {
       final isResetPasswordPage =
           state.matchedLocation == ResetPasswordView.routeName;
 
+      final isSplash = state.matchedLocation == SplashView.routeName;
+
       // Still loading auth state
       if (authStatus == AuthStatus.unknown) {
-        //TODO : show splash screen when added to the project
-        return null; // Don't redirect while checking auth
+        return SplashView.routeName;
+      }
+
+      // Leave splash once auth is known
+      if (isSplash) {
+        return authStatus == AuthStatus.authenticated
+            ? HomeView.routeName
+            : LoginView.routeName;
+      }
+
+      if (authCubit.state.authFlow == AuthFlow.passwordReset) {
+        return isResetPasswordPage ? null : ResetPasswordView.routeName;
       }
 
       // User is authenticated
@@ -44,9 +56,7 @@ GoRouter createRouter(AuthCubit authCubit) {
         if (isOnAuthPage) {
           return HomeView.routeName;
         }
-        if (isResetPasswordPage) {
-          return null;
-        }
+
         return null; // Allow access to requested page
       }
 
@@ -63,6 +73,10 @@ GoRouter createRouter(AuthCubit authCubit) {
       return null;
     },
     routes: [
+      GoRoute(
+        path: SplashView.routeName,
+        builder: (context, state) => const SplashView(),
+      ),
       GoRoute(
         path: HomeView.routeName,
         builder: (context, state) => const HomeView(),
@@ -90,11 +104,8 @@ GoRouter createRouter(AuthCubit authCubit) {
       ),
       GoRoute(
         path: ResetPasswordView.routeName,
-        builder: (context, state) => MultiBlocProvider(
-          providers: [
-            BlocProvider(create: (context) => getIt<ResetPasswordCubit>()),
-            BlocProvider(create: (context) => getIt<SignOutCubit>()),
-          ],
+        builder: (context, state) => BlocProvider(
+          create: (context) => getIt<ResetPasswordCubit>(),
           child: const ResetPasswordView(),
         ),
       ),
@@ -111,17 +122,15 @@ GoRouter createRouter(AuthCubit authCubit) {
 }
 
 class GoRouterRefreshStream extends ChangeNotifier {
-  GoRouterRefreshStream(Stream<dynamic> stream) {
-    _subscription = stream.listen((_) {
-      notifyListeners();
-    });
-  }
+  late final StreamSubscription _authSub;
 
-  late final StreamSubscription _subscription;
+  GoRouterRefreshStream(AuthCubit authCubit) {
+    _authSub = authCubit.stream.listen((_) => notifyListeners());
+  }
 
   @override
   void dispose() {
-    _subscription.cancel();
+    _authSub.cancel();
     super.dispose();
   }
 }
