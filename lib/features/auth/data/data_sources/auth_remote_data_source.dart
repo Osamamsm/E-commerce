@@ -43,7 +43,7 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
     AuthResponse response = await _service.auth.signUp(
       email: email,
       password: password,
-      emailRedirectTo: "com.example.e_commerce://auth/login-view",
+      emailRedirectTo: "my-e-commerce-app://auth/callback",
     );
     return response;
   }

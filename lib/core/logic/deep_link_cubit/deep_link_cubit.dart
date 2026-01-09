@@ -4,6 +4,7 @@ import 'package:app_links/app_links.dart';
 import 'package:e_commerce/core/logic/deep_link_cubit/deep_link_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 @lazySingleton
 class DeepLinkCubit extends Cubit<DeepLinkState> {
@@ -22,20 +23,24 @@ class DeepLinkCubit extends Cubit<DeepLinkState> {
     }
 
     // 2️⃣ Handle app opened while running
-    _sub = _appLinks.uriLinkStream.listen(
-      (uri) => _handleUri(uri),
-    );
+    _sub = _appLinks.uriLinkStream.listen((uri) => _handleUri(uri));
   }
 
-  void _handleUri(Uri uri) {
+  void _handleUri(Uri uri) async {
     final type = uri.queryParameters['type'];
 
-    if (type == 'recovery') {
-      emit(DeepLinkResetPassword());
-    }
+    try {
+      await Supabase.instance.client.auth.getSessionFromUrl(uri);
 
-    if (type == 'signup') {
-      emit(DeepLinkEmailVerification());
+      if (type == 'recovery') {
+        emit(DeepLinkResetPassword());
+      }
+
+      if (type == 'signup') {
+        emit(DeepLinkEmailVerification());
+      }
+    } on Exception catch (e) {
+      emit(DeepLinkError(e.toString()));
     }
   }
 

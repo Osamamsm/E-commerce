@@ -24,7 +24,9 @@ GoRouter createRouter(AuthCubit authCubit) {
       final isOnAuthPage =
           state.matchedLocation == LoginView.routeName ||
           state.matchedLocation == RegisterView.routeName ||
-          state.matchedLocation == ForgotPasswordView.routeName ||
+          state.matchedLocation == ForgotPasswordView.routeName;
+
+      final isResetPasswordPage =
           state.matchedLocation == ResetPasswordView.routeName;
 
       // Still loading auth state
@@ -38,6 +40,9 @@ GoRouter createRouter(AuthCubit authCubit) {
         // Redirect away from auth pages if already logged in
         if (isOnAuthPage) {
           return HomeView.routeName;
+        }
+        if (isResetPasswordPage) {
+          return null;
         }
         return null; // Allow access to requested page
       }
