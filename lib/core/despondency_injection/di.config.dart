@@ -34,6 +34,8 @@ import 'package:e_commerce/features/auth/presentation/logic/forgot_password_cubi
     as _i567;
 import 'package:e_commerce/features/auth/presentation/logic/log_in_cubit/log_in_cubit.dart'
     as _i635;
+import 'package:e_commerce/features/auth/presentation/logic/reset_password_cubit/reset_password_cubit.dart'
+    as _i330;
 import 'package:e_commerce/features/auth/presentation/logic/sign_out_cubit/sign_out_cubit.dart'
     as _i167;
 import 'package:e_commerce/features/auth/presentation/logic/sign_up_cubit/sign_up_cubit.dart'
@@ -78,6 +80,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i691.SignUpUseCase>(
       () => _i691.SignUpUseCase(gh<_i380.AuthRepo>()),
+    );
+    gh.factory<_i330.ResetPasswordCubit>(
+      () => _i330.ResetPasswordCubit(gh<_i817.ResetPasswordUseCase>()),
     );
     gh.factory<_i167.SignOutCubit>(
       () => _i167.SignOutCubit(gh<_i956.SignOutUseCase>()),

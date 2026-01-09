@@ -1,7 +1,14 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:e_commerce/core/widgets/custom_modal_progress.dart';
 import 'package:e_commerce/core/widgets/custom_scaffold.dart';
+import 'package:e_commerce/core/widgets/show_error_dialog.dart';
+import 'package:e_commerce/features/auth/presentation/logic/reset_password_cubit/reset_password_cubit.dart';
+import 'package:e_commerce/features/auth/presentation/logic/reset_password_cubit/reset_password_state.dart';
+import 'package:e_commerce/features/auth/presentation/logic/sign_out_cubit/sign_out_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/reset_password_view_body.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ResetPasswordView extends StatelessWidget {
   const ResetPasswordView({super.key});
@@ -10,9 +17,33 @@ class ResetPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
-      title: S.of(context).reset_password,
-      child: const ResetPasswordViewBody(),
+    return BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
+      listener: (context, state) {
+        if (state is ResetPasswordSuccess) {
+          showCustomDialog(
+            context: context,
+            message: S.of(context).reset_password_success_message,
+            dialogType: DialogType.info,
+            onOkPressed: () {
+              context.read<SignOutCubit>().signOut();
+            },
+          );
+        }
+        if (state is ResetPasswordFailure) {
+          showCustomDialog(
+            context: context,
+            message: state.message,
+            dialogType: DialogType.error,
+          );
+        }
+      },
+      builder: (context, state) => CustomModalProgress(
+        isLoading: state is ResetPasswordLoading,
+        child: CustomScaffold(
+          title: S.of(context).reset_password,
+          child: ResetPasswordViewBody(),
+        ),
+      ),
     );
   }
 }

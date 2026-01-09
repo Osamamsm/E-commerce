@@ -4,6 +4,8 @@ import 'package:e_commerce/features/auth/presentation/logic/auth_cubit/auth_cubi
 import 'package:e_commerce/features/auth/presentation/logic/auth_cubit/auth_state.dart';
 import 'package:e_commerce/features/auth/presentation/logic/forgot_password_cubit/forgot_password_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/logic/log_in_cubit/log_in_cubit.dart';
+import 'package:e_commerce/features/auth/presentation/logic/reset_password_cubit/reset_password_cubit.dart';
+import 'package:e_commerce/features/auth/presentation/logic/sign_out_cubit/sign_out_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:e_commerce/features/auth/presentation/views/login_view.dart';
@@ -88,7 +90,13 @@ GoRouter createRouter(AuthCubit authCubit) {
       ),
       GoRoute(
         path: ResetPasswordView.routeName,
-        builder: (context, state) => const ResetPasswordView(),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(create: (context) => getIt<ResetPasswordCubit>()),
+            BlocProvider(create: (context) => getIt<SignOutCubit>()),
+          ],
+          child: const ResetPasswordView(),
+        ),
       ),
       GoRoute(
         path: CartView.routeName,

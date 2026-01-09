@@ -1,8 +1,10 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/validators.dart';
+import 'package:e_commerce/features/auth/presentation/logic/reset_password_cubit/reset_password_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/password_text_field.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ResetPasswordViewBody extends StatefulWidget {
   const ResetPasswordViewBody({super.key});
@@ -59,6 +61,7 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
+                    context.read<ResetPasswordCubit>().resetPassword(password);
                   }
                 },
                 child: Text(S.of(context).confirm),
