@@ -1,13 +1,14 @@
 import 'package:e_commerce/core/helpers/constants.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/validators.dart';
+import 'package:e_commerce/features/auth/presentation/logic/log_in_cubit/log_in_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:e_commerce/features/auth/presentation/views/register_view.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/email_text_field.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/password_text_field.dart';
-import 'package:e_commerce/features/home/presentation/views/home_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginViewBody extends StatefulWidget {
@@ -54,7 +55,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
-                    context.push(ForgotPasswordView.routeName);
+                    GoRouter.of(context).push(ForgotPasswordView.routeName);
                   },
                   child: Text(s.forgot_password),
                 ),
@@ -64,7 +65,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
-                    context.replace(HomeView.routeName);
+                    context.read<LogInCubit>().logIn(email, password);
                   }
                 },
                 child: Text(s.login),
@@ -76,7 +77,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   Text(s.no_account, style: theme.textTheme.bodyMedium),
                   TextButton(
                     onPressed: () {
-                      context.push(RegisterView.routeName);
+                      GoRouter.of(context).push(RegisterView.routeName);
                     },
                     child: Text(s.register),
                   ),

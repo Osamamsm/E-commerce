@@ -361,6 +361,111 @@ class S {
       args: [],
     );
   }
+
+  /// `Error`
+  String get error {
+    return Intl.message('Error', name: 'error', desc: '', args: []);
+  }
+
+  /// `Ok`
+  String get ok {
+    return Intl.message('Ok', name: 'ok', desc: '', args: []);
+  }
+
+  /// `If an account with this email exists, you will receive a verification email.`
+  String get sign_up_success_message {
+    return Intl.message(
+      'If an account with this email exists, you will receive a verification email.',
+      name: 'sign_up_success_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Password`
+  String get new_password {
+    return Intl.message(
+      'New Password',
+      name: 'new_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter New Password`
+  String get enter_new_password {
+    return Intl.message(
+      'Enter New Password',
+      name: 'enter_new_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your new password`
+  String get enter_new_password_hint {
+    return Intl.message(
+      'Enter your new password',
+      name: 'enter_new_password_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm New Password`
+  String get confirm_new_password {
+    return Intl.message(
+      'Confirm New Password',
+      name: 'confirm_new_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm your new password`
+  String get confirm_new_password_hint {
+    return Intl.message(
+      'Confirm your new password',
+      name: 'confirm_new_password_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password reset successfully.`
+  String get reset_password_success_message {
+    return Intl.message(
+      'Password reset successfully.',
+      name: 'reset_password_success_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get confirm {
+    return Intl.message('Confirm', name: 'confirm', desc: '', args: []);
+  }
+
+  /// `Please check your email for a link to reset your password. The link is valid for a limited time.`
+  String get check_email_for_reset_link_message {
+    return Intl.message(
+      'Please check your email for a link to reset your password. The link is valid for a limited time.',
+      name: 'check_email_for_reset_link_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password reset successfully.`
+  String get password_reset_success {
+    return Intl.message(
+      'Password reset successfully.',
+      name: 'password_reset_success',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

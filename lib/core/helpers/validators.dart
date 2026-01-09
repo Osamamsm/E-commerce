@@ -1,12 +1,16 @@
 class Validators {
-
   static String? emailValidator(String? value) {
+    final RegExp emailRegex = RegExp(
+      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+    );
     if (value == null || value.isEmpty) {
       return 'Email is required';
     }
-    if (!value.contains('@')) {
-      return 'Email must contain @';
+
+    if (!emailRegex.hasMatch(value)) {
+      return 'Email is invalid';
     }
+
     return null;
   }
 
@@ -27,7 +31,7 @@ class Validators {
     return null;
   }
 
-  static String? confirmPasswordValidator(String? value , String password) {
+  static String? confirmPasswordValidator(String? value, String password) {
     if (value == null || value.isEmpty) {
       return 'Confirm Password is required';
     }

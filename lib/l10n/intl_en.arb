@@ -36,5 +36,17 @@
     "add_review":"Add Your Review",
     "review_hint_text":"Share your thoughts about this product...",
     "submit_review":"Submit Review",
-    "see_all_reviews":"See All Reviews"
+    "see_all_reviews":"See All Reviews",
+    "error":"Error",
+    "ok":"Ok",
+    "sign_up_success_message":"If an account with this email exists, you will receive a verification email.",
+    "new_password":"New Password",
+    "enter_new_password":"Enter New Password",
+    "enter_new_password_hint":"Enter your new password",
+    "confirm_new_password":"Confirm New Password",
+    "confirm_new_password_hint":"Confirm your new password",
+    "reset_password_success_message":"Password reset successfully.",
+    "confirm":"Confirm",
+    "check_email_for_reset_link_message": "Please check your email for a link to reset your password. The link is valid for a limited time.",
+    "password_reset_success":"Password reset successfully."
 }
