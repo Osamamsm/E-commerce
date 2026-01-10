@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/widgets/custom_scaffold.dart';
 import 'package:e_commerce/features/cart/presentation/views/cart_view.dart';
+import 'package:e_commerce/features/home/presentation/widgets/custom_drawer.dart';
 import 'package:e_commerce/features/home/presentation/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -11,17 +12,20 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
-      title: 'Store',
-      actionWidgets: [
-        IconButton(
-          onPressed: () {
-            context.push(CartView.routeName);
-          },
-          icon: const Icon(Icons.shopping_cart_outlined),
-        ),
-      ],
-      child: const HomeViewBody(),
+    return SafeArea(
+      child: CustomScaffold(
+        title: 'Store',
+        drawer: const CustomDrawer(),
+        actionWidgets: [
+          IconButton(
+            onPressed: () {
+              context.push(CartView.routeName);
+            },
+            icon: const Icon(Icons.shopping_cart_outlined),
+          ),
+        ],
+        child: const HomeViewBody(),
+      ),
     );
   }
 }
