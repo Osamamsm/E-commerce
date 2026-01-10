@@ -8,12 +8,14 @@ class CustomScaffold extends StatelessWidget {
     required this.child,
     this.actionWidgets,
     this.customBottomNavigationBar,
+    this.drawer,
   });
 
   final String? title;
   final Widget child;
   final List<Widget>? actionWidgets;
   final Widget? customBottomNavigationBar;
+  final Widget? drawer;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +37,7 @@ class CustomScaffold extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: customBottomNavigationBar,
+      drawer: drawer,
     );
   }
 }

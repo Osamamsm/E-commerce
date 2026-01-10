@@ -80,16 +80,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "new_password": MessageLookupByLibrary.simpleMessage("كلمه المرور الجديدة"),
     "no_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "ok": MessageLookupByLibrary.simpleMessage("حسنا"),
+    "order_history": MessageLookupByLibrary.simpleMessage("تاريخ الطلبات"),
     "password": MessageLookupByLibrary.simpleMessage("كلمه المرور"),
     "password_hint": MessageLookupByLibrary.simpleMessage("أدخل كلمه المرور"),
     "password_reset_success": MessageLookupByLibrary.simpleMessage(
       "تم تعيين كلمه المرور بنجاح.",
     ),
+    "payment_methods": MessageLookupByLibrary.simpleMessage("طرق الدفع"),
     "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
       "الانتقال للدفع",
     ),
     "product_description": MessageLookupByLibrary.simpleMessage("وصف المنتج"),
     "product_reviews": MessageLookupByLibrary.simpleMessage("اراء العملاء"),
+    "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
     "register": MessageLookupByLibrary.simpleMessage("سجل الآن"),
     "reset_password": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمه المرور",
@@ -101,10 +104,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "review_hint_text": MessageLookupByLibrary.simpleMessage(
       "شارك ارائك حول هذا المنتج",
     ),
+    "saved_addresses": MessageLookupByLibrary.simpleMessage(
+      "العناوين المحفوظة",
+    ),
     "search_hint": MessageLookupByLibrary.simpleMessage("بحث عن المنتجات..."),
     "see_all_reviews": MessageLookupByLibrary.simpleMessage("شاهد جميع الاراء"),
+    "settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
     "shipping": MessageLookupByLibrary.simpleMessage("الشحن"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage("تسوق حسب الفئة"),
+    "sign_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "sign_up_success_message": MessageLookupByLibrary.simpleMessage(
       "إذا كان هناك حساب بهذا البريد الإلكتروني، فسوف تتلقى رسالة بريد إلكتروني.",
     ),
@@ -113,5 +121,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "subtotal": MessageLookupByLibrary.simpleMessage("الإجمالي"),
     "tax": MessageLookupByLibrary.simpleMessage("الضريبة"),
     "total": MessageLookupByLibrary.simpleMessage("الإجمالي"),
+    "wishlist": MessageLookupByLibrary.simpleMessage("المفضلة"),
   };
 }

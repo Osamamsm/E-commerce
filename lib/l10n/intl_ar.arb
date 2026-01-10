@@ -48,5 +48,12 @@
     "confirm_new_password_hint":"تأكيد كلمه المرور الجديدة",
     "confirm":"تأكيد",
     "check_email_for_reset_link_message": "يرجى مراجعة بريدك الإلكتروني للحصول على رابط لإعادة تعيين كلمة المرور. الرابط صالح لفترة محدودة.",
-    "password_reset_success":"تم تعيين كلمه المرور بنجاح."
+    "password_reset_success":"تم تعيين كلمه المرور بنجاح.",
+    "profile":"الملف الشخصي",
+    "settings":"الاعدادات",
+    "order_history":"تاريخ الطلبات",
+    "sign_out":"تسجيل الخروج",
+    "saved_addresses":"العناوين المحفوظة",
+    "wishlist":"المفضلة",
+    "payment_methods":"طرق الدفع"
 }

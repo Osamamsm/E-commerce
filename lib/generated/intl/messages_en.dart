@@ -80,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Don\'t have an account? ",
     ),
     "ok": MessageLookupByLibrary.simpleMessage("Ok"),
+    "order_history": MessageLookupByLibrary.simpleMessage("Order History"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "password_hint": MessageLookupByLibrary.simpleMessage(
       "Enter your password",
@@ -87,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "password_reset_success": MessageLookupByLibrary.simpleMessage(
       "Password reset successfully.",
     ),
+    "payment_methods": MessageLookupByLibrary.simpleMessage("Payment Methods"),
     "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
       "Proceed To Checkout",
     ),
@@ -94,6 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Product Description",
     ),
     "product_reviews": MessageLookupByLibrary.simpleMessage("Customer Reviews"),
+    "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "reset_password": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "reset_password_success_message": MessageLookupByLibrary.simpleMessage(
@@ -103,14 +106,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "review_hint_text": MessageLookupByLibrary.simpleMessage(
       "Share your thoughts about this product...",
     ),
+    "saved_addresses": MessageLookupByLibrary.simpleMessage("Saved Addresses"),
     "search_hint": MessageLookupByLibrary.simpleMessage(
       "Search for products...",
     ),
     "see_all_reviews": MessageLookupByLibrary.simpleMessage("See All Reviews"),
+    "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "shipping": MessageLookupByLibrary.simpleMessage("Shipping"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage(
       "Shop By Category",
     ),
+    "sign_out": MessageLookupByLibrary.simpleMessage("Sign Out"),
     "sign_up_success_message": MessageLookupByLibrary.simpleMessage(
       "If an account with this email exists, you will receive a verification email.",
     ),
@@ -119,5 +125,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
     "tax": MessageLookupByLibrary.simpleMessage("Tax"),
     "total": MessageLookupByLibrary.simpleMessage("Total"),
+    "wishlist": MessageLookupByLibrary.simpleMessage("Wishlist"),
   };
 }
