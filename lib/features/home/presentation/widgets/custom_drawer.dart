@@ -26,7 +26,7 @@ class CustomDrawer extends StatelessWidget {
                   backgroundColor: Colors.white,
                   child: Icon(Icons.person, size: 50, color: Colors.grey),
                 ),
-                vGap(10), 
+                vGap(10),
                 const Text(
                   'OSAMA',
                   style: TextStyle(
@@ -62,15 +62,10 @@ class CustomDrawer extends StatelessWidget {
             child: Column(
               children: Constants.getMenuItems(context)
                   .map(
-                    (e) => Column(
-                      children: [
-                        CustomMenuItem(
-                          icon: e.icon,
-                          label: e.label,
-                          onTap: e.onTap,
-                        ),
-                        vGap(8),
-                      ],
+                    (e) => CustomMenuItem(
+                      icon: e.icon,
+                      label: e.label,
+                      onTap: e.onTap,
                     ),
                   )
                   .toList(),

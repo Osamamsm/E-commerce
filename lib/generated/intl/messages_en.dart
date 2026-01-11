@@ -25,12 +25,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "add_new_address": MessageLookupByLibrary.simpleMessage("Add New Address"),
     "add_review": MessageLookupByLibrary.simpleMessage("Add Your Review"),
     "add_to_cart": MessageLookupByLibrary.simpleMessage("Add To Cart"),
+    "address_details": MessageLookupByLibrary.simpleMessage("Address Details"),
+    "apt_suite_etc": MessageLookupByLibrary.simpleMessage(
+      "Apt. Suite, etc. (Optional)",
+    ),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
     "check_email_for_reset_link_message": MessageLookupByLibrary.simpleMessage(
       "Please check your email for a link to reset your password. The link is valid for a limited time.",
     ),
+    "city": MessageLookupByLibrary.simpleMessage("City"),
     "color": MessageLookupByLibrary.simpleMessage("Color"),
     "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
     "confirm_new_password": MessageLookupByLibrary.simpleMessage(
@@ -45,8 +51,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirm_password_hint": MessageLookupByLibrary.simpleMessage(
       "Confirm your password",
     ),
+    "contact_info": MessageLookupByLibrary.simpleMessage("Contact Info"),
     "create_account": MessageLookupByLibrary.simpleMessage("Create Account"),
+    "default_address": MessageLookupByLibrary.simpleMessage("Default"),
+    "delete": MessageLookupByLibrary.simpleMessage("Delete"),
     "discount": MessageLookupByLibrary.simpleMessage("Discount"),
+    "edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "email_hint": MessageLookupByLibrary.simpleMessage("Enter your email"),
     "enter_new_password": MessageLookupByLibrary.simpleMessage(
@@ -67,6 +77,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "full_name_hint": MessageLookupByLibrary.simpleMessage(
       "Enter your full name",
     ),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
+    "label_as": MessageLookupByLibrary.simpleMessage("LABEL AS"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "login_welcome_message": MessageLookupByLibrary.simpleMessage(
       "Welcome back!",
@@ -74,6 +86,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "login_welcome_subtitle": MessageLookupByLibrary.simpleMessage(
       "Login to continue your journey",
     ),
+    "my_addresses": MessageLookupByLibrary.simpleMessage("My Addresses"),
     "my_cart": MessageLookupByLibrary.simpleMessage("My Cart"),
     "new_password": MessageLookupByLibrary.simpleMessage("New Password"),
     "no_account": MessageLookupByLibrary.simpleMessage(
@@ -81,6 +94,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "order_history": MessageLookupByLibrary.simpleMessage("Order History"),
+    "other": MessageLookupByLibrary.simpleMessage("Other"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "password_hint": MessageLookupByLibrary.simpleMessage(
       "Enter your password",
@@ -89,6 +103,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Password reset successfully.",
     ),
     "payment_methods": MessageLookupByLibrary.simpleMessage("Payment Methods"),
+    "phone_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
     "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
       "Proceed To Checkout",
     ),
@@ -106,11 +121,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "review_hint_text": MessageLookupByLibrary.simpleMessage(
       "Share your thoughts about this product...",
     ),
+    "save_address": MessageLookupByLibrary.simpleMessage("Save Address"),
     "saved_addresses": MessageLookupByLibrary.simpleMessage("Saved Addresses"),
     "search_hint": MessageLookupByLibrary.simpleMessage(
       "Search for products...",
     ),
     "see_all_reviews": MessageLookupByLibrary.simpleMessage("See All Reviews"),
+    "set_as_default": MessageLookupByLibrary.simpleMessage("Set as Default"),
+    "set_as_default_address": MessageLookupByLibrary.simpleMessage(
+      "Set as default address",
+    ),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "shipping": MessageLookupByLibrary.simpleMessage("Shipping"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage(
@@ -121,10 +141,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "If an account with this email exists, you will receive a verification email.",
     ),
     "size": MessageLookupByLibrary.simpleMessage("Size"),
+    "street_address": MessageLookupByLibrary.simpleMessage("Street Address"),
     "submit_review": MessageLookupByLibrary.simpleMessage("Submit Review"),
     "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
     "tax": MessageLookupByLibrary.simpleMessage("Tax"),
     "total": MessageLookupByLibrary.simpleMessage("Total"),
+    "use_this_address_for_checkout": MessageLookupByLibrary.simpleMessage(
+      "Use this address for checkout",
+    ),
     "wishlist": MessageLookupByLibrary.simpleMessage("Wishlist"),
+    "work": MessageLookupByLibrary.simpleMessage("Work"),
   };
 }
