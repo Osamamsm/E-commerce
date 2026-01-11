@@ -55,5 +55,6 @@
     "sign_out":"Sign Out",
     "saved_addresses":"Saved Addresses",
     "wishlist":"Wishlist",
-    "payment_methods":"Payment Methods"    
+    "payment_methods":"Payment Methods",
+    "my_addresses":"My Addresses"    
 }

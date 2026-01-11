@@ -74,6 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "login_welcome_subtitle": MessageLookupByLibrary.simpleMessage(
       "Login to continue your journey",
     ),
+    "my_addresses": MessageLookupByLibrary.simpleMessage("My Addresses"),
     "my_cart": MessageLookupByLibrary.simpleMessage("My Cart"),
     "new_password": MessageLookupByLibrary.simpleMessage("New Password"),
     "no_account": MessageLookupByLibrary.simpleMessage(

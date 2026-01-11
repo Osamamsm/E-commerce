@@ -1,8 +1,10 @@
 import 'package:e_commerce/core/models/menu_item.dart';
+import 'package:e_commerce/features/addresses/presentation/views/saved_addresses_view.dart';
 import 'package:e_commerce/features/auth/presentation/logic/sign_out_cubit/sign_out_cubit.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class Constants {
   static const EdgeInsets kHorizontalPaddingMedium = EdgeInsets.symmetric(
@@ -17,7 +19,13 @@ class Constants {
         label: s.wishlist,
         onTap: () {},
       ),
-      MenuItem(icon: Icons.map, label: s.saved_addresses, onTap: () {}),
+      MenuItem(
+        icon: Icons.map,
+        label: s.saved_addresses,
+        onTap: () {
+          GoRouter.of(context).push(SavedAddressesView.routeName);
+        },
+      ),
       MenuItem(
         icon: Icons.payment_outlined,
         label: s.payment_methods,

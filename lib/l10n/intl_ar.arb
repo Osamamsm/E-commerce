@@ -43,5 +43,6 @@
     "sign_out":"تسجيل الخروج",
     "saved_addresses":"العناوين المحفوظة",
     "wishlist":"المفضلة",
-    "payment_methods":"طرق الدفع"
+    "payment_methods":"طرق الدفع",
+    "my_addresses":"عناويني"
 }
