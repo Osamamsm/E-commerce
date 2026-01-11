@@ -46,7 +46,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Confirm your password",
     ),
     "create_account": MessageLookupByLibrary.simpleMessage("Create Account"),
+    "default_address": MessageLookupByLibrary.simpleMessage("Default"),
+    "delete": MessageLookupByLibrary.simpleMessage("Delete"),
     "discount": MessageLookupByLibrary.simpleMessage("Discount"),
+    "edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "email_hint": MessageLookupByLibrary.simpleMessage("Enter your email"),
     "enter_new_password": MessageLookupByLibrary.simpleMessage(
@@ -112,6 +115,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Search for products...",
     ),
     "see_all_reviews": MessageLookupByLibrary.simpleMessage("See All Reviews"),
+    "set_as_default": MessageLookupByLibrary.simpleMessage("Set as Default"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "shipping": MessageLookupByLibrary.simpleMessage("Shipping"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage(

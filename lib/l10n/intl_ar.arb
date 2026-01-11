@@ -44,5 +44,9 @@
     "saved_addresses":"العناوين المحفوظة",
     "wishlist":"المفضلة",
     "payment_methods":"طرق الدفع",
-    "my_addresses":"عناويني"
+    "my_addresses":"عناويني",
+    "default_address":"الافتراضي",
+    "set_as_default":"تعيين كافتراضي",
+    "edit":"تعديل",
+    "delete":"حذف"
 }

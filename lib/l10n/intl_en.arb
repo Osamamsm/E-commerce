@@ -56,5 +56,9 @@
     "saved_addresses":"Saved Addresses",
     "wishlist":"Wishlist",
     "payment_methods":"Payment Methods",
-    "my_addresses":"My Addresses"    
+    "my_addresses":"My Addresses",
+    "default_address":"Default",
+    "set_as_default":"Set as Default",
+    "edit":"Edit",
+    "delete":"Delete" 
 }

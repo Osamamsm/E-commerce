@@ -36,7 +36,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "أدخل تأكيد كلمه المرور",
     ),
     "create_account": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "default_address": MessageLookupByLibrary.simpleMessage("الافتراضي"),
+    "delete": MessageLookupByLibrary.simpleMessage("حذف"),
     "discount": MessageLookupByLibrary.simpleMessage("الخصم"),
+    "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "email_hint": MessageLookupByLibrary.simpleMessage(
       "أدخل البريد الالكتروني",
@@ -85,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "search_hint": MessageLookupByLibrary.simpleMessage("بحث عن المنتجات..."),
     "see_all_reviews": MessageLookupByLibrary.simpleMessage("شاهد جميع الاراء"),
+    "set_as_default": MessageLookupByLibrary.simpleMessage("تعيين كافتراضي"),
     "settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
     "shipping": MessageLookupByLibrary.simpleMessage("الشحن"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage("تسوق حسب الفئة"),

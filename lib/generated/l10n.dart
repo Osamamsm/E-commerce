@@ -526,6 +526,31 @@ class S {
       args: [],
     );
   }
+
+  /// `Default`
+  String get default_address {
+    return Intl.message('Default', name: 'default_address', desc: '', args: []);
+  }
+
+  /// `Set as Default`
+  String get set_as_default {
+    return Intl.message(
+      'Set as Default',
+      name: 'set_as_default',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get edit {
+    return Intl.message('Edit', name: 'edit', desc: '', args: []);
+  }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message('Delete', name: 'delete', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
