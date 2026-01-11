@@ -9,6 +9,7 @@ class CustomScaffold extends StatelessWidget {
     this.actionWidgets,
     this.customBottomNavigationBar,
     this.drawer,
+    this.floatingActionButton,
   });
 
   final String? title;
@@ -16,6 +17,7 @@ class CustomScaffold extends StatelessWidget {
   final List<Widget>? actionWidgets;
   final Widget? customBottomNavigationBar;
   final Widget? drawer;
+  final Widget? floatingActionButton;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +40,7 @@ class CustomScaffold extends StatelessWidget {
       ),
       bottomNavigationBar: customBottomNavigationBar,
       drawer: drawer,
+      floatingActionButton: floatingActionButton,
     );
   }
 }

@@ -60,5 +60,6 @@
     "default_address":"Default",
     "set_as_default":"Set as Default",
     "edit":"Edit",
-    "delete":"Delete" 
+    "delete":"Delete", 
+    "add_new_address":"Add New Address"
 }

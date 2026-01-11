@@ -551,6 +551,16 @@ class S {
   String get delete {
     return Intl.message('Delete', name: 'delete', desc: '', args: []);
   }
+
+  /// `Add New Address`
+  String get add_new_address {
+    return Intl.message(
+      'Add New Address',
+      name: 'add_new_address',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

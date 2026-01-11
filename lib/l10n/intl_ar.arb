@@ -48,5 +48,6 @@
     "default_address":"الافتراضي",
     "set_as_default":"تعيين كافتراضي",
     "edit":"تعديل",
-    "delete":"حذف"
+    "delete":"حذف",
+    "add_new_address":"أضف عنوان جديد"
 }
