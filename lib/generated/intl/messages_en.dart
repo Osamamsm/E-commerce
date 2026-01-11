@@ -80,14 +80,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Don\'t have an account? ",
     ),
     "ok": MessageLookupByLibrary.simpleMessage("Ok"),
-    "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "order_history": MessageLookupByLibrary.simpleMessage("Order History"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "password_hint": MessageLookupByLibrary.simpleMessage(
       "Enter your password",
-    ),
-    "password_reset_success": MessageLookupByLibrary.simpleMessage(
-      "Password reset successfully.",
     ),
     "password_reset_success": MessageLookupByLibrary.simpleMessage(
       "Password reset successfully.",
@@ -119,9 +115,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "shipping": MessageLookupByLibrary.simpleMessage("Shipping"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage(
       "Shop By Category",
-    ),
-    "sign_up_success_message": MessageLookupByLibrary.simpleMessage(
-      "If an account with this email exists, you will receive a verification email.",
     ),
     "sign_out": MessageLookupByLibrary.simpleMessage("Sign Out"),
     "sign_up_success_message": MessageLookupByLibrary.simpleMessage(

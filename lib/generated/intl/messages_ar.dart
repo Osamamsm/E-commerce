@@ -28,17 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_review": MessageLookupByLibrary.simpleMessage("أضف رأيك"),
     "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى العربة"),
     "cart": MessageLookupByLibrary.simpleMessage("العربة"),
-    "check_email_for_reset_link_message": MessageLookupByLibrary.simpleMessage(
-      "يرجى مراجعة بريدك الإلكتروني للحصول على رابط لإعادة تعيين كلمة المرور. الرابط صالح لفترة محدودة.",
-    ),
     "color": MessageLookupByLibrary.simpleMessage("اللون"),
-    "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
-    "confirm_new_password": MessageLookupByLibrary.simpleMessage(
-      "تأكيد كلمه المرور الجديدة",
-    ),
-    "confirm_new_password_hint": MessageLookupByLibrary.simpleMessage(
-      "تأكيد كلمه المرور الجديدة",
-    ),
     "confirm_password": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمه المرور",
     ),
@@ -51,13 +41,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "email_hint": MessageLookupByLibrary.simpleMessage(
       "أدخل البريد الالكتروني",
     ),
-    "enter_new_password": MessageLookupByLibrary.simpleMessage(
-      "أدخل كلمه المرور الجديدة",
-    ),
-    "enter_new_password_hint": MessageLookupByLibrary.simpleMessage(
-      "أدخل كلمه المرور الجديدة",
-    ),
-    "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "featured_products": MessageLookupByLibrary.simpleMessage(
       "المنتجات المميزة",
     ),
@@ -77,19 +60,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "سجّل الدخول لمتابعة رحلتك",
     ),
     "my_cart": MessageLookupByLibrary.simpleMessage("عربتي"),
-    "new_password": MessageLookupByLibrary.simpleMessage("كلمه المرور الجديدة"),
     "no_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
-    "ok": MessageLookupByLibrary.simpleMessage("حسنا"),
-    "ok": MessageLookupByLibrary.simpleMessage("حسنا"),
     "order_history": MessageLookupByLibrary.simpleMessage("تاريخ الطلبات"),
     "password": MessageLookupByLibrary.simpleMessage("كلمه المرور"),
     "password_hint": MessageLookupByLibrary.simpleMessage("أدخل كلمه المرور"),
-    "password_reset_success": MessageLookupByLibrary.simpleMessage(
-      "تم تعيين كلمه المرور بنجاح.",
-    ),
-    "password_reset_success": MessageLookupByLibrary.simpleMessage(
-      "تم تعيين كلمه المرور بنجاح.",
-    ),
     "payment_methods": MessageLookupByLibrary.simpleMessage("طرق الدفع"),
     "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
       "الانتقال للدفع",
@@ -100,9 +74,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "register": MessageLookupByLibrary.simpleMessage("سجل الآن"),
     "reset_password": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمه المرور",
-    ),
-    "reset_password_success_message": MessageLookupByLibrary.simpleMessage(
-      "تم تعيين كلمه المرور بنجاح.",
     ),
     "review": m0,
     "review_hint_text": MessageLookupByLibrary.simpleMessage(
@@ -116,13 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
     "shipping": MessageLookupByLibrary.simpleMessage("الشحن"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage("تسوق حسب الفئة"),
-    "sign_up_success_message": MessageLookupByLibrary.simpleMessage(
-      "إذا كان هناك حساب بهذا البريد الإلكتروني، فسوف تتلقى رسالة بريد إلكتروني.",
-    ),
     "sign_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
-    "sign_up_success_message": MessageLookupByLibrary.simpleMessage(
-      "إذا كان هناك حساب بهذا البريد الإلكتروني، فسوف تتلقى رسالة بريد إلكتروني.",
-    ),
     "size": MessageLookupByLibrary.simpleMessage("الحجم"),
     "submit_review": MessageLookupByLibrary.simpleMessage("ارسال رأيك"),
     "subtotal": MessageLookupByLibrary.simpleMessage("الإجمالي"),

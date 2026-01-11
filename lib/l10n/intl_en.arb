@@ -48,5 +48,12 @@
     "reset_password_success_message":"Password reset successfully.",
     "confirm":"Confirm",
     "check_email_for_reset_link_message": "Please check your email for a link to reset your password. The link is valid for a limited time.",
-    "password_reset_success":"Password reset successfully."
+    "password_reset_success":"Password reset successfully.",
+    "profile":"Profile",
+    "settings":"Settings",
+    "order_history":"Order History",
+    "sign_out":"Sign Out",
+    "saved_addresses":"Saved Addresses",
+    "wishlist":"Wishlist",
+    "payment_methods":"Payment Methods"    
 }
