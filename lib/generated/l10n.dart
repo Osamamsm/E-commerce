@@ -561,6 +561,111 @@ class S {
       args: [],
     );
   }
+
+  /// `LABEL AS`
+  String get label_as {
+    return Intl.message('LABEL AS', name: 'label_as', desc: '', args: []);
+  }
+
+  /// `Home`
+  String get home {
+    return Intl.message('Home', name: 'home', desc: '', args: []);
+  }
+
+  /// `Work`
+  String get work {
+    return Intl.message('Work', name: 'work', desc: '', args: []);
+  }
+
+  /// `Other`
+  String get other {
+    return Intl.message('Other', name: 'other', desc: '', args: []);
+  }
+
+  /// `Contact Info`
+  String get contact_info {
+    return Intl.message(
+      'Contact Info',
+      name: 'contact_info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Address Details`
+  String get address_details {
+    return Intl.message(
+      'Address Details',
+      name: 'address_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phone_number {
+    return Intl.message(
+      'Phone Number',
+      name: 'phone_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Street Address`
+  String get street_address {
+    return Intl.message(
+      'Street Address',
+      name: 'street_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Apt. Suite, etc. (Optional)`
+  String get apt_suite_etc {
+    return Intl.message(
+      'Apt. Suite, etc. (Optional)',
+      name: 'apt_suite_etc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `City`
+  String get city {
+    return Intl.message('City', name: 'city', desc: '', args: []);
+  }
+
+  /// `Save Address`
+  String get save_address {
+    return Intl.message(
+      'Save Address',
+      name: 'save_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set as default address`
+  String get set_as_default_address {
+    return Intl.message(
+      'Set as default address',
+      name: 'set_as_default_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use this address for checkout`
+  String get use_this_address_for_checkout {
+    return Intl.message(
+      'Use this address for checkout',
+      name: 'use_this_address_for_checkout',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
