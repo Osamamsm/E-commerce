@@ -12,4 +12,8 @@ class SupabaseService {
   SupabaseQueryBuilder from(String table) => _client.from(table);
 
   SupabaseStorageClient get storage => _client.storage;
+
+  User? get currentUser => auth.currentUser;
+
+  Session? get currentSession => auth.currentSession;
 }

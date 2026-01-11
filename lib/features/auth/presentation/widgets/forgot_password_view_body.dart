@@ -1,8 +1,10 @@
 import 'package:e_commerce/core/helpers/constants.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
+import 'package:e_commerce/features/auth/presentation/logic/forgot_password_cubit/forgot_password_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/email_text_field.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ForgotPasswordViewBody extends StatefulWidget {
   const ForgotPasswordViewBody({super.key});
@@ -39,6 +41,7 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
+                  context.read<ForgotPasswordCubit>().requestPasswordReset(email);
                 }
               },
               child: Text(S.of(context).reset_password),

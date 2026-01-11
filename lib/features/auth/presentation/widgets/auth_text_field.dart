@@ -33,6 +33,7 @@ class LabeledAuthTextField extends StatelessWidget {
         Text(label, style: Theme.of(context).textTheme.bodyLarge),
         vGap(5),
         TextFormField(
+          textInputAction: TextInputAction.next,
           controller: controller,
           keyboardType: keyboardType,
           onSaved: onSaved,

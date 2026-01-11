@@ -3,9 +3,7 @@ import 'package:e_commerce/features/home/presentation/widgets/category_widget.da
 import 'package:flutter/material.dart';
 
 class CategoriesListView extends StatelessWidget {
-  const CategoriesListView({
-    super.key,
-  });
+  const CategoriesListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +20,7 @@ class CategoriesListView extends StatelessWidget {
           return CategoryWidget(
             name: 'Men',
             image:
-                'https://i.pinimg.com/474x/9c/dc/3f/9cdc3f2657f9948361fa31381f638f09.jpg',
+                'https://m.media-amazon.com/images/I/61QIwXhA0fL._AC_SY741_.jpg',
           );
         },
         separatorBuilder: (context, index) {
