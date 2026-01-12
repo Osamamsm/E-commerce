@@ -54,7 +54,7 @@ class AddressCard extends StatelessWidget {
                 street: address.street,
               ),
               vGap(16),
-              AddressCardActions(isDefault: address.isDefault),
+              AddressCardActions(address: address),
             ],
           ),
         ),
