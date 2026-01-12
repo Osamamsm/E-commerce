@@ -1,6 +1,8 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
+import 'package:e_commerce/features/addresses/presentation/views/edit_address_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AddressCardActions extends StatelessWidget {
   const AddressCardActions({super.key, required this.isDefault});
@@ -25,7 +27,9 @@ class AddressCardActions extends StatelessWidget {
           hGap(16),
         ],
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            GoRouter.of(context).push(EditAddressView.routeName);
+          },
           style: TextButton.styleFrom(
             foregroundColor: const Color(0xFFd8b4fe),
             padding: EdgeInsets.zero,

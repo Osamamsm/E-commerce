@@ -45,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "delete": MessageLookupByLibrary.simpleMessage("حذف"),
     "discount": MessageLookupByLibrary.simpleMessage("الخصم"),
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
+    "edit_address": MessageLookupByLibrary.simpleMessage("تعديل العنوان"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "email_hint": MessageLookupByLibrary.simpleMessage(
       "أدخل البريد الالكتروني",

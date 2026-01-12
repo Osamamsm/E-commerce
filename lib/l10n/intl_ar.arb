@@ -62,5 +62,6 @@
     "city":"المدينة",
     "save_address":"حفظ العنوان",
     "set_as_default_address":"تعيين كافتراضي",
-    "use_this_address_for_checkout":"استخدم هذا العنوان للدفع"
+    "use_this_address_for_checkout":"استخدم هذا العنوان للدفع",
+    "edit_address":"تعديل العنوان"
 }

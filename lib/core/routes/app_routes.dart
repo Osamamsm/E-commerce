@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:e_commerce/core/despondency_injection/di.dart';
 import 'package:e_commerce/features/addresses/presentation/views/add_address_view.dart';
+import 'package:e_commerce/features/addresses/presentation/views/edit_address_view.dart';
 import 'package:e_commerce/features/addresses/presentation/views/saved_addresses_view.dart';
 import 'package:e_commerce/features/auth/presentation/logic/auth_cubit/auth_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/logic/auth_cubit/auth_state.dart';
@@ -126,6 +127,10 @@ GoRouter createRouter(AuthCubit authCubit) {
       GoRoute(
         path: AddAddressView.routeName,
         builder: (context, state) => const AddAddressView(),
+      ),
+      GoRoute(
+        path: EditAddressView.routeName,
+        builder: (context, state) => const EditAddressView(),
       ),
     ],
   );
