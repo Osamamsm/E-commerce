@@ -3,14 +3,16 @@ import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class SaveAddressButton extends StatelessWidget {
-  const SaveAddressButton({super.key});
+  const SaveAddressButton({super.key, required this.onPressed});
+
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

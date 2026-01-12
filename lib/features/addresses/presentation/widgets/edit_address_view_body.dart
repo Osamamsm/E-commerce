@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
+import 'package:e_commerce/core/helpers/testing_lists.dart';
 import 'package:e_commerce/core/helpers/validators.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/address_type_selector.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/default_address_toggle.dart';
@@ -8,19 +9,33 @@ import 'package:e_commerce/features/addresses/presentation/widgets/save_address_
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-class AddAddressViewBody extends StatefulWidget {
-  const AddAddressViewBody({super.key});
+class EditAddressViewBody extends StatefulWidget {
+  const EditAddressViewBody({super.key, required this.address});
 
+  final Address address;
   @override
-  State<AddAddressViewBody> createState() => _AddAddressViewBodyState();
+  State<EditAddressViewBody> createState() => _EditAddressViewBodyState();
 }
 
-class _AddAddressViewBodyState extends State<AddAddressViewBody> {
+class _EditAddressViewBodyState extends State<EditAddressViewBody> {
   final _formKey = GlobalKey<FormState>();
-  String selectedAddressType = 'home';
-  bool isDefaultAddress = false;
+
   String? selectedState;
   late String fullName, phoneNumber, streetAddress, aptSuiteEtc, city;
+  late bool isDefault;
+  late String selectedType;
+  @override
+  void initState() {
+    super.initState();
+    isDefault = widget.address.isDefault;
+    selectedType = widget.address.type;
+    fullName = widget.address.owner;
+    phoneNumber = widget.address.phone;
+    streetAddress = widget.address.street;
+    aptSuiteEtc = widget.address.apartment;
+    city = widget.address.city;
+  }
+
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
@@ -35,9 +50,11 @@ class _AddAddressViewBodyState extends State<AddAddressViewBody> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AddressTypeSelector(
-                    selectedType: selectedAddressType,
+                    selectedType: selectedType,
                     onTypeSelected: (type) {
-                      setState(() => selectedAddressType = type);
+                      setState(() {
+                        selectedType = type;
+                      });
                     },
                   ),
                   vGap(24),
@@ -45,6 +62,7 @@ class _AddAddressViewBodyState extends State<AddAddressViewBody> {
                     title: s.contact_info,
                     children: [
                       GlassTextField(
+                        initialValue: widget.address.owner,
                         hintText: s.full_name,
                         validator: Validators.fullNameValidator,
                         onSaved: (value) {
@@ -53,6 +71,7 @@ class _AddAddressViewBodyState extends State<AddAddressViewBody> {
                       ),
                       vGap(12),
                       GlassTextField(
+                        initialValue: widget.address.phone,
                         hintText: s.phone_number,
                         suffixIcon: Icons.phone,
                         validator: Validators.phoneNumberValidator,
@@ -67,6 +86,7 @@ class _AddAddressViewBodyState extends State<AddAddressViewBody> {
                     title: s.address_details,
                     children: [
                       GlassTextField(
+                        initialValue: widget.address.street,
                         hintText: s.street_address,
                         suffixIcon: Icons.location_on,
                         validator: Validators.addressFieldValidator,
@@ -76,14 +96,16 @@ class _AddAddressViewBodyState extends State<AddAddressViewBody> {
                       ),
                       vGap(12),
                       GlassTextField(
+                        initialValue: widget.address.apartment,
                         hintText: s.apt_suite_etc,
                         validator: Validators.addressFieldValidator,
                         onSaved: (value) {
-                          aptSuiteEtc = value!;  
+                          aptSuiteEtc = value!;
                         },
                       ),
                       vGap(12),
                       GlassTextField(
+                        initialValue: widget.address.city,
                         hintText: s.city,
                         validator: Validators.addressFieldValidator,
                         onSaved: (value) {
@@ -95,9 +117,11 @@ class _AddAddressViewBodyState extends State<AddAddressViewBody> {
                   ),
                   vGap(24),
                   DefaultAddressToggle(
-                    value: isDefaultAddress,
+                    value: isDefault,
                     onChanged: (value) {
-                      setState(() => isDefaultAddress = value);
+                      setState(() {
+                        isDefault = value;
+                      });
                     },
                   ),
                   vGap(24),
