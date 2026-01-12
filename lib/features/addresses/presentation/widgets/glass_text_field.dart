@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 
 class GlassTextField extends StatelessWidget {
-  const GlassTextField({super.key, required this.hintText, this.suffixIcon});
+  const GlassTextField({super.key, required this.hintText, this.suffixIcon, this.validator, this.onSaved});
 
   final String hintText;
   final IconData? suffixIcon;
+  final String? Function(String?)? validator;
+  final void Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: validator,
+      onSaved: onSaved,
       style: const TextStyle(color: Colors.white),
       decoration: InputDecoration(
         hintText: hintText,

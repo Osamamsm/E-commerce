@@ -40,4 +40,21 @@ class Validators {
     }
     return null;
   }
+
+  static String? phoneNumberValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Phone Number is required';
+    }
+    if (value.length < 11) {
+      return 'Phone Number must be at least 11 characters long';
+    } 
+    return null;
+  }
+
+  static String? addressFieldValidator(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'This Field is required';
+    }
+    return null;
+  }
 }
