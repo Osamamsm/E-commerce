@@ -1,6 +1,6 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/widgets/default_flag_widget.dart';
-import 'package:e_commerce/core/widgets/mini_menu_button.dart';
+import 'package:e_commerce/core/widgets/custom_popup_menu_button.dart';
 import 'package:flutter/material.dart';
 
 class AddressCardHeader extends StatelessWidget {
@@ -32,7 +32,7 @@ class AddressCardHeader extends StatelessWidget {
         hGap(8),
         if (isDefault) DefaultFlagWidget(),
         const Spacer(),
-        MiniMenuButton(),
+        CustomPopupMenuButton(onEdit: (value) {}, onDelete: (value) {}),
       ],
     );
   }

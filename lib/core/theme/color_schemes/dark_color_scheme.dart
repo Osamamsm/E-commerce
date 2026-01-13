@@ -9,7 +9,7 @@ const ColorScheme darkColorScheme = ColorScheme(
   surface: Colors.black,
   onSurface: Colors.white,
   primaryContainer: Color.fromARGB(255, 24, 24, 36),
-  onPrimaryContainer: Color(0xFF12121b),
+  onPrimaryContainer: Colors.white,
   error: Color(0xFFF2B8B5),
   onError: Colors.white,
   outline: Color.fromARGB(255, 44, 44, 45),
