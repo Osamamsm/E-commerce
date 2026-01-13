@@ -1,6 +1,7 @@
 import 'package:e_commerce/core/models/menu_item.dart';
 import 'package:e_commerce/features/addresses/presentation/views/saved_addresses_view.dart';
 import 'package:e_commerce/features/auth/presentation/logic/sign_out_cubit/sign_out_cubit.dart';
+import 'package:e_commerce/features/payment/presentation/views/payment_methods_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,7 +30,9 @@ class Constants {
       MenuItem(
         icon: Icons.payment_outlined,
         label: s.payment_methods,
-        onTap: () {},
+        onTap: () {
+          GoRouter.of(context).push(PaymentMethodsView.routeName);
+        },
       ),
       MenuItem(icon: Icons.receipt_long, label: s.order_history, onTap: () {}),
       MenuItem(

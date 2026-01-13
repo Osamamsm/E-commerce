@@ -1,7 +1,7 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/validators.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/address_type_selector.dart';
-import 'package:e_commerce/features/addresses/presentation/widgets/default_address_toggle.dart';
+import 'package:e_commerce/core/widgets/default_toggle.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/form_section.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/glass_text_field.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/save_address_button.dart';
@@ -79,7 +79,7 @@ class _AddAddressViewBodyState extends State<AddAddressViewBody> {
                         hintText: s.apt_suite_etc,
                         validator: Validators.addressFieldValidator,
                         onSaved: (value) {
-                          aptSuiteEtc = value!;  
+                          aptSuiteEtc = value!;
                         },
                       ),
                       vGap(12),
@@ -94,11 +94,13 @@ class _AddAddressViewBodyState extends State<AddAddressViewBody> {
                     ],
                   ),
                   vGap(24),
-                  DefaultAddressToggle(
+                  DefaultToggle(
                     value: isDefaultAddress,
                     onChanged: (value) {
                       setState(() => isDefaultAddress = value);
                     },
+                    label: s.set_as_default_address,
+                    subtitle: s.use_this_address_for_checkout,
                   ),
                   vGap(24),
                   SaveAddressButton(

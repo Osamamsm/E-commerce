@@ -1,16 +1,19 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
-import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-class DefaultAddressToggle extends StatelessWidget {
-  const DefaultAddressToggle({
+class DefaultToggle extends StatelessWidget {
+  const DefaultToggle({
     super.key,
     required this.value,
     required this.onChanged,
+    required this.label,
+    required this.subtitle,
   });
 
   final bool value;
   final ValueChanged<bool> onChanged;
+  final String label;
+  final String subtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +34,7 @@ class DefaultAddressToggle extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                S.of(context).set_as_default_address,
+                label,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -40,7 +43,7 @@ class DefaultAddressToggle extends StatelessWidget {
               ),
               vGap(4),
               Text(
-                S.of(context).use_this_address_for_checkout,
+                subtitle,
                 style: TextStyle(
                   color: Colors.white.withValues(alpha: 0.6),
                   fontSize: 12,
