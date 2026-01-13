@@ -12,7 +12,7 @@ class AddPaymentMethodView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScaffold(
       title: S.of(context).add_payment_method,
-      child: const AddPaymentMethodViewBody(),
+      child:  AddPaymentMethodViewBody(),
     );
   }
 }

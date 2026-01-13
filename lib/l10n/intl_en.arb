@@ -78,5 +78,13 @@
     "edit_address":"Edit Address",
     "card_holder":"Card Holder",
     "expires":"Expires",
-    "add_payment_method":"Add Payment Method"
+    "add_payment_method":"Add Payment Method",
+    "save_card":"Save Card",
+    "card_number":"Card Number",
+    "card_holder_name":"Card Holder Name",
+    "expiry_date":"Expiry Date",
+    "cvv_cvc":"CVV / CVC",
+    "set_as_default_payment_method":"Set as default payment method",
+    "use_this_payment_method_for_checkout":"Use this payment method for checkout",
+    "your_payment_info_is_stored_securely":"Your payment info is stored securely"
 }

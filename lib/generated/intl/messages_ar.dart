@@ -32,6 +32,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "address_details": MessageLookupByLibrary.simpleMessage("تفاصيل العنوان"),
     "apt_suite_etc": MessageLookupByLibrary.simpleMessage("المنزل/الشقة/الخ"),
     "card_holder": MessageLookupByLibrary.simpleMessage("حامل البطاقة"),
+    "card_holder_name": MessageLookupByLibrary.simpleMessage(
+      "اسم حامل البطاقة",
+    ),
+    "card_number": MessageLookupByLibrary.simpleMessage("رقم البطاقة"),
     "cart": MessageLookupByLibrary.simpleMessage("العربة"),
     "city": MessageLookupByLibrary.simpleMessage("المدينة"),
     "color": MessageLookupByLibrary.simpleMessage("اللون"),
@@ -43,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "contact_info": MessageLookupByLibrary.simpleMessage("معلومات الاتصال"),
     "create_account": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "cvv_cvc": MessageLookupByLibrary.simpleMessage("CVV / CVC"),
     "default_": MessageLookupByLibrary.simpleMessage("الافتراضي"),
     "delete": MessageLookupByLibrary.simpleMessage("حذف"),
     "discount": MessageLookupByLibrary.simpleMessage("الخصم"),
@@ -53,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "أدخل البريد الالكتروني",
     ),
     "expires": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
+    "expiry_date": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
     "featured_products": MessageLookupByLibrary.simpleMessage(
       "المنتجات المميزة",
     ),
@@ -97,6 +103,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "شارك ارائك حول هذا المنتج",
     ),
     "save_address": MessageLookupByLibrary.simpleMessage("حفظ العنوان"),
+    "save_card": MessageLookupByLibrary.simpleMessage("حفظ البطاقة"),
     "saved_addresses": MessageLookupByLibrary.simpleMessage(
       "العناوين المحفوظة",
     ),
@@ -104,6 +111,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "see_all_reviews": MessageLookupByLibrary.simpleMessage("شاهد جميع الاراء"),
     "set_as_default": MessageLookupByLibrary.simpleMessage("تعيين كافتراضي"),
     "set_as_default_address": MessageLookupByLibrary.simpleMessage(
+      "تعيين كافتراضي",
+    ),
+    "set_as_default_payment_method": MessageLookupByLibrary.simpleMessage(
       "تعيين كافتراضي",
     ),
     "settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
@@ -117,9 +127,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "tax": MessageLookupByLibrary.simpleMessage("الضريبة"),
     "total": MessageLookupByLibrary.simpleMessage("الإجمالي"),
     "use_this_address_for_checkout": MessageLookupByLibrary.simpleMessage(
-      "استخدم هذا العنوان للدفع",
+      "استخدم هذا العنوان لإتمام عملية الشراء",
     ),
+    "use_this_payment_method_for_checkout":
+        MessageLookupByLibrary.simpleMessage(
+          "استخدم طريقة الدفع هذه لإتمام عملية الشراء",
+        ),
     "wishlist": MessageLookupByLibrary.simpleMessage("المفضلة"),
     "work": MessageLookupByLibrary.simpleMessage("العمل"),
+    "your_payment_info_is_stored_securely":
+        MessageLookupByLibrary.simpleMessage(
+          "معلومات الدفع الخاصة بك محفوظة بأمان",
+        ),
   };
 }

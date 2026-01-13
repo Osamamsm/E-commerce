@@ -36,6 +36,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Apt. Suite, etc. (Optional)",
     ),
     "card_holder": MessageLookupByLibrary.simpleMessage("Card Holder"),
+    "card_holder_name": MessageLookupByLibrary.simpleMessage(
+      "Card Holder Name",
+    ),
+    "card_number": MessageLookupByLibrary.simpleMessage("Card Number"),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
     "check_email_for_reset_link_message": MessageLookupByLibrary.simpleMessage(
       "Please check your email for a link to reset your password. The link is valid for a limited time.",
@@ -57,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "contact_info": MessageLookupByLibrary.simpleMessage("Contact Info"),
     "create_account": MessageLookupByLibrary.simpleMessage("Create Account"),
+    "cvv_cvc": MessageLookupByLibrary.simpleMessage("CVV / CVC"),
     "default_": MessageLookupByLibrary.simpleMessage("Default"),
     "delete": MessageLookupByLibrary.simpleMessage("Delete"),
     "discount": MessageLookupByLibrary.simpleMessage("Discount"),
@@ -72,6 +77,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "error": MessageLookupByLibrary.simpleMessage("Error"),
     "expires": MessageLookupByLibrary.simpleMessage("Expires"),
+    "expiry_date": MessageLookupByLibrary.simpleMessage("Expiry Date"),
     "featured_products": MessageLookupByLibrary.simpleMessage(
       "Featured Products",
     ),
@@ -128,6 +134,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Share your thoughts about this product...",
     ),
     "save_address": MessageLookupByLibrary.simpleMessage("Save Address"),
+    "save_card": MessageLookupByLibrary.simpleMessage("Save Card"),
     "saved_addresses": MessageLookupByLibrary.simpleMessage("Saved Addresses"),
     "search_hint": MessageLookupByLibrary.simpleMessage(
       "Search for products...",
@@ -136,6 +143,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "set_as_default": MessageLookupByLibrary.simpleMessage("Set as Default"),
     "set_as_default_address": MessageLookupByLibrary.simpleMessage(
       "Set as default address",
+    ),
+    "set_as_default_payment_method": MessageLookupByLibrary.simpleMessage(
+      "Set as default payment method",
     ),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "shipping": MessageLookupByLibrary.simpleMessage("Shipping"),
@@ -155,7 +165,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "use_this_address_for_checkout": MessageLookupByLibrary.simpleMessage(
       "Use this address for checkout",
     ),
+    "use_this_payment_method_for_checkout":
+        MessageLookupByLibrary.simpleMessage(
+          "Use this payment method for checkout",
+        ),
     "wishlist": MessageLookupByLibrary.simpleMessage("Wishlist"),
     "work": MessageLookupByLibrary.simpleMessage("Work"),
+    "your_payment_info_is_stored_securely":
+        MessageLookupByLibrary.simpleMessage(
+          "Your payment info is stored securely",
+        ),
   };
 }

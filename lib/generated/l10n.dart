@@ -696,6 +696,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Save Card`
+  String get save_card {
+    return Intl.message('Save Card', name: 'save_card', desc: '', args: []);
+  }
+
+  /// `Card Number`
+  String get card_number {
+    return Intl.message('Card Number', name: 'card_number', desc: '', args: []);
+  }
+
+  /// `Card Holder Name`
+  String get card_holder_name {
+    return Intl.message(
+      'Card Holder Name',
+      name: 'card_holder_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expiry Date`
+  String get expiry_date {
+    return Intl.message('Expiry Date', name: 'expiry_date', desc: '', args: []);
+  }
+
+  /// `CVV / CVC`
+  String get cvv_cvc {
+    return Intl.message('CVV / CVC', name: 'cvv_cvc', desc: '', args: []);
+  }
+
+  /// `Set as default payment method`
+  String get set_as_default_payment_method {
+    return Intl.message(
+      'Set as default payment method',
+      name: 'set_as_default_payment_method',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use this payment method for checkout`
+  String get use_this_payment_method_for_checkout {
+    return Intl.message(
+      'Use this payment method for checkout',
+      name: 'use_this_payment_method_for_checkout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your payment info is stored securely`
+  String get your_payment_info_is_stored_securely {
+    return Intl.message(
+      'Your payment info is stored securely',
+      name: 'your_payment_info_is_stored_securely',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

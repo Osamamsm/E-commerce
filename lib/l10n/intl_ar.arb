@@ -62,9 +62,17 @@
     "city":"المدينة",
     "save_address":"حفظ العنوان",
     "set_as_default_address":"تعيين كافتراضي",
-    "use_this_address_for_checkout":"استخدم هذا العنوان للدفع",
+    "use_this_address_for_checkout":"استخدم هذا العنوان لإتمام عملية الشراء",
     "edit_address":"تعديل العنوان",
     "card_holder":"حامل البطاقة",
     "expires":"تاريخ الانتهاء",
-    "add_payment_method":"أضف طريقة دفع"
+    "add_payment_method":"أضف طريقة دفع",
+    "save_card":"حفظ البطاقة",
+    "card_number":"رقم البطاقة",
+    "card_holder_name":"اسم حامل البطاقة",
+    "expiry_date":"تاريخ الانتهاء",
+    "cvv_cvc":"CVV / CVC",
+    "set_as_default_payment_method":"تعيين كافتراضي",
+    "use_this_payment_method_for_checkout":"استخدم طريقة الدفع هذه لإتمام عملية الشراء",
+    "your_payment_info_is_stored_securely":"معلومات الدفع الخاصة بك محفوظة بأمان"
 }
