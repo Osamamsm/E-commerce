@@ -45,7 +45,7 @@
     "wishlist":"المفضلة",
     "payment_methods":"طرق الدفع",
     "my_addresses":"عناويني",
-    "default_address":"الافتراضي",
+    "default_":"الافتراضي",
     "set_as_default":"تعيين كافتراضي",
     "edit":"تعديل",
     "delete":"حذف",
@@ -63,5 +63,7 @@
     "save_address":"حفظ العنوان",
     "set_as_default_address":"تعيين كافتراضي",
     "use_this_address_for_checkout":"استخدم هذا العنوان للدفع",
-    "edit_address":"تعديل العنوان"
+    "edit_address":"تعديل العنوان",
+    "card_holder":"حامل البطاقة",
+    "expires":"تاريخ الانتهاء"
 }

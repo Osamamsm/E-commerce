@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى العربة"),
     "address_details": MessageLookupByLibrary.simpleMessage("تفاصيل العنوان"),
     "apt_suite_etc": MessageLookupByLibrary.simpleMessage("المنزل/الشقة/الخ"),
+    "card_holder": MessageLookupByLibrary.simpleMessage("حامل البطاقة"),
     "cart": MessageLookupByLibrary.simpleMessage("العربة"),
     "city": MessageLookupByLibrary.simpleMessage("المدينة"),
     "color": MessageLookupByLibrary.simpleMessage("اللون"),
@@ -41,7 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "contact_info": MessageLookupByLibrary.simpleMessage("معلومات الاتصال"),
     "create_account": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
-    "default_address": MessageLookupByLibrary.simpleMessage("الافتراضي"),
+    "default_": MessageLookupByLibrary.simpleMessage("الافتراضي"),
     "delete": MessageLookupByLibrary.simpleMessage("حذف"),
     "discount": MessageLookupByLibrary.simpleMessage("الخصم"),
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
@@ -50,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "email_hint": MessageLookupByLibrary.simpleMessage(
       "أدخل البريد الالكتروني",
     ),
+    "expires": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
     "featured_products": MessageLookupByLibrary.simpleMessage(
       "المنتجات المميزة",
     ),

@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "apt_suite_etc": MessageLookupByLibrary.simpleMessage(
       "Apt. Suite, etc. (Optional)",
     ),
+    "card_holder": MessageLookupByLibrary.simpleMessage("Card Holder"),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
     "check_email_for_reset_link_message": MessageLookupByLibrary.simpleMessage(
       "Please check your email for a link to reset your password. The link is valid for a limited time.",
@@ -53,7 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "contact_info": MessageLookupByLibrary.simpleMessage("Contact Info"),
     "create_account": MessageLookupByLibrary.simpleMessage("Create Account"),
-    "default_address": MessageLookupByLibrary.simpleMessage("Default"),
+    "default_": MessageLookupByLibrary.simpleMessage("Default"),
     "delete": MessageLookupByLibrary.simpleMessage("Delete"),
     "discount": MessageLookupByLibrary.simpleMessage("Discount"),
     "edit": MessageLookupByLibrary.simpleMessage("Edit"),
@@ -67,6 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Enter your new password",
     ),
     "error": MessageLookupByLibrary.simpleMessage("Error"),
+    "expires": MessageLookupByLibrary.simpleMessage("Expires"),
     "featured_products": MessageLookupByLibrary.simpleMessage(
       "Featured Products",
     ),

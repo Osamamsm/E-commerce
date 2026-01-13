@@ -57,7 +57,7 @@
     "wishlist":"Wishlist",
     "payment_methods":"Payment Methods",
     "my_addresses":"My Addresses",
-    "default_address":"Default",
+    "default_":"Default",
     "set_as_default":"Set as Default",
     "edit":"Edit",
     "delete":"Delete", 
@@ -75,5 +75,7 @@
     "save_address":"Save Address",
     "set_as_default_address":"Set as default address",
     "use_this_address_for_checkout":"Use this address for checkout",
-    "edit_address":"Edit Address"
+    "edit_address":"Edit Address",
+    "card_holder":"Card Holder",
+    "expires":"Expires"
 }

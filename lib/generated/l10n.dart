@@ -528,8 +528,8 @@ class S {
   }
 
   /// `Default`
-  String get default_address {
-    return Intl.message('Default', name: 'default_address', desc: '', args: []);
+  String get default_ {
+    return Intl.message('Default', name: 'default_', desc: '', args: []);
   }
 
   /// `Set as Default`
@@ -675,6 +675,16 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `Card Holder`
+  String get card_holder {
+    return Intl.message('Card Holder', name: 'card_holder', desc: '', args: []);
+  }
+
+  /// `Expires`
+  String get expires {
+    return Intl.message('Expires', name: 'expires', desc: '', args: []);
   }
 }
 

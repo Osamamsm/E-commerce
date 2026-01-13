@@ -1,10 +1,5 @@
-
-
 class TestingLists {
-
-
-
- static List<Address> addresses = [
+  static List<Address> addresses = [
     Address(
       id: '1',
       type: 'home',
@@ -50,8 +45,42 @@ class TestingLists {
       city: 'Tahoe City, CA 96145',
     ),
   ];
-}
 
+  static List<PaymentMethod> paymentMethods = [
+    PaymentMethod(
+      id: '1',
+      type: 'visa',
+      lastFour: '5967',
+      expiryDate: '09/26',
+      cardHolderName: 'Alex Morgan',
+      isDefault: true,
+    ),
+    PaymentMethod(
+      id: '2',
+      type: 'mastercard',
+      lastFour: '3821',
+      expiryDate: '12/24',
+      cardHolderName: 'Alex Morgan',
+      isDefault: false,
+    ),
+    PaymentMethod(
+      id: '3',
+      type: 'visa',
+      lastFour: '1042',
+      expiryDate: '01/25',
+      cardHolderName: 'Alex Morgan',
+      isDefault: false,
+    ),
+    PaymentMethod(
+      id: '4',
+      type: 'mastercard',
+      lastFour: '1042',
+      expiryDate: '01/25',
+      cardHolderName: 'Alex Morgan',
+      isDefault: false,
+    ),
+  ];
+}
 
 class Address {
   final String id;
@@ -74,5 +103,23 @@ class Address {
     required this.street,
     required this.apartment,
     required this.city,
+  });
+}
+
+class PaymentMethod {
+  final String id;
+  final String type; // 'visa', 'mastercard'
+  final String lastFour;
+  final String expiryDate;
+  final String cardHolderName;
+  final bool isDefault;
+
+  PaymentMethod({
+    required this.id,
+    required this.type,
+    required this.lastFour,
+    required this.expiryDate,
+    required this.cardHolderName,
+    required this.isDefault,
   });
 }
