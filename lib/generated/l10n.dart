@@ -686,6 +686,16 @@ class S {
   String get expires {
     return Intl.message('Expires', name: 'expires', desc: '', args: []);
   }
+
+  /// `Add Payment Method`
+  String get add_payment_method {
+    return Intl.message(
+      'Add Payment Method',
+      name: 'add_payment_method',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

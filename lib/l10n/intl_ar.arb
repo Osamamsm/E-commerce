@@ -65,5 +65,6 @@
     "use_this_address_for_checkout":"استخدم هذا العنوان للدفع",
     "edit_address":"تعديل العنوان",
     "card_holder":"حامل البطاقة",
-    "expires":"تاريخ الانتهاء"
+    "expires":"تاريخ الانتهاء",
+    "add_payment_method":"أضف طريقة دفع"
 }

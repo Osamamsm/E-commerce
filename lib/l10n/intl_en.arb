@@ -77,5 +77,6 @@
     "use_this_address_for_checkout":"Use this address for checkout",
     "edit_address":"Edit Address",
     "card_holder":"Card Holder",
-    "expires":"Expires"
+    "expires":"Expires",
+    "add_payment_method":"Add Payment Method"
 }
