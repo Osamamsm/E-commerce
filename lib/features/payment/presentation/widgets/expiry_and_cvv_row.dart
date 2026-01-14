@@ -23,7 +23,7 @@ class ExpiryAndCvvRow extends StatelessWidget {
           child: CustomLabeledTextFormField(
             label: S.of(context).expiry_date,
             hintText: 'MM/YY',
-            prefixIcon: const Icon(Icons.calendar_today),
+            prefixIcon: Icons.calendar_today,
             keyboardType: TextInputType.number,
             inputFormatters: [
               FilteringTextInputFormatter.digitsOnly,
@@ -41,8 +41,8 @@ class ExpiryAndCvvRow extends StatelessWidget {
           child: CustomLabeledTextFormField(
             label: S.of(context).cvv_cvc,
             hintText: '123',
-            prefixIcon: const Icon(Icons.lock),
-            suffixIcon: const Icon(Icons.help_outline),
+            prefixIcon: Icons.lock,
+            suffixIcon: Icons.help_outline,
             keyboardType: TextInputType.number,
             obscureText: true,
             inputFormatters: [

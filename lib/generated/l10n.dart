@@ -756,6 +756,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Edit Profile`
+  String get edit_profile {
+    return Intl.message(
+      'Edit Profile',
+      name: 'edit_profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account Information`
+  String get account_information {
+    return Intl.message(
+      'Account Information',
+      name: 'account_information',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Personal Details`
+  String get personal_details {
+    return Intl.message(
+      'Personal Details',
+      name: 'personal_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Orders`
+  String get my_orders {
+    return Intl.message('My Orders', name: 'my_orders', desc: '', args: []);
+  }
+
+  /// `Quick Access`
+  String get quick_access {
+    return Intl.message(
+      'Quick Access',
+      name: 'quick_access',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Security`
+  String get security {
+    return Intl.message('Security', name: 'security', desc: '', args: []);
+  }
+
+  /// `Change Password`
+  String get change_password {
+    return Intl.message(
+      'Change Password',
+      name: 'change_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message('Save', name: 'save', desc: '', args: []);
+  }
+
+  /// `Account`
+  String get account {
+    return Intl.message('Account', name: 'account', desc: '', args: []);
+  }
+
+  /// `Member Since`
+  String get member_since {
+    return Intl.message(
+      'Member Since',
+      name: 'member_since',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account Status`
+  String get account_status {
+    return Intl.message(
+      'Account Status',
+      name: 'account_status',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

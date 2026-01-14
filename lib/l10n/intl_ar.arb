@@ -74,5 +74,16 @@
     "cvv_cvc":"CVV / CVC",
     "set_as_default_payment_method":"تعيين كافتراضي",
     "use_this_payment_method_for_checkout":"استخدم طريقة الدفع هذه لإتمام عملية الشراء",
-    "your_payment_info_is_stored_securely":"معلومات الدفع الخاصة بك محفوظة بأمان"
+    "your_payment_info_is_stored_securely":"معلومات الدفع الخاصة بك محفوظة بأمان",
+    "edit_profile":"تعديل الملف الشخصي",
+    "account_information":"معلومات الحساب",
+    "personal_details":"التفاصيل الشخصية",
+    "my_orders":"طلباتي",
+    "quick_access":"الوصول السريع",
+    "security":"الامان",
+    "change_password":"تغيير كلمه المرور",
+    "save":"حفظ",
+    "account":"الحساب",
+    "member_since":"عضو منذ",
+    "account_status":"حالة الحساب"
 }

@@ -86,5 +86,16 @@
     "cvv_cvc":"CVV / CVC",
     "set_as_default_payment_method":"Set as default payment method",
     "use_this_payment_method_for_checkout":"Use this payment method for checkout",
-    "your_payment_info_is_stored_securely":"Your payment info is stored securely"
+    "your_payment_info_is_stored_securely":"Your payment info is stored securely",
+    "edit_profile":"Edit Profile",
+    "account_information":"Account Information",
+    "personal_details":"Personal Details",
+    "my_orders":"My Orders",
+    "quick_access":"Quick Access",
+    "security":"Security",
+    "change_password":"Change Password",
+    "save":"Save",
+    "account":"Account",
+    "member_since":"Member Since",
+    "account_status":"Account Status"
 }
