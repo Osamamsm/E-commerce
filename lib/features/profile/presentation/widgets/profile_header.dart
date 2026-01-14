@@ -1,6 +1,8 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
+import 'package:e_commerce/features/profile/presentation/views/edit_profile_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({super.key});
@@ -60,7 +62,9 @@ class ProfileHeader extends StatelessWidget {
         SizedBox(
           width: 180,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push(EditProfileView.routeName);
+            },
             child: Text(
               S.of(context).edit_profile,
               style: Theme.of(context).textTheme.bodyMedium,
