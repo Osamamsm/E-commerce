@@ -19,6 +19,7 @@ import 'package:e_commerce/features/payment/presentation/views/add_payment_metho
 import 'package:e_commerce/features/payment/presentation/views/payment_methods_view.dart';
 import 'package:e_commerce/features/product_details/presentation/views/product_details_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/edit_profile_view.dart';
+import 'package:e_commerce/features/profile/presentation/views/personal_details_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/profile_view.dart';
 import 'package:e_commerce/features/splash/views/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -151,6 +152,10 @@ GoRouter createRouter(AuthCubit authCubit) {
       GoRoute(
         path: EditProfileView.routeName,
         builder: (context, state) => const EditProfileView(),
+      ),
+      GoRoute(
+        path: PersonalDetailsView.routeName,
+        builder: (context, state) => const PersonalDetailsView(),
       ),
     ],
   );

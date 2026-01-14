@@ -2,6 +2,7 @@ import 'package:e_commerce/core/models/menu_item.dart';
 import 'package:e_commerce/features/addresses/presentation/views/saved_addresses_view.dart';
 import 'package:e_commerce/features/auth/presentation/logic/sign_out_cubit/sign_out_cubit.dart';
 import 'package:e_commerce/features/payment/presentation/views/payment_methods_view.dart';
+import 'package:e_commerce/features/profile/presentation/views/personal_details_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -56,7 +57,9 @@ class Constants {
           {
             'icon': Icons.person_outline,
             'title': s.personal_details,
-            'onTap': () {},
+            'onTap': () {
+              GoRouter.of(context).push(PersonalDetailsView.routeName);
+            },
           },
           {
             'icon': Icons.shopping_bag_outlined,
