@@ -2,8 +2,10 @@ import 'package:e_commerce/core/helpers/constants.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/features/home/presentation/widgets/custom_drawer_button.dart';
 import 'package:e_commerce/features/home/presentation/widgets/custom_menu_item.dart';
+import 'package:e_commerce/features/profile/presentation/views/profile_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -43,7 +45,9 @@ class CustomDrawer extends StatelessWidget {
                     CustomDrawerButton(
                       icon: Icons.person_outline,
                       label: S.of(context).profile,
-                      onTap: () {},
+                      onTap: () {
+                        GoRouter.of(context).push(ProfileView.routeName);
+                      },
                     ),
                     hGap(80),
                     CustomDrawerButton(
