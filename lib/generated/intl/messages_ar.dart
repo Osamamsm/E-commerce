@@ -25,6 +25,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "account_information": MessageLookupByLibrary.simpleMessage(
+      "معلومات الحساب",
+    ),
     "add_new_address": MessageLookupByLibrary.simpleMessage("أضف عنوان جديد"),
     "add_payment_method": MessageLookupByLibrary.simpleMessage("أضف طريقة دفع"),
     "add_review": MessageLookupByLibrary.simpleMessage("أضف رأيك"),
@@ -37,6 +40,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "card_number": MessageLookupByLibrary.simpleMessage("رقم البطاقة"),
     "cart": MessageLookupByLibrary.simpleMessage("العربة"),
+    "change_password": MessageLookupByLibrary.simpleMessage(
+      "تغيير كلمه المرور",
+    ),
     "city": MessageLookupByLibrary.simpleMessage("المدينة"),
     "color": MessageLookupByLibrary.simpleMessage("اللون"),
     "confirm_password": MessageLookupByLibrary.simpleMessage(
@@ -53,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "discount": MessageLookupByLibrary.simpleMessage("الخصم"),
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
     "edit_address": MessageLookupByLibrary.simpleMessage("تعديل العنوان"),
+    "edit_profile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "email_hint": MessageLookupByLibrary.simpleMessage(
       "أدخل البريد الالكتروني",
@@ -81,12 +88,16 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "my_addresses": MessageLookupByLibrary.simpleMessage("عناويني"),
     "my_cart": MessageLookupByLibrary.simpleMessage("عربتي"),
+    "my_orders": MessageLookupByLibrary.simpleMessage("طلباتي"),
     "no_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "order_history": MessageLookupByLibrary.simpleMessage("تاريخ الطلبات"),
     "other": MessageLookupByLibrary.simpleMessage("اخرى"),
     "password": MessageLookupByLibrary.simpleMessage("كلمه المرور"),
     "password_hint": MessageLookupByLibrary.simpleMessage("أدخل كلمه المرور"),
     "payment_methods": MessageLookupByLibrary.simpleMessage("طرق الدفع"),
+    "personal_details": MessageLookupByLibrary.simpleMessage(
+      "التفاصيل الشخصية",
+    ),
     "phone_number": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
     "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
       "الانتقال للدفع",
@@ -94,6 +105,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "product_description": MessageLookupByLibrary.simpleMessage("وصف المنتج"),
     "product_reviews": MessageLookupByLibrary.simpleMessage("اراء العملاء"),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+    "quick_access": MessageLookupByLibrary.simpleMessage("الوصول السريع"),
     "register": MessageLookupByLibrary.simpleMessage("سجل الآن"),
     "reset_password": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمه المرور",
@@ -108,6 +120,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "العناوين المحفوظة",
     ),
     "search_hint": MessageLookupByLibrary.simpleMessage("بحث عن المنتجات..."),
+    "security": MessageLookupByLibrary.simpleMessage("الامان"),
     "see_all_reviews": MessageLookupByLibrary.simpleMessage("شاهد جميع الاراء"),
     "set_as_default": MessageLookupByLibrary.simpleMessage("تعيين كافتراضي"),
     "set_as_default_address": MessageLookupByLibrary.simpleMessage(

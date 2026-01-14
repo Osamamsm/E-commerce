@@ -25,6 +25,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "account_information": MessageLookupByLibrary.simpleMessage(
+      "Account Information",
+    ),
     "add_new_address": MessageLookupByLibrary.simpleMessage("Add New Address"),
     "add_payment_method": MessageLookupByLibrary.simpleMessage(
       "Add Payment Method",
@@ -41,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "card_number": MessageLookupByLibrary.simpleMessage("Card Number"),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+    "change_password": MessageLookupByLibrary.simpleMessage("Change Password"),
     "check_email_for_reset_link_message": MessageLookupByLibrary.simpleMessage(
       "Please check your email for a link to reset your password. The link is valid for a limited time.",
     ),
@@ -67,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "discount": MessageLookupByLibrary.simpleMessage("Discount"),
     "edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "edit_address": MessageLookupByLibrary.simpleMessage("Edit Address"),
+    "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "email_hint": MessageLookupByLibrary.simpleMessage("Enter your email"),
     "enter_new_password": MessageLookupByLibrary.simpleMessage(
@@ -100,6 +105,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "my_addresses": MessageLookupByLibrary.simpleMessage("My Addresses"),
     "my_cart": MessageLookupByLibrary.simpleMessage("My Cart"),
+    "my_orders": MessageLookupByLibrary.simpleMessage("My Orders"),
     "new_password": MessageLookupByLibrary.simpleMessage("New Password"),
     "no_account": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account? ",
@@ -115,6 +121,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Password reset successfully.",
     ),
     "payment_methods": MessageLookupByLibrary.simpleMessage("Payment Methods"),
+    "personal_details": MessageLookupByLibrary.simpleMessage(
+      "Personal Details",
+    ),
     "phone_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
     "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
       "Proceed To Checkout",
@@ -124,6 +133,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "product_reviews": MessageLookupByLibrary.simpleMessage("Customer Reviews"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "quick_access": MessageLookupByLibrary.simpleMessage("Quick Access"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "reset_password": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "reset_password_success_message": MessageLookupByLibrary.simpleMessage(
@@ -139,6 +149,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "search_hint": MessageLookupByLibrary.simpleMessage(
       "Search for products...",
     ),
+    "security": MessageLookupByLibrary.simpleMessage("Security"),
     "see_all_reviews": MessageLookupByLibrary.simpleMessage("See All Reviews"),
     "set_as_default": MessageLookupByLibrary.simpleMessage("Set as Default"),
     "set_as_default_address": MessageLookupByLibrary.simpleMessage(

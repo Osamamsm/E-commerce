@@ -44,4 +44,65 @@ class Constants {
       ),
     ];
   }
+
+  static List<Map<String, dynamic>> getProfileMenuSections(
+    BuildContext context,
+  ) {
+    final s = S.of(context);
+    return [
+      {
+        'title': s.account_information,
+        'items': [
+          {
+            'icon': Icons.person_outline,
+            'title': s.personal_details,
+            'onTap': () {},
+          },
+          {
+            'icon': Icons.shopping_bag_outlined,
+            'title': s.my_orders,
+            'onTap': () {},
+          },
+        ],
+      },
+      {
+        'title': s.quick_access,
+        'items': [
+          {'icon': Icons.favorite_outline, 'title': s.wishlist, 'onTap': () {}},
+          {
+            'icon': Icons.location_on_outlined,
+            'title': s.saved_addresses,
+            'onTap': () {
+              GoRouter.of(context).push(SavedAddressesView.routeName);
+            },
+          },
+          {
+            'icon': Icons.credit_card_outlined,
+            'title': s.payment_methods,
+            'onTap': () {
+              GoRouter.of(context).push(PaymentMethodsView.routeName);
+            },
+          },
+        ],
+      },
+      {
+        'title': s.security,
+        'items': [
+          {
+            'icon': Icons.lock_outline,
+            'title': s.change_password,
+            'onTap': () {},
+          },
+          {
+            'icon': Icons.logout,
+            'title': s.sign_out,
+            'isSignout': true,
+            'onTap': () {
+              context.read<SignOutCubit>().signOut();
+            },
+          },
+        ],
+      },
+    ];
+  }
 }
