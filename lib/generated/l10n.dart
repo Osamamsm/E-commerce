@@ -821,6 +821,31 @@ class S {
   String get save {
     return Intl.message('Save', name: 'save', desc: '', args: []);
   }
+
+  /// `Account`
+  String get account {
+    return Intl.message('Account', name: 'account', desc: '', args: []);
+  }
+
+  /// `Member Since`
+  String get member_since {
+    return Intl.message(
+      'Member Since',
+      name: 'member_since',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account Status`
+  String get account_status {
+    return Intl.message(
+      'Account Status',
+      name: 'account_status',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

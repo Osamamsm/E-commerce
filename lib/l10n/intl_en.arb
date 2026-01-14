@@ -94,5 +94,8 @@
     "quick_access":"Quick Access",
     "security":"Security",
     "change_password":"Change Password",
-    "save":"Save"
+    "save":"Save",
+    "account":"Account",
+    "member_since":"Member Since",
+    "account_status":"Account Status"
 }

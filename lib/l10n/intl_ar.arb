@@ -82,5 +82,8 @@
     "quick_access":"الوصول السريع",
     "security":"الامان",
     "change_password":"تغيير كلمه المرور",
-    "save":"حفظ"
+    "save":"حفظ",
+    "account":"الحساب",
+    "member_since":"عضو منذ",
+    "account_status":"حالة الحساب"
 }

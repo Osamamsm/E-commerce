@@ -108,4 +108,48 @@ class Constants {
       },
     ];
   }
+
+  static List<Map<String, dynamic>> getProfileInfoSections(
+    BuildContext context,
+  ) {
+    final s = S.of(context);
+    return [
+      {
+        'title': s.personal_details,
+        'items': [
+          {
+            "label": s.full_name,
+                "value": 'Julian Alexander',
+                "icon": Icons.person_outline,
+          },
+          {
+            "label": s.email,
+                "value": 'julian.s@example.com',
+                "icon": Icons.email_outlined,
+          },
+          {
+            "label": s.phone_number,
+                "value": '+1 (555) 012-3456',
+                "icon": Icons.phone_outlined,
+          },
+        ],
+      },
+      {
+        'title': S.of(context).account,
+        'items': [
+          {
+            "label": s.member_since,
+                "value": 'January 2024',
+                "icon": Icons.calendar_today_outlined,
+          },
+          {
+            "label": s.account_status,
+                "value": 'Active',
+                "icon": Icons.verified_outlined,
+                "valueColor": const Color(0xFF34d399),
+          },
+        ],
+      },
+    ];
+  }
 }
