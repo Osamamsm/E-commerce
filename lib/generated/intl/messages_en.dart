@@ -143,6 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "review_hint_text": MessageLookupByLibrary.simpleMessage(
       "Share your thoughts about this product...",
     ),
+    "save": MessageLookupByLibrary.simpleMessage("Save"),
     "save_address": MessageLookupByLibrary.simpleMessage("Save Address"),
     "save_card": MessageLookupByLibrary.simpleMessage("Save Card"),
     "saved_addresses": MessageLookupByLibrary.simpleMessage("Saved Addresses"),

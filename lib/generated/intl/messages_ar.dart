@@ -114,6 +114,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "review_hint_text": MessageLookupByLibrary.simpleMessage(
       "شارك ارائك حول هذا المنتج",
     ),
+    "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "save_address": MessageLookupByLibrary.simpleMessage("حفظ العنوان"),
     "save_card": MessageLookupByLibrary.simpleMessage("حفظ البطاقة"),
     "saved_addresses": MessageLookupByLibrary.simpleMessage(

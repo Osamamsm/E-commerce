@@ -15,12 +15,13 @@ class CustomLabeledTextFormField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.hintText,
-    super.key,  this.textCapitalization =TextCapitalization.none,
+    super.key,
+    this.textCapitalization = TextCapitalization.none,
   });
 
   final String label;
   final TextInputType keyboardType;
-  final  Function(String?)? onSaved ;
+  final Function(String?)? onSaved;
   final String? Function(String?)? validator;
   final String? initialValue;
   final bool obscureText;
@@ -46,8 +47,8 @@ class CustomLabeledTextFormField extends StatelessWidget {
         TextFormField(
           decoration: InputDecoration(
             hintText: hintText,
-            prefixIcon: Icon(prefixIcon),
-            suffixIcon: Icon(suffixIcon),
+            prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
+            suffixIcon: suffixIcon != null ? Icon(suffixIcon) : null,
           ),
           initialValue: initialValue,
           obscureText: obscureText,

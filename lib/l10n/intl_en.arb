@@ -93,5 +93,6 @@
     "my_orders":"My Orders",
     "quick_access":"Quick Access",
     "security":"Security",
-    "change_password":"Change Password"
+    "change_password":"Change Password",
+    "save":"Save"
 }

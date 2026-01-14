@@ -81,5 +81,6 @@
     "my_orders":"طلباتي",
     "quick_access":"الوصول السريع",
     "security":"الامان",
-    "change_password":"تغيير كلمه المرور"
+    "change_password":"تغيير كلمه المرور",
+    "save":"حفظ"
 }
