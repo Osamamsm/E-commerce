@@ -15,7 +15,7 @@ class CustomLabeledTextFormField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.hintText,
-    super.key, required this.textCapitalization,
+    super.key,  this.textCapitalization =TextCapitalization.none,
   });
 
   final String label;
@@ -25,8 +25,8 @@ class CustomLabeledTextFormField extends StatelessWidget {
   final String? initialValue;
   final bool obscureText;
   final List<TextInputFormatter>? inputFormatters;
-  final Widget? prefixIcon;
-  final Widget? suffixIcon;
+  final IconData? prefixIcon;
+  final IconData? suffixIcon;
   final String? hintText;
   final TextCapitalization textCapitalization;
 
@@ -46,8 +46,8 @@ class CustomLabeledTextFormField extends StatelessWidget {
         TextFormField(
           decoration: InputDecoration(
             hintText: hintText,
-            prefixIcon: prefixIcon,
-            suffixIcon: suffixIcon,
+            prefixIcon: Icon(prefixIcon),
+            suffixIcon: Icon(suffixIcon),
           ),
           initialValue: initialValue,
           obscureText: obscureText,
