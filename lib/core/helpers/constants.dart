@@ -3,6 +3,7 @@ import 'package:e_commerce/features/addresses/presentation/views/saved_addresses
 import 'package:e_commerce/features/auth/presentation/logic/sign_out_cubit/sign_out_cubit.dart';
 import 'package:e_commerce/features/payment/presentation/views/payment_methods_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/personal_details_view.dart';
+import 'package:e_commerce/features/wish_list/presentation/views/wish_list_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,7 +20,9 @@ class Constants {
       MenuItem(
         icon: Icons.favorite_border_outlined,
         label: s.wishlist,
-        onTap: () {},
+        onTap: () {
+          GoRouter.of(context).push(WishListView.routeName);
+        },
       ),
       MenuItem(
         icon: Icons.map,
@@ -71,7 +74,13 @@ class Constants {
       {
         'title': s.quick_access,
         'items': [
-          {'icon': Icons.favorite_outline, 'title': s.wishlist, 'onTap': () {}},
+          {
+            'icon': Icons.favorite_outline,
+            'title': s.wishlist,
+            'onTap': () {
+              GoRouter.of(context).push(WishListView.routeName);
+            },
+          },
           {
             'icon': Icons.location_on_outlined,
             'title': s.saved_addresses,
