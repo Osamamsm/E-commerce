@@ -12,7 +12,7 @@ class WishListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScaffold(
       title: S.of(context).wishlist,
-      child: WishListViewBody(),
+      child: const WishListViewBody(),
     );
   }
 }
