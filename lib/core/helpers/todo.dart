@@ -1,0 +1,4 @@
+
+//TODO: refactor the elevated button across the app to be consistent
+//TODO: refactor the form section widget and reuse it in authentication,address and edit profile
+//TODO: reorganize the localization files or use a different approach with clearer files

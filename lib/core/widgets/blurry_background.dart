@@ -3,6 +3,8 @@ import 'package:e_commerce/core/theme/extensions/blurry_background_theme.dart';
 import 'package:e_commerce/core/widgets/blurry_circle.dart';
 import 'package:flutter/material.dart';
 
+
+//TODO: change the colors to be better
 class BlurryBackground extends StatelessWidget {
   const BlurryBackground({super.key});
 

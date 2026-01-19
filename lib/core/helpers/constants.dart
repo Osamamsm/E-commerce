@@ -118,6 +118,8 @@ class Constants {
     ];
   }
 
+
+  //TODO: edit this function to recieve a profile model from the backend and extract the data from it
   static List<Map<String, dynamic>> getProfileInfoSections(
     BuildContext context,
   ) {

@@ -1,3 +1,5 @@
+
+//TODO: replace this validators with stripe built-in validators
 class PaymentValidators {
   static String? validateCardNumber(String? value) {
     if (value == null || value.isEmpty) {

@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+
+//TODO: refactor this widget to be consistent with all the pictures across the app
 class ProductImage extends StatelessWidget {
   const ProductImage({
     super.key,

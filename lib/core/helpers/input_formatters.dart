@@ -1,5 +1,7 @@
 import 'package:flutter/services.dart';
 
+
+//TODO: replace these formatters with stripe built-in formatters
 class ExpiryDateInputFormatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(

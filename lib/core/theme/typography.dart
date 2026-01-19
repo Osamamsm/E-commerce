@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+
+//TODO: change the font sizes to be more suitable for the place of usage
 class AppTypography {
   static const textTheme = TextTheme(
     titleLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
