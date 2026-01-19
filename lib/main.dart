@@ -1,4 +1,4 @@
-import 'package:e_commerce/core/despondency_injection/di.dart';
+import 'package:e_commerce/core/dependency_injection/di.dart';
 import 'package:e_commerce/core/routes/app_routes.dart';
 import 'package:e_commerce/core/supabase/supabase_config.dart';
 import 'package:e_commerce/core/theme/app_theme.dart';
