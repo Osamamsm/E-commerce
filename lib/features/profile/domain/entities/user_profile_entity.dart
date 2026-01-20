@@ -1,4 +1,4 @@
-class UserEntity {
+class UserProfileEntity {
   final String id;
   final String fullName;
   final String? phoneNumber;
@@ -6,7 +6,7 @@ class UserEntity {
   final String role;
   final DateTime createdAt;
 
-  UserEntity({
+  UserProfileEntity({
     required this.id,
     required this.fullName,
     this.phoneNumber,
