@@ -46,6 +46,8 @@ import 'package:e_commerce/features/profile/data/repo/profile_repo_impl.dart'
     as _i22;
 import 'package:e_commerce/features/profile/domain/repo/profile_repo.dart'
     as _i245;
+import 'package:e_commerce/features/profile/domain/use_cases/get_profile_use_case.dart'
+    as _i350;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:supabase_flutter/supabase_flutter.dart' as _i454;
@@ -77,6 +79,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i756.AuthCubit>(
       () => _i756.AuthCubit(gh<_i74.SupabaseService>()),
+    );
+    gh.factory<_i350.GetProfileDataUseCase>(
+      () => _i350.GetProfileDataUseCase(gh<_i245.ProfileRepo>()),
     );
     gh.factory<_i817.ResetPasswordUseCase>(
       () => _i817.ResetPasswordUseCase(gh<_i380.AuthRepo>()),
