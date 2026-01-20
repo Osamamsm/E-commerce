@@ -40,6 +40,8 @@ import 'package:e_commerce/features/auth/presentation/logic/sign_out_cubit/sign_
     as _i167;
 import 'package:e_commerce/features/auth/presentation/logic/sign_up_cubit/sign_up_cubit.dart'
     as _i927;
+import 'package:e_commerce/features/profile/data/data_source/profile_remote_data_source.dart'
+    as _i1063;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:supabase_flutter/supabase_flutter.dart' as _i454;
@@ -59,6 +61,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i254.AuthRemoteDataSource>(
       () => _i254.AuthRemoteDataSourceImpl(gh<_i74.SupabaseService>()),
+    );
+    gh.lazySingleton<_i1063.ProfileRemoteDataSource>(
+      () => _i1063.ProfileRemoteDataSourceImpl(gh<_i74.SupabaseService>()),
     );
     gh.lazySingleton<_i380.AuthRepo>(
       () => _i562.AuthRepoImpl(gh<_i254.AuthRemoteDataSource>()),
