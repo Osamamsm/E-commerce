@@ -35,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_review": MessageLookupByLibrary.simpleMessage("أضف رأيك"),
     "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى العربة"),
     "address_details": MessageLookupByLibrary.simpleMessage("تفاصيل العنوان"),
+    "app_name": MessageLookupByLibrary.simpleMessage("E-Commerce App"),
     "apt_suite_etc": MessageLookupByLibrary.simpleMessage("المنزل/الشقة/الخ"),
     "card_holder": MessageLookupByLibrary.simpleMessage("حامل البطاقة"),
     "card_holder_name": MessageLookupByLibrary.simpleMessage(
@@ -68,6 +69,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "expires": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
     "expiry_date": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
+    "failed_to_load_profile": MessageLookupByLibrary.simpleMessage(
+      "فشل في تحميل الملف الشخصي",
+    ),
     "featured_products": MessageLookupByLibrary.simpleMessage(
       "المنتجات المميزة",
     ),
@@ -113,6 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_password": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمه المرور",
     ),
+    "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
     "review": m0,
     "review_hint_text": MessageLookupByLibrary.simpleMessage(
       "شارك ارائك حول هذا المنتج",

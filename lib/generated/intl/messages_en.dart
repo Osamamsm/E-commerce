@@ -37,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_review": MessageLookupByLibrary.simpleMessage("Add Your Review"),
     "add_to_cart": MessageLookupByLibrary.simpleMessage("Add To Cart"),
     "address_details": MessageLookupByLibrary.simpleMessage("Address Details"),
+    "app_name": MessageLookupByLibrary.simpleMessage("E-Commerce App"),
     "apt_suite_etc": MessageLookupByLibrary.simpleMessage(
       "Apt. Suite, etc. (Optional)",
     ),
@@ -85,6 +86,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "error": MessageLookupByLibrary.simpleMessage("Error"),
     "expires": MessageLookupByLibrary.simpleMessage("Expires"),
     "expiry_date": MessageLookupByLibrary.simpleMessage("Expiry Date"),
+    "failed_to_load_profile": MessageLookupByLibrary.simpleMessage(
+      "Failed to load profile",
+    ),
     "featured_products": MessageLookupByLibrary.simpleMessage(
       "Featured Products",
     ),
@@ -142,6 +146,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_password_success_message": MessageLookupByLibrary.simpleMessage(
       "Password reset successfully.",
     ),
+    "retry": MessageLookupByLibrary.simpleMessage("Retry"),
     "review": m0,
     "review_hint_text": MessageLookupByLibrary.simpleMessage(
       "Share your thoughts about this product...",

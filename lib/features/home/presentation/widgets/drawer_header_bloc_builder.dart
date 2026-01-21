@@ -1,0 +1,44 @@
+import 'package:e_commerce/features/home/presentation/widgets/custom_drawer_error_header.dart';
+import 'package:e_commerce/features/home/presentation/widgets/drawer_header.dart';
+import 'package:e_commerce/features/profile/domain/entities/user_profile_entity.dart';
+import 'package:e_commerce/features/profile/presentation/logic/cubit/get_profile_cubit.dart';
+import 'package:e_commerce/features/profile/presentation/logic/cubit/get_profile_state.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeletonizer/skeletonizer.dart';
+
+class DrawerHeaderBlocBuilder extends StatelessWidget {
+  const DrawerHeaderBlocBuilder({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<GetProfileCubit, GetProfileState>(
+      builder: (context, state) {
+        if (state is GetProfileSuccess) {
+          return CustomDrawerHeader(
+            userProfileEntity: state.userProfileEntity,
+          );
+        } else if (state is GetProfileLoading) {
+          return Skeletonizer(
+            enabled: true,
+            child: CustomDrawerHeader(
+              userProfileEntity: UserProfileEntity(
+                id: '',
+                fullName: 'Loading User',
+                avatarUrl: null,
+                role: '',
+                createdAt: DateTime.now(),
+              ),
+            ),
+          );
+        } else if (state is GetProfileError) {
+          return const CustomDrawerErrorHeader();
+        } else {
+          return const SizedBox.shrink();
+        }
+      },
+    );
+  }
+}

@@ -846,6 +846,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Failed to load profile`
+  String get failed_to_load_profile {
+    return Intl.message(
+      'Failed to load profile',
+      name: 'failed_to_load_profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Retry`
+  String get retry {
+    return Intl.message('Retry', name: 'retry', desc: '', args: []);
+  }
+
+  /// `E-Commerce App`
+  String get app_name {
+    return Intl.message('E-Commerce App', name: 'app_name', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

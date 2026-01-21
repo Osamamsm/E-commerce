@@ -85,5 +85,8 @@
     "save":"حفظ",
     "account":"الحساب",
     "member_since":"عضو منذ",
-    "account_status":"حالة الحساب"
+    "account_status":"حالة الحساب",
+    "failed_to_load_profile":"فشل في تحميل الملف الشخصي",
+    "retry":"إعادة المحاولة",
+    "app_name":"E-Commerce App"
 }
