@@ -48,6 +48,8 @@ import 'package:e_commerce/features/profile/domain/repo/profile_repo.dart'
     as _i245;
 import 'package:e_commerce/features/profile/domain/use_cases/get_profile_use_case.dart'
     as _i350;
+import 'package:e_commerce/features/profile/domain/use_cases/update_profile_use_case.dart'
+    as _i413;
 import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart'
     as _i725;
 import 'package:get_it/get_it.dart' as _i174;
@@ -85,8 +87,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i350.GetProfileDataUseCase>(
       () => _i350.GetProfileDataUseCase(gh<_i245.ProfileRepo>()),
     );
+    gh.factory<_i413.UpdateProfileUseCase>(
+      () => _i413.UpdateProfileUseCase(gh<_i245.ProfileRepo>()),
+    );
     gh.factory<_i725.ProfileCubit>(
-      () => _i725.ProfileCubit(gh<_i350.GetProfileDataUseCase>()),
+      () => _i725.ProfileCubit(
+        gh<_i350.GetProfileDataUseCase>(),
+        gh<_i413.UpdateProfileUseCase>(),
+      ),
     );
     gh.factory<_i817.ResetPasswordUseCase>(
       () => _i817.ResetPasswordUseCase(gh<_i380.AuthRepo>()),
