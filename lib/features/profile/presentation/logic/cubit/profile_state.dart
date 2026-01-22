@@ -8,12 +8,10 @@ class ProfileLoading extends ProfileState {}
 
 class ProfileUpdating extends ProfileState {}
 
-class ProfileUpdated extends ProfileState {}
-
-class GetProfileSuccess extends ProfileState {
+class ProfileLoaded extends ProfileState {
   final UserProfileEntity userProfileEntity;
 
-  GetProfileSuccess(this.userProfileEntity);
+  ProfileLoaded(this.userProfileEntity);
 }
 
 class ProfileError extends ProfileState {

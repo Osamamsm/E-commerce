@@ -14,7 +14,7 @@ class DrawerHeaderBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
-        if (state is GetProfileSuccess) {
+        if (state is ProfileLoaded) {
           return CustomDrawerHeader(userProfileEntity: state.userProfileEntity);
         } else if (state is ProfileLoading) {
           return Skeletonizer(

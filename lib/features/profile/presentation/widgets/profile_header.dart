@@ -1,18 +1,17 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
-import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart';
+import 'package:e_commerce/features/profile/domain/entities/user_profile_entity.dart';
 import 'package:e_commerce/features/profile/presentation/views/edit_profile_view.dart';
 import 'package:e_commerce/features/profile/presentation/widgets/user_avatar.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class ProfileHeader extends StatelessWidget {
-  const ProfileHeader({super.key});
+  const ProfileHeader({super.key, this.profile});
 
+final UserProfileEntity? profile;
   @override
   Widget build(BuildContext context) {
-    final profile = context.read<ProfileCubit>().profile;
     return Column(
       children: [
         UserAvatar(),

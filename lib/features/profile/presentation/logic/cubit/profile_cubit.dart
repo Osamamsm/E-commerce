@@ -22,7 +22,7 @@ class ProfileCubit extends Cubit<ProfileState> {
       (failure) => emit(ProfileError(failure.message)),
       (userProfileEntity) {
         _profile = userProfileEntity; 
-        emit(GetProfileSuccess(userProfileEntity));
+        emit(ProfileLoaded(userProfileEntity));
       },
     );
   }
@@ -34,7 +34,7 @@ class ProfileCubit extends Cubit<ProfileState> {
       (failure) => emit(ProfileError(failure.message)),
       (_) {
         _profile = updatedProfile;
-        emit(ProfileUpdated());
+        emit(ProfileLoaded(updatedProfile));
       },
     );
   }

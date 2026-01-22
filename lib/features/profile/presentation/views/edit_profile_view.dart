@@ -29,7 +29,7 @@ class EditProfileView extends StatelessWidget {
             onOkPressed: () {},
           );
         }
-        if (state is ProfileUpdated) {
+        if (state is ProfileLoaded) {
           showCustomDialog(
             context: context,
             message: S.of(context).profile_updated_successfully,
