@@ -17,6 +17,7 @@ class CustomLabeledTextFormField extends StatelessWidget {
     this.hintText,
     super.key,
     this.textCapitalization = TextCapitalization.none,
+    this.enabled = true,
   });
 
   final String label;
@@ -30,6 +31,7 @@ class CustomLabeledTextFormField extends StatelessWidget {
   final IconData? suffixIcon;
   final String? hintText;
   final TextCapitalization textCapitalization;
+  final bool enabled;
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +47,7 @@ class CustomLabeledTextFormField extends StatelessWidget {
         ),
         vGap(12),
         TextFormField(
+          enabled: enabled,
           decoration: InputDecoration(
             hintText: hintText,
             prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,

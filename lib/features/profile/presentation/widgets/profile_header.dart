@@ -31,7 +31,9 @@ class ProfileHeader extends StatelessWidget {
           width: 180,
           child: ElevatedButton(
             onPressed: () {
-              GoRouter.of(context).push(EditProfileView.routeName);
+              GoRouter.of(
+                context,
+              ).push(EditProfileView.routeName, extra: profile);
             },
             child: Text(
               S.of(context).edit_profile,

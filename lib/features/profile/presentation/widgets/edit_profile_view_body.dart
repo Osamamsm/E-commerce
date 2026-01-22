@@ -1,12 +1,15 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/validators.dart';
 import 'package:e_commerce/core/widgets/custom_labeled_text_form_field.dart';
+import 'package:e_commerce/features/profile/domain/entities/user_profile_entity.dart';
 import 'package:e_commerce/features/profile/presentation/widgets/user_avatar.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class EditProfileViewBody extends StatefulWidget {
-  const EditProfileViewBody({super.key});
+  const EditProfileViewBody({super.key, required this.profile});
+
+  final UserProfileEntity profile;
 
   @override
   State<EditProfileViewBody> createState() => _EditProfileViewBodyState();
@@ -18,9 +21,9 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
 
   @override
   void initState() {
-    fullName = 'John Doe';
-    email = 'john.doe@example.com';
-    phoneNumber = '1234567890';
+    fullName = widget.profile.fullName;
+    email = widget.profile.email;
+    phoneNumber = widget.profile.phoneNumber ?? '';
     super.initState();
   }
 
@@ -49,6 +52,7 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
             ),
             vGap(16),
             CustomLabeledTextFormField(
+              enabled: false,
               label: S.of(context).email,
               suffixIcon: Icons.lock_outline,
               validator: Validators.emailValidator,
