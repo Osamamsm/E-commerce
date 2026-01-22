@@ -14,7 +14,9 @@ final UserProfileEntity? profile;
   Widget build(BuildContext context) {
     return Column(
       children: [
-        UserAvatar(),
+        UserAvatar(
+          avatarUrl: profile?.avatarUrl,
+        ),
         vGap(16),
         Text(
           profile?.fullName ?? 'User',

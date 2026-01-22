@@ -38,7 +38,12 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(child: UserAvatar()),
+            Center(
+              child: UserAvatar(
+                isEditable: true,
+                avatarUrl: widget.profile.avatarUrl,
+              ),
+            ),
             vGap(32),
             CustomLabeledTextFormField(
               label: S.of(context).full_name,

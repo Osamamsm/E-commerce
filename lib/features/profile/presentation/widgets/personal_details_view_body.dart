@@ -19,7 +19,9 @@ class PersonalDetailsViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Center(child: UserAvatar()),
+          Center(child: UserAvatar(
+            avatarUrl: profile?.avatarUrl,
+          )),
           vGap(24),
           ...sections.map((section) {
             return Padding(
