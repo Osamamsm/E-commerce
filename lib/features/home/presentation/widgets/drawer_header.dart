@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/features/profile/domain/entities/user_profile_entity.dart';
 import 'package:flutter/material.dart';
@@ -17,20 +18,13 @@ class CustomDrawerHeader extends StatelessWidget {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(color: Colors.white, width: 2),
-            boxShadow: [
-              BoxShadow(
-                color: theme.colorScheme.primaryContainer.withValues(alpha: 0.2),
-                blurRadius: 10,
-                offset: const Offset(0, 4),
-              ),
-            ],
           ),
           child: CircleAvatar(
             radius: 40,
             backgroundColor: theme.colorScheme.primaryContainer,
             backgroundImage: userProfileEntity.avatarUrl != null
-                ? NetworkImage(userProfileEntity.avatarUrl!)
-                : NetworkImage(
+                ? CachedNetworkImageProvider(userProfileEntity.avatarUrl!)
+                : CachedNetworkImageProvider(
                     'https://cdn-icons-png.flaticon.com/512/149/149071.png',
                   ),
           ),

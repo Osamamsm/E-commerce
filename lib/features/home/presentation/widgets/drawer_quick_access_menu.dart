@@ -9,30 +9,31 @@ class DrawerQuickAccessMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Expanded(
-      child: Container(
-        decoration: BoxDecoration(color: theme.colorScheme.secondary),
-        child: ListView(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: Text(
-                S.of(context).quick_access,
-                style: theme.textTheme.labelSmall,
-              ),
+    return DecoratedBox(
+      decoration: BoxDecoration(color: theme.colorScheme.secondary),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Text(
+              S.of(context).quick_access,
+              style: theme.textTheme.labelSmall,
             ),
-            ...Constants.getMenuItems(context).map(
-              (e) => Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: CustomMenuItem(
-                  icon: e.icon,
-                  label: e.label,
-                  onTap: e.onTap,
+          ),
+          ...Constants.getMenuItems(context)
+              .map(
+                (e) => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: CustomMenuItem(
+                    icon: e.icon,
+                    label: e.label,
+                    onTap: e.onTap,
+                  ),
                 ),
-              ),
-            ),
-          ],
-        ),
+              )
+              .toList(),
+        ],
       ),
     );
   }

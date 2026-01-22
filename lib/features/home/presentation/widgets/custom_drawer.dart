@@ -17,28 +17,30 @@ class CustomDrawer extends StatelessWidget {
       child: SafeArea(
         child: Column(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    theme.colorScheme.primary,
-                    theme.colorScheme.secondary,
+            RepaintBoundary(
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      theme.colorScheme.primary,
+                      theme.colorScheme.secondary,
+                    ],
+                  ),
+                ),
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  children: [
+                   const DrawerHeaderBlocBuilder(),
+                    vGap(16),
+                    const DrawerButtonsRow(),
                   ],
                 ),
               ),
-              padding: const EdgeInsets.all(24),
-              child: Column(
-                children: [
-                  DrawerHeaderBlocBuilder(),
-                  vGap(16),
-                  DrawerButtonsRow(),
-                ],
-              ),
             ),
-            DrawerQuickAccessMenu(),
-            CustomDrawerFooter(),
+            const DrawerQuickAccessMenu(),
+            const CustomDrawerFooter(),
           ],
         ),
       ),
