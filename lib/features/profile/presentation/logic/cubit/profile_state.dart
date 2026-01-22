@@ -6,10 +6,14 @@ class ProfileInitial extends ProfileState {}
 
 class ProfileLoading extends ProfileState {}
 
-class ProfileSuccess extends ProfileState {
+class ProfileUpdating extends ProfileState {}
+
+class ProfileUpdated extends ProfileState {}
+
+class GetProfileSuccess extends ProfileState {
   final UserProfileEntity userProfileEntity;
 
-  ProfileSuccess(this.userProfileEntity);
+  GetProfileSuccess(this.userProfileEntity);
 }
 
 class ProfileError extends ProfileState {
