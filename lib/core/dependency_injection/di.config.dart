@@ -85,8 +85,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i350.GetProfileDataUseCase>(
       () => _i350.GetProfileDataUseCase(gh<_i245.ProfileRepo>()),
     );
-    gh.factory<_i1014.GetProfileCubit>(
-      () => _i1014.GetProfileCubit(gh<_i350.GetProfileDataUseCase>()),
+    gh.factory<_i1014.ProfileCubit>(
+      () => _i1014.ProfileCubit(gh<_i350.GetProfileDataUseCase>()),
     );
     gh.factory<_i817.ResetPasswordUseCase>(
       () => _i817.ResetPasswordUseCase(gh<_i380.AuthRepo>()),

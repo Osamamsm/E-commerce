@@ -3,18 +3,17 @@ import 'package:e_commerce/features/profile/presentation/logic/cubit/get_profile
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-
 @injectable
-class GetProfileCubit extends Cubit<GetProfileState> {
-  final GetProfileDataUseCase getProfileDataUseCase;
-  GetProfileCubit(this.getProfileDataUseCase) : super(GetProfileInitial());
+class ProfileCubit extends Cubit<ProfileState> {
+  final GetProfileDataUseCase _getProfileDataUseCase;
+  ProfileCubit(this._getProfileDataUseCase) : super(ProfileInitial());
 
   Future<void> getProfile() async {
-    emit(GetProfileLoading());
-    final result = await getProfileDataUseCase();
+    emit(ProfileLoading());
+    final result = await _getProfileDataUseCase();
     result.fold(
-      (failure) => emit(GetProfileError(failure.message)),
-      (userProfileEntity) => emit(GetProfileSuccess(userProfileEntity)),
+      (failure) => emit(ProfileError(failure.message)),
+      (userProfileEntity) => emit(ProfileSuccess(userProfileEntity)),
     );
   }
 }

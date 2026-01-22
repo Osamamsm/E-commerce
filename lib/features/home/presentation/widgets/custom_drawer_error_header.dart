@@ -25,7 +25,7 @@ class CustomDrawerErrorHeader extends StatelessWidget {
         vGap(8),
         TextButton(
           onPressed: () {
-            context.read<GetProfileCubit>().getProfile();
+            context.read<ProfileCubit>().getProfile();
           },
           child: DecoratedBox(
             decoration: BoxDecoration(

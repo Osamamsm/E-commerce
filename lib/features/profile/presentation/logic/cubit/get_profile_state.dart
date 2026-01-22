@@ -1,19 +1,19 @@
 import 'package:e_commerce/features/profile/domain/entities/user_profile_entity.dart';
 
-class GetProfileState {}
+class ProfileState {}
 
-class GetProfileInitial extends GetProfileState {}
+class ProfileInitial extends ProfileState {}
 
-class GetProfileLoading extends GetProfileState {}
+class ProfileLoading extends ProfileState {}
 
-class GetProfileSuccess extends GetProfileState {
+class ProfileSuccess extends ProfileState {
   final UserProfileEntity userProfileEntity;
 
-  GetProfileSuccess(this.userProfileEntity);
+  ProfileSuccess(this.userProfileEntity);
 }
 
-class GetProfileError extends GetProfileState {
+class ProfileError extends ProfileState {
   final String message;
 
-  GetProfileError(this.message);
+  ProfileError(this.message);
 }

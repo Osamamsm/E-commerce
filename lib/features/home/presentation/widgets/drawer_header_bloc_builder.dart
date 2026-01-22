@@ -8,32 +8,29 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class DrawerHeaderBlocBuilder extends StatelessWidget {
-  const DrawerHeaderBlocBuilder({
-    super.key,
-  });
+  const DrawerHeaderBlocBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GetProfileCubit, GetProfileState>(
+    return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
-        if (state is GetProfileSuccess) {
-          return CustomDrawerHeader(
-            userProfileEntity: state.userProfileEntity,
-          );
-        } else if (state is GetProfileLoading) {
+        if (state is ProfileSuccess) {
+          return CustomDrawerHeader(userProfileEntity: state.userProfileEntity);
+        } else if (state is ProfileLoading) {
           return Skeletonizer(
             enabled: true,
             child: CustomDrawerHeader(
               userProfileEntity: UserProfileEntity(
                 id: '',
                 fullName: 'Loading User',
+                email: 'Loading User',
                 avatarUrl: null,
                 role: '',
                 createdAt: DateTime.now(),
               ),
             ),
           );
-        } else if (state is GetProfileError) {
+        } else if (state is ProfileError) {
           return const CustomDrawerErrorHeader();
         } else {
           return const SizedBox.shrink();
