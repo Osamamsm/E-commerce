@@ -3,6 +3,7 @@ import 'package:e_commerce/features/profile/domain/entities/user_profile_entity.
 class UserProfileModel {
   final String id;
   final String fullName;
+  final String email;
   final String? phoneNumber;
   final String? avatarUrl;
   final String role;
@@ -11,6 +12,7 @@ class UserProfileModel {
   UserProfileModel({
     required this.id,
     required this.fullName,
+    required this.email,
     this.phoneNumber,
     this.avatarUrl,
     required this.role,
@@ -22,6 +24,7 @@ class UserProfileModel {
       id: map['id'],
       fullName: map['fullName'],
       phoneNumber: map['phoneNumber'],
+      email: map['email'],
       avatarUrl: map['avatarUrl'],
       role: map['role'],
       createdAt: DateTime.parse(map['createdAt']),
@@ -32,6 +35,7 @@ class UserProfileModel {
     return UserProfileEntity(
       id: id,
       fullName: fullName,
+      email: email,
       phoneNumber: phoneNumber,
       avatarUrl: avatarUrl,
       role: role,
