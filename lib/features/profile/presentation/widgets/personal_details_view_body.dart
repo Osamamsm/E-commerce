@@ -1,11 +1,13 @@
 import 'package:e_commerce/core/helpers/constants.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
+import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart';
 import 'package:e_commerce/features/profile/presentation/views/edit_profile_view.dart';
 import 'package:e_commerce/features/profile/presentation/widgets/profile_info_item.dart';
 import 'package:e_commerce/features/profile/presentation/widgets/profile_info_section.dart';
 import 'package:e_commerce/features/profile/presentation/widgets/user_avatar.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class PersonalDetailsViewBody extends StatelessWidget {
@@ -13,7 +15,8 @@ class PersonalDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sections = Constants.getProfileInfoSections(context);
+    final profile = context.read<ProfileCubit>().profile;
+    final sections = Constants.getProfileInfoSections(context, profile);
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -40,7 +43,7 @@ class PersonalDetailsViewBody extends StatelessWidget {
           vGap(24),
           ElevatedButton(
             onPressed: () {
-              GoRouter.of(context).push(EditProfileView.routeName);
+              GoRouter.of(context).push(EditProfileView.routeName,extra: profile);
             },
             child: Text(S.of(context).edit_profile),
           ),
