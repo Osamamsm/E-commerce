@@ -42,4 +42,16 @@ class UserProfileModel {
       createdAt: createdAt,
     );
   }
+
+  factory UserProfileModel.fromEntity(UserProfileEntity entity) {
+    return UserProfileModel(
+      id: entity.id,
+      fullName: entity.fullName,
+      email: entity.email,
+      phoneNumber: entity.phoneNumber,
+      avatarUrl: entity.avatarUrl,
+      role: entity.role,
+      createdAt: entity.createdAt,
+    );
+  }
 }

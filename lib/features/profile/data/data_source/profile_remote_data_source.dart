@@ -4,6 +4,7 @@ import 'package:injectable/injectable.dart';
 
 abstract class ProfileRemoteDataSource {
   Future<UserProfileModel> getUserProfile();
+  Future<void> updateProfile(UserProfileModel updatedProfile);
 }
 
 @LazySingleton(as: ProfileRemoteDataSource)
@@ -24,5 +25,20 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
         .eq('id', user.id)
         .single();
     return UserProfileModel.fromMap(response);
+  }
+
+  @override
+  Future<void> updateProfile(UserProfileModel updatedProfile) {
+    final user = _supabaseService.currentUser;
+    if (user == null) {
+      throw Exception('User not found');
+    }
+    return _supabaseService
+        .from('profiles')
+        .update({
+          'fullName': updatedProfile.fullName,
+          'phoneNumber': updatedProfile.phoneNumber,
+        })
+        .eq('id', user.id);
   }
 }

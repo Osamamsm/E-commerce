@@ -4,4 +4,5 @@ import 'package:e_commerce/features/profile/domain/entities/user_profile_entity.
 
 abstract class ProfileRepo {
   Future<Either<Failure, UserProfileEntity>> getUserProfile();
+  Future<Either<Failure, void>> updateProfile(UserProfileEntity updatedProfile);
 }
