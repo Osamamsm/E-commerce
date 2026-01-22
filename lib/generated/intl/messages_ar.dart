@@ -112,6 +112,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "product_description": MessageLookupByLibrary.simpleMessage("وصف المنتج"),
     "product_reviews": MessageLookupByLibrary.simpleMessage("اراء العملاء"),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+    "profile_updated_successfully": MessageLookupByLibrary.simpleMessage(
+      "تم تحديث الملف الشخصي بنجاح",
+    ),
     "quick_access": MessageLookupByLibrary.simpleMessage("الوصول السريع"),
     "register": MessageLookupByLibrary.simpleMessage("سجل الآن"),
     "reset_password": MessageLookupByLibrary.simpleMessage(

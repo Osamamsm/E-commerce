@@ -140,6 +140,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "product_reviews": MessageLookupByLibrary.simpleMessage("Customer Reviews"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "profile_updated_successfully": MessageLookupByLibrary.simpleMessage(
+      "Profile updated successfully",
+    ),
     "quick_access": MessageLookupByLibrary.simpleMessage("Quick Access"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "reset_password": MessageLookupByLibrary.simpleMessage("Reset Password"),

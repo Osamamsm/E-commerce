@@ -866,6 +866,16 @@ class S {
   String get app_name {
     return Intl.message('E-Commerce App', name: 'app_name', desc: '', args: []);
   }
+
+  /// `Profile updated successfully`
+  String get profile_updated_successfully {
+    return Intl.message(
+      'Profile updated successfully',
+      name: 'profile_updated_successfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

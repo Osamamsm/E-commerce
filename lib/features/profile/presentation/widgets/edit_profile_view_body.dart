@@ -2,9 +2,11 @@ import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/validators.dart';
 import 'package:e_commerce/core/widgets/custom_labeled_text_form_field.dart';
 import 'package:e_commerce/features/profile/domain/entities/user_profile_entity.dart';
+import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart';
 import 'package:e_commerce/features/profile/presentation/widgets/user_avatar.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EditProfileViewBody extends StatefulWidget {
   const EditProfileViewBody({super.key, required this.profile});
@@ -80,6 +82,16 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
+                  context.read<ProfileCubit>().updateProfile(
+                    UserProfileEntity(
+                      id: widget.profile.id,
+                      fullName: fullName,
+                      email: email,
+                      phoneNumber: phoneNumber,
+                      role: widget.profile.role,
+                      createdAt: widget.profile.createdAt,
+                    ),
+                  );
                 }
               },
               child: Text(
