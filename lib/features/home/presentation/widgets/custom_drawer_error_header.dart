@@ -1,5 +1,5 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
-import 'package:e_commerce/features/profile/presentation/logic/cubit/get_profile_cubit.dart';
+import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

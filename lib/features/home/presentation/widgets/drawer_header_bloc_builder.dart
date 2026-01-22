@@ -1,8 +1,8 @@
 import 'package:e_commerce/features/home/presentation/widgets/custom_drawer_error_header.dart';
 import 'package:e_commerce/features/home/presentation/widgets/drawer_header.dart';
 import 'package:e_commerce/features/profile/domain/entities/user_profile_entity.dart';
-import 'package:e_commerce/features/profile/presentation/logic/cubit/get_profile_cubit.dart';
-import 'package:e_commerce/features/profile/presentation/logic/cubit/get_profile_state.dart';
+import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart';
+import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
