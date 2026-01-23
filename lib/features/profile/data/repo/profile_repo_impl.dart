@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart' show Either, Right, Left;
 import 'package:e_commerce/core/error/exception_mapper.dart';
 import 'package:e_commerce/core/error/failure.dart';
@@ -32,6 +34,16 @@ class ProfileRepoImpl implements ProfileRepo {
         UserProfileModel.fromEntity(updatedProfile),
       );
       return Right(null);
+    } catch (e) {
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
+    }
+  }
+
+  @override
+  Future<Either<Failure, String>> updateAvatar(File avatar) async {
+    try {
+      final avatarUrl = await _remoteDataSource.updateAvatar(avatar);
+      return Right(avatarUrl);
     } catch (e) {
       return Left(ExceptionMapper.mapExceptionToFailure(e));
     }
