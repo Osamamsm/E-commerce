@@ -64,7 +64,7 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
 
     final publicUrl = _supabaseService.storage
         .from('avatars')
-        .createSignedUrl('${user.id}/avatar.jpg', 3600);
+        .getPublicUrl('${user.id}/avatar.jpg');
 
     return publicUrl;
   }
