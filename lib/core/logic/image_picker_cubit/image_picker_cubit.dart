@@ -6,11 +6,11 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 
-@Injectable()
+@injectable
 class ImagePickerCubit extends Cubit<ImagePickerState> {
   ImagePickerCubit() : super(ImagePickerInitial());
 
-  Future<void> pickAvatar() async {
+  Future<void> pickImage() async {
     try {
       //opens the image picker
       final picker = ImagePicker();

@@ -1,8 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_commerce/core/logic/image_picker_cubit/image_picker_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserAvatar extends StatelessWidget {
-  const UserAvatar({super.key, this.isEditable = false,required this.avatarUrl});
+  const UserAvatar({
+    super.key,
+    this.isEditable = false,
+    required this.avatarUrl,
+  });
 
   final bool isEditable;
   final String? avatarUrl;
@@ -22,7 +28,9 @@ class UserAvatar extends StatelessWidget {
             backgroundColor: const Color(0xFFFFDBB5),
             backgroundImage: avatarUrl != null
                 ? CachedNetworkImageProvider(avatarUrl!)
-                : CachedNetworkImageProvider('https://cdn-icons-png.flaticon.com/512/149/149071.png'),
+                : CachedNetworkImageProvider(
+                    'https://cdn-icons-png.flaticon.com/512/149/149071.png',
+                  ),
           ),
         ),
         isEditable
@@ -30,7 +38,9 @@ class UserAvatar extends StatelessWidget {
                 bottom: 0,
                 right: 0,
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    context.read<ImagePickerCubit>().pickImage();
+                  },
                   child: Container(
                     padding: const EdgeInsets.all(6),
                     decoration: BoxDecoration(

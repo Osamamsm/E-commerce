@@ -50,8 +50,12 @@ import 'package:e_commerce/features/profile/domain/repo/profile_repo.dart'
     as _i245;
 import 'package:e_commerce/features/profile/domain/use_cases/get_profile_use_case.dart'
     as _i350;
+import 'package:e_commerce/features/profile/domain/use_cases/update_avatar_use_case.dart'
+    as _i499;
 import 'package:e_commerce/features/profile/domain/use_cases/update_profile_use_case.dart'
     as _i413;
+import 'package:e_commerce/features/profile/presentation/logic/avatar_upload_cubit/avatar_upload_cubit.dart'
+    as _i779;
 import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart'
     as _i725;
 import 'package:get_it/get_it.dart' as _i174;
@@ -69,6 +73,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i594.ImagePickerCubit>(() => _i594.ImagePickerCubit());
     gh.lazySingleton<_i457.DeepLinkCubit>(() => _i457.DeepLinkCubit());
     gh.lazySingleton<_i454.SupabaseClient>(() => supabaseClientProvider.client);
+    gh.factory<_i779.AvatarUploadCubit>(
+      () => _i779.AvatarUploadCubit(gh<_i499.UpdateAvatarUseCase>()),
+    );
     gh.lazySingleton<_i74.SupabaseService>(
       () => _i74.SupabaseService(gh<_i454.SupabaseClient>()),
     );
