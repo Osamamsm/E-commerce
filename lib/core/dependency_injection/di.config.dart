@@ -11,6 +11,8 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:e_commerce/core/logic/deep_link_cubit/deep_link_cubit.dart'
     as _i457;
+import 'package:e_commerce/core/logic/image_picker_cubit/image_picker_cubit.dart'
+    as _i594;
 import 'package:e_commerce/core/supabase/supabase_client.dart' as _i4;
 import 'package:e_commerce/core/supabase/supabase_service.dart' as _i74;
 import 'package:e_commerce/features/auth/data/data_sources/auth_remote_data_source.dart'
@@ -64,6 +66,7 @@ extension GetItInjectableX on _i174.GetIt {
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final supabaseClientProvider = _$SupabaseClientProvider();
+    gh.factory<_i594.ImagePickerCubit>(() => _i594.ImagePickerCubit());
     gh.lazySingleton<_i457.DeepLinkCubit>(() => _i457.DeepLinkCubit());
     gh.lazySingleton<_i454.SupabaseClient>(() => supabaseClientProvider.client);
     gh.lazySingleton<_i74.SupabaseService>(

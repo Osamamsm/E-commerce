@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:e_commerce/core/dependency_injection/di.dart';
+import 'package:e_commerce/core/logic/cubit/image_picker_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/views/add_address_view.dart';
 import 'package:e_commerce/features/addresses/presentation/views/edit_address_view.dart';
 import 'package:e_commerce/features/addresses/presentation/views/saved_addresses_view.dart';
@@ -18,6 +19,7 @@ import 'package:e_commerce/features/home/presentation/views/home_view.dart';
 import 'package:e_commerce/features/payment/presentation/views/add_payment_method_view.dart';
 import 'package:e_commerce/features/payment/presentation/views/payment_methods_view.dart';
 import 'package:e_commerce/features/product_details/presentation/views/product_details_view.dart';
+import 'package:e_commerce/features/profile/presentation/logic/avatar_upload_cubit/avatar_upload_cubit.dart';
 import 'package:e_commerce/features/profile/presentation/views/edit_profile_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/personal_details_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/profile_view.dart';
@@ -152,7 +154,17 @@ GoRouter createRouter(AuthCubit authCubit) {
       ),
       GoRoute(
         path: EditProfileView.routeName,
-        builder: (context, state) => const EditProfileView(),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => getIt<AvatarUploadCubit>(),
+            ),
+            BlocProvider(
+              create: (context) => getIt<ImagePickerCubit>(),
+            ),
+          ],
+          child: const EditProfileView(),
+        ),
       ),
       GoRoute(
         path: PersonalDetailsView.routeName,

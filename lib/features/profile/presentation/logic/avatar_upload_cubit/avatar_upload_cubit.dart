@@ -5,10 +5,9 @@ import 'package:e_commerce/features/profile/presentation/logic/avatar_upload_cub
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AvatarUploadCubit extends Cubit<AvatarUploadState> {
-final UpdateAvatarUseCase _updateAvatarUseCase;
+  final UpdateAvatarUseCase _updateAvatarUseCase;
 
-  AvatarUploadCubit(this._updateAvatarUseCase)
-      : super(AvatarUploadInitial());
+  AvatarUploadCubit(this._updateAvatarUseCase) : super(AvatarUploadInitial());
 
   Future<void> uploadAvatar(File file) async {
     emit(AvatarUploading());
