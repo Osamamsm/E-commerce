@@ -50,12 +50,8 @@ import 'package:e_commerce/features/profile/domain/repo/profile_repo.dart'
     as _i245;
 import 'package:e_commerce/features/profile/domain/use_cases/get_profile_use_case.dart'
     as _i350;
-import 'package:e_commerce/features/profile/domain/use_cases/update_avatar_use_case.dart'
-    as _i499;
-import 'package:e_commerce/features/profile/domain/use_cases/update_profile_use_case.dart'
-    as _i413;
-import 'package:e_commerce/features/profile/presentation/logic/avatar_upload_cubit/avatar_upload_cubit.dart'
-    as _i779;
+import 'package:e_commerce/features/profile/domain/use_cases/update_profile_with_avatar_use_case.dart'
+    as _i764;
 import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart'
     as _i725;
 import 'package:get_it/get_it.dart' as _i174;
@@ -94,20 +90,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i350.GetProfileDataUseCase>(
       () => _i350.GetProfileDataUseCase(gh<_i245.ProfileRepo>()),
     );
-    gh.factory<_i499.UpdateAvatarUseCase>(
-      () => _i499.UpdateAvatarUseCase(gh<_i245.ProfileRepo>()),
-    );
-    gh.factory<_i413.UpdateProfileUseCase>(
-      () => _i413.UpdateProfileUseCase(gh<_i245.ProfileRepo>()),
-    );
-    gh.factory<_i725.ProfileCubit>(
-      () => _i725.ProfileCubit(
-        gh<_i350.GetProfileDataUseCase>(),
-        gh<_i413.UpdateProfileUseCase>(),
-      ),
-    );
-    gh.factory<_i779.AvatarUploadCubit>(
-      () => _i779.AvatarUploadCubit(gh<_i499.UpdateAvatarUseCase>()),
+    gh.factory<_i764.UpdateProfileWithAvatarUseCase>(
+      () => _i764.UpdateProfileWithAvatarUseCase(gh<_i245.ProfileRepo>()),
     );
     gh.factory<_i817.ResetPasswordUseCase>(
       () => _i817.ResetPasswordUseCase(gh<_i380.AuthRepo>()),
@@ -126,6 +110,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i330.ResetPasswordCubit>(
       () => _i330.ResetPasswordCubit(gh<_i817.ResetPasswordUseCase>()),
+    );
+    gh.factory<_i725.ProfileCubit>(
+      () => _i725.ProfileCubit(
+        gh<_i350.GetProfileDataUseCase>(),
+        gh<_i764.UpdateProfileWithAvatarUseCase>(),
+      ),
     );
     gh.factory<_i167.SignOutCubit>(
       () => _i167.SignOutCubit(gh<_i956.SignOutUseCase>()),

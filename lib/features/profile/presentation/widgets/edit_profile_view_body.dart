@@ -1,10 +1,10 @@
+import 'dart:io';
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/validators.dart';
 import 'package:e_commerce/core/logic/image_picker_cubit/image_picker_cubit.dart';
 import 'package:e_commerce/core/logic/image_picker_cubit/image_picker_state.dart';
 import 'package:e_commerce/core/widgets/custom_labeled_text_form_field.dart';
 import 'package:e_commerce/features/profile/domain/entities/user_profile_entity.dart';
-import 'package:e_commerce/features/profile/presentation/logic/avatar_upload_cubit/avatar_upload_cubit.dart';
 import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart';
 import 'package:e_commerce/features/profile/presentation/widgets/user_avatar.dart';
 import 'package:e_commerce/generated/l10n.dart';
@@ -91,20 +91,17 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
                   final state = context.read<ImagePickerCubit>().state;
+                  File? avatar;
                   if (state is ImagePicked) {
-                    final image = state.image;
-                    context.read<AvatarUploadCubit>().uploadAvatar(image);
+                    avatar = state.image;
                   }
-
                   context.read<ProfileCubit>().updateProfile(
-                    UserProfileEntity(
-                      id: widget.profile.id,
+                    widget.profile,
+                    widget.profile.copyWith(
                       fullName: fullName,
-                      email: email,
                       phoneNumber: phoneNumber,
-                      role: widget.profile.role,
-                      createdAt: widget.profile.createdAt,
                     ),
+                    avatar,
                   );
                 }
               },
