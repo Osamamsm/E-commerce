@@ -42,6 +42,8 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
         .update({
           'fullName': updatedProfile.fullName,
           'phoneNumber': updatedProfile.phoneNumber,
+          if (updatedProfile.avatarUrl != null)
+            'avatarUrl': updatedProfile.avatarUrl,
         })
         .eq('id', user.id);
   }
@@ -52,12 +54,18 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
     if (user == null) {
       throw Exception('User not found');
     }
-    return await _supabaseService.storage
+    await _supabaseService.storage
         .from('avatars')
         .upload(
           '${user.id}/avatar.jpg',
           avatar,
           fileOptions: const FileOptions(cacheControl: '3600', upsert: true),
         );
+
+    final publicUrl = _supabaseService.storage
+        .from('avatars')
+        .getPublicUrl('${user.id}/avatar.jpg');
+
+    return publicUrl;
   }
 }

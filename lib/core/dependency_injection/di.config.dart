@@ -73,9 +73,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i594.ImagePickerCubit>(() => _i594.ImagePickerCubit());
     gh.lazySingleton<_i457.DeepLinkCubit>(() => _i457.DeepLinkCubit());
     gh.lazySingleton<_i454.SupabaseClient>(() => supabaseClientProvider.client);
-    gh.factory<_i779.AvatarUploadCubit>(
-      () => _i779.AvatarUploadCubit(gh<_i499.UpdateAvatarUseCase>()),
-    );
     gh.lazySingleton<_i74.SupabaseService>(
       () => _i74.SupabaseService(gh<_i454.SupabaseClient>()),
     );
@@ -97,6 +94,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i350.GetProfileDataUseCase>(
       () => _i350.GetProfileDataUseCase(gh<_i245.ProfileRepo>()),
     );
+    gh.factory<_i499.UpdateAvatarUseCase>(
+      () => _i499.UpdateAvatarUseCase(gh<_i245.ProfileRepo>()),
+    );
     gh.factory<_i413.UpdateProfileUseCase>(
       () => _i413.UpdateProfileUseCase(gh<_i245.ProfileRepo>()),
     );
@@ -105,6 +105,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i350.GetProfileDataUseCase>(),
         gh<_i413.UpdateProfileUseCase>(),
       ),
+    );
+    gh.factory<_i779.AvatarUploadCubit>(
+      () => _i779.AvatarUploadCubit(gh<_i499.UpdateAvatarUseCase>()),
     );
     gh.factory<_i817.ResetPasswordUseCase>(
       () => _i817.ResetPasswordUseCase(gh<_i380.AuthRepo>()),
