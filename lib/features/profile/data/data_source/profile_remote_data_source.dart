@@ -8,7 +8,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 abstract class ProfileRemoteDataSource {
   Future<UserProfileModel> getUserProfile();
   Future<void> updateProfile(UserProfileModel updatedProfile);
-  Future<String> updateAvatar(File avatar);
+  Future<String> updateAvatar(File avatar, String? oldAvatarUrl);
 }
 
 @LazySingleton(as: ProfileRemoteDataSource)
@@ -48,24 +48,28 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
         .eq('id', user.id);
   }
 
-  @override
-  Future<String> updateAvatar(File avatar) async {
-    final user = _supabaseService.currentUser;
-    if (user == null) {
-      throw Exception('User not found');
+    @override
+  Future<String> updateAvatar(File avatar, String? oldAvatarUrl) async {
+    final user = _supabaseService.currentUser!;
+    final bucket = _supabaseService.storage.from('avatars');
+
+    // 1️⃣ Delete old avatar if exists
+    if (oldAvatarUrl != null) {
+      final oldPath = Uri.parse(oldAvatarUrl).pathSegments.last;
+      await bucket.remove(['${user.id}/$oldPath']);
     }
-    await _supabaseService.storage
-        .from('avatars')
-        .upload(
-          '${user.id}/avatar.jpg',
-          avatar,
-          fileOptions: const FileOptions(cacheControl: '3600', upsert: true),
-        );
 
-    final publicUrl = _supabaseService.storage
-        .from('avatars')
-        .getPublicUrl('${user.id}/avatar.jpg');
+    // 2️⃣ Upload new avatar
+    final fileName = 'avatar_${DateTime.now().millisecondsSinceEpoch}.jpg';
+    final newPath = '${user.id}/$fileName';
 
-    return publicUrl;
+    await bucket.upload(
+      newPath,
+      avatar,
+      fileOptions: const FileOptions(upsert: true),
+    );
+
+    // 3️⃣ Return public URL
+    return bucket.getPublicUrl(newPath);
   }
 }

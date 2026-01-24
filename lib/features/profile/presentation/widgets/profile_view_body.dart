@@ -1,6 +1,5 @@
 import 'package:e_commerce/core/helpers/constants.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
-import 'package:e_commerce/features/profile/domain/entities/user_profile_entity.dart';
 import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart';
 import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_state.dart';
 import 'package:e_commerce/features/profile/presentation/widgets/profile_menu_section.dart';
@@ -18,13 +17,13 @@ class ProfileViewBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          BlocSelector<ProfileCubit, ProfileState, UserProfileEntity?>(
-            selector: (state) =>
-                state is ProfileLoaded ? state.userProfileEntity : null,
-            builder: (context, profile) {
-              if (profile == null) return SizedBox.shrink();
-
-              return ProfileHeader(profile: profile);
+          BlocBuilder<ProfileCubit, ProfileState>(
+            builder: (context, state) {
+              if (state is ProfileLoaded) {
+                final profile = state.userProfileEntity;
+                return ProfileHeader(profile: profile);
+              }
+              return SizedBox.shrink();
             },
           ),
           vGap(24),

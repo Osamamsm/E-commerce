@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => authCubit),
         BlocProvider(create: (context) => getIt<SignOutCubit>()),
-        BlocProvider(create: (context) => getIt<ProfileCubit>()..getProfile()),
+        BlocProvider(create: (context) => getIt<ProfileCubit>()),
       ],
       child: BlocListener<AuthCubit, AppAuthState>(
         listener: (context, state) {

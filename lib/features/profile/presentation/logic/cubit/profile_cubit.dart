@@ -14,33 +14,28 @@ class ProfileCubit extends Cubit<ProfileState> {
   ProfileCubit(this._getProfileDataUseCase, this._updateProfileUseCase)
     : super(ProfileInitial());
 
-  UserProfileEntity? _profile;
-  UserProfileEntity? get profile => _profile;
-
   Future<void> getProfile() async {
     emit(ProfileLoading());
     final result = await _getProfileDataUseCase();
     result.fold((failure) => emit(ProfileError(failure.message)), (
       userProfileEntity,
     ) {
-      _profile = userProfileEntity;
       emit(ProfileLoaded(userProfileEntity));
     });
   }
 
-  Future<void> updateProfile(
+  Future<void> updateProfile( 
     UserProfileEntity oldProfile,
     UserProfileEntity updatedProfile,
     File? avatar,
   ) async {
-    emit(ProfileLoading());
+    emit(ProfileUpdating());
     final result = await _updateProfileUseCase(
       oldProfile: oldProfile,
       newProfile: updatedProfile,
       avatar: avatar,
     );
     result.fold((failure) => emit(ProfileError(failure.message)), (_) {
-      _profile = updatedProfile;
       emit(ProfileLoaded(updatedProfile));
     });
   }

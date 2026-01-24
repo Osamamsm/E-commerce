@@ -20,7 +20,10 @@ class UpdateProfileWithAvatarUseCase {
     String? avatarUrl = oldProfile.avatarUrl;
     // 1️⃣ Upload avatar if provided
     if (avatar != null) {
-      final avatarResult = await _repo.updateAvatar(avatar);
+      final avatarResult = await _repo.updateAvatar(
+        avatar,
+        oldProfile.avatarUrl,
+      );
       avatarUrl = avatarResult.fold((failure) => null, (url) => url);
     }
     // 2️⃣ Update profile with correct avatarUrl

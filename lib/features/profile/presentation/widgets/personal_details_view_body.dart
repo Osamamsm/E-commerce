@@ -1,6 +1,7 @@
 import 'package:e_commerce/core/helpers/constants.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart';
+import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_state.dart';
 import 'package:e_commerce/features/profile/presentation/widgets/profile_info_item.dart';
 import 'package:e_commerce/features/profile/presentation/widgets/profile_info_section.dart';
 import 'package:e_commerce/features/profile/presentation/widgets/user_avatar.dart';
@@ -12,16 +13,13 @@ class PersonalDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final profile = context.read<ProfileCubit>().profile;
-    final sections = Constants.getProfileInfoSections(context, profile);
+    final sections = Constants.getProfileInfoSections(context, null);
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Center(child: UserAvatar(
-            avatarUrl: profile?.avatarUrl,
-          )),
+          Center(child: UserAvatar(avatarUrl: null)),
           vGap(24),
           ...sections.map((section) {
             return Padding(

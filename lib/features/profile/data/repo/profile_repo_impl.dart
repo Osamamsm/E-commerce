@@ -40,9 +40,9 @@ class ProfileRepoImpl implements ProfileRepo {
   }
 
   @override
-  Future<Either<Failure, String>> updateAvatar(File avatar) async {
+  Future<Either<Failure, String>> updateAvatar(File avatar, String? oldAvatarUrl) async {
     try {
-      final avatarUrl = await _remoteDataSource.updateAvatar(avatar);
+      final avatarUrl = await _remoteDataSource.updateAvatar(avatar, oldAvatarUrl);
       return Right(avatarUrl);
     } catch (e) {
       return Left(ExceptionMapper.mapExceptionToFailure(e));

@@ -41,7 +41,7 @@ class EditProfileView extends StatelessWidget {
         }
       },
       builder: (context, state) => CustomModalProgress(
-        isLoading: state is ProfileLoading,
+        isLoading: state is ProfileUpdating,
         child: CustomScaffold(
           title: S.of(context).edit_profile,
           child: EditProfileViewBody(profile: profile),
