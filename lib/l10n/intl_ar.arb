@@ -89,5 +89,6 @@
     "failed_to_load_profile":"فشل في تحميل الملف الشخصي",
     "retry":"إعادة المحاولة",
     "app_name":"E-Commerce App",
-    "profile_updated_successfully":"تم تحديث الملف الشخصي بنجاح"
+    "profile_updated_successfully":"تم تحديث الملف الشخصي بنجاح",
+    "no_changes_done":"لا توجد تغييرات"
 }

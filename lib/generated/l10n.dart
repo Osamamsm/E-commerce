@@ -876,6 +876,16 @@ class S {
       args: [],
     );
   }
+
+  /// `No changes done`
+  String get no_changes_done {
+    return Intl.message(
+      'No changes done',
+      name: 'no_changes_done',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

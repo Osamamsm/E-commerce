@@ -97,6 +97,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "my_cart": MessageLookupByLibrary.simpleMessage("عربتي"),
     "my_orders": MessageLookupByLibrary.simpleMessage("طلباتي"),
     "no_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "no_changes_done": MessageLookupByLibrary.simpleMessage("لا توجد تغييرات"),
     "order_history": MessageLookupByLibrary.simpleMessage("تاريخ الطلبات"),
     "other": MessageLookupByLibrary.simpleMessage("اخرى"),
     "password": MessageLookupByLibrary.simpleMessage("كلمه المرور"),

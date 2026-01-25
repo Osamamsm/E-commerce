@@ -108,14 +108,24 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                   if (state is ImagePicked) {
                     avatar = state.image;
                   }
-                  context.read<ProfileCubit>().updateProfile(
-                    widget.profile,
-                    widget.profile.copyWith(
-                      fullName: fullName,
-                      phoneNumber: phoneNumber,
-                    ),
-                    avatar,
-                  );
+                  if (avatar == null &&
+                      widget.profile.fullName == fullName &&
+                      widget.profile.phoneNumber == phoneNumber) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(S.of(context).no_changes_done)),
+                    );
+                    return;
+                  } else {
+                    context.read<ProfileCubit>().updateProfile(
+                      widget.profile,
+                      widget.profile.copyWith(
+                        fullName: fullName,
+                        phoneNumber: phoneNumber,
+                      ),
+                      avatar,
+                    );
+                    context.read<ImagePickerCubit>().clear();
+                  }
                 }
               },
               child: Text(

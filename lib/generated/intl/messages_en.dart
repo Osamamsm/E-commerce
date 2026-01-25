@@ -117,6 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_account": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account? ",
     ),
+    "no_changes_done": MessageLookupByLibrary.simpleMessage("No changes done"),
     "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "order_history": MessageLookupByLibrary.simpleMessage("Order History"),
     "other": MessageLookupByLibrary.simpleMessage("Other"),
