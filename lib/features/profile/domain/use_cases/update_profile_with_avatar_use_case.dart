@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:dartz/dartz.dart';
 import 'package:e_commerce/core/error/failure.dart';
 import 'package:e_commerce/features/profile/domain/entities/user_profile_entity.dart';
@@ -18,7 +17,8 @@ class UpdateProfileWithAvatarUseCase {
     File? avatar,
   }) async {
     String? avatarUrl = oldProfile.avatarUrl;
-    // 1️⃣ Upload avatar if provided
+
+    /*Upload avatar if provided and update avatarUrl*/
     if (avatar != null) {
       final avatarResult = await _repo.updateAvatar(
         avatar,
@@ -26,7 +26,9 @@ class UpdateProfileWithAvatarUseCase {
       );
       avatarUrl = avatarResult.fold((failure) => throw failure, (url) => url);
     }
-    // 2️⃣ Update profile with correct avatarUrl
+
+    /*Update profile with correct avatarUrl and
+    return updated profile if the update is successful*/
     final updatedProfile = newProfile.copyWith(avatarUrl: avatarUrl);
 
     final updateResult = await _repo.updateProfile(updatedProfile);

@@ -53,13 +53,14 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
     final user = _supabaseService.currentUser!;
     final bucket = _supabaseService.storage.from('avatars');
 
-    // 1️⃣ Delete old avatar if exists
+    /*Delete old avatar if exists to avoid
+     multiple avatars for the same user*/
     if (oldAvatarUrl != null) {
       final oldPath = Uri.parse(oldAvatarUrl).pathSegments.last;
       await bucket.remove(['${user.id}/$oldPath']);
     }
 
-    // 2️⃣ Upload new avatar
+    /*Upload new avatar after deleting the old avatar*/
     final fileName = 'avatar_${DateTime.now().millisecondsSinceEpoch}.jpg';
     final newPath = '${user.id}/$fileName';
 
@@ -69,7 +70,7 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
       fileOptions: const FileOptions(upsert: true),
     );
 
-    // 3️⃣ Return public URL
+    /*Return public URL to use in the profile views*/
     return bucket.getPublicUrl(newPath);
   }
 }
