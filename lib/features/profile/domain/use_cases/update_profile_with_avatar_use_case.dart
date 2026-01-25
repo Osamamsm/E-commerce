@@ -24,12 +24,13 @@ class UpdateProfileWithAvatarUseCase {
         avatar,
         oldProfile.avatarUrl,
       );
-      avatarUrl = avatarResult.fold((failure) => null, (url) => url);
+      avatarUrl = avatarResult.fold((failure) => throw failure, (url) => url);
     }
     // 2️⃣ Update profile with correct avatarUrl
     final updatedProfile = newProfile.copyWith(avatarUrl: avatarUrl);
 
-    _repo.updateProfile(updatedProfile);
-    return right(updatedProfile);
+    final updateResult = await _repo.updateProfile(updatedProfile);
+
+    return updateResult.map((_) => updatedProfile);
   }
 }
