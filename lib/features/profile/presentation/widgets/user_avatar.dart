@@ -19,7 +19,7 @@ class UserAvatar extends StatelessWidget {
           ),
           child: CircleAvatar(
             radius: 50,
-            backgroundColor: const Color(0xFFFFDBB5),
+            backgroundColor: Colors.grey,
             backgroundImage: image,
           ),
         ),

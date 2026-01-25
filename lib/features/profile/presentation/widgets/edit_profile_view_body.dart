@@ -34,6 +34,35 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
     super.initState();
   }
 
+  void _onSavePressed(BuildContext context) {
+    if (!_formKey.currentState!.validate()) return;
+
+    _formKey.currentState!.save();
+
+    final state = context.read<ImagePickerCubit>().state;
+    File? avatar;
+    if (state is ImagePicked) {
+      avatar = state.image;
+    }
+
+    if (avatar == null &&
+        widget.profile.fullName == fullName &&
+        widget.profile.phoneNumber == phoneNumber) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(S.of(context).no_changes_done)));
+      return;
+    }
+
+    context.read<ProfileCubit>().updateProfile(
+      widget.profile,
+      widget.profile.copyWith(fullName: fullName, phoneNumber: phoneNumber),
+      avatar,
+    );
+
+    context.read<ImagePickerCubit>().clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -100,34 +129,7 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
             ),
             vGap(32),
             ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
-                  final state = context.read<ImagePickerCubit>().state;
-                  File? avatar;
-                  if (state is ImagePicked) {
-                    avatar = state.image;
-                  }
-                  if (avatar == null &&
-                      widget.profile.fullName == fullName &&
-                      widget.profile.phoneNumber == phoneNumber) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(S.of(context).no_changes_done)),
-                    );
-                    return;
-                  } else {
-                    context.read<ProfileCubit>().updateProfile(
-                      widget.profile,
-                      widget.profile.copyWith(
-                        fullName: fullName,
-                        phoneNumber: phoneNumber,
-                      ),
-                      avatar,
-                    );
-                    context.read<ImagePickerCubit>().clear();
-                  }
-                }
-              },
+              onPressed: () => _onSavePressed(context),
               child: Text(
                 S.of(context).save,
                 style: Theme.of(context).textTheme.titleMedium,
