@@ -97,5 +97,10 @@
     "save":"Save",
     "account":"Account",
     "member_since":"Member Since",
-    "account_status":"Account Status"
+    "account_status":"Account Status",
+    "failed_to_load_profile":"Failed to load profile",
+    "retry":"Retry",
+    "app_name":"E-Commerce App",
+    "profile_updated_successfully":"Profile updated successfully",
+    "no_changes_done":"No changes done"
 }

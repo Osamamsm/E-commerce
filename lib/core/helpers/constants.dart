@@ -2,6 +2,7 @@ import 'package:e_commerce/core/models/menu_item.dart';
 import 'package:e_commerce/features/addresses/presentation/views/saved_addresses_view.dart';
 import 'package:e_commerce/features/auth/presentation/logic/sign_out_cubit/sign_out_cubit.dart';
 import 'package:e_commerce/features/payment/presentation/views/payment_methods_view.dart';
+import 'package:e_commerce/features/profile/domain/entities/user_profile_entity.dart';
 import 'package:e_commerce/features/profile/presentation/views/personal_details_view.dart';
 import 'package:e_commerce/features/wish_list/presentation/views/wish_list_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
@@ -118,30 +119,30 @@ class Constants {
     ];
   }
 
-
-  //TODO: edit this function to recieve a profile model from the backend and extract the data from it
   static List<Map<String, dynamic>> getProfileInfoSections(
     BuildContext context,
+    UserProfileEntity? profile,
   ) {
     final s = S.of(context);
+
     return [
       {
         'title': s.personal_details,
         'items': [
           {
             "label": s.full_name,
-                "value": 'Julian Alexander',
-                "icon": Icons.person_outline,
+            "value": profile?.fullName ?? 'User',
+            "icon": Icons.person_outline,
           },
           {
             "label": s.email,
-                "value": 'julian.s@example.com',
-                "icon": Icons.email_outlined,
+            "value": profile?.email ?? 'user@example.com',
+            "icon": Icons.email_outlined,
           },
           {
             "label": s.phone_number,
-                "value": '+1 (555) 012-3456',
-                "icon": Icons.phone_outlined,
+            "value": profile?.phoneNumber ?? '',
+            "icon": Icons.phone_outlined,
           },
         ],
       },
@@ -150,17 +151,23 @@ class Constants {
         'items': [
           {
             "label": s.member_since,
-                "value": 'January 2024',
-                "icon": Icons.calendar_today_outlined,
+            "value": profile?.createdAt.showDateInOwnFormat() ?? '',
+            "icon": Icons.calendar_today_outlined,
           },
           {
             "label": s.account_status,
-                "value": 'Active',
-                "icon": Icons.verified_outlined,
-                "valueColor": const Color(0xFF34d399),
+            "value": 'Active',
+            "icon": Icons.verified_outlined,
+            "valueColor": const Color(0xFF34d399),
           },
         ],
       },
     ];
+  }
+}
+
+extension ShowDataInOwnFormat on DateTime {
+  String showDateInOwnFormat() {
+    return '$day-$month-$year';
   }
 }

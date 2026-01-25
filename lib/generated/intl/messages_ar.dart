@@ -35,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_review": MessageLookupByLibrary.simpleMessage("أضف رأيك"),
     "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى العربة"),
     "address_details": MessageLookupByLibrary.simpleMessage("تفاصيل العنوان"),
+    "app_name": MessageLookupByLibrary.simpleMessage("E-Commerce App"),
     "apt_suite_etc": MessageLookupByLibrary.simpleMessage("المنزل/الشقة/الخ"),
     "card_holder": MessageLookupByLibrary.simpleMessage("حامل البطاقة"),
     "card_holder_name": MessageLookupByLibrary.simpleMessage(
@@ -68,6 +69,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "expires": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
     "expiry_date": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
+    "failed_to_load_profile": MessageLookupByLibrary.simpleMessage(
+      "فشل في تحميل الملف الشخصي",
+    ),
     "featured_products": MessageLookupByLibrary.simpleMessage(
       "المنتجات المميزة",
     ),
@@ -93,6 +97,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "my_cart": MessageLookupByLibrary.simpleMessage("عربتي"),
     "my_orders": MessageLookupByLibrary.simpleMessage("طلباتي"),
     "no_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "no_changes_done": MessageLookupByLibrary.simpleMessage("لا توجد تغييرات"),
     "order_history": MessageLookupByLibrary.simpleMessage("تاريخ الطلبات"),
     "other": MessageLookupByLibrary.simpleMessage("اخرى"),
     "password": MessageLookupByLibrary.simpleMessage("كلمه المرور"),
@@ -108,11 +113,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "product_description": MessageLookupByLibrary.simpleMessage("وصف المنتج"),
     "product_reviews": MessageLookupByLibrary.simpleMessage("اراء العملاء"),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+    "profile_updated_successfully": MessageLookupByLibrary.simpleMessage(
+      "تم تحديث الملف الشخصي بنجاح",
+    ),
     "quick_access": MessageLookupByLibrary.simpleMessage("الوصول السريع"),
     "register": MessageLookupByLibrary.simpleMessage("سجل الآن"),
     "reset_password": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمه المرور",
     ),
+    "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
     "review": m0,
     "review_hint_text": MessageLookupByLibrary.simpleMessage(
       "شارك ارائك حول هذا المنتج",

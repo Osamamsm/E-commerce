@@ -11,6 +11,8 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:e_commerce/core/logic/deep_link_cubit/deep_link_cubit.dart'
     as _i457;
+import 'package:e_commerce/core/logic/image_picker_cubit/image_picker_cubit.dart'
+    as _i594;
 import 'package:e_commerce/core/supabase/supabase_client.dart' as _i4;
 import 'package:e_commerce/core/supabase/supabase_service.dart' as _i74;
 import 'package:e_commerce/features/auth/data/data_sources/auth_remote_data_source.dart'
@@ -40,6 +42,18 @@ import 'package:e_commerce/features/auth/presentation/logic/sign_out_cubit/sign_
     as _i167;
 import 'package:e_commerce/features/auth/presentation/logic/sign_up_cubit/sign_up_cubit.dart'
     as _i927;
+import 'package:e_commerce/features/profile/data/data_source/profile_remote_data_source.dart'
+    as _i1063;
+import 'package:e_commerce/features/profile/data/repo/profile_repo_impl.dart'
+    as _i22;
+import 'package:e_commerce/features/profile/domain/repo/profile_repo.dart'
+    as _i245;
+import 'package:e_commerce/features/profile/domain/use_cases/get_profile_use_case.dart'
+    as _i350;
+import 'package:e_commerce/features/profile/domain/use_cases/update_profile_with_avatar_use_case.dart'
+    as _i764;
+import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart'
+    as _i725;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:supabase_flutter/supabase_flutter.dart' as _i454;
@@ -52,6 +66,7 @@ extension GetItInjectableX on _i174.GetIt {
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final supabaseClientProvider = _$SupabaseClientProvider();
+    gh.factory<_i594.ImagePickerCubit>(() => _i594.ImagePickerCubit());
     gh.lazySingleton<_i457.DeepLinkCubit>(() => _i457.DeepLinkCubit());
     gh.lazySingleton<_i454.SupabaseClient>(() => supabaseClientProvider.client);
     gh.lazySingleton<_i74.SupabaseService>(
@@ -60,11 +75,23 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i254.AuthRemoteDataSource>(
       () => _i254.AuthRemoteDataSourceImpl(gh<_i74.SupabaseService>()),
     );
+    gh.lazySingleton<_i1063.ProfileRemoteDataSource>(
+      () => _i1063.ProfileRemoteDataSourceImpl(gh<_i74.SupabaseService>()),
+    );
     gh.lazySingleton<_i380.AuthRepo>(
       () => _i562.AuthRepoImpl(gh<_i254.AuthRemoteDataSource>()),
     );
+    gh.lazySingleton<_i245.ProfileRepo>(
+      () => _i22.ProfileRepoImpl(gh<_i1063.ProfileRemoteDataSource>()),
+    );
     gh.lazySingleton<_i756.AuthCubit>(
       () => _i756.AuthCubit(gh<_i74.SupabaseService>()),
+    );
+    gh.factory<_i350.GetProfileDataUseCase>(
+      () => _i350.GetProfileDataUseCase(gh<_i245.ProfileRepo>()),
+    );
+    gh.factory<_i764.UpdateProfileWithAvatarUseCase>(
+      () => _i764.UpdateProfileWithAvatarUseCase(gh<_i245.ProfileRepo>()),
     );
     gh.factory<_i817.ResetPasswordUseCase>(
       () => _i817.ResetPasswordUseCase(gh<_i380.AuthRepo>()),
@@ -83,6 +110,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i330.ResetPasswordCubit>(
       () => _i330.ResetPasswordCubit(gh<_i817.ResetPasswordUseCase>()),
+    );
+    gh.factory<_i725.ProfileCubit>(
+      () => _i725.ProfileCubit(
+        gh<_i350.GetProfileDataUseCase>(),
+        gh<_i764.UpdateProfileWithAvatarUseCase>(),
+      ),
     );
     gh.factory<_i167.SignOutCubit>(
       () => _i167.SignOutCubit(gh<_i956.SignOutUseCase>()),

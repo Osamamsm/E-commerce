@@ -1,10 +1,11 @@
+import 'package:e_commerce/features/profile/presentation/widgets/edit_avatar_button.dart';
 import 'package:flutter/material.dart';
 
 class UserAvatar extends StatelessWidget {
-  const UserAvatar({
-    super.key,
-  });
+  const UserAvatar({super.key, this.isEditable = false, required this.image});
 
+  final bool isEditable;
+  final ImageProvider image;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -18,33 +19,13 @@ class UserAvatar extends StatelessWidget {
           ),
           child: CircleAvatar(
             radius: 50,
-            backgroundColor: const Color(0xFFFFDBB5),
-            child: Icon(
-              Icons.person,
-              size: 60,
-              color: const Color(0xFFD4A574),
-            ),
+            backgroundColor: Colors.grey,
+            backgroundImage: image,
           ),
         ),
-        Positioned(
-          bottom: 0,
-          right: 0,
-          child: InkWell(
-            onTap: () {},
-            child: Container(
-              padding: const EdgeInsets.all(6),
-              decoration: BoxDecoration(
-                color: const Color(0xFF9333ea),
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: const Color(0xFF1e1b4b),
-                  width: 2,
-                ),
-              ),
-              child: const Icon(Icons.edit, size: 16, color: Colors.white),
-            ),
-          ),
-        ),
+        isEditable
+            ? Positioned(bottom: 0, right: 0, child: EditAvatarButton())
+            : SizedBox.shrink(),
       ],
     );
   }

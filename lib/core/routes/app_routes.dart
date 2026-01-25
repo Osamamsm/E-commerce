@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:e_commerce/core/dependency_injection/di.dart';
+import 'package:e_commerce/core/logic/image_picker_cubit/image_picker_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/views/add_address_view.dart';
 import 'package:e_commerce/features/addresses/presentation/views/edit_address_view.dart';
 import 'package:e_commerce/features/addresses/presentation/views/saved_addresses_view.dart';
@@ -152,7 +153,10 @@ GoRouter createRouter(AuthCubit authCubit) {
       ),
       GoRoute(
         path: EditProfileView.routeName,
-        builder: (context, state) => const EditProfileView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => getIt<ImagePickerCubit>(),
+          child: const EditProfileView(),
+        ),
       ),
       GoRoute(
         path: PersonalDetailsView.routeName,

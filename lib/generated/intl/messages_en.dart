@@ -37,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_review": MessageLookupByLibrary.simpleMessage("Add Your Review"),
     "add_to_cart": MessageLookupByLibrary.simpleMessage("Add To Cart"),
     "address_details": MessageLookupByLibrary.simpleMessage("Address Details"),
+    "app_name": MessageLookupByLibrary.simpleMessage("E-Commerce App"),
     "apt_suite_etc": MessageLookupByLibrary.simpleMessage(
       "Apt. Suite, etc. (Optional)",
     ),
@@ -85,6 +86,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "error": MessageLookupByLibrary.simpleMessage("Error"),
     "expires": MessageLookupByLibrary.simpleMessage("Expires"),
     "expiry_date": MessageLookupByLibrary.simpleMessage("Expiry Date"),
+    "failed_to_load_profile": MessageLookupByLibrary.simpleMessage(
+      "Failed to load profile",
+    ),
     "featured_products": MessageLookupByLibrary.simpleMessage(
       "Featured Products",
     ),
@@ -113,6 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_account": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account? ",
     ),
+    "no_changes_done": MessageLookupByLibrary.simpleMessage("No changes done"),
     "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "order_history": MessageLookupByLibrary.simpleMessage("Order History"),
     "other": MessageLookupByLibrary.simpleMessage("Other"),
@@ -136,12 +141,16 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "product_reviews": MessageLookupByLibrary.simpleMessage("Customer Reviews"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "profile_updated_successfully": MessageLookupByLibrary.simpleMessage(
+      "Profile updated successfully",
+    ),
     "quick_access": MessageLookupByLibrary.simpleMessage("Quick Access"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "reset_password": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "reset_password_success_message": MessageLookupByLibrary.simpleMessage(
       "Password reset successfully.",
     ),
+    "retry": MessageLookupByLibrary.simpleMessage("Retry"),
     "review": m0,
     "review_hint_text": MessageLookupByLibrary.simpleMessage(
       "Share your thoughts about this product...",

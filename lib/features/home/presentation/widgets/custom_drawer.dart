@@ -1,11 +1,9 @@
-import 'package:e_commerce/core/helpers/constants.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
-import 'package:e_commerce/features/home/presentation/widgets/custom_drawer_button.dart';
-import 'package:e_commerce/features/home/presentation/widgets/custom_menu_item.dart';
-import 'package:e_commerce/features/profile/presentation/views/profile_view.dart';
-import 'package:e_commerce/generated/l10n.dart';
+import 'package:e_commerce/features/home/presentation/widgets/custom_drawer_footer.dart';
+import 'package:e_commerce/features/home/presentation/widgets/drawer_buttons_row.dart';
+import 'package:e_commerce/features/home/presentation/widgets/drawer_header_bloc_builder.dart';
+import 'package:e_commerce/features/home/presentation/widgets/drawer_quick_access_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -15,67 +13,36 @@ class CustomDrawer extends StatelessWidget {
     final theme = Theme.of(context);
     return Drawer(
       width: 250,
-      backgroundColor: theme.colorScheme.secondary,
-      child: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              children: [
-                vGap(20),
-                const CircleAvatar(
-                  radius: 50,
-                  backgroundColor: Colors.white,
-                  child: Icon(Icons.person, size: 50, color: Colors.grey),
-                ),
-                vGap(10),
-                const Text(
-                  'OSAMA',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.2,
+      backgroundColor: theme.colorScheme.primaryContainer,
+      child: SafeArea(
+        child: Column(
+          children: [
+            RepaintBoundary(
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      theme.colorScheme.primary,
+                      theme.colorScheme.secondary,
+                    ],
                   ),
                 ),
-                vGap(10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                padding: const EdgeInsets.all(24),
+                child: Column(
                   children: [
-                    CustomDrawerButton(
-                      icon: Icons.person_outline,
-                      label: S.of(context).profile,
-                      onTap: () {
-                        GoRouter.of(context).push(ProfileView.routeName);
-                      },
-                    ),
-                    hGap(80),
-                    CustomDrawerButton(
-                      icon: Icons.settings_outlined,
-                      label: S.of(context).settings,
-                      onTap: () {},
-                    ),
+                   const DrawerHeaderBlocBuilder(),
+                    vGap(16),
+                    const DrawerButtonsRow(),
                   ],
                 ),
-              ],
+              ),
             ),
-          ),
-          vGap(10),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              children: Constants.getMenuItems(context)
-                  .map(
-                    (e) => CustomMenuItem(
-                      icon: e.icon,
-                      label: e.label,
-                      onTap: e.onTap,
-                    ),
-                  )
-                  .toList(),
-            ),
-          ),
-        ],
+            const DrawerQuickAccessMenu(),
+            const CustomDrawerFooter(),
+          ],
+        ),
       ),
     );
   }
