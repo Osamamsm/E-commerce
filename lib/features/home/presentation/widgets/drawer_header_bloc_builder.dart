@@ -1,4 +1,4 @@
-import 'package:e_commerce/features/home/presentation/widgets/custom_drawer_error_header.dart';
+import 'package:e_commerce/core/widgets/custom_error_header.dart';
 import 'package:e_commerce/features/home/presentation/widgets/drawer_header.dart';
 import 'package:e_commerce/features/profile/domain/entities/user_profile_entity.dart';
 import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart';
@@ -31,7 +31,7 @@ class DrawerHeaderBlocBuilder extends StatelessWidget {
             ),
           );
         } else if (state is ProfileError) {
-          return const CustomDrawerErrorHeader();
+          return const CustomErrorHeader();
         } else {
           return const SizedBox.shrink();
         }

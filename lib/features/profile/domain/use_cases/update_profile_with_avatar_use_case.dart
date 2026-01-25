@@ -23,7 +23,7 @@ class UpdateProfileWithAvatarUseCase {
       if (avatar != null) {
         final avatarResult = await _repo.updateAvatar(avatar);
         uploadedAvatarUrl = avatarResult.fold(
-          (failure) => throw failure,
+          (failure) => throw Exception(failure.message),
           (url) => url,
         );
       }
@@ -32,16 +32,26 @@ class UpdateProfileWithAvatarUseCase {
       return updated profile if the update is successful*/
       final updatedProfile = newProfile.copyWith(avatarUrl: uploadedAvatarUrl);
 
-      await _repo.updateProfile(updatedProfile);
+      final updateResult = await _repo.updateProfile(updatedProfile);
 
-      /*Delete old avatar if it exists*/
-      if (avatar != null && oldProfile.avatarUrl != null) {
-        await _repo.deleteAvatar(oldProfile.avatarUrl!);
-      }
-
-      return Right(updatedProfile);
+      return updateResult.fold(
+        (failure) {
+          // If update fails, delete the newly uploaded avatar
+          if (uploadedAvatarUrl != null) {
+            _repo.deleteAvatar(uploadedAvatarUrl);
+          }
+          return Left(failure);
+        },
+        (_) async {
+          // Update successful, delete old avatar
+          if (avatar != null && oldProfile.avatarUrl != null) {
+            await _repo.deleteAvatar(oldProfile.avatarUrl!);
+          }
+          return Right(updatedProfile);
+        },
+      );
     } on Exception catch (e) {
-      /*Delete the new uploaded avatar if the update fails */
+      // Handle other exceptions
       if (uploadedAvatarUrl != null) {
         await _repo.deleteAvatar(uploadedAvatarUrl);
       }

@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/helpers/constants.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
+import 'package:e_commerce/core/widgets/custom_error_header.dart';
 import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart';
 import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_state.dart';
 import 'package:e_commerce/features/profile/presentation/widgets/profile_menu_section.dart';
@@ -22,6 +23,8 @@ class ProfileViewBody extends StatelessWidget {
               if (state is ProfileLoaded) {
                 final profile = state.userProfileEntity;
                 return ProfileHeader(profile: profile);
+              } else if (state is ProfileError) {
+                return CustomErrorHeader();
               }
               return SizedBox.shrink();
             },

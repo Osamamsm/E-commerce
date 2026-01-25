@@ -4,8 +4,8 @@ import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CustomDrawerErrorHeader extends StatelessWidget {
-  const CustomDrawerErrorHeader({super.key});
+class CustomErrorHeader extends StatelessWidget {
+  const CustomErrorHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
