@@ -8,7 +8,8 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 abstract class ProfileRemoteDataSource {
   Future<UserProfileModel> getUserProfile();
   Future<void> updateProfile(UserProfileModel updatedProfile);
-  Future<String> updateAvatar(File avatar, String? oldAvatarUrl);
+  Future<String> updateAvatar(File avatar);
+  Future<void> deleteAvatar(String avatarUrl);
 }
 
 @LazySingleton(as: ProfileRemoteDataSource)
@@ -48,19 +49,10 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
         .eq('id', user.id);
   }
 
-    @override
-  Future<String> updateAvatar(File avatar, String? oldAvatarUrl) async {
+  @override
+  Future<String> updateAvatar(File avatar) async {
     final user = _supabaseService.currentUser!;
     final bucket = _supabaseService.storage.from('avatars');
-
-    /*Delete old avatar if exists to avoid
-     multiple avatars for the same user*/
-    if (oldAvatarUrl != null) {
-      final oldPath = Uri.parse(oldAvatarUrl).pathSegments.last;
-      await bucket.remove(['${user.id}/$oldPath']);
-    }
-
-    /*Upload new avatar after deleting the old avatar*/
     final fileName = 'avatar_${DateTime.now().millisecondsSinceEpoch}.jpg';
     final newPath = '${user.id}/$fileName';
 
@@ -72,5 +64,13 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
 
     /*Return public URL to use in the profile views*/
     return bucket.getPublicUrl(newPath);
+  }
+
+  @override
+  Future<void> deleteAvatar(String avatarUrl) async {
+    final user = _supabaseService.currentUser!;
+    final bucket = _supabaseService.storage.from('avatars');
+    final oldPath = Uri.parse(avatarUrl).pathSegments.last;
+    await bucket.remove(['${user.id}/$oldPath']);
   }
 }
