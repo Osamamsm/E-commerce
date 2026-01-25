@@ -12,7 +12,7 @@ class UpdateProfileWithAvatarUseCase {
 
   UpdateProfileWithAvatarUseCase(this._repo);
 
-  Future<Either<Failure, void>> call({
+  Future<Either<Failure, UserProfileEntity>> call({
     required UserProfileEntity oldProfile,
     required UserProfileEntity newProfile,
     File? avatar,
@@ -29,6 +29,7 @@ class UpdateProfileWithAvatarUseCase {
     // 2️⃣ Update profile with correct avatarUrl
     final updatedProfile = newProfile.copyWith(avatarUrl: avatarUrl);
 
-    return _repo.updateProfile(updatedProfile);
+    _repo.updateProfile(updatedProfile);
+    return right(updatedProfile);
   }
 }
