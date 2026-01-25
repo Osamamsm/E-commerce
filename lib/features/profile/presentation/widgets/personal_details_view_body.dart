@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/helpers/constants.dart';
+import 'package:e_commerce/core/helpers/functions.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart';
 import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_state.dart';
@@ -19,7 +20,7 @@ class PersonalDetailsViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Center(child: UserAvatar(avatarUrl: null)),
+          Center(child: UserAvatar(image: resolveUserAvatarImage())),
           vGap(24),
           ...sections.map((section) {
             return Padding(

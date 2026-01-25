@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:e_commerce/core/helpers/functions.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/validators.dart';
 import 'package:e_commerce/core/logic/image_picker_cubit/image_picker_cubit.dart';
@@ -23,6 +24,7 @@ class EditProfileViewBody extends StatefulWidget {
 class _EditProfileViewBodyState extends State<EditProfileViewBody> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late String fullName, email, phoneNumber;
+  File? image;
 
   @override
   void initState() {
@@ -41,10 +43,21 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: UserAvatar(
-                isEditable: true,
-                avatarUrl: widget.profile.avatarUrl,
+            BlocListener<ImagePickerCubit, ImagePickerState>(
+              listener: (context, state) {
+                if (state is ImagePicked) {
+                  image = state.image;
+                  setState(() {});
+                }
+              },
+              child: Center(
+                child: UserAvatar(
+                  isEditable: true,
+                  image: resolveUserAvatarImage(
+                    pickedImage: image,
+                    avatarUrl: widget.profile.avatarUrl,
+                  ),
+                ),
               ),
             ),
             vGap(32),

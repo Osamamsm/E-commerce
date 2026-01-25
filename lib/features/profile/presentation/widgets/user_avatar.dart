@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/core/logic/image_picker_cubit/image_picker_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,11 +6,11 @@ class UserAvatar extends StatelessWidget {
   const UserAvatar({
     super.key,
     this.isEditable = false,
-    required this.avatarUrl,
+    required this.image,
   });
 
   final bool isEditable;
-  final String? avatarUrl;
+  final ImageProvider image;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -26,11 +25,7 @@ class UserAvatar extends StatelessWidget {
           child: CircleAvatar(
             radius: 50,
             backgroundColor: const Color(0xFFFFDBB5),
-            backgroundImage: avatarUrl != null
-                ? CachedNetworkImageProvider(avatarUrl!)
-                : CachedNetworkImageProvider(
-                    'https://cdn-icons-png.flaticon.com/512/149/149071.png',
-                  ),
+            backgroundImage: image,
           ),
         ),
         isEditable

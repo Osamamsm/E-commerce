@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/helpers/functions.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/features/profile/domain/entities/user_profile_entity.dart';
 import 'package:e_commerce/features/profile/presentation/views/edit_profile_view.dart';
@@ -15,7 +16,7 @@ final UserProfileEntity? profile;
     return Column(
       children: [
         UserAvatar(
-          avatarUrl: profile?.avatarUrl,
+          image: resolveUserAvatarImage(avatarUrl: profile?.avatarUrl),
         ),
         vGap(16),
         Text(
