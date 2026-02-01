@@ -20,6 +20,6 @@ class UserPreferencesHelper {
   }
 
   String getTheme() {
-    return _preferences.getString('theme') ?? "Dark";
+    return _preferences.getString('theme') ?? "system";
   }
 }

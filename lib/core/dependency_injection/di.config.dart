@@ -15,6 +15,8 @@ import 'package:e_commerce/core/logic/image_picker_cubit/image_picker_cubit.dart
     as _i594;
 import 'package:e_commerce/core/preferences/shared_preferences_module.dart'
     as _i459;
+import 'package:e_commerce/core/preferences/user_preferences_helper.dart'
+    as _i78;
 import 'package:e_commerce/core/supabase/supabase_client.dart' as _i4;
 import 'package:e_commerce/core/supabase/supabase_service.dart' as _i74;
 import 'package:e_commerce/features/auth/data/data_sources/auth_remote_data_source.dart'
@@ -56,6 +58,8 @@ import 'package:e_commerce/features/profile/domain/use_cases/update_profile_with
     as _i764;
 import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart'
     as _i725;
+import 'package:e_commerce/features/settings/presentation/logic/cubit/app_settings_cubit.dart'
+    as _i259;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
@@ -77,6 +81,9 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.lazySingleton<_i454.SupabaseClient>(() => supabaseClientProvider.client);
+    gh.lazySingleton<_i78.UserPreferencesHelper>(
+      () => _i78.UserPreferencesHelper(gh<_i460.SharedPreferences>()),
+    );
     gh.lazySingleton<_i74.SupabaseService>(
       () => _i74.SupabaseService(gh<_i454.SupabaseClient>()),
     );
@@ -85,6 +92,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i1063.ProfileRemoteDataSource>(
       () => _i1063.ProfileRemoteDataSourceImpl(gh<_i74.SupabaseService>()),
+    );
+    gh.factory<_i259.AppSettingsCubit>(
+      () => _i259.AppSettingsCubit(gh<_i78.UserPreferencesHelper>()),
     );
     gh.lazySingleton<_i380.AuthRepo>(
       () => _i562.AuthRepoImpl(gh<_i254.AuthRemoteDataSource>()),
