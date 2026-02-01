@@ -38,6 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "address_details": MessageLookupByLibrary.simpleMessage("تفاصيل العنوان"),
     "app_name": MessageLookupByLibrary.simpleMessage("E-Commerce App"),
     "apt_suite_etc": MessageLookupByLibrary.simpleMessage("المنزل/الشقة/الخ"),
+    "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
     "card_holder": MessageLookupByLibrary.simpleMessage("حامل البطاقة"),
     "card_holder_name": MessageLookupByLibrary.simpleMessage(
@@ -63,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "contact_us": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
     "create_account": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "cvv_cvc": MessageLookupByLibrary.simpleMessage("CVV / CVC"),
+    "dark": MessageLookupByLibrary.simpleMessage("داكن"),
     "default_": MessageLookupByLibrary.simpleMessage("الافتراضي"),
     "delete": MessageLookupByLibrary.simpleMessage("حذف"),
     "discount": MessageLookupByLibrary.simpleMessage("الخصم"),
@@ -73,6 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "email_hint": MessageLookupByLibrary.simpleMessage(
       "أدخل البريد الالكتروني",
     ),
+    "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
     "expires": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
     "expiry_date": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
     "failed_to_load_profile": MessageLookupByLibrary.simpleMessage(
@@ -94,6 +97,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "home": MessageLookupByLibrary.simpleMessage("المنزل"),
     "label_as": MessageLookupByLibrary.simpleMessage("التصنيف كـ"),
     "language": MessageLookupByLibrary.simpleMessage("اللغة"),
+    "light": MessageLookupByLibrary.simpleMessage("فاتح"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "login_welcome_message": MessageLookupByLibrary.simpleMessage(
       "مرحبا بعودتك!",
@@ -181,6 +185,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "submit_review": MessageLookupByLibrary.simpleMessage("ارسال رأيك"),
     "subtotal": MessageLookupByLibrary.simpleMessage("الإجمالي"),
     "support": MessageLookupByLibrary.simpleMessage("الدعم"),
+    "system": MessageLookupByLibrary.simpleMessage("النظام"),
     "tax": MessageLookupByLibrary.simpleMessage("الضريبة"),
     "terms_of_service": MessageLookupByLibrary.simpleMessage("شروط الخدمة"),
     "theme": MessageLookupByLibrary.simpleMessage("المظهر"),

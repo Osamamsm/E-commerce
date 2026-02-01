@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authCubit = getIt<AuthCubit>();
+    final router = createRouter(authCubit);
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => authCubit),
@@ -44,15 +45,15 @@ class MyApp extends StatelessWidget {
             context.read<SignOutCubit>().signOut();
           }
         },
-        child: BlocBuilder<AppSettingsCubit, AppSettingsState>(
-          builder: (context, state) {
-            return ScreenUtilInit(
-              child: MaterialApp.router(
+        child: ScreenUtilInit(
+          child: BlocBuilder<AppSettingsCubit, AppSettingsState>(
+            builder: (context, state) {
+              return MaterialApp.router(
                 theme: AppTheme.light,
                 darkTheme: AppTheme.dark,
                 themeMode: state.themeMode,
                 locale: state.locale,
-                routerConfig: createRouter(authCubit),
+                routerConfig: router,
                 debugShowCheckedModeBanner: false,
                 localizationsDelegates: [
                   S.delegate,
@@ -61,9 +62,9 @@ class MyApp extends StatelessWidget {
                   GlobalCupertinoLocalizations.delegate,
                 ],
                 supportedLocales: S.delegate.supportedLocales,
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );

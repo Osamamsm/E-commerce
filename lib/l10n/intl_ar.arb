@@ -111,5 +111,10 @@
     "order_updates_subtitle":"احصل على إشعارات حول حالة طلبك",
     "offers_promotions":"العروض الترويجية",
     "offers_promotions_subtitle":"ابق على اطلاع بأحدث العروض والخصومات",
-    "change_email":"تغيير البريد الالكتروني"
+    "change_email":"تغيير البريد الالكتروني",
+    "light":"فاتح",
+    "dark":"داكن",
+    "system":"النظام",
+    "english":"الإنجليزية",
+    "arabic":"العربية"
 }

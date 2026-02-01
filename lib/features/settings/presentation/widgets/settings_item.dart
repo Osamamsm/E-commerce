@@ -19,7 +19,7 @@ class SettingsItem extends StatelessWidget {
   final String selectLabel;
   final IconData icon;
   final String value;
-  final List<String> options;
+  final List<Map<String, dynamic>> options;
   final Function(String) onChanged;
   final List<Color> colors;
 

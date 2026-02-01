@@ -123,5 +123,10 @@
     "order_updates_subtitle":"Get notified about your order status",
     "offers_promotions":"Offers & Promotions",
     "offers_promotions_subtitle":"Stay updated with the latest offers and discounts",
-    "change_email":"Change Email"
+    "change_email":"Change Email",
+    "light":"Light",
+    "dark":"Dark",
+    "system":"System",
+    "english":"English",
+    "arabic":"Arabic"
 }

@@ -42,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "apt_suite_etc": MessageLookupByLibrary.simpleMessage(
       "Apt. Suite, etc. (Optional)",
     ),
+    "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "card_holder": MessageLookupByLibrary.simpleMessage("Card Holder"),
     "card_holder_name": MessageLookupByLibrary.simpleMessage(
@@ -73,6 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "contact_us": MessageLookupByLibrary.simpleMessage("Contact Us"),
     "create_account": MessageLookupByLibrary.simpleMessage("Create Account"),
     "cvv_cvc": MessageLookupByLibrary.simpleMessage("CVV / CVC"),
+    "dark": MessageLookupByLibrary.simpleMessage("Dark"),
     "default_": MessageLookupByLibrary.simpleMessage("Default"),
     "delete": MessageLookupByLibrary.simpleMessage("Delete"),
     "discount": MessageLookupByLibrary.simpleMessage("Discount"),
@@ -81,6 +83,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "email_hint": MessageLookupByLibrary.simpleMessage("Enter your email"),
+    "english": MessageLookupByLibrary.simpleMessage("English"),
     "enter_new_password": MessageLookupByLibrary.simpleMessage(
       "Enter New Password",
     ),
@@ -109,6 +112,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "label_as": MessageLookupByLibrary.simpleMessage("LABEL AS"),
     "language": MessageLookupByLibrary.simpleMessage("Language"),
+    "light": MessageLookupByLibrary.simpleMessage("Light"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "login_welcome_message": MessageLookupByLibrary.simpleMessage(
       "Welcome back!",
@@ -215,6 +219,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "submit_review": MessageLookupByLibrary.simpleMessage("Submit Review"),
     "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
     "support": MessageLookupByLibrary.simpleMessage("Support"),
+    "system": MessageLookupByLibrary.simpleMessage("System"),
     "tax": MessageLookupByLibrary.simpleMessage("Tax"),
     "terms_of_service": MessageLookupByLibrary.simpleMessage(
       "Terms of Service",
