@@ -1,14 +1,13 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/features/home/presentation/widgets/custom_drawer_button.dart';
 import 'package:e_commerce/features/profile/presentation/views/profile_view.dart';
+import 'package:e_commerce/features/settings/presentation/views/settings_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class DrawerButtonsRow extends StatelessWidget {
-  const DrawerButtonsRow({
-    super.key,
-  });
+  const DrawerButtonsRow({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +28,9 @@ class DrawerButtonsRow extends StatelessWidget {
           child: CustomDrawerButton(
             icon: Icons.settings_outlined,
             label: S.of(context).settings,
-            onTap: () {},
+            onTap: () {
+              GoRouter.of(context).push(SettingsView.routeName);
+            },
           ),
         ),
       ],

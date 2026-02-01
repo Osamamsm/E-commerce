@@ -22,6 +22,7 @@ import 'package:e_commerce/features/product_details/presentation/views/product_d
 import 'package:e_commerce/features/profile/presentation/views/edit_profile_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/personal_details_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/profile_view.dart';
+import 'package:e_commerce/features/settings/presentation/views/settings_view.dart';
 import 'package:e_commerce/features/splash/views/splash_view.dart';
 import 'package:e_commerce/features/wish_list/presentation/views/wish_list_view.dart';
 import 'package:flutter/material.dart';
@@ -165,6 +166,10 @@ GoRouter createRouter(AuthCubit authCubit) {
       GoRoute(
         path: WishListView.routeName,
         builder: (context, state) => const WishListView(),
+      ),
+      GoRoute(
+        path: SettingsView.routeName,
+        builder: (context, state) => const SettingsView(),
       ),
     ],
   );

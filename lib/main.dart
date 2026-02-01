@@ -6,6 +6,8 @@ import 'package:e_commerce/features/auth/presentation/logic/auth_cubit/auth_cubi
 import 'package:e_commerce/features/auth/presentation/logic/auth_cubit/auth_state.dart';
 import 'package:e_commerce/features/auth/presentation/logic/sign_out_cubit/sign_out_cubit.dart';
 import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart';
+import 'package:e_commerce/features/settings/presentation/logic/cubit/app_settings_cubit.dart';
+import 'package:e_commerce/features/settings/presentation/logic/cubit/app_settings_state.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,11 +31,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authCubit = getIt<AuthCubit>();
+    final router = createRouter(authCubit);
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => authCubit),
         BlocProvider(create: (context) => getIt<SignOutCubit>()),
         BlocProvider(create: (context) => getIt<ProfileCubit>()),
+        BlocProvider(create: (context) => getIt<AppSettingsCubit>()),
       ],
       child: BlocListener<AuthCubit, AppAuthState>(
         listener: (context, state) {
@@ -42,17 +46,24 @@ class MyApp extends StatelessWidget {
           }
         },
         child: ScreenUtilInit(
-          child: MaterialApp.router(
-            theme: AppTheme.dark,
-            routerConfig: createRouter(authCubit),
-            debugShowCheckedModeBanner: false,
-            localizationsDelegates: [
-              S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: S.delegate.supportedLocales,
+          child: BlocBuilder<AppSettingsCubit, AppSettingsState>(
+            builder: (context, state) {
+              return MaterialApp.router(
+                theme: AppTheme.light,
+                darkTheme: AppTheme.dark,
+                themeMode: state.themeMode,
+                locale: state.locale,
+                routerConfig: router,
+                debugShowCheckedModeBanner: false,
+                localizationsDelegates: [
+                  S.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                supportedLocales: S.delegate.supportedLocales,
+              );
+            },
           ),
         ),
       ),

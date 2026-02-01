@@ -164,6 +164,22 @@ class Constants {
       },
     ];
   }
+
+
+  static List<Map<String, dynamic>> getLanguageOptions(BuildContext context) {
+    return [
+      {'label': S.of(context).english, 'value': 'en'},
+      {'label': S.of(context).arabic, 'value': 'ar'},
+    ];
+  }
+
+  static List<Map<String, dynamic>> getThemeOptions(BuildContext context) {
+    return [
+      {'label': S.of(context).light, 'value': 'light'},
+      {'label': S.of(context).dark, 'value': 'dark'},
+      {'label': S.of(context).system, 'value': 'system'},
+    ];
+  }
 }
 
 extension ShowDataInOwnFormat on DateTime {

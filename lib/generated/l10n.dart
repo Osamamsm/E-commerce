@@ -886,6 +886,201 @@ class S {
       args: [],
     );
   }
+
+  /// `General`
+  String get general {
+    return Intl.message('General', name: 'general', desc: '', args: []);
+  }
+
+  /// `Are you sure you want to sign out?`
+  String get sign_out_message {
+    return Intl.message(
+      'Are you sure you want to sign out?',
+      name: 'sign_out_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
+  }
+
+  /// `About`
+  String get about {
+    return Intl.message('About', name: 'about', desc: '', args: []);
+  }
+
+  /// `Notifications`
+  String get notifications {
+    return Intl.message(
+      'Notifications',
+      name: 'notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Support`
+  String get support {
+    return Intl.message('Support', name: 'support', desc: '', args: []);
+  }
+
+  /// `Privacy Policy`
+  String get privacy_policy {
+    return Intl.message(
+      'Privacy Policy',
+      name: 'privacy_policy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms of Service`
+  String get terms_of_service {
+    return Intl.message(
+      'Terms of Service',
+      name: 'terms_of_service',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help Center`
+  String get help_center {
+    return Intl.message('Help Center', name: 'help_center', desc: '', args: []);
+  }
+
+  /// `Contact Us`
+  String get contact_us {
+    return Intl.message('Contact Us', name: 'contact_us', desc: '', args: []);
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message('Language', name: 'language', desc: '', args: []);
+  }
+
+  /// `Select Language`
+  String get select_language {
+    return Intl.message(
+      'Select Language',
+      name: 'select_language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Theme`
+  String get theme {
+    return Intl.message('Theme', name: 'theme', desc: '', args: []);
+  }
+
+  /// `Select Theme`
+  String get select_theme {
+    return Intl.message(
+      'Select Theme',
+      name: 'select_theme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Push Notifications`
+  String get push_notifications {
+    return Intl.message(
+      'Push Notifications',
+      name: 'push_notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Receive updates about your orders and exclusive offers`
+  String get push_notifications_subtitle {
+    return Intl.message(
+      'Receive updates about your orders and exclusive offers',
+      name: 'push_notifications_subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Updates`
+  String get order_updates {
+    return Intl.message(
+      'Order Updates',
+      name: 'order_updates',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get notified about your order status`
+  String get order_updates_subtitle {
+    return Intl.message(
+      'Get notified about your order status',
+      name: 'order_updates_subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Offers & Promotions`
+  String get offers_promotions {
+    return Intl.message(
+      'Offers & Promotions',
+      name: 'offers_promotions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stay updated with the latest offers and discounts`
+  String get offers_promotions_subtitle {
+    return Intl.message(
+      'Stay updated with the latest offers and discounts',
+      name: 'offers_promotions_subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Email`
+  String get change_email {
+    return Intl.message(
+      'Change Email',
+      name: 'change_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Light`
+  String get light {
+    return Intl.message('Light', name: 'light', desc: '', args: []);
+  }
+
+  /// `Dark`
+  String get dark {
+    return Intl.message('Dark', name: 'dark', desc: '', args: []);
+  }
+
+  /// `System`
+  String get system {
+    return Intl.message('System', name: 'system', desc: '', args: []);
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message('English', name: 'english', desc: '', args: []);
+  }
+
+  /// `Arabic`
+  String get arabic {
+    return Intl.message('Arabic', name: 'arabic', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
