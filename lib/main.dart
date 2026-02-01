@@ -43,7 +43,9 @@ class MyApp extends StatelessWidget {
         },
         child: ScreenUtilInit(
           child: MaterialApp.router(
-            theme: AppTheme.dark,
+            theme: AppTheme.light,
+            darkTheme: AppTheme.dark,
+            themeMode: ThemeMode.system,
             routerConfig: createRouter(authCubit),
             debugShowCheckedModeBanner: false,
             localizationsDelegates: [
