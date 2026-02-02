@@ -55,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "check_email_for_reset_link_message": MessageLookupByLibrary.simpleMessage(
       "Please check your email for a link to reset your password. The link is valid for a limited time.",
     ),
+    "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
     "city": MessageLookupByLibrary.simpleMessage("City"),
     "color": MessageLookupByLibrary.simpleMessage("Color"),
     "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),

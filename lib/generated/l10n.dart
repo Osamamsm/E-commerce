@@ -1081,6 +1081,11 @@ class S {
   String get arabic {
     return Intl.message('Arabic', name: 'arabic', desc: '', args: []);
   }
+
+  /// `Checkout`
+  String get checkout {
+    return Intl.message('Checkout', name: 'checkout', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

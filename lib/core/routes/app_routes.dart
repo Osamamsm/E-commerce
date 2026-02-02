@@ -15,6 +15,7 @@ import 'package:e_commerce/features/auth/presentation/views/login_view.dart';
 import 'package:e_commerce/features/auth/presentation/views/register_view.dart';
 import 'package:e_commerce/features/auth/presentation/views/reset_password_view.dart';
 import 'package:e_commerce/features/cart/presentation/views/cart_view.dart';
+import 'package:e_commerce/features/checkout/presentation/views/checkout_view.dart';
 import 'package:e_commerce/features/home/presentation/views/home_view.dart';
 import 'package:e_commerce/features/payment/presentation/views/add_payment_method_view.dart';
 import 'package:e_commerce/features/payment/presentation/views/payment_methods_view.dart';
@@ -170,6 +171,10 @@ GoRouter createRouter(AuthCubit authCubit) {
       GoRoute(
         path: SettingsView.routeName,
         builder: (context, state) => const SettingsView(),
+      ),
+      GoRoute(
+        path: CheckoutView.routeName,
+        builder: (context, state) => const CheckoutView(),
       ),
     ],
   );
