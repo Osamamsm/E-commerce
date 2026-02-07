@@ -37,7 +37,19 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                   });
                 },
               ),
-              PaymentStep(),
+              PaymentStep(
+                paymentMethods: TestingLists.paymentMethods,
+                onContinue: () {
+                  setState(() {
+                    currentStep = 2;
+                  });
+                },
+                onBack: () {
+                  setState(() {
+                    currentStep = 0;
+                  });
+                },
+              ),
               ReviewStep(),
             ],
           ),

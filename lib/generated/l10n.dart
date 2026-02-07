@@ -1101,6 +1101,36 @@ class S {
       args: [],
     );
   }
+
+  /// `PAYMENT METHOD`
+  String get payment_method {
+    return Intl.message(
+      'PAYMENT METHOD',
+      name: 'payment_method',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue to Review`
+  String get continue_to_review {
+    return Intl.message(
+      'Continue to Review',
+      name: 'continue_to_review',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back to Address`
+  String get back_to_address {
+    return Intl.message(
+      'Back to Address',
+      name: 'back_to_address',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

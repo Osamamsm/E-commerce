@@ -43,6 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Apt. Suite, etc. (Optional)",
     ),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+    "back_to_address": MessageLookupByLibrary.simpleMessage("Back to Address"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "card_holder": MessageLookupByLibrary.simpleMessage("Card Holder"),
     "card_holder_name": MessageLookupByLibrary.simpleMessage(
@@ -75,6 +76,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "contact_us": MessageLookupByLibrary.simpleMessage("Contact Us"),
     "continue_to_payment": MessageLookupByLibrary.simpleMessage(
       "Continue to Payment",
+    ),
+    "continue_to_review": MessageLookupByLibrary.simpleMessage(
+      "Continue to Review",
     ),
     "create_account": MessageLookupByLibrary.simpleMessage("Create Account"),
     "cvv_cvc": MessageLookupByLibrary.simpleMessage("CVV / CVC"),
@@ -154,6 +158,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "password_reset_success": MessageLookupByLibrary.simpleMessage(
       "Password reset successfully.",
     ),
+    "payment_method": MessageLookupByLibrary.simpleMessage("PAYMENT METHOD"),
     "payment_methods": MessageLookupByLibrary.simpleMessage("Payment Methods"),
     "personal_details": MessageLookupByLibrary.simpleMessage(
       "Personal Details",

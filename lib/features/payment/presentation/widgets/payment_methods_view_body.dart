@@ -11,10 +11,10 @@ class PaymentMethodsViewBody extends StatelessWidget {
     return ListView.separated(
       physics: const BouncingScrollPhysics(),
       padding: const EdgeInsets.all(16),
-      itemCount: TestingLists.paymentMethods.length,
+      itemCount: TestingLists.paymentCardModels.length,
       separatorBuilder: (context, index) => vGap(16),
       itemBuilder: (context, index) {
-        return PaymentCard(paymentMethod: TestingLists.paymentMethods[index]);
+        return PaymentCard(paymentMethod: TestingLists.paymentCardModels[index]);
       },
     );
   }

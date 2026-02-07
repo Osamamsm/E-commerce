@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "app_name": MessageLookupByLibrary.simpleMessage("E-Commerce App"),
     "apt_suite_etc": MessageLookupByLibrary.simpleMessage("المنزل/الشقة/الخ"),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+    "back_to_address": MessageLookupByLibrary.simpleMessage("العودة للعناوين"),
     "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
     "card_holder": MessageLookupByLibrary.simpleMessage("حامل البطاقة"),
     "card_holder_name": MessageLookupByLibrary.simpleMessage(
@@ -65,6 +66,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "contact_us": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
     "continue_to_payment": MessageLookupByLibrary.simpleMessage(
       "الانتقال للدفع",
+    ),
+    "continue_to_review": MessageLookupByLibrary.simpleMessage(
+      "الانتقال للمراجعة",
     ),
     "create_account": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "cvv_cvc": MessageLookupByLibrary.simpleMessage("CVV / CVC"),
@@ -130,6 +134,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "other": MessageLookupByLibrary.simpleMessage("اخرى"),
     "password": MessageLookupByLibrary.simpleMessage("كلمه المرور"),
     "password_hint": MessageLookupByLibrary.simpleMessage("أدخل كلمه المرور"),
+    "payment_method": MessageLookupByLibrary.simpleMessage("طريقة الدفع"),
     "payment_methods": MessageLookupByLibrary.simpleMessage("طرق الدفع"),
     "personal_details": MessageLookupByLibrary.simpleMessage(
       "التفاصيل الشخصية",

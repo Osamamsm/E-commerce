@@ -50,7 +50,7 @@ class TestingLists {
     ),
   ];
 
-  static List<PaymentMethod> paymentMethods = [
+  static List<PaymentMethod> paymentCardModels = [
     PaymentMethod(
       id: '1',
       type: 'visa',
@@ -84,6 +84,34 @@ class TestingLists {
       isDefault: false,
     ),
   ];
+
+
+static List<PaymentModel> paymentMethods = [
+    PaymentModel(
+      id: 'card',
+      type: PaymentType.card,
+      label: 'Debit/Credit Card',
+      description: 'Visa, Mastercard, Amex',
+      isDefault: true,
+    ),
+    PaymentModel(
+      id: 'wallet',
+      type: PaymentType.digitalWallet,
+      label: 'Digital Wallet',
+      description: 'Apple Pay, Google Pay',
+      isDefault: false,
+    ),
+    PaymentModel(
+      id: 'cash',
+      type: PaymentType.cashOnDelivery,
+      label: 'Cash on Delivery',
+      description: 'Pay when you receive',
+      isDefault: false,
+    ),
+  ];
+
+
+
 }
 
 class Address {
@@ -127,3 +155,25 @@ class PaymentMethod {
     required this.isDefault,
   });
 }
+
+  class PaymentModel {
+    final String id;
+    final PaymentType type;
+    final String label;
+    final String description;
+    final bool isDefault;
+
+    PaymentModel({
+      required this.id,
+      required this.type,
+      required this.label,
+      required this.description,
+      required this.isDefault,
+    });
+  }
+
+  enum PaymentType {
+    card,
+    digitalWallet,
+    cashOnDelivery,
+  }

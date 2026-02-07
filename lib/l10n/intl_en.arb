@@ -131,5 +131,8 @@
     "arabic":"Arabic",
     "checkout":"Checkout",
     "shipping_to":"Shipping To",
-    "continue_to_payment":"Continue to Payment"
+    "continue_to_payment":"Continue to Payment",
+    "payment_method":"PAYMENT METHOD",
+    "continue_to_review":"Continue to Review",
+    "back_to_address":"Back to Address"
 }

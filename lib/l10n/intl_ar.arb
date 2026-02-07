@@ -119,5 +119,8 @@
     "arabic":"العربية",
     "checkout":"الدفع",
     "shipping_to":"الشحن الى",
-    "continue_to_payment":"الانتقال للدفع"
+    "continue_to_payment":"الانتقال للدفع",
+    "payment_method":"طريقة الدفع",
+    "continue_to_review":"الانتقال للمراجعة",
+    "back_to_address":"العودة للعناوين"
 }
