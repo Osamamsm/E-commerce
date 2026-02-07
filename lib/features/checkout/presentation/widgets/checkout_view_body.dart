@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/helpers/testing_lists.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/address_step.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/payment_step.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/review_step.dart';
@@ -25,11 +26,21 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
           ),
         ),
         Expanded(
-          child: IndexedStack(index: currentStep, children: [
-            AddressStep(),
-            PaymentStep(),
-            ReviewStep()
-          ]),
+          child: IndexedStack(
+            index: currentStep,
+            children: [
+              AddressStep(
+                addresses: TestingLists.addresses,
+                onContinue: () {
+                  setState(() {
+                    currentStep = 1;
+                  });
+                },
+              ),
+              PaymentStep(),
+              ReviewStep(),
+            ],
+          ),
         ),
       ],
     );

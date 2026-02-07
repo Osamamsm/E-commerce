@@ -1086,6 +1086,21 @@ class S {
   String get checkout {
     return Intl.message('Checkout', name: 'checkout', desc: '', args: []);
   }
+
+  /// `Shipping To`
+  String get shipping_to {
+    return Intl.message('Shipping To', name: 'shipping_to', desc: '', args: []);
+  }
+
+  /// `Continue to Payment`
+  String get continue_to_payment {
+    return Intl.message(
+      'Continue to Payment',
+      name: 'continue_to_payment',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

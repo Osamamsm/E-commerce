@@ -73,6 +73,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "contact_info": MessageLookupByLibrary.simpleMessage("Contact Info"),
     "contact_us": MessageLookupByLibrary.simpleMessage("Contact Us"),
+    "continue_to_payment": MessageLookupByLibrary.simpleMessage(
+      "Continue to Payment",
+    ),
     "create_account": MessageLookupByLibrary.simpleMessage("Create Account"),
     "cvv_cvc": MessageLookupByLibrary.simpleMessage("CVV / CVC"),
     "dark": MessageLookupByLibrary.simpleMessage("Dark"),
@@ -205,6 +208,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "shipping": MessageLookupByLibrary.simpleMessage("Shipping"),
+    "shipping_to": MessageLookupByLibrary.simpleMessage("Shipping To"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage(
       "Shop By Category",
     ),

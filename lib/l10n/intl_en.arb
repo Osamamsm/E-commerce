@@ -129,5 +129,7 @@
     "system":"System",
     "english":"English",
     "arabic":"Arabic",
-    "checkout":"Checkout"
+    "checkout":"Checkout",
+    "shipping_to":"Shipping To",
+    "continue_to_payment":"Continue to Payment"
 }

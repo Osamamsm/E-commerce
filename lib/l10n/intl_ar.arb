@@ -117,5 +117,7 @@
     "system":"النظام",
     "english":"الإنجليزية",
     "arabic":"العربية",
-    "checkout":"الدفع"
+    "checkout":"الدفع",
+    "shipping_to":"الشحن الى",
+    "continue_to_payment":"الانتقال للدفع"
 }
