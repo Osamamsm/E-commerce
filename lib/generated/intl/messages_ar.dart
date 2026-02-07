@@ -40,6 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "apt_suite_etc": MessageLookupByLibrary.simpleMessage("المنزل/الشقة/الخ"),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "back_to_address": MessageLookupByLibrary.simpleMessage("العودة للعناوين"),
+    "back_to_payment": MessageLookupByLibrary.simpleMessage("العودة للدفع"),
     "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
     "card_holder": MessageLookupByLibrary.simpleMessage("حامل البطاقة"),
     "card_holder_name": MessageLookupByLibrary.simpleMessage(
@@ -75,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "dark": MessageLookupByLibrary.simpleMessage("داكن"),
     "default_": MessageLookupByLibrary.simpleMessage("الافتراضي"),
     "delete": MessageLookupByLibrary.simpleMessage("حذف"),
+    "delivery_address": MessageLookupByLibrary.simpleMessage("عنوان التوصيل"),
     "discount": MessageLookupByLibrary.simpleMessage("الخصم"),
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
     "edit_address": MessageLookupByLibrary.simpleMessage("تعديل العنوان"),
@@ -127,6 +129,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "ابق على اطلاع بأحدث العروض والخصومات",
     ),
     "order_history": MessageLookupByLibrary.simpleMessage("تاريخ الطلبات"),
+    "order_summary": MessageLookupByLibrary.simpleMessage("ملخص الطلب"),
     "order_updates": MessageLookupByLibrary.simpleMessage("تحديثات الطلب"),
     "order_updates_subtitle": MessageLookupByLibrary.simpleMessage(
       "احصل على إشعارات حول حالة طلبك",
@@ -140,6 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "التفاصيل الشخصية",
     ),
     "phone_number": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+    "place_order": MessageLookupByLibrary.simpleMessage("تأكيد الطلب"),
     "privacy_policy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
     "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
       "الانتقال للدفع",

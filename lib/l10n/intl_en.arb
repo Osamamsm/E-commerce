@@ -134,5 +134,9 @@
     "continue_to_payment":"Continue to Payment",
     "payment_method":"PAYMENT METHOD",
     "continue_to_review":"Continue to Review",
-    "back_to_address":"Back to Address"
+    "back_to_address":"Back to Address",
+    "delivery_address":"DELIVERY ADDRESS",
+    "order_summary":"ORDER SUMMARY",
+    "back_to_payment":"Back to Payment",
+    "place_order":"Place Order"
 }

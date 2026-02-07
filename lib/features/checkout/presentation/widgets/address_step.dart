@@ -1,10 +1,12 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/testing_lists.dart';
+import 'package:e_commerce/features/checkout/presentation/logic/cubit/checkout_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/add_new_address_button.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/address_selectable_card.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/continue_button.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddressStep extends StatefulWidget {
   final List<Address> addresses;
@@ -58,6 +60,7 @@ class _AddressStepState extends State<AddressStep> {
                       address: address,
                       isSelected: address.id == selectedAddressId,
                       onTap: () {
+                        context.read<CheckoutCubit>().setAddressId(address.id);
                         setState(() {
                           selectedAddressId = address.id;
                         });

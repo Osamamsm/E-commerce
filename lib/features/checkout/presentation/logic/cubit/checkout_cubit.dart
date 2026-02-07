@@ -1,32 +1,40 @@
+import 'package:e_commerce/core/helpers/testing_lists.dart';
 import 'package:e_commerce/features/checkout/presentation/logic/cubit/checkout_state.dart';
-import 'package:e_commerce/features/checkout/presentation/widgets/checkout_view_body.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CheckoutCubit extends Cubit<CheckoutState> {
-  CheckoutCubit() : super(CheckoutInitial());
+  CheckoutCubit()
+    : super(
+        CheckoutState(
+          selectedAddressId: null,
+          selectedPaymentMethodId: null,
+          orderItems: null,
+        ),
+      );
 
-  late String addressId;
-  late String paymentMethodId;
-  late List<OrderItem> orderItems;
-
-  void setAddressId(String addressId) {
-    emit(CheckoutInitial());
-    this.addressId = addressId;
+  void initDefaults({
+    required List<Address> addresses,
+    required List<PaymentMethod> paymentMethods,
+    required List<OrderItem> orderItems,
+  }) {
+    emit(
+      state.copyWith(
+        selectedAddressId: addresses.first.id,
+        selectedPaymentMethodId: paymentMethods.first.id,
+        orderItems: orderItems,
+      ),
+    );
   }
 
-  String get getAddressId => addressId;
-
-  String get getPaymentMethodId => paymentMethodId;
-
-  List<OrderItem> get getOrderItems => orderItems;
+  void setAddressId(String addressId) {
+    emit(state.copyWith(selectedAddressId: addressId));
+  }
 
   void setPaymentMethodId(String paymentMethodId) {
-    emit(CheckoutInitial());
-    this.paymentMethodId = paymentMethodId;
+    emit(state.copyWith(selectedPaymentMethodId: paymentMethodId));
   }
 
   void setOrderItems(List<OrderItem> orderItems) {
-    emit(CheckoutInitial());
-    this.orderItems = orderItems;
+    emit(state.copyWith(orderItems: orderItems));
   }
 }

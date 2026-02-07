@@ -3,12 +3,9 @@ import 'package:e_commerce/core/helpers/testing_lists.dart';
 import 'package:flutter/material.dart';
 
 class PaymentMethodDetailsSection extends StatelessWidget {
-  const PaymentMethodDetailsSection({
-    super.key,
-    required this.payment,
-  });
+  const PaymentMethodDetailsSection({super.key, required this.payment});
 
-  final PaymentModel payment;
+  final PaymentMethod payment;
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +13,7 @@ class PaymentMethodDetailsSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            payment.label,
-            style: Theme.of(context).textTheme.titleSmall,
-          ),
+          Text(payment.label, style: Theme.of(context).textTheme.titleSmall),
           vGap(4),
           Text(
             payment.description,

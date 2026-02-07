@@ -44,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "back_to_address": MessageLookupByLibrary.simpleMessage("Back to Address"),
+    "back_to_payment": MessageLookupByLibrary.simpleMessage("Back to Payment"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "card_holder": MessageLookupByLibrary.simpleMessage("Card Holder"),
     "card_holder_name": MessageLookupByLibrary.simpleMessage(
@@ -85,6 +86,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "dark": MessageLookupByLibrary.simpleMessage("Dark"),
     "default_": MessageLookupByLibrary.simpleMessage("Default"),
     "delete": MessageLookupByLibrary.simpleMessage("Delete"),
+    "delivery_address": MessageLookupByLibrary.simpleMessage(
+      "DELIVERY ADDRESS",
+    ),
     "discount": MessageLookupByLibrary.simpleMessage("Discount"),
     "edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "edit_address": MessageLookupByLibrary.simpleMessage("Edit Address"),
@@ -146,6 +150,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "order_history": MessageLookupByLibrary.simpleMessage("Order History"),
+    "order_summary": MessageLookupByLibrary.simpleMessage("ORDER SUMMARY"),
     "order_updates": MessageLookupByLibrary.simpleMessage("Order Updates"),
     "order_updates_subtitle": MessageLookupByLibrary.simpleMessage(
       "Get notified about your order status",
@@ -164,6 +169,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Personal Details",
     ),
     "phone_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
+    "place_order": MessageLookupByLibrary.simpleMessage("Place Order"),
     "privacy_policy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
     "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
       "Proceed To Checkout",

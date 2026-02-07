@@ -4,7 +4,7 @@ import 'package:e_commerce/features/checkout/presentation/widgets/selectable_car
 import 'package:flutter/material.dart';
 
 class PaymentSelectableCard extends StatelessWidget {
-  final PaymentModel payment;
+  final PaymentMethod payment;
   final bool isSelected;
   final VoidCallback onTap;
 

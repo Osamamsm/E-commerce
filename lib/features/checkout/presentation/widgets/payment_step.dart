@@ -1,12 +1,14 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/testing_lists.dart';
+import 'package:e_commerce/features/checkout/presentation/logic/cubit/checkout_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/continue_button.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/payment_selectable_card.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PaymentStep extends StatefulWidget {
-  final List<PaymentModel> paymentMethods;
+  final List<PaymentMethod> paymentMethods;
   final VoidCallback onContinue;
   final VoidCallback onBack;
 
@@ -58,6 +60,9 @@ class _PaymentStepState extends State<PaymentStep> {
                       payment: payment,
                       isSelected: payment.id == selectedPaymentId,
                       onTap: () {
+                        context.read<CheckoutCubit>().setPaymentMethodId(
+                          payment.id,
+                        );
                         setState(() {
                           selectedPaymentId = payment.id;
                         });
@@ -80,9 +85,7 @@ class _PaymentStepState extends State<PaymentStep> {
               onPressed: widget.onBack,
               child: Text(
                 S.of(context).back_to_address,
-                style: Theme.of(
-                  context,
-                ).textTheme.bodySmall!.copyWith(color: Colors.grey),
+                style: TextStyle(color: Color(0xFF9B9BA5), fontSize: 14),
               ),
             ),
             vGap(8),
