@@ -36,9 +36,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_review": MessageLookupByLibrary.simpleMessage("أضف رأيك"),
     "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى العربة"),
     "address_details": MessageLookupByLibrary.simpleMessage("تفاصيل العنوان"),
+    "address_step": MessageLookupByLibrary.simpleMessage("العنوان"),
     "app_name": MessageLookupByLibrary.simpleMessage("E-Commerce App"),
     "apt_suite_etc": MessageLookupByLibrary.simpleMessage("المنزل/الشقة/الخ"),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+    "back_to_address": MessageLookupByLibrary.simpleMessage("العودة للعناوين"),
+    "back_to_payment": MessageLookupByLibrary.simpleMessage("العودة للدفع"),
     "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
     "card_holder": MessageLookupByLibrary.simpleMessage("حامل البطاقة"),
     "card_holder_name": MessageLookupByLibrary.simpleMessage(
@@ -52,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "change_password": MessageLookupByLibrary.simpleMessage(
       "تغيير كلمه المرور",
     ),
+    "checkout": MessageLookupByLibrary.simpleMessage("الدفع"),
     "city": MessageLookupByLibrary.simpleMessage("المدينة"),
     "color": MessageLookupByLibrary.simpleMessage("اللون"),
     "confirm_password": MessageLookupByLibrary.simpleMessage(
@@ -62,11 +66,18 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "contact_info": MessageLookupByLibrary.simpleMessage("معلومات الاتصال"),
     "contact_us": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
+    "continue_to_payment": MessageLookupByLibrary.simpleMessage(
+      "الانتقال للدفع",
+    ),
+    "continue_to_review": MessageLookupByLibrary.simpleMessage(
+      "الانتقال للمراجعة",
+    ),
     "create_account": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "cvv_cvc": MessageLookupByLibrary.simpleMessage("CVV / CVC"),
     "dark": MessageLookupByLibrary.simpleMessage("داكن"),
     "default_": MessageLookupByLibrary.simpleMessage("الافتراضي"),
     "delete": MessageLookupByLibrary.simpleMessage("حذف"),
+    "delivery_address": MessageLookupByLibrary.simpleMessage("عنوان التوصيل"),
     "discount": MessageLookupByLibrary.simpleMessage("الخصم"),
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
     "edit_address": MessageLookupByLibrary.simpleMessage("تعديل العنوان"),
@@ -119,6 +130,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "ابق على اطلاع بأحدث العروض والخصومات",
     ),
     "order_history": MessageLookupByLibrary.simpleMessage("تاريخ الطلبات"),
+    "order_summary": MessageLookupByLibrary.simpleMessage("ملخص الطلب"),
     "order_updates": MessageLookupByLibrary.simpleMessage("تحديثات الطلب"),
     "order_updates_subtitle": MessageLookupByLibrary.simpleMessage(
       "احصل على إشعارات حول حالة طلبك",
@@ -126,11 +138,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "other": MessageLookupByLibrary.simpleMessage("اخرى"),
     "password": MessageLookupByLibrary.simpleMessage("كلمه المرور"),
     "password_hint": MessageLookupByLibrary.simpleMessage("أدخل كلمه المرور"),
+    "payment_method": MessageLookupByLibrary.simpleMessage("طريقة الدفع"),
     "payment_methods": MessageLookupByLibrary.simpleMessage("طرق الدفع"),
+    "payment_step": MessageLookupByLibrary.simpleMessage("الدفع"),
     "personal_details": MessageLookupByLibrary.simpleMessage(
       "التفاصيل الشخصية",
     ),
     "phone_number": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+    "place_order": MessageLookupByLibrary.simpleMessage("تأكيد الطلب"),
     "privacy_policy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
     "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
       "الانتقال للدفع",
@@ -155,6 +170,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "review_hint_text": MessageLookupByLibrary.simpleMessage(
       "شارك ارائك حول هذا المنتج",
     ),
+    "review_step": MessageLookupByLibrary.simpleMessage("المراجعة"),
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "save_address": MessageLookupByLibrary.simpleMessage("حفظ العنوان"),
     "save_card": MessageLookupByLibrary.simpleMessage("حفظ البطاقة"),
@@ -175,6 +191,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
     "shipping": MessageLookupByLibrary.simpleMessage("الشحن"),
+    "shipping_to": MessageLookupByLibrary.simpleMessage("الشحن الى"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage("تسوق حسب الفئة"),
     "sign_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "sign_out_message": MessageLookupByLibrary.simpleMessage(

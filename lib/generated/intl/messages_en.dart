@@ -38,11 +38,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_review": MessageLookupByLibrary.simpleMessage("Add Your Review"),
     "add_to_cart": MessageLookupByLibrary.simpleMessage("Add To Cart"),
     "address_details": MessageLookupByLibrary.simpleMessage("Address Details"),
+    "address_step": MessageLookupByLibrary.simpleMessage("Address"),
     "app_name": MessageLookupByLibrary.simpleMessage("E-Commerce App"),
     "apt_suite_etc": MessageLookupByLibrary.simpleMessage(
       "Apt. Suite, etc. (Optional)",
     ),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+    "back_to_address": MessageLookupByLibrary.simpleMessage("Back to Address"),
+    "back_to_payment": MessageLookupByLibrary.simpleMessage("Back to Payment"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "card_holder": MessageLookupByLibrary.simpleMessage("Card Holder"),
     "card_holder_name": MessageLookupByLibrary.simpleMessage(
@@ -55,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "check_email_for_reset_link_message": MessageLookupByLibrary.simpleMessage(
       "Please check your email for a link to reset your password. The link is valid for a limited time.",
     ),
+    "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
     "city": MessageLookupByLibrary.simpleMessage("City"),
     "color": MessageLookupByLibrary.simpleMessage("Color"),
     "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
@@ -72,11 +76,20 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "contact_info": MessageLookupByLibrary.simpleMessage("Contact Info"),
     "contact_us": MessageLookupByLibrary.simpleMessage("Contact Us"),
+    "continue_to_payment": MessageLookupByLibrary.simpleMessage(
+      "Continue to Payment",
+    ),
+    "continue_to_review": MessageLookupByLibrary.simpleMessage(
+      "Continue to Review",
+    ),
     "create_account": MessageLookupByLibrary.simpleMessage("Create Account"),
     "cvv_cvc": MessageLookupByLibrary.simpleMessage("CVV / CVC"),
     "dark": MessageLookupByLibrary.simpleMessage("Dark"),
     "default_": MessageLookupByLibrary.simpleMessage("Default"),
     "delete": MessageLookupByLibrary.simpleMessage("Delete"),
+    "delivery_address": MessageLookupByLibrary.simpleMessage(
+      "DELIVERY ADDRESS",
+    ),
     "discount": MessageLookupByLibrary.simpleMessage("Discount"),
     "edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "edit_address": MessageLookupByLibrary.simpleMessage("Edit Address"),
@@ -138,6 +151,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "order_history": MessageLookupByLibrary.simpleMessage("Order History"),
+    "order_summary": MessageLookupByLibrary.simpleMessage("ORDER SUMMARY"),
     "order_updates": MessageLookupByLibrary.simpleMessage("Order Updates"),
     "order_updates_subtitle": MessageLookupByLibrary.simpleMessage(
       "Get notified about your order status",
@@ -150,11 +164,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "password_reset_success": MessageLookupByLibrary.simpleMessage(
       "Password reset successfully.",
     ),
+    "payment_method": MessageLookupByLibrary.simpleMessage("PAYMENT METHOD"),
     "payment_methods": MessageLookupByLibrary.simpleMessage("Payment Methods"),
+    "payment_step": MessageLookupByLibrary.simpleMessage("Payment"),
     "personal_details": MessageLookupByLibrary.simpleMessage(
       "Personal Details",
     ),
     "phone_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
+    "place_order": MessageLookupByLibrary.simpleMessage("Place Order"),
     "privacy_policy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
     "proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
       "Proceed To Checkout",
@@ -184,6 +201,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "review_hint_text": MessageLookupByLibrary.simpleMessage(
       "Share your thoughts about this product...",
     ),
+    "review_step": MessageLookupByLibrary.simpleMessage("Review"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "save_address": MessageLookupByLibrary.simpleMessage("Save Address"),
     "save_card": MessageLookupByLibrary.simpleMessage("Save Card"),
@@ -204,6 +222,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "shipping": MessageLookupByLibrary.simpleMessage("Shipping"),
+    "shipping_to": MessageLookupByLibrary.simpleMessage("Shipping To"),
     "shop_by_category": MessageLookupByLibrary.simpleMessage(
       "Shop By Category",
     ),

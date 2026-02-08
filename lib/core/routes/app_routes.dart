@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:e_commerce/core/dependency_injection/di.dart';
+import 'package:e_commerce/core/helpers/testing_lists.dart';
 import 'package:e_commerce/core/logic/image_picker_cubit/image_picker_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/views/add_address_view.dart';
 import 'package:e_commerce/features/addresses/presentation/views/edit_address_view.dart';
@@ -15,6 +16,9 @@ import 'package:e_commerce/features/auth/presentation/views/login_view.dart';
 import 'package:e_commerce/features/auth/presentation/views/register_view.dart';
 import 'package:e_commerce/features/auth/presentation/views/reset_password_view.dart';
 import 'package:e_commerce/features/cart/presentation/views/cart_view.dart';
+import 'package:e_commerce/features/checkout/presentation/logic/checkout_cubit/checkout_cubit.dart';
+import 'package:e_commerce/features/checkout/presentation/logic/checkout_flow_cubit/checkout_flow_cubit.dart';
+import 'package:e_commerce/features/checkout/presentation/views/checkout_view.dart';
 import 'package:e_commerce/features/home/presentation/views/home_view.dart';
 import 'package:e_commerce/features/payment/presentation/views/add_payment_method_view.dart';
 import 'package:e_commerce/features/payment/presentation/views/payment_methods_view.dart';
@@ -170,6 +174,24 @@ GoRouter createRouter(AuthCubit authCubit) {
       GoRoute(
         path: SettingsView.routeName,
         builder: (context, state) => const SettingsView(),
+      ),
+      GoRoute(
+        path: CheckoutView.routeName,
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => getIt<CheckoutCubit>()..initDefaults(
+                addresses: TestingLists.addresses,
+                paymentMethods: TestingLists.paymentMethods,
+                orderItems: TestingLists.orderItems,
+              ),
+            ),
+            BlocProvider(
+              create: (context) => getIt<CheckoutFlowCubit>(),
+            ),
+          ],
+          child: const CheckoutView(),
+        ),
       ),
     ],
   );

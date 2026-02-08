@@ -1081,6 +1081,106 @@ class S {
   String get arabic {
     return Intl.message('Arabic', name: 'arabic', desc: '', args: []);
   }
+
+  /// `Checkout`
+  String get checkout {
+    return Intl.message('Checkout', name: 'checkout', desc: '', args: []);
+  }
+
+  /// `Shipping To`
+  String get shipping_to {
+    return Intl.message('Shipping To', name: 'shipping_to', desc: '', args: []);
+  }
+
+  /// `Continue to Payment`
+  String get continue_to_payment {
+    return Intl.message(
+      'Continue to Payment',
+      name: 'continue_to_payment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `PAYMENT METHOD`
+  String get payment_method {
+    return Intl.message(
+      'PAYMENT METHOD',
+      name: 'payment_method',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue to Review`
+  String get continue_to_review {
+    return Intl.message(
+      'Continue to Review',
+      name: 'continue_to_review',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back to Address`
+  String get back_to_address {
+    return Intl.message(
+      'Back to Address',
+      name: 'back_to_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `DELIVERY ADDRESS`
+  String get delivery_address {
+    return Intl.message(
+      'DELIVERY ADDRESS',
+      name: 'delivery_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ORDER SUMMARY`
+  String get order_summary {
+    return Intl.message(
+      'ORDER SUMMARY',
+      name: 'order_summary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back to Payment`
+  String get back_to_payment {
+    return Intl.message(
+      'Back to Payment',
+      name: 'back_to_payment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Place Order`
+  String get place_order {
+    return Intl.message('Place Order', name: 'place_order', desc: '', args: []);
+  }
+
+  /// `Review`
+  String get review_step {
+    return Intl.message('Review', name: 'review_step', desc: '', args: []);
+  }
+
+  /// `Address`
+  String get address_step {
+    return Intl.message('Address', name: 'address_step', desc: '', args: []);
+  }
+
+  /// `Payment`
+  String get payment_step {
+    return Intl.message('Payment', name: 'payment_step', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

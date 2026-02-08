@@ -9,7 +9,7 @@ class SummaryRow extends StatelessWidget {
   });
 
   final String label;
-  final String value;
+  final num value;
   final bool isTotal;
 
   @override
@@ -28,7 +28,7 @@ class SummaryRow extends StatelessWidget {
                 ),
         ),
         Text(
-          value,
+          '\$${value.toStringAsFixed(2)}',
           style: isTotal
               ? theme.textTheme.titleMedium
               : theme.textTheme.bodyMedium,

@@ -1,9 +1,11 @@
 import 'dart:ui';
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/widgets/gradient_elevated_button.dart';
-import 'package:e_commerce/features/cart/presentation/widgets/summary_row.dart';
+import 'package:e_commerce/core/widgets/summary_row.dart';
+import 'package:e_commerce/features/checkout/presentation/views/checkout_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class OrderSummaryCard extends StatelessWidget {
   const OrderSummaryCard({super.key});
@@ -24,23 +26,25 @@ class OrderSummaryCard extends StatelessWidget {
 
           child: Column(
             children: [
-              SummaryRow(label: s.subtotal, value: '1000'),
+              SummaryRow(label: s.subtotal, value: 1000),
               vGap(8),
-              SummaryRow(label: s.shipping, value: '1000'),
+              SummaryRow(label: s.shipping, value: 1000),
               vGap(8),
-              SummaryRow(label: s.tax, value: '1000'),
+              SummaryRow(label: s.tax, value: 1000),
               vGap(8),
-              SummaryRow(label: s.discount, value: '1000'),
+              SummaryRow(label: s.discount, value: 1000),
               vGap(8),
               Divider(
                 color: Theme.of(
                   context,
                 ).colorScheme.onSurface.withValues(alpha: .1),
               ),
-              SummaryRow(label: s.total, value: '1000', isTotal: true),
+              SummaryRow(label: s.total, value: 1000, isTotal: true),
               vGap(8),
               GradientElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  GoRouter.of(context).push(CheckoutView.routeName);
+                },
                 child: Text(s.proceed_to_checkout),
               ),
             ],

@@ -116,5 +116,18 @@
     "dark":"داكن",
     "system":"النظام",
     "english":"الإنجليزية",
-    "arabic":"العربية"
+    "arabic":"العربية",
+    "checkout":"الدفع",
+    "shipping_to":"الشحن الى",
+    "continue_to_payment":"الانتقال للدفع",
+    "payment_method":"طريقة الدفع",
+    "continue_to_review":"الانتقال للمراجعة",
+    "back_to_address":"العودة للعناوين",
+    "delivery_address":"عنوان التوصيل",
+    "order_summary":"ملخص الطلب",
+    "back_to_payment":"العودة للدفع",
+    "place_order":"تأكيد الطلب",
+    "review_step":"المراجعة",
+    "address_step":"العنوان",
+    "payment_step":"الدفع"
 }

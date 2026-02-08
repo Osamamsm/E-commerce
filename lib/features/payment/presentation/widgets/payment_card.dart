@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 class PaymentCard extends StatelessWidget {
   const PaymentCard({super.key, required this.paymentMethod});
 
-  final PaymentMethod paymentMethod;
+  final PaymentCardModel paymentMethod;
 
   String _getCardLogo(String type) {
     switch (type.toLowerCase()) {
