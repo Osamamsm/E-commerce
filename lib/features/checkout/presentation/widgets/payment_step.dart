@@ -3,7 +3,8 @@ import 'package:e_commerce/core/helpers/testing_lists.dart';
 import 'package:e_commerce/features/checkout/presentation/logic/checkout_cubit/checkout_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/logic/checkout_flow_cubit/checkout_flow_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/continue_button.dart';
-import 'package:e_commerce/features/checkout/presentation/widgets/payment_selectable_card.dart';
+import 'package:e_commerce/features/checkout/presentation/widgets/payment_method_details_section.dart';
+import 'package:e_commerce/features/checkout/presentation/widgets/selectable_card_widget.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,10 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class PaymentStep extends StatefulWidget {
   final List<PaymentMethod> paymentMethods;
 
-  const PaymentStep({
-    super.key,
-    required this.paymentMethods,
-  });
+  const PaymentStep({super.key, required this.paymentMethods});
 
   @override
   State<PaymentStep> createState() => _PaymentStepState();
@@ -53,7 +51,7 @@ class _PaymentStepState extends State<PaymentStep> {
                   itemCount: widget.paymentMethods.length,
                   itemBuilder: (context, index) {
                     final payment = widget.paymentMethods[index];
-                    return PaymentSelectableCard(
+                    return _PaymentSelectableCard(
                       payment: payment,
                       isSelected: payment.id == selectedPaymentId,
                       onTap: () {
@@ -93,6 +91,39 @@ class _PaymentStepState extends State<PaymentStep> {
           ],
         ),
       ],
+    );
+  }
+}
+
+class _PaymentSelectableCard extends StatelessWidget {
+  final PaymentMethod payment;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  const _PaymentSelectableCard({
+    required this.payment,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  IconData _getIcon() {
+    switch (payment.type) {
+      case PaymentType.card:
+        return Icons.credit_card;
+      case PaymentType.digitalWallet:
+        return Icons.account_balance_wallet;
+      case PaymentType.cashOnDelivery:
+        return Icons.attach_money;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SelectableCardWidget(
+      isSelected: isSelected,
+      onTap: onTap,
+      icon: _getIcon(),
+      child: PaymentMethodDetailsSection(payment: payment),
     );
   }
 }

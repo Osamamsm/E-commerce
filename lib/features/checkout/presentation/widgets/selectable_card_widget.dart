@@ -1,5 +1,4 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
-import 'package:e_commerce/features/checkout/presentation/widgets/circle_checkbox.dart';
 import 'package:flutter/material.dart';
 
 class SelectableCardWidget extends StatelessWidget {
@@ -50,10 +49,39 @@ class SelectableCardWidget extends StatelessWidget {
             ),
             hGap(16),
             child,
-            CircleCheckbox(isSelected: isSelected),
+            _CircleCheckbox(isSelected: isSelected),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _CircleCheckbox extends StatelessWidget {
+  const _CircleCheckbox({required this.isSelected});
+
+  final bool isSelected;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 24,
+      height: 24,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(
+          color: isSelected
+              ? Theme.of(context).colorScheme.primary
+              : const Color(0xFF2D2440),
+          width: 2,
+        ),
+        color: isSelected
+            ? Theme.of(context).colorScheme.primary
+            : Colors.transparent,
+      ),
+      child: isSelected
+          ? const Icon(Icons.check, color: Colors.white, size: 16)
+          : null,
     );
   }
 }

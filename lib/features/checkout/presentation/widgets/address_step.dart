@@ -3,8 +3,9 @@ import 'package:e_commerce/core/helpers/testing_lists.dart';
 import 'package:e_commerce/features/checkout/presentation/logic/checkout_cubit/checkout_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/logic/checkout_flow_cubit/checkout_flow_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/add_new_address_button.dart';
-import 'package:e_commerce/features/checkout/presentation/widgets/address_selectable_card.dart';
+import 'package:e_commerce/features/checkout/presentation/widgets/address_details_section.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/continue_button.dart';
+import 'package:e_commerce/features/checkout/presentation/widgets/selectable_card_widget.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -52,7 +53,7 @@ class _AddressStepState extends State<AddressStep> {
                   itemCount: widget.addresses.length,
                   itemBuilder: (context, index) {
                     final address = widget.addresses[index];
-                    return AddressSelectableCard(
+                    return _AddressSelectableCard(
                       address: address,
                       isSelected: address.id == selectedAddressId,
                       onTap: () {
@@ -80,6 +81,28 @@ class _AddressStepState extends State<AddressStep> {
           },
         ),
       ],
+    );
+  }
+}
+
+class _AddressSelectableCard extends StatelessWidget {
+  final Address address;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  const _AddressSelectableCard({
+    required this.address,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SelectableCardWidget(
+      isSelected: isSelected,
+      onTap: onTap,
+      icon: address.type == 'home' ? Icons.home : Icons.business,
+      child: AddressDetailsSection(address: address),
     );
   }
 }
