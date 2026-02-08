@@ -46,6 +46,10 @@ import 'package:e_commerce/features/auth/presentation/logic/sign_out_cubit/sign_
     as _i167;
 import 'package:e_commerce/features/auth/presentation/logic/sign_up_cubit/sign_up_cubit.dart'
     as _i927;
+import 'package:e_commerce/features/checkout/presentation/logic/checkout_cubit/checkout_cubit.dart'
+    as _i555;
+import 'package:e_commerce/features/checkout/presentation/logic/checkout_flow_cubit/checkout_flow_cubit.dart'
+    as _i517;
 import 'package:e_commerce/features/profile/data/data_source/profile_remote_data_source.dart'
     as _i1063;
 import 'package:e_commerce/features/profile/data/repo/profile_repo_impl.dart'
@@ -75,6 +79,8 @@ extension GetItInjectableX on _i174.GetIt {
     final preferencesModule = _$PreferencesModule();
     final supabaseClientProvider = _$SupabaseClientProvider();
     gh.factory<_i594.ImagePickerCubit>(() => _i594.ImagePickerCubit());
+    gh.factory<_i555.CheckoutCubit>(() => _i555.CheckoutCubit());
+    gh.factory<_i517.CheckoutFlowCubit>(() => _i517.CheckoutFlowCubit());
     gh.lazySingleton<_i457.DeepLinkCubit>(() => _i457.DeepLinkCubit());
     await gh.lazySingletonAsync<_i460.SharedPreferences>(
       () => preferencesModule.preferences,

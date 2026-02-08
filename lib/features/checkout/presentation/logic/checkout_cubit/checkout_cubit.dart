@@ -1,7 +1,9 @@
 import 'package:e_commerce/core/helpers/testing_lists.dart';
 import 'package:e_commerce/features/checkout/presentation/logic/checkout_cubit/checkout_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
+@injectable
 class CheckoutCubit extends Cubit<CheckoutState> {
   CheckoutCubit()
     : super(
