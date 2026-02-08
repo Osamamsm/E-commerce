@@ -54,7 +54,7 @@ GoRouter createRouter(AuthCubit authCubit) {
       // Leave splash once auth is known
       if (isSplash) {
         return authStatus == AuthStatus.authenticated
-            ? CheckoutView.routeName
+            ? HomeView.routeName
             : LoginView.routeName;
       }
 

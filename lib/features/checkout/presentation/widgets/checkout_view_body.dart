@@ -1,5 +1,5 @@
 import 'package:e_commerce/core/helpers/testing_lists.dart';
-import 'package:e_commerce/features/checkout/presentation/logic/cubit/checkout_cubit.dart';
+import 'package:e_commerce/features/checkout/presentation/logic/checkout_cubit/checkout_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/address_step.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/payment_step.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/review_step.dart';

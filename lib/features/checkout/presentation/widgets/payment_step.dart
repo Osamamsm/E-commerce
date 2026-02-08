@@ -1,6 +1,6 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/testing_lists.dart';
-import 'package:e_commerce/features/checkout/presentation/logic/cubit/checkout_cubit.dart';
+import 'package:e_commerce/features/checkout/presentation/logic/checkout_cubit/checkout_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/continue_button.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/payment_selectable_card.dart';
 import 'package:e_commerce/generated/l10n.dart';
