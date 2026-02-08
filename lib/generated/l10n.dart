@@ -1166,6 +1166,21 @@ class S {
   String get place_order {
     return Intl.message('Place Order', name: 'place_order', desc: '', args: []);
   }
+
+  /// `Review`
+  String get review_step {
+    return Intl.message('Review', name: 'review_step', desc: '', args: []);
+  }
+
+  /// `Address`
+  String get address_step {
+    return Intl.message('Address', name: 'address_step', desc: '', args: []);
+  }
+
+  /// `Payment`
+  String get payment_step {
+    return Intl.message('Payment', name: 'payment_step', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

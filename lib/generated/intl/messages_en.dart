@@ -38,6 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_review": MessageLookupByLibrary.simpleMessage("Add Your Review"),
     "add_to_cart": MessageLookupByLibrary.simpleMessage("Add To Cart"),
     "address_details": MessageLookupByLibrary.simpleMessage("Address Details"),
+    "address_step": MessageLookupByLibrary.simpleMessage("Address"),
     "app_name": MessageLookupByLibrary.simpleMessage("E-Commerce App"),
     "apt_suite_etc": MessageLookupByLibrary.simpleMessage(
       "Apt. Suite, etc. (Optional)",
@@ -165,6 +166,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "payment_method": MessageLookupByLibrary.simpleMessage("PAYMENT METHOD"),
     "payment_methods": MessageLookupByLibrary.simpleMessage("Payment Methods"),
+    "payment_step": MessageLookupByLibrary.simpleMessage("Payment"),
     "personal_details": MessageLookupByLibrary.simpleMessage(
       "Personal Details",
     ),
@@ -199,6 +201,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "review_hint_text": MessageLookupByLibrary.simpleMessage(
       "Share your thoughts about this product...",
     ),
+    "review_step": MessageLookupByLibrary.simpleMessage("Review"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "save_address": MessageLookupByLibrary.simpleMessage("Save Address"),
     "save_card": MessageLookupByLibrary.simpleMessage("Save Card"),

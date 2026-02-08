@@ -126,5 +126,8 @@
     "delivery_address":"عنوان التوصيل",
     "order_summary":"ملخص الطلب",
     "back_to_payment":"العودة للدفع",
-    "place_order":"تأكيد الطلب"
+    "place_order":"تأكيد الطلب",
+    "review_step":"المراجعة",
+    "address_step":"العنوان",
+    "payment_step":"الدفع"
 }

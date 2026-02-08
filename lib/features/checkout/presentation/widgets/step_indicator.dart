@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:flutter/material.dart';
 
 class StepIndicator extends StatelessWidget {
@@ -13,33 +14,33 @@ class StepIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: List.generate(
-        steps.length * 2 - 1,
-        (index) {
-          if (index.isEven) {
-            final stepIndex = index ~/ 2;
-            return _StepCircle(
-              step: stepIndex,
-              label: steps[stepIndex],
-              currentStep: currentStep,
-            );
-          } else {
-            final stepIndex = index ~/ 2;
-            return Expanded(
-              child: Container(
-                height: 2,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: stepIndex < currentStep
-                        ? [const Color(0xFF7C3AED), const Color(0xFF7C3AED)]
-                        : [const Color(0xFF2D2440), const Color(0xFF2D2440)],
-                  ),
+      children: List.generate(steps.length * 2 - 1, (index) {
+        if (index.isEven) {
+          final stepIndex = index ~/ 2;
+          return _StepCircle(
+            step: stepIndex,
+            label: steps[stepIndex],
+            currentStep: currentStep,
+          );
+        } else {
+          final stepIndex = index ~/ 2;
+          return Expanded(
+            child: Container(
+              height: 2,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: stepIndex < currentStep
+                      ? [
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.primary,
+                        ]
+                      : [const Color(0xFF2D2440), const Color(0xFF2D2440)],
                 ),
               ),
-            );
-          }
-        },
-      ),
+            ),
+          );
+        }
+      }),
     );
   }
 }
@@ -75,10 +76,10 @@ class _StepCircle extends StatelessWidget {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: isCurrent
-                ? const Color(0xFF7C3AED)
+                ? Theme.of(context).colorScheme.primary
                 : isCompleted
-                    ? const Color(0xFF7C3AED)
-                    : const Color(0xFF2D2440),
+                ? Theme.of(context).colorScheme.primary
+                : const Color(0xFF2D2440),
             border: Border.all(
               color: isUpcoming ? const Color(0xFF2D2440) : Colors.transparent,
               width: 2,
@@ -90,7 +91,7 @@ class _StepCircle extends StatelessWidget {
             size: 24,
           ),
         ),
-        const SizedBox(height: 8),
+        vGap(8),
         Text(
           label,
           style: TextStyle(

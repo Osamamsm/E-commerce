@@ -138,5 +138,8 @@
     "delivery_address":"DELIVERY ADDRESS",
     "order_summary":"ORDER SUMMARY",
     "back_to_payment":"Back to Payment",
-    "place_order":"Place Order"
+    "place_order":"Place Order",
+    "review_step":"Review",
+    "address_step":"Address",
+    "payment_step":"Payment"
 }

@@ -5,6 +5,7 @@ import 'package:e_commerce/features/checkout/presentation/widgets/address_step.d
 import 'package:e_commerce/features/checkout/presentation/widgets/payment_step.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/review_step.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/step_indicator.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,7 +22,11 @@ class CheckoutViewBody extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
               child: StepIndicator(
                 currentStep: step,
-                steps: const ['Address', 'Payment', 'Review'],
+                steps: [
+                  S.of(context).address_step,
+                  S.of(context).payment_step,
+                  S.of(context).review_step,
+                ],
               ),
             ),
             Expanded(
