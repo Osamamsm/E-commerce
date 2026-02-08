@@ -1,6 +1,7 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/testing_lists.dart';
 import 'package:e_commerce/features/checkout/presentation/logic/checkout_cubit/checkout_cubit.dart';
+import 'package:e_commerce/features/checkout/presentation/logic/checkout_flow_cubit/checkout_flow_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/continue_button.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/payment_selectable_card.dart';
 import 'package:e_commerce/generated/l10n.dart';
@@ -9,14 +10,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PaymentStep extends StatefulWidget {
   final List<PaymentMethod> paymentMethods;
-  final VoidCallback onContinue;
-  final VoidCallback onBack;
 
   const PaymentStep({
     super.key,
     required this.paymentMethods,
-    required this.onContinue,
-    required this.onBack,
   });
 
   @override
@@ -79,10 +76,14 @@ class _PaymentStepState extends State<PaymentStep> {
           children: [
             ContinueButton(
               label: S.of(context).continue_to_review,
-              onPressed: widget.onContinue,
+              onPressed: () {
+                context.read<CheckoutFlowCubit>().goToNextStep();
+              },
             ),
             TextButton(
-              onPressed: widget.onBack,
+              onPressed: () {
+                context.read<CheckoutFlowCubit>().goToPreviousStep();
+              },
               child: Text(
                 S.of(context).back_to_address,
                 style: TextStyle(color: Color(0xFF9B9BA5), fontSize: 14),

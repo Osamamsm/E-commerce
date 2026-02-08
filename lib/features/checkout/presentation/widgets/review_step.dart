@@ -1,24 +1,24 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/testing_lists.dart';
+import 'package:e_commerce/features/checkout/presentation/logic/checkout_flow_cubit/checkout_flow_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/__price_summary.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/address_summary.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/order_item_card.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/payment_summary.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ReviewStep extends StatelessWidget {
   final Address selectedAddress;
   final PaymentMethod selectedPayment;
   final List<OrderItem> orderItems;
-  final VoidCallback onBack;
 
   const ReviewStep({
     super.key,
     required this.selectedAddress,
     required this.selectedPayment,
     required this.orderItems,
-    required this.onBack,
   });
 
   double get subtotal => orderItems.fold(0, (sum, item) => sum + item.price);
@@ -96,7 +96,9 @@ class ReviewStep extends StatelessWidget {
                 child: Text(S.of(context).place_order),
               ),
               TextButton(
-                onPressed: onBack,
+                onPressed: () {
+                  context.read<CheckoutFlowCubit>().goToPreviousStep();
+                },
                 child: Text(
                   S.of(context).back_to_payment,
                   style: TextStyle(color: Color(0xFF9B9BA5), fontSize: 14),

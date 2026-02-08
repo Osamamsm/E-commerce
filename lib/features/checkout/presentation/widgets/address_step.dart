@@ -1,6 +1,7 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/testing_lists.dart';
 import 'package:e_commerce/features/checkout/presentation/logic/checkout_cubit/checkout_cubit.dart';
+import 'package:e_commerce/features/checkout/presentation/logic/checkout_flow_cubit/checkout_flow_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/add_new_address_button.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/address_selectable_card.dart';
 import 'package:e_commerce/features/checkout/presentation/widgets/continue_button.dart';
@@ -10,13 +11,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddressStep extends StatefulWidget {
   final List<Address> addresses;
-  final VoidCallback onContinue;
 
-  const AddressStep({
-    super.key,
-    required this.addresses,
-    required this.onContinue,
-  });
+  const AddressStep({super.key, required this.addresses});
 
   @override
   State<AddressStep> createState() => _AddressStepState();
@@ -79,7 +75,9 @@ class _AddressStepState extends State<AddressStep> {
         ),
         ContinueButton(
           label: S.of(context).continue_to_payment,
-          onPressed: widget.onContinue,
+          onPressed: () {
+            context.read<CheckoutFlowCubit>().goToNextStep();
+          },
         ),
       ],
     );
