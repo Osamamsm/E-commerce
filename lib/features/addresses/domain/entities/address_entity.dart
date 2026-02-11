@@ -1,5 +1,5 @@
 class AddressEntity {
-  final String id;
+  final String? id;
   final String governorate;
   final String city;
   final String district;
@@ -12,7 +12,7 @@ class AddressEntity {
   final bool isDefault;
 
   AddressEntity({
-    required this.id,
+    this.id,
     required this.governorate,
     required this.city,
     required this.district,
