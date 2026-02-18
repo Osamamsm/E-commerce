@@ -1,9 +1,12 @@
 import 'package:e_commerce/core/helpers/testing_lists.dart';
+import 'package:e_commerce/features/addresses/domain/entities/address_entity.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/address_card.dart';
 import 'package:flutter/material.dart';
 
 class SavedAddressesViewBody extends StatelessWidget {
-  const SavedAddressesViewBody({super.key});
+  const SavedAddressesViewBody({super.key, required this.addresses});
+
+  final List<AddressEntity> addresses;
 
   Map<String, List<Address>> _groupAddressesByType() {
     Map<String, List<Address>> grouped = {'home': [], 'work': [], 'other': []};

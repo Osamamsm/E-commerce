@@ -1,7 +1,9 @@
 import 'package:e_commerce/features/addresses/domain/use_cases/get_addresses_use_case.dart';
 import 'package:e_commerce/features/addresses/presentation/logic/get_addresses_cubit/get_addresses_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
+@injectable
 class GetAddressesCubit extends Cubit<GetAddressesState> {
   final GetAddressesUseCase _addressesUseCase;
   GetAddressesCubit(this._addressesUseCase) : super(GetAddressesInitial());

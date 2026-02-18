@@ -8,7 +8,7 @@ class AddressModel {
   String street;
   String building;
   String floor;
-  String apartmentNumber;
+  int apartmentNumber;
   String label;
   String? additionalNotes;
   bool isDefault;

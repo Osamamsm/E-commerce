@@ -6,7 +6,7 @@ class AddressEntity {
   final String street;
   final String building;
   final String floor;
-  final String apartmentNumber;
+  final int apartmentNumber;
   final String label;
   final String? additionalNotes;
   final bool isDefault;

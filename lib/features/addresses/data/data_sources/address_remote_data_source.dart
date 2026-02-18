@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/supabase/supabase_service.dart';
 import 'package:e_commerce/features/addresses/data/models/address_model.dart';
+import 'package:injectable/injectable.dart';
 
 abstract class AddressRemoteDataSource {
   Future<void> addAddress(AddressModel address);
@@ -9,6 +10,7 @@ abstract class AddressRemoteDataSource {
   Future<void> setDefaultAddress(String addressId);
 }
 
+@LazySingleton(as: AddressRemoteDataSource)
 class AddressRemoteDataSourceImpl implements AddressRemoteDataSource {
   final SupabaseService _service;
   AddressRemoteDataSourceImpl(this._service);
