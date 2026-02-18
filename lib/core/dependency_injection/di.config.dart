@@ -19,6 +19,8 @@ import 'package:e_commerce/core/preferences/user_preferences_helper.dart'
     as _i78;
 import 'package:e_commerce/core/supabase/supabase_client.dart' as _i4;
 import 'package:e_commerce/core/supabase/supabase_service.dart' as _i74;
+import 'package:e_commerce/features/addresses/data/data_sources/address_remote_data_source.dart'
+    as _i295;
 import 'package:e_commerce/features/addresses/data/repos/address_repo_impl.dart'
     as _i920;
 import 'package:e_commerce/features/addresses/domain/repos/address_repo.dart'
@@ -91,7 +93,6 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.lazySingleton<_i454.SupabaseClient>(() => supabaseClientProvider.client);
-    gh.lazySingleton<_i56.AddressRepo>(() => _i920.AddressRepoImpl());
     gh.lazySingleton<_i78.UserPreferencesHelper>(
       () => _i78.UserPreferencesHelper(gh<_i460.SharedPreferences>()),
     );
@@ -106,6 +107,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i259.AppSettingsCubit>(
       () => _i259.AppSettingsCubit(gh<_i78.UserPreferencesHelper>()),
+    );
+    gh.lazySingleton<_i56.AddressRepo>(
+      () => _i920.AddressRepoImpl(gh<_i295.AddressRemoteDataSource>()),
     );
     gh.lazySingleton<_i380.AuthRepo>(
       () => _i562.AuthRepoImpl(gh<_i254.AuthRemoteDataSource>()),
