@@ -129,5 +129,8 @@
     "place_order":"تأكيد الطلب",
     "review_step":"المراجعة",
     "address_step":"العنوان",
-    "payment_step":"الدفع"
+    "payment_step":"الدفع",
+    "error_body_subtitle":"حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "try_again":"إعادة المحاولة",
+    "go_to_home":"الانتقال إلى الصفحة الرئيسية"
 }

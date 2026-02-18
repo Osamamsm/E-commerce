@@ -104,6 +104,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Enter your new password",
     ),
     "error": MessageLookupByLibrary.simpleMessage("Error"),
+    "error_body_subtitle": MessageLookupByLibrary.simpleMessage(
+      "Something went wrong. Please try again.",
+    ),
     "expires": MessageLookupByLibrary.simpleMessage("Expires"),
     "expiry_date": MessageLookupByLibrary.simpleMessage("Expiry Date"),
     "failed_to_load_profile": MessageLookupByLibrary.simpleMessage(
@@ -121,6 +124,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Enter your full name",
     ),
     "general": MessageLookupByLibrary.simpleMessage("General"),
+    "go_to_home": MessageLookupByLibrary.simpleMessage("Go to Home"),
     "help_center": MessageLookupByLibrary.simpleMessage("Help Center"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "label_as": MessageLookupByLibrary.simpleMessage("LABEL AS"),
@@ -245,6 +249,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "theme": MessageLookupByLibrary.simpleMessage("Theme"),
     "total": MessageLookupByLibrary.simpleMessage("Total"),
+    "try_again": MessageLookupByLibrary.simpleMessage("Try Again"),
     "use_this_address_for_checkout": MessageLookupByLibrary.simpleMessage(
       "Use this address for checkout",
     ),

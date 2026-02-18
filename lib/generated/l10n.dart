@@ -1181,6 +1181,26 @@ class S {
   String get payment_step {
     return Intl.message('Payment', name: 'payment_step', desc: '', args: []);
   }
+
+  /// `Something went wrong. Please try again.`
+  String get error_body_subtitle {
+    return Intl.message(
+      'Something went wrong. Please try again.',
+      name: 'error_body_subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try Again`
+  String get try_again {
+    return Intl.message('Try Again', name: 'try_again', desc: '', args: []);
+  }
+
+  /// `Go to Home`
+  String get go_to_home {
+    return Intl.message('Go to Home', name: 'go_to_home', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

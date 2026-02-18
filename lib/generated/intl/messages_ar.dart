@@ -87,6 +87,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "أدخل البريد الالكتروني",
     ),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+    "error_body_subtitle": MessageLookupByLibrary.simpleMessage(
+      "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    ),
     "expires": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
     "expiry_date": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
     "failed_to_load_profile": MessageLookupByLibrary.simpleMessage(
@@ -104,6 +107,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "full_name": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
     "full_name_hint": MessageLookupByLibrary.simpleMessage("أدخل الاسم الكامل"),
     "general": MessageLookupByLibrary.simpleMessage("عام"),
+    "go_to_home": MessageLookupByLibrary.simpleMessage(
+      "الانتقال إلى الصفحة الرئيسية",
+    ),
     "help_center": MessageLookupByLibrary.simpleMessage("مركز المساعدة"),
     "home": MessageLookupByLibrary.simpleMessage("المنزل"),
     "label_as": MessageLookupByLibrary.simpleMessage("التصنيف كـ"),
@@ -207,6 +213,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "terms_of_service": MessageLookupByLibrary.simpleMessage("شروط الخدمة"),
     "theme": MessageLookupByLibrary.simpleMessage("المظهر"),
     "total": MessageLookupByLibrary.simpleMessage("الإجمالي"),
+    "try_again": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
     "use_this_address_for_checkout": MessageLookupByLibrary.simpleMessage(
       "استخدم هذا العنوان لإتمام عملية الشراء",
     ),
