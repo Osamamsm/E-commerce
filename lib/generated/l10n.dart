@@ -1201,6 +1201,16 @@ class S {
   String get go_to_home {
     return Intl.message('Go to Home', name: 'go_to_home', desc: '', args: []);
   }
+
+  /// `No addresses`
+  String get no_addresses {
+    return Intl.message(
+      'No addresses',
+      name: 'no_addresses',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

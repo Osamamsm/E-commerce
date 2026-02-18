@@ -144,5 +144,6 @@
     "payment_step":"Payment",
     "error_body_subtitle":"Something went wrong. Please try again.",
     "try_again":"Try Again",
-    "go_to_home":"Go to Home"
+    "go_to_home":"Go to Home",
+    "no_addresses":"No addresses"
 }
