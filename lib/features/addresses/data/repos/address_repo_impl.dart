@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:e_commerce/core/error/exception_mapper.dart';
 import 'package:e_commerce/core/error/failure.dart';
 import 'package:e_commerce/features/addresses/data/data_sources/address_remote_data_source.dart';
 import 'package:e_commerce/features/addresses/domain/entities/address_entity.dart';
@@ -27,7 +28,7 @@ class AddressRepoImpl implements AddressRepo{
       final addresses = await _remoteDataSource.getAddresses();
       return Right(addresses.map((e) => e.toEntity()).toList());
     } catch (e) {
-      return Left(Failure(e.toString()));
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
     }
   }
 
