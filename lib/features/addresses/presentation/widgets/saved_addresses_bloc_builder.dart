@@ -65,7 +65,7 @@ class _LoadingBody extends StatelessWidget {
                 apartmentNumber: 10,
                 isDefault: false,
                 district: 'district',
-                floor: 'floor',
+                floor: 5,
                 additionalNotes: 'additionalNotes',
               ),
             );

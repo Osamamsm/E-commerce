@@ -32,7 +32,7 @@ class AddressRemoteDataSourceImpl implements AddressRemoteDataSource {
     if (user == null) {
       throw Exception('User not found');
     }
-    final response = await _service.from('user_address').select().eq('user_id', user.id);
+    final response = await _service.from('addresses').select().eq('user_id', user.id);
     return response.map((e) => AddressModel.fromJson(e)).toList();
   }
 

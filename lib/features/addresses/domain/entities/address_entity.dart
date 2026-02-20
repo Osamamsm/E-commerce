@@ -5,7 +5,7 @@ class AddressEntity {
   final String district;
   final String street;
   final String building;
-  final String floor;
+  final int floor;
   final int apartmentNumber;
   final String label;
   final String? additionalNotes;

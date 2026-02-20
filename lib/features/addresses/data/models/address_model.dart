@@ -7,7 +7,7 @@ class AddressModel {
   String district;
   String street;
   String building;
-  String floor;
+  int floor;
   int apartmentNumber;
   String label;
   String? additionalNotes;
