@@ -25,8 +25,12 @@ import 'package:e_commerce/features/addresses/data/repos/address_repo_impl.dart'
     as _i920;
 import 'package:e_commerce/features/addresses/domain/repos/address_repo.dart'
     as _i56;
+import 'package:e_commerce/features/addresses/domain/use_cases/add_new_address_use_case.dart'
+    as _i708;
 import 'package:e_commerce/features/addresses/domain/use_cases/get_addresses_use_case.dart'
     as _i298;
+import 'package:e_commerce/features/addresses/presentation/logic/add_new_address_cubit/add_new_address_cubit.dart'
+    as _i560;
 import 'package:e_commerce/features/addresses/presentation/logic/get_addresses_cubit/get_addresses_cubit.dart'
     as _i28;
 import 'package:e_commerce/features/auth/data/data_sources/auth_remote_data_source.dart'
@@ -127,6 +131,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i756.AuthCubit>(
       () => _i756.AuthCubit(gh<_i74.SupabaseService>()),
     );
+    gh.factory<_i708.AddNewAddressUseCase>(
+      () => _i708.AddNewAddressUseCase(gh<_i56.AddressRepo>()),
+    );
     gh.factory<_i298.GetAddressesUseCase>(
       () => _i298.GetAddressesUseCase(gh<_i56.AddressRepo>()),
     );
@@ -156,6 +163,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i330.ResetPasswordCubit>(
       () => _i330.ResetPasswordCubit(gh<_i817.ResetPasswordUseCase>()),
+    );
+    gh.factory<_i560.AddNewAddressCubit>(
+      () => _i560.AddNewAddressCubit(gh<_i708.AddNewAddressUseCase>()),
     );
     gh.factory<_i725.ProfileCubit>(
       () => _i725.ProfileCubit(
