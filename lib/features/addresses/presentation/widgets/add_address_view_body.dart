@@ -19,8 +19,16 @@ class _AddAddressViewBodyState extends State<AddAddressViewBody> {
   final _formKey = GlobalKey<FormState>();
   String selectedAddressType = 'home';
   bool isDefaultAddress = false;
-  String? selectedState;
-  late String fullName, phoneNumber, streetAddress, aptSuiteEtc, city;
+
+  late String governorate,
+      city,
+      district,
+      street,
+      building,
+      floor,
+      apartmentNumber;
+  String? additionalNotes;
+
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
@@ -41,59 +49,99 @@ class _AddAddressViewBodyState extends State<AddAddressViewBody> {
                     },
                   ),
                   vGap(24),
+
+                  // ── Section 1: Region ──────────────────────────────────────
                   FormSection(
-                    title: s.contact_info,
+                    title: s.region,
                     children: [
                       GlassTextField(
-                        hintText: s.full_name,
-                        validator: Validators.fullNameValidator,
-                        onSaved: (value) {
-                          fullName = value!;
-                        },
+                        hintText: s.governorate,
+                        suffixIcon: Icons.map_outlined,
+                        validator: Validators.addressFieldValidator,
+                        onSaved: (value) => governorate = value!,
                       ),
                       vGap(12),
-                      GlassTextField(
-                        hintText: s.phone_number,
-                        suffixIcon: Icons.phone,
-                        validator: Validators.phoneNumberValidator,
-                        onSaved: (value) {
-                          phoneNumber = value!;
-                        },
+                      // City & District side-by-side
+                      Row(
+                        children: [
+                          Expanded(
+                            child: GlassTextField(
+                              hintText: s.city,
+                              validator: Validators.addressFieldValidator,
+                              onSaved: (value) => city = value!,
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: GlassTextField(
+                              hintText: s.district,
+                              validator: Validators.addressFieldValidator,
+                              onSaved: (value) => district = value!,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
                   vGap(24),
+
+                  // ── Section 2: Building Details ────────────────────────────
                   FormSection(
-                    title: s.address_details,
+                    title: s.building_details,
                     children: [
                       GlassTextField(
-                        hintText: s.street_address,
-                        suffixIcon: Icons.location_on,
+                        hintText: s.street,
+                        suffixIcon: Icons.location_on_outlined,
                         validator: Validators.addressFieldValidator,
-                        onSaved: (value) {
-                          streetAddress = value!;
-                        },
+                        onSaved: (value) => street = value!,
                       ),
                       vGap(12),
                       GlassTextField(
-                        hintText: s.apt_suite_etc,
+                        hintText: s.building,
+                        suffixIcon: Icons.apartment_outlined,
                         validator: Validators.addressFieldValidator,
-                        onSaved: (value) {
-                          aptSuiteEtc = value!;
-                        },
+                        onSaved: (value) => building = value!,
                       ),
                       vGap(12),
-                      GlassTextField(
-                        hintText: s.city,
-                        validator: Validators.addressFieldValidator,
-                        onSaved: (value) {
-                          city = value!;
-                        },
+                      // Floor & Apartment side-by-side
+                      Row(
+                        children: [
+                          Expanded(
+                            child: GlassTextField(
+                              hintText: s.floor,
+                              keyboardType: TextInputType.number,
+                              validator: Validators.addressFieldValidator,
+                              onSaved: (value) => floor = value!,
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: GlassTextField(
+                              hintText: s.apartment_number,
+                              keyboardType: TextInputType.number,
+                              validator: Validators.addressFieldValidator,
+                              onSaved: (value) => apartmentNumber = value!,
+                            ),
+                          ),
+                        ],
                       ),
-                      vGap(12),
                     ],
                   ),
                   vGap(24),
+
+                  // ── Section 3: Additional Notes ────────────────────────────
+                  FormSection(
+                    title: s.additional_notes,
+                    children: [
+                      GlassTextField(
+                        hintText: s.additional_notes_hint_text,
+                        maxLines: 3,
+                        onSaved: (value) => additionalNotes = value,
+                      ),
+                    ],
+                  ),
+                  vGap(24),
+
                   DefaultToggle(
                     value: isDefaultAddress,
                     onChanged: (value) {
@@ -103,6 +151,7 @@ class _AddAddressViewBodyState extends State<AddAddressViewBody> {
                     subtitle: s.use_this_address_for_checkout,
                   ),
                   vGap(24),
+
                   SaveAddressButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {

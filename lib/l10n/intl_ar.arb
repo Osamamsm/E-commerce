@@ -133,5 +133,15 @@
     "error_body_subtitle":"حدث خطأ ما. يرجى المحاولة مرة أخرى.",
     "try_again":"إعادة المحاولة",
     "go_to_home":"الانتقال إلى الصفحة الرئيسية",
-    "no_addresses":"لا توجد عناوين"
+    "no_addresses":"لا توجد عناوين",
+    "region": "المنطقة",
+  "governorate": "المحافظة",
+  "district": "الحي",
+  "building_details":"تفاصيل المبنى",
+  "street": "الشارع",
+  "building": "المبنى",
+  "floor": "الدور",
+  "apartment_number": "رقم الشقة",
+  "additional_notes": "ملاحظات إضافية",
+  "additional_notes_hint_text": "اكتب أي تفاصيل إضافية لمساعدة مندوب التوصيل في الوصول إلى العنوان بسهولة"
 }

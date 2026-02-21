@@ -1211,6 +1211,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Region`
+  String get region {
+    return Intl.message('Region', name: 'region', desc: '', args: []);
+  }
+
+  /// `Governorate`
+  String get governorate {
+    return Intl.message('Governorate', name: 'governorate', desc: '', args: []);
+  }
+
+  /// `District`
+  String get district {
+    return Intl.message('District', name: 'district', desc: '', args: []);
+  }
+
+  /// `Building Details`
+  String get building_details {
+    return Intl.message(
+      'Building Details',
+      name: 'building_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Street`
+  String get street {
+    return Intl.message('Street', name: 'street', desc: '', args: []);
+  }
+
+  /// `Building`
+  String get building {
+    return Intl.message('Building', name: 'building', desc: '', args: []);
+  }
+
+  /// `Floor`
+  String get floor {
+    return Intl.message('Floor', name: 'floor', desc: '', args: []);
+  }
+
+  /// `Apartment number`
+  String get apartment_number {
+    return Intl.message(
+      'Apartment number',
+      name: 'apartment_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Additional Notes`
+  String get additional_notes {
+    return Intl.message(
+      'Additional Notes',
+      name: 'additional_notes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write any additional details to help the delivery person easily reach the address.`
+  String get additional_notes_hint_text {
+    return Intl.message(
+      'Write any additional details to help the delivery person easily reach the address.',
+      name: 'additional_notes_hint_text',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

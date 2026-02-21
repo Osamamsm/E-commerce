@@ -37,8 +37,17 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "add_review": MessageLookupByLibrary.simpleMessage("Add Your Review"),
     "add_to_cart": MessageLookupByLibrary.simpleMessage("Add To Cart"),
+    "additional_notes": MessageLookupByLibrary.simpleMessage(
+      "Additional Notes",
+    ),
+    "additional_notes_hint_text": MessageLookupByLibrary.simpleMessage(
+      "Write any additional details to help the delivery person easily reach the address.",
+    ),
     "address_details": MessageLookupByLibrary.simpleMessage("Address Details"),
     "address_step": MessageLookupByLibrary.simpleMessage("Address"),
+    "apartment_number": MessageLookupByLibrary.simpleMessage(
+      "Apartment number",
+    ),
     "app_name": MessageLookupByLibrary.simpleMessage("E-Commerce App"),
     "apt_suite_etc": MessageLookupByLibrary.simpleMessage(
       "Apt. Suite, etc. (Optional)",
@@ -46,6 +55,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "back_to_address": MessageLookupByLibrary.simpleMessage("Back to Address"),
     "back_to_payment": MessageLookupByLibrary.simpleMessage("Back to Payment"),
+    "building": MessageLookupByLibrary.simpleMessage("Building"),
+    "building_details": MessageLookupByLibrary.simpleMessage(
+      "Building Details",
+    ),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "card_holder": MessageLookupByLibrary.simpleMessage("Card Holder"),
     "card_holder_name": MessageLookupByLibrary.simpleMessage(
@@ -91,6 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "DELIVERY ADDRESS",
     ),
     "discount": MessageLookupByLibrary.simpleMessage("Discount"),
+    "district": MessageLookupByLibrary.simpleMessage("District"),
     "edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "edit_address": MessageLookupByLibrary.simpleMessage("Edit Address"),
     "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
@@ -115,6 +129,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "featured_products": MessageLookupByLibrary.simpleMessage(
       "Featured Products",
     ),
+    "floor": MessageLookupByLibrary.simpleMessage("Floor"),
     "forgot_password": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
     "forgot_password_subtitle": MessageLookupByLibrary.simpleMessage(
       "Enter your email to reset your password",
@@ -125,6 +140,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "general": MessageLookupByLibrary.simpleMessage("General"),
     "go_to_home": MessageLookupByLibrary.simpleMessage("Go to Home"),
+    "governorate": MessageLookupByLibrary.simpleMessage("Governorate"),
     "help_center": MessageLookupByLibrary.simpleMessage("Help Center"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "label_as": MessageLookupByLibrary.simpleMessage("LABEL AS"),
@@ -196,6 +212,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Receive updates about your orders and exclusive offers",
     ),
     "quick_access": MessageLookupByLibrary.simpleMessage("Quick Access"),
+    "region": MessageLookupByLibrary.simpleMessage("Region"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "reset_password": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "reset_password_success_message": MessageLookupByLibrary.simpleMessage(
@@ -239,6 +256,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "If an account with this email exists, you will receive a verification email.",
     ),
     "size": MessageLookupByLibrary.simpleMessage("Size"),
+    "street": MessageLookupByLibrary.simpleMessage("Street"),
     "street_address": MessageLookupByLibrary.simpleMessage("Street Address"),
     "submit_review": MessageLookupByLibrary.simpleMessage("Submit Review"),
     "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
