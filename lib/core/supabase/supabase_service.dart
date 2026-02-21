@@ -13,6 +13,8 @@ class SupabaseService {
 
   SupabaseStorageClient get storage => _client.storage;
 
+  PostgrestFilterBuilder rpc({required String function ,Map<String,dynamic>?params}) => _client.rpc(function,params: params);
+
   User? get currentUser => auth.currentUser;
 
   Session? get currentSession => auth.currentSession;
