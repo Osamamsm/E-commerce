@@ -143,5 +143,6 @@
   "floor": "الدور",
   "apartment_number": "رقم الشقة",
   "additional_notes": "ملاحظات إضافية",
-  "additional_notes_hint_text": "اكتب أي تفاصيل إضافية لمساعدة مندوب التوصيل في الوصول إلى العنوان بسهولة"
+  "additional_notes_hint_text": "اكتب أي تفاصيل إضافية لمساعدة مندوب التوصيل في الوصول إلى العنوان بسهولة",
+  "address_added_succesfully":"تم إضافة العنوان بنجاح"
 }

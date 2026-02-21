@@ -1281,6 +1281,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Address Added Successfully`
+  String get address_added_successfully {
+    return Intl.message(
+      'Address Added Successfully',
+      name: 'address_added_successfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

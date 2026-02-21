@@ -1,5 +1,7 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/validators.dart';
+import 'package:e_commerce/features/addresses/domain/entities/address_entity.dart';
+import 'package:e_commerce/features/addresses/presentation/logic/add_new_address_cubit/add_new_address_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/address_type_selector.dart';
 import 'package:e_commerce/core/widgets/default_toggle.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/form_section.dart';
@@ -7,6 +9,7 @@ import 'package:e_commerce/features/addresses/presentation/widgets/glass_text_fi
 import 'package:e_commerce/features/addresses/presentation/widgets/save_address_button.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddAddressViewBody extends StatefulWidget {
   const AddAddressViewBody({super.key});
@@ -17,7 +20,7 @@ class AddAddressViewBody extends StatefulWidget {
 
 class _AddAddressViewBodyState extends State<AddAddressViewBody> {
   final _formKey = GlobalKey<FormState>();
-  String selectedAddressType = 'home';
+  String selectedAddressType = 'Home';
   bool isDefaultAddress = false;
 
   late String governorate,
@@ -156,6 +159,20 @@ class _AddAddressViewBodyState extends State<AddAddressViewBody> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
+                        context.read<AddNewAddressCubit>().addNewAddress(
+                          AddressEntity(
+                            governorate: governorate,
+                            city: city,
+                            district: district,
+                            street: street,
+                            building: building,
+                            floor: int.parse(floor),
+                            apartmentNumber: int.parse(apartmentNumber),
+                            label: selectedAddressType,
+                            additionalNotes: additionalNotes,
+                            isDefault: isDefaultAddress,
+                          ),
+                        );
                       }
                     },
                   ),

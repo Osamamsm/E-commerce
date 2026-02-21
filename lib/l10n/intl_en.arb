@@ -155,6 +155,7 @@
     "floor":"Floor",
     "apartment_number":"Apartment number",
     "additional_notes":"Additional Notes",
-    "additional_notes_hint_text":"Write any additional details to help the delivery person easily reach the address."
+    "additional_notes_hint_text":"Write any additional details to help the delivery person easily reach the address.",
+    "address_added_successfully":"Address Added Successfully"
 
 }

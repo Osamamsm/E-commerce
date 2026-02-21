@@ -43,6 +43,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "additional_notes_hint_text": MessageLookupByLibrary.simpleMessage(
       "Write any additional details to help the delivery person easily reach the address.",
     ),
+    "address_added_successfully": MessageLookupByLibrary.simpleMessage(
+      "Address Added Successfully",
+    ),
     "address_details": MessageLookupByLibrary.simpleMessage("Address Details"),
     "address_step": MessageLookupByLibrary.simpleMessage("Address"),
     "apartment_number": MessageLookupByLibrary.simpleMessage(
