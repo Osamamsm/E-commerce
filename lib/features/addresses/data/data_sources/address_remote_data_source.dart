@@ -15,9 +15,27 @@ class AddressRemoteDataSourceImpl implements AddressRemoteDataSource {
   final SupabaseService _service;
   AddressRemoteDataSourceImpl(this._service);
   @override
-  Future<void> addAddress(AddressModel address) {
-    // TODO: implement addAddress
-    throw UnimplementedError();
+  Future<void> addAddress(AddressModel address) async {
+    final user = _service.currentUser;
+    if (user == null) {
+      throw Exception('User not found');
+    }
+    await _service.rpc(
+      function: "add_new_address",
+      params: {
+        'p_user_id': user.id,
+        'p_governorate': address.governorate,
+        'p_city': address.city,
+        'p_district': address.district,
+        'p_street':address.street,
+        'p_building': address.building,
+        'p_floor': address.floor,
+        'p_apartment_number': address.apartmentNumber,
+        'p_is_default': address.isDefault,
+        'p_label': address.label,
+        'p_additional_notes': address.additionalNotes,
+      },
+    );
   }
 
   @override
@@ -32,7 +50,10 @@ class AddressRemoteDataSourceImpl implements AddressRemoteDataSource {
     if (user == null) {
       throw Exception('User not found');
     }
-    final response = await _service.from('addresses').select().eq('user_id', user.id);
+    final response = await _service
+        .from('addresses')
+        .select()
+        .eq('user_id', user.id);
     return response.map((e) => AddressModel.fromJson(e)).toList();
   }
 

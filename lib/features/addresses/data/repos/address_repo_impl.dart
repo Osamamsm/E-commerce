@@ -2,18 +2,23 @@ import 'package:dartz/dartz.dart';
 import 'package:e_commerce/core/error/exception_mapper.dart';
 import 'package:e_commerce/core/error/failure.dart';
 import 'package:e_commerce/features/addresses/data/data_sources/address_remote_data_source.dart';
+import 'package:e_commerce/features/addresses/data/models/address_model.dart';
 import 'package:e_commerce/features/addresses/domain/entities/address_entity.dart';
 import 'package:e_commerce/features/addresses/domain/repos/address_repo.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: AddressRepo)
-class AddressRepoImpl implements AddressRepo{
+class AddressRepoImpl implements AddressRepo {
   final AddressRemoteDataSource _remoteDataSource;
   AddressRepoImpl(this._remoteDataSource);
   @override
-  Future<Either<Failure, void>> addAddress(AddressEntity address) {
-    // TODO: implement addAddress
-    throw UnimplementedError();
+  Future<Either<Failure, void>> addAddress(AddressEntity address) async {
+    try {
+      await _remoteDataSource.addAddress(AddressModel.fromEntity(address));
+      return Right(null);
+    } catch (e) {
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
+    }
   }
 
   @override
