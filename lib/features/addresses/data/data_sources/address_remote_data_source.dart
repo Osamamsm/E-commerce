@@ -27,7 +27,7 @@ class AddressRemoteDataSourceImpl implements AddressRemoteDataSource {
         'p_governorate': address.governorate,
         'p_city': address.city,
         'p_district': address.district,
-        'p_street':address.street,
+        'p_street': address.street,
         'p_building': address.building,
         'p_floor': address.floor,
         'p_apartment_number': address.apartmentNumber,
@@ -58,9 +58,15 @@ class AddressRemoteDataSourceImpl implements AddressRemoteDataSource {
   }
 
   @override
-  Future<void> setDefaultAddress(String addressId) {
-    // TODO: implement setDefaultAddress
-    throw UnimplementedError();
+  Future<void> setDefaultAddress(String addressId) async {
+    final user = _service.currentUser;
+    if (user == null) {
+      throw Exception('User not found');
+    }
+    await _service.rpc(
+      function: 'set_default_address',
+      params: {'p_user_id': user.id, 'p_address_id': addressId},
+    );
   }
 
   @override

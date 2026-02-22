@@ -38,9 +38,13 @@ class AddressRepoImpl implements AddressRepo {
   }
 
   @override
-  Future<Either<Failure, void>> setDefaultAddress(String addressId) {
-    // TODO: implement setDefaultAddress
-    throw UnimplementedError();
+  Future<Either<Failure, void>> setDefaultAddress(String addressId) async {
+    try {
+      await _remoteDataSource.setDefaultAddress(addressId);
+      return Right(null);
+    } catch (e) {
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
+    }
   }
 
   @override
