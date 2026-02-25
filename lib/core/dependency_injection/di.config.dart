@@ -27,6 +27,8 @@ import 'package:e_commerce/features/addresses/domain/repos/address_repo.dart'
     as _i56;
 import 'package:e_commerce/features/addresses/domain/use_cases/add_new_address_use_case.dart'
     as _i708;
+import 'package:e_commerce/features/addresses/domain/use_cases/delete_address_use_case.dart'
+    as _i991;
 import 'package:e_commerce/features/addresses/domain/use_cases/get_addresses_use_case.dart'
     as _i298;
 import 'package:e_commerce/features/addresses/domain/use_cases/set_default_address_use_case.dart'
@@ -137,6 +139,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i708.AddNewAddressUseCase>(
       () => _i708.AddNewAddressUseCase(gh<_i56.AddressRepo>()),
+    );
+    gh.factory<_i991.DeleteAddressUseCase>(
+      () => _i991.DeleteAddressUseCase(gh<_i56.AddressRepo>()),
     );
     gh.factory<_i298.GetAddressesUseCase>(
       () => _i298.GetAddressesUseCase(gh<_i56.AddressRepo>()),
