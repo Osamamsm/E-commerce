@@ -39,9 +39,15 @@ class AddressRemoteDataSourceImpl implements AddressRemoteDataSource {
   }
 
   @override
-  Future<void> deleteAddress(String addressId) {
-    // TODO: implement deleteAddress
-    throw UnimplementedError();
+  Future<void> deleteAddress(String addressId) async {
+    final user = _service.currentUser;
+    if (user == null) {
+      throw Exception('User not found');
+    }
+    await _service.rpc(
+      function: 'delete_address',
+      params: {"p_address_id": addressId},
+    );
   }
 
   @override

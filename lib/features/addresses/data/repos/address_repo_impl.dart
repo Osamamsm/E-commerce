@@ -22,9 +22,13 @@ class AddressRepoImpl implements AddressRepo {
   }
 
   @override
-  Future<Either<Failure, void>> deleteAddress(String addressId) {
-    // TODO: implement deleteAddress
-    throw UnimplementedError();
+  Future<Either<Failure, void>> deleteAddress(String addressId) async{
+    try {
+      await _remoteDataSource.deleteAddress(addressId);
+      return Right(null);
+    } catch (e) {
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
+    }
   }
 
   @override
