@@ -33,6 +33,8 @@ import 'package:e_commerce/features/addresses/domain/use_cases/get_addresses_use
     as _i298;
 import 'package:e_commerce/features/addresses/domain/use_cases/set_default_address_use_case.dart'
     as _i811;
+import 'package:e_commerce/features/addresses/domain/use_cases/update_address_use_case.dart'
+    as _i886;
 import 'package:e_commerce/features/addresses/presentation/logic/add_new_address_cubit/add_new_address_cubit.dart'
     as _i560;
 import 'package:e_commerce/features/addresses/presentation/logic/delete_address_cubit/delete_address_cubit.dart'
@@ -41,6 +43,8 @@ import 'package:e_commerce/features/addresses/presentation/logic/get_addresses_c
     as _i28;
 import 'package:e_commerce/features/addresses/presentation/logic/set_default_address_cubit/set_default_address_cubit.dart'
     as _i326;
+import 'package:e_commerce/features/addresses/presentation/logic/update_address_cubit/update_address_cubit.dart'
+    as _i530;
 import 'package:e_commerce/features/auth/data/data_sources/auth_remote_data_source.dart'
     as _i254;
 import 'package:e_commerce/features/auth/data/repos/auth_repo_impl.dart'
@@ -151,6 +155,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i811.SetDefaultAddressUseCase>(
       () => _i811.SetDefaultAddressUseCase(gh<_i56.AddressRepo>()),
     );
+    gh.factory<_i886.UpdateAddressUseCase>(
+      () => _i886.UpdateAddressUseCase(gh<_i56.AddressRepo>()),
+    );
     gh.factory<_i350.GetProfileDataUseCase>(
       () => _i350.GetProfileDataUseCase(gh<_i245.ProfileRepo>()),
     );
@@ -186,6 +193,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i560.AddNewAddressCubit>(
       () => _i560.AddNewAddressCubit(gh<_i708.AddNewAddressUseCase>()),
+    );
+    gh.factory<_i530.UpdateAddressCubit>(
+      () => _i530.UpdateAddressCubit(gh<_i886.UpdateAddressUseCase>()),
     );
     gh.factory<_i725.ProfileCubit>(
       () => _i725.ProfileCubit(
