@@ -41,7 +41,7 @@ class AddressCard extends StatelessWidget {
           children: [
             AddressCardHeader(
               icon: _getIconForType(address.label),
-              title: address.label,
+              address: address,
               isDefault: address.isDefault,
             ),
             vGap(16),

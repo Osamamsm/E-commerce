@@ -8,7 +8,7 @@ class SetDefaultAddressCubit extends Cubit<SetDefaultAddressState> {
   final SetDefaultAddressUseCase _case;
   SetDefaultAddressCubit(this._case) : super(SetDefaultAddressInitial());
 
-  Future<void> addNewAddress(String addressId) async {
+  Future<void> setDefaultAddress(String addressId) async {
     emit(SetDefaultAddressLoading());
     final result = await _case.call(addressId);
     result.fold(
