@@ -4,6 +4,7 @@ import 'package:e_commerce/core/widgets/default_flag_widget.dart';
 import 'package:e_commerce/core/widgets/custom_popup_menu_button.dart';
 import 'package:e_commerce/core/widgets/show_error_dialog.dart';
 import 'package:e_commerce/features/addresses/domain/entities/address_entity.dart';
+import 'package:e_commerce/features/addresses/presentation/logic/delete_address_cubit/delete_address_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/logic/set_default_address_cubit/set_default_address_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/views/edit_address_view.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,19 @@ class AddressCardHeader extends StatelessWidget {
           onEdit: () {
             context.push(EditAddressView.routeName);
           },
-          onDelete: () {},
+          onDelete: () {
+            showCustomDialog(
+              context: context,
+              message: "Are you sure ,you want to delete this address",
+              dialogType: DialogType.warning,
+              onOkPressed: () {
+                context.read<DeleteAddressCubit>().deleteAddress(address.id!);
+              },
+              showCancelBtn: true,
+
+              onCancelPressed: () {},
+            );
+          },
           onSetAsDefault: () {
             showCustomDialog(
               context: context,

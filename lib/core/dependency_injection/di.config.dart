@@ -35,6 +35,8 @@ import 'package:e_commerce/features/addresses/domain/use_cases/set_default_addre
     as _i811;
 import 'package:e_commerce/features/addresses/presentation/logic/add_new_address_cubit/add_new_address_cubit.dart'
     as _i560;
+import 'package:e_commerce/features/addresses/presentation/logic/delete_address_cubit/delete_address_cubit.dart'
+    as _i462;
 import 'package:e_commerce/features/addresses/presentation/logic/get_addresses_cubit/get_addresses_cubit.dart'
     as _i28;
 import 'package:e_commerce/features/addresses/presentation/logic/set_default_address_cubit/set_default_address_cubit.dart'
@@ -157,6 +159,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i326.SetDefaultAddressCubit>(
       () => _i326.SetDefaultAddressCubit(gh<_i811.SetDefaultAddressUseCase>()),
+    );
+    gh.factory<_i462.DeleteAddressCubit>(
+      () => _i462.DeleteAddressCubit(gh<_i991.DeleteAddressUseCase>()),
     );
     gh.factory<_i28.GetAddressesCubit>(
       () => _i28.GetAddressesCubit(gh<_i298.GetAddressesUseCase>()),

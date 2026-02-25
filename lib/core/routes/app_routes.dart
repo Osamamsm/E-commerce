@@ -3,6 +3,7 @@ import 'package:e_commerce/core/dependency_injection/di.dart';
 import 'package:e_commerce/core/helpers/testing_lists.dart';
 import 'package:e_commerce/core/logic/image_picker_cubit/image_picker_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/logic/add_new_address_cubit/add_new_address_cubit.dart';
+import 'package:e_commerce/features/addresses/presentation/logic/delete_address_cubit/delete_address_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/logic/get_addresses_cubit/get_addresses_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/logic/set_default_address_cubit/set_default_address_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/views/add_address_view.dart';
@@ -143,6 +144,7 @@ GoRouter createRouter(AuthCubit authCubit) {
               create: (context) => getIt<GetAddressesCubit>()..getAddresses(),
             ),
             BlocProvider(create: (context) => getIt<SetDefaultAddressCubit>()),
+            BlocProvider(create: (context) => getIt<DeleteAddressCubit>())
           ],
 
           child: const SavedAddressesView(),
