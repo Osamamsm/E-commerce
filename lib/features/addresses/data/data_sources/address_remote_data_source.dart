@@ -76,8 +76,26 @@ class AddressRemoteDataSourceImpl implements AddressRemoteDataSource {
   }
 
   @override
-  Future<void> updateAddress(AddressModel address) {
-    // TODO: implement updateAddress
-    throw UnimplementedError();
+  Future<void> updateAddress(AddressModel address) async{
+    final user = _service.currentUser;
+    if (user == null) {
+      throw Exception('User not found');
+    }
+    await _service.rpc(
+      function: "edit_address",
+      params: {
+        'p_user_id': user.id,
+        'p_governorate': address.governorate,
+        'p_city': address.city,
+        'p_district': address.district,
+        'p_street': address.street,
+        'p_building': address.building,
+        'p_floor': address.floor,
+        'p_apartment_number': address.apartmentNumber,
+        'p_is_default': address.isDefault,
+        'p_label': address.label,
+        'p_additional_notes': address.additionalNotes,
+      },
+    );
   }
 }

@@ -52,8 +52,12 @@ class AddressRepoImpl implements AddressRepo {
   }
 
   @override
-  Future<Either<Failure, void>> updateAddress(AddressEntity address) {
-    // TODO: implement updateAddress
-    throw UnimplementedError();
+  Future<Either<Failure, void>> updateAddress(AddressEntity address) async{
+    try {
+      await _remoteDataSource.updateAddress(AddressModel.fromEntity(address));
+      return Right(null);
+    } catch (e) {
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
+    }
   }
 }
