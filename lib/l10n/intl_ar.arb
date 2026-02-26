@@ -144,5 +144,6 @@
   "apartment_number": "رقم الشقة",
   "additional_notes": "ملاحظات إضافية",
   "additional_notes_hint_text": "اكتب أي تفاصيل إضافية لمساعدة مندوب التوصيل في الوصول إلى العنوان بسهولة",
-  "address_added_succesfully":"تم إضافة العنوان بنجاح"
+  "address_added_succesfully":"تم إضافة العنوان بنجاح",
+  "address_updated_successfully":"تم تحديث العنوان بنجاح"
 }

@@ -42,7 +42,7 @@ class AddressCardHeader extends StatelessWidget {
         const Spacer(),
         CustomPopupMenuButton(
           onEdit: () {
-            context.push(EditAddressView.routeName);
+            context.push(EditAddressView.routeName, extra: address);
           },
           onDelete: () {
             showCustomDialog(

@@ -6,6 +6,7 @@ import 'package:e_commerce/features/addresses/presentation/logic/add_new_address
 import 'package:e_commerce/features/addresses/presentation/logic/delete_address_cubit/delete_address_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/logic/get_addresses_cubit/get_addresses_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/logic/set_default_address_cubit/set_default_address_cubit.dart';
+import 'package:e_commerce/features/addresses/presentation/logic/update_address_cubit/update_address_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/views/add_address_view.dart';
 import 'package:e_commerce/features/addresses/presentation/views/edit_address_view.dart';
 import 'package:e_commerce/features/addresses/presentation/views/saved_addresses_view.dart';
@@ -144,7 +145,7 @@ GoRouter createRouter(AuthCubit authCubit) {
               create: (context) => getIt<GetAddressesCubit>()..getAddresses(),
             ),
             BlocProvider(create: (context) => getIt<SetDefaultAddressCubit>()),
-            BlocProvider(create: (context) => getIt<DeleteAddressCubit>())
+            BlocProvider(create: (context) => getIt<DeleteAddressCubit>()),
           ],
 
           child: const SavedAddressesView(),
@@ -159,7 +160,10 @@ GoRouter createRouter(AuthCubit authCubit) {
       ),
       GoRoute(
         path: EditAddressView.routeName,
-        builder: (context, state) => const EditAddressView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => getIt<UpdateAddressCubit>(),
+          child: const EditAddressView(),
+        ),
       ),
       GoRoute(
         path: PaymentMethodsView.routeName,

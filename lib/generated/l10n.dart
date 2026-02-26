@@ -1291,6 +1291,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Address updated successfully`
+  String get address_updated_successfully {
+    return Intl.message(
+      'Address updated successfully',
+      name: 'address_updated_successfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -85,6 +85,7 @@ class AddressRemoteDataSourceImpl implements AddressRemoteDataSource {
       function: "edit_address",
       params: {
         'p_user_id': user.id,
+        'p_address_id':address.id,
         'p_governorate': address.governorate,
         'p_city': address.city,
         'p_district': address.district,

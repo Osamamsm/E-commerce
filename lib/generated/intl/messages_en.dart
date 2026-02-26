@@ -48,6 +48,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "address_details": MessageLookupByLibrary.simpleMessage("Address Details"),
     "address_step": MessageLookupByLibrary.simpleMessage("Address"),
+    "address_updated_successfully": MessageLookupByLibrary.simpleMessage(
+      "Address updated successfully",
+    ),
     "apartment_number": MessageLookupByLibrary.simpleMessage(
       "Apartment number",
     ),

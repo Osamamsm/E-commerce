@@ -41,6 +41,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "address_details": MessageLookupByLibrary.simpleMessage("تفاصيل العنوان"),
     "address_step": MessageLookupByLibrary.simpleMessage("العنوان"),
+    "address_updated_successfully": MessageLookupByLibrary.simpleMessage(
+      "تم تحديث العنوان بنجاح",
+    ),
     "apartment_number": MessageLookupByLibrary.simpleMessage("رقم الشقة"),
     "app_name": MessageLookupByLibrary.simpleMessage("E-Commerce App"),
     "apt_suite_etc": MessageLookupByLibrary.simpleMessage("المنزل/الشقة/الخ"),
