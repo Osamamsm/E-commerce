@@ -1,6 +1,6 @@
 import 'package:e_commerce/core/widgets/custom_scaffold.dart';
 import 'package:e_commerce/features/addresses/presentation/views/add_address_view.dart';
-import 'package:e_commerce/features/addresses/presentation/widgets/saved_addresses_view_body.dart';
+import 'package:e_commerce/features/addresses/presentation/widgets/saved_addresses_bloc_builder.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -20,7 +20,7 @@ class SavedAddressesView extends StatelessWidget {
         },
         child: Icon(Icons.add, color: Theme.of(context).colorScheme.onPrimary),
       ),
-      child: const SavedAddressesViewBody(),
+      child: SavedAddressesBlocBuilder(),
     );
   }
 }

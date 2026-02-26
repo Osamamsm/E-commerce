@@ -19,6 +19,24 @@ import 'package:e_commerce/core/preferences/user_preferences_helper.dart'
     as _i78;
 import 'package:e_commerce/core/supabase/supabase_client.dart' as _i4;
 import 'package:e_commerce/core/supabase/supabase_service.dart' as _i74;
+import 'package:e_commerce/features/addresses/data/data_sources/address_remote_data_source.dart'
+    as _i295;
+import 'package:e_commerce/features/addresses/data/repos/address_repo_impl.dart'
+    as _i920;
+import 'package:e_commerce/features/addresses/domain/repos/address_repo.dart'
+    as _i56;
+import 'package:e_commerce/features/addresses/domain/use_cases/add_new_address_use_case.dart'
+    as _i708;
+import 'package:e_commerce/features/addresses/domain/use_cases/delete_address_use_case.dart'
+    as _i991;
+import 'package:e_commerce/features/addresses/domain/use_cases/get_addresses_use_case.dart'
+    as _i298;
+import 'package:e_commerce/features/addresses/domain/use_cases/set_default_address_use_case.dart'
+    as _i811;
+import 'package:e_commerce/features/addresses/domain/use_cases/update_address_use_case.dart'
+    as _i886;
+import 'package:e_commerce/features/addresses/presentation/logic/addresses_cubit/addresses_cubit.dart'
+    as _i155;
 import 'package:e_commerce/features/auth/data/data_sources/auth_remote_data_source.dart'
     as _i254;
 import 'package:e_commerce/features/auth/data/repos/auth_repo_impl.dart'
@@ -102,6 +120,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i259.AppSettingsCubit>(
       () => _i259.AppSettingsCubit(gh<_i78.UserPreferencesHelper>()),
     );
+    gh.lazySingleton<_i295.AddressRemoteDataSource>(
+      () => _i295.AddressRemoteDataSourceImpl(gh<_i74.SupabaseService>()),
+    );
+    gh.lazySingleton<_i56.AddressRepo>(
+      () => _i920.AddressRepoImpl(gh<_i295.AddressRemoteDataSource>()),
+    );
     gh.lazySingleton<_i380.AuthRepo>(
       () => _i562.AuthRepoImpl(gh<_i254.AuthRemoteDataSource>()),
     );
@@ -110,6 +134,21 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i756.AuthCubit>(
       () => _i756.AuthCubit(gh<_i74.SupabaseService>()),
+    );
+    gh.factory<_i708.AddNewAddressUseCase>(
+      () => _i708.AddNewAddressUseCase(gh<_i56.AddressRepo>()),
+    );
+    gh.factory<_i991.DeleteAddressUseCase>(
+      () => _i991.DeleteAddressUseCase(gh<_i56.AddressRepo>()),
+    );
+    gh.factory<_i298.GetAddressesUseCase>(
+      () => _i298.GetAddressesUseCase(gh<_i56.AddressRepo>()),
+    );
+    gh.factory<_i811.SetDefaultAddressUseCase>(
+      () => _i811.SetDefaultAddressUseCase(gh<_i56.AddressRepo>()),
+    );
+    gh.factory<_i886.UpdateAddressUseCase>(
+      () => _i886.UpdateAddressUseCase(gh<_i56.AddressRepo>()),
     );
     gh.factory<_i350.GetProfileDataUseCase>(
       () => _i350.GetProfileDataUseCase(gh<_i245.ProfileRepo>()),
@@ -134,6 +173,15 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i330.ResetPasswordCubit>(
       () => _i330.ResetPasswordCubit(gh<_i817.ResetPasswordUseCase>()),
+    );
+    gh.factory<_i155.AddressesCubit>(
+      () => _i155.AddressesCubit(
+        gh<_i298.GetAddressesUseCase>(),
+        gh<_i708.AddNewAddressUseCase>(),
+        gh<_i991.DeleteAddressUseCase>(),
+        gh<_i811.SetDefaultAddressUseCase>(),
+        gh<_i886.UpdateAddressUseCase>(),
+      ),
     );
     gh.factory<_i725.ProfileCubit>(
       () => _i725.ProfileCubit(

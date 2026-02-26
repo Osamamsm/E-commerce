@@ -7,10 +7,14 @@ class CustomPopupMenuButton extends StatelessWidget {
     super.key,
     required this.onEdit,
     required this.onDelete,
+    required this.onSetAsDefault,
+    required this.isDefault,
   });
 
-  final void Function(String) onEdit;
-  final void Function(String) onDelete;
+  final VoidCallback onEdit;
+  final VoidCallback onSetAsDefault;
+  final VoidCallback onDelete;
+  final bool isDefault;
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +23,13 @@ class CustomPopupMenuButton extends StatelessWidget {
       onSelected: (value) {
         switch (value) {
           case 'edit':
-            onEdit(value);
+            onEdit();
             break;
           case 'delete':
-            onDelete(value);
+            onDelete();
             break;
+          case 'set_as_default':
+            onSetAsDefault();
         }
       },
       itemBuilder: (context) => [
@@ -37,6 +43,12 @@ class CustomPopupMenuButton extends StatelessWidget {
           icon: Icons.delete,
           text: S.of(context).delete,
         ),
+        if (!isDefault)
+          CustomPopupMenuItem(
+            value: 'set_as_default',
+            icon: Icons.location_city_outlined,
+            text: S.of(context).set_as_default,
+          ),
       ],
     );
   }

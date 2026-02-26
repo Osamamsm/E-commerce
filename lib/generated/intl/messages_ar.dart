@@ -35,13 +35,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_payment_method": MessageLookupByLibrary.simpleMessage("أضف طريقة دفع"),
     "add_review": MessageLookupByLibrary.simpleMessage("أضف رأيك"),
     "add_to_cart": MessageLookupByLibrary.simpleMessage("أضف إلى العربة"),
+    "additional_notes": MessageLookupByLibrary.simpleMessage("ملاحظات إضافية"),
+    "additional_notes_hint_text": MessageLookupByLibrary.simpleMessage(
+      "اكتب أي تفاصيل إضافية لمساعدة مندوب التوصيل في الوصول إلى العنوان بسهولة",
+    ),
     "address_details": MessageLookupByLibrary.simpleMessage("تفاصيل العنوان"),
     "address_step": MessageLookupByLibrary.simpleMessage("العنوان"),
+    "address_updated_successfully": MessageLookupByLibrary.simpleMessage(
+      "تم تحديث العنوان بنجاح",
+    ),
+    "apartment_number": MessageLookupByLibrary.simpleMessage("رقم الشقة"),
     "app_name": MessageLookupByLibrary.simpleMessage("E-Commerce App"),
     "apt_suite_etc": MessageLookupByLibrary.simpleMessage("المنزل/الشقة/الخ"),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "back_to_address": MessageLookupByLibrary.simpleMessage("العودة للعناوين"),
     "back_to_payment": MessageLookupByLibrary.simpleMessage("العودة للدفع"),
+    "building": MessageLookupByLibrary.simpleMessage("المبنى"),
+    "building_details": MessageLookupByLibrary.simpleMessage("تفاصيل المبنى"),
     "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
     "card_holder": MessageLookupByLibrary.simpleMessage("حامل البطاقة"),
     "card_holder_name": MessageLookupByLibrary.simpleMessage(
@@ -79,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "delete": MessageLookupByLibrary.simpleMessage("حذف"),
     "delivery_address": MessageLookupByLibrary.simpleMessage("عنوان التوصيل"),
     "discount": MessageLookupByLibrary.simpleMessage("الخصم"),
+    "district": MessageLookupByLibrary.simpleMessage("الحي"),
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
     "edit_address": MessageLookupByLibrary.simpleMessage("تعديل العنوان"),
     "edit_profile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
@@ -87,6 +98,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "أدخل البريد الالكتروني",
     ),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+    "error_body_subtitle": MessageLookupByLibrary.simpleMessage(
+      "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    ),
     "expires": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
     "expiry_date": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
     "failed_to_load_profile": MessageLookupByLibrary.simpleMessage(
@@ -95,6 +109,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "featured_products": MessageLookupByLibrary.simpleMessage(
       "المنتجات المميزة",
     ),
+    "floor": MessageLookupByLibrary.simpleMessage("الدور"),
     "forgot_password": MessageLookupByLibrary.simpleMessage(
       " هل نسيت كلمه المرور؟",
     ),
@@ -104,6 +119,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "full_name": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
     "full_name_hint": MessageLookupByLibrary.simpleMessage("أدخل الاسم الكامل"),
     "general": MessageLookupByLibrary.simpleMessage("عام"),
+    "go_to_home": MessageLookupByLibrary.simpleMessage(
+      "الانتقال إلى الصفحة الرئيسية",
+    ),
+    "governorate": MessageLookupByLibrary.simpleMessage("المحافظة"),
     "help_center": MessageLookupByLibrary.simpleMessage("مركز المساعدة"),
     "home": MessageLookupByLibrary.simpleMessage("المنزل"),
     "label_as": MessageLookupByLibrary.simpleMessage("التصنيف كـ"),
@@ -121,6 +140,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "my_cart": MessageLookupByLibrary.simpleMessage("عربتي"),
     "my_orders": MessageLookupByLibrary.simpleMessage("طلباتي"),
     "no_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "no_addresses": MessageLookupByLibrary.simpleMessage("لا توجد عناوين"),
     "no_changes_done": MessageLookupByLibrary.simpleMessage("لا توجد تغييرات"),
     "notifications": MessageLookupByLibrary.simpleMessage("الاشعارات"),
     "offers_promotions": MessageLookupByLibrary.simpleMessage(
@@ -161,6 +181,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تلقي تحديثات حول طلباتك وعروضنا الحصرية",
     ),
     "quick_access": MessageLookupByLibrary.simpleMessage("الوصول السريع"),
+    "region": MessageLookupByLibrary.simpleMessage("المنطقة"),
     "register": MessageLookupByLibrary.simpleMessage("سجل الآن"),
     "reset_password": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمه المرور",
@@ -198,6 +219,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "هل انت متاكد من تسجيل الخروج",
     ),
     "size": MessageLookupByLibrary.simpleMessage("الحجم"),
+    "street": MessageLookupByLibrary.simpleMessage("الشارع"),
     "street_address": MessageLookupByLibrary.simpleMessage("العنوان"),
     "submit_review": MessageLookupByLibrary.simpleMessage("ارسال رأيك"),
     "subtotal": MessageLookupByLibrary.simpleMessage("الإجمالي"),
@@ -207,6 +229,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "terms_of_service": MessageLookupByLibrary.simpleMessage("شروط الخدمة"),
     "theme": MessageLookupByLibrary.simpleMessage("المظهر"),
     "total": MessageLookupByLibrary.simpleMessage("الإجمالي"),
+    "try_again": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
     "use_this_address_for_checkout": MessageLookupByLibrary.simpleMessage(
       "استخدم هذا العنوان لإتمام عملية الشراء",
     ),

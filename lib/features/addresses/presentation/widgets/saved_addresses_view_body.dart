@@ -1,23 +1,23 @@
-import 'package:e_commerce/core/helpers/testing_lists.dart';
+import 'package:e_commerce/features/addresses/domain/entities/address_entity.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/address_card.dart';
 import 'package:flutter/material.dart';
 
 class SavedAddressesViewBody extends StatelessWidget {
-  const SavedAddressesViewBody({super.key});
+  const SavedAddressesViewBody({super.key, required this.addresses});
 
-  Map<String, List<Address>> _groupAddressesByType() {
-    Map<String, List<Address>> grouped = {'home': [], 'work': [], 'other': []};
+  final List<AddressEntity> addresses;
 
-    for (var address in TestingLists.addresses) {
-      String type = address.type.toLowerCase();
-      if (grouped.containsKey(type)) {
-        grouped[type]!.add(address);
+  Map<String, List<AddressEntity>> _groupAddressesByType() {
+    Map<String, List<AddressEntity>> grouped = {'Home': [], 'Work': [], 'Other': []};
+
+    for (var address in addresses) {
+      if (grouped.containsKey(address.label)) {
+        grouped[address.label]!.add(address);
       } else {
-        grouped['other']!.add(address);
+        grouped['Other']!.add(address);
       }
     }
 
-    // Remove empty categories
     grouped.removeWhere((key, value) => value.isEmpty);
     return grouped;
   }

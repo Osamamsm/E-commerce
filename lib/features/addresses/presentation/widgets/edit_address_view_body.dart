@@ -1,6 +1,7 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
-import 'package:e_commerce/core/helpers/testing_lists.dart';
 import 'package:e_commerce/core/helpers/validators.dart';
+import 'package:e_commerce/features/addresses/domain/entities/address_entity.dart';
+import 'package:e_commerce/features/addresses/presentation/logic/addresses_cubit/addresses_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/address_type_selector.dart';
 import 'package:e_commerce/core/widgets/default_toggle.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/form_section.dart';
@@ -8,11 +9,12 @@ import 'package:e_commerce/features/addresses/presentation/widgets/glass_text_fi
 import 'package:e_commerce/features/addresses/presentation/widgets/save_address_button.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EditAddressViewBody extends StatefulWidget {
   const EditAddressViewBody({super.key, required this.address});
 
-  final Address address;
+  final AddressEntity address;
   @override
   State<EditAddressViewBody> createState() => _EditAddressViewBodyState();
 }
@@ -20,20 +22,29 @@ class EditAddressViewBody extends StatefulWidget {
 class _EditAddressViewBodyState extends State<EditAddressViewBody> {
   final _formKey = GlobalKey<FormState>();
 
-  String? selectedState;
-  late String fullName, phoneNumber, streetAddress, aptSuiteEtc, city;
-  late bool isDefault;
-  late String selectedType;
+  late String selectedAddressType;
+  late bool isDefaultAddress;
+  late String governorate,
+      city,
+      district,
+      street,
+      building,
+      floor,
+      apartmentNumber;
+  String? additionalNotes;
   @override
   void initState() {
     super.initState();
-    isDefault = widget.address.isDefault;
-    selectedType = widget.address.type;
-    fullName = widget.address.owner;
-    phoneNumber = widget.address.phone;
-    streetAddress = widget.address.street;
-    aptSuiteEtc = widget.address.apartment;
+    isDefaultAddress = widget.address.isDefault;
+    selectedAddressType = widget.address.label;
+    governorate = widget.address.governorate;
     city = widget.address.city;
+    district = widget.address.district;
+    street = widget.address.street;
+    building = widget.address.building;
+    floor = widget.address.floor.toString();
+    apartmentNumber = widget.address.apartmentNumber.toString();
+    additionalNotes = widget.address.additionalNotes;
   }
 
   @override
@@ -50,87 +61,140 @@ class _EditAddressViewBodyState extends State<EditAddressViewBody> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AddressTypeSelector(
-                    selectedType: selectedType,
+                    selectedType: selectedAddressType,
                     onTypeSelected: (type) {
                       setState(() {
-                        selectedType = type;
+                        selectedAddressType = type;
                       });
                     },
                   ),
                   vGap(24),
                   FormSection(
-                    title: s.contact_info,
+                    title: s.region,
                     children: [
                       GlassTextField(
-                        initialValue: widget.address.owner,
-                        hintText: s.full_name,
-                        validator: Validators.fullNameValidator,
-                        onSaved: (value) {
-                          fullName = value!;
-                        },
+                        initialValue: governorate,
+                        hintText: s.governorate,
+                        suffixIcon: Icons.map_outlined,
+                        validator: Validators.addressFieldValidator,
+                        onSaved: (value) => governorate = value!,
                       ),
                       vGap(12),
-                      GlassTextField(
-                        initialValue: widget.address.phone,
-                        hintText: s.phone_number,
-                        suffixIcon: Icons.phone,
-                        validator: Validators.phoneNumberValidator,
-                        onSaved: (value) {
-                          phoneNumber = value!;
-                        },
+                      // City & District side-by-side
+                      Row(
+                        children: [
+                          Expanded(
+                            child: GlassTextField(
+                              initialValue: city,
+                              hintText: s.city,
+                              validator: Validators.addressFieldValidator,
+                              onSaved: (value) => city = value!,
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: GlassTextField(
+                              initialValue: district,
+                              hintText: s.district,
+                              validator: Validators.addressFieldValidator,
+                              onSaved: (value) => district = value!,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
                   vGap(24),
+
+                  // ── Section 2: Building Details ────────────────────────────
                   FormSection(
-                    title: s.address_details,
+                    title: s.building_details,
                     children: [
                       GlassTextField(
-                        initialValue: widget.address.street,
-                        hintText: s.street_address,
-                        suffixIcon: Icons.location_on,
+                        initialValue: street,
+                        hintText: s.street,
+                        suffixIcon: Icons.location_on_outlined,
                         validator: Validators.addressFieldValidator,
-                        onSaved: (value) {
-                          streetAddress = value!;
-                        },
+                        onSaved: (value) => street = value!,
                       ),
                       vGap(12),
                       GlassTextField(
-                        initialValue: widget.address.apartment,
-                        hintText: s.apt_suite_etc,
+                        initialValue: building,
+                        hintText: s.building,
+                        suffixIcon: Icons.apartment_outlined,
                         validator: Validators.addressFieldValidator,
-                        onSaved: (value) {
-                          aptSuiteEtc = value!;
-                        },
+                        onSaved: (value) => building = value!,
                       ),
                       vGap(12),
-                      GlassTextField(
-                        initialValue: widget.address.city,
-                        hintText: s.city,
-                        validator: Validators.addressFieldValidator,
-                        onSaved: (value) {
-                          city = value!;
-                        },
+                      // Floor & Apartment side-by-side
+                      Row(
+                        children: [
+                          Expanded(
+                            child: GlassTextField(
+                              initialValue: floor,
+                              hintText: s.floor,
+                              keyboardType: TextInputType.number,
+                              validator: Validators.addressFieldValidator,
+                              onSaved: (value) => floor = value!,
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: GlassTextField(
+                              initialValue: apartmentNumber,
+                              hintText: s.apartment_number,
+                              keyboardType: TextInputType.number,
+                              validator: Validators.addressFieldValidator,
+                              onSaved: (value) => apartmentNumber = value!,
+                            ),
+                          ),
+                        ],
                       ),
-                      vGap(12),
                     ],
                   ),
                   vGap(24),
+
+                  // ── Section 3: Additional Notes ────────────────────────────
+                  FormSection(
+                    title: s.additional_notes,
+                    children: [
+                      GlassTextField(
+                        initialValue: additionalNotes,
+                        hintText: s.additional_notes_hint_text,
+                        maxLines: 3,
+                        onSaved: (value) => additionalNotes = value,
+                      ),
+                    ],
+                  ),
+                  vGap(24),
+
                   DefaultToggle(
-                    value: isDefault,
+                    value: isDefaultAddress,
+                    onChanged: (value) {
+                      setState(() => isDefaultAddress = value);
+                    },
                     label: s.set_as_default_address,
                     subtitle: s.use_this_address_for_checkout,
-                    onChanged: (value) {
-                      setState(() {
-                        isDefault = value;
-                      });
-                    },
                   ),
                   vGap(24),
                   SaveAddressButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
+                        context.read<AddressesCubit>().updateAddress(
+                          widget.address.copyWith(
+                            governorate: governorate,
+                            city: city,
+                            district: district,
+                            street: street,
+                            building: building,
+                            floor: int.parse(floor),
+                            apartmentNumber: int.parse(apartmentNumber),
+                            additionalNotes: additionalNotes,
+                            label: selectedAddressType,
+                            isDefault: isDefaultAddress,
+                          ),
+                        );
                       }
                     },
                   ),

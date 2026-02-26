@@ -141,5 +141,22 @@
     "place_order":"Place Order",
     "review_step":"Review",
     "address_step":"Address",
-    "payment_step":"Payment"
+    "payment_step":"Payment",
+    "error_body_subtitle":"Something went wrong. Please try again.",
+    "try_again":"Try Again",
+    "go_to_home":"Go to Home",
+    "no_addresses":"No addresses",
+    "region":"Region",
+    "governorate":"Governorate",
+    "district":"District",
+    "building_details":"Building Details",
+    "street":"Street",
+    "building":"Building",
+    "floor":"Floor",
+    "apartment_number":"Apartment number",
+    "additional_notes":"Additional Notes",
+    "additional_notes_hint_text":"Write any additional details to help the delivery person easily reach the address.",
+    "address_added_successfully":"Address Added Successfully",
+    "address_updated_successfully":"Address updated successfully"
+
 }

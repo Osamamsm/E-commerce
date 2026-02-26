@@ -1181,6 +1181,126 @@ class S {
   String get payment_step {
     return Intl.message('Payment', name: 'payment_step', desc: '', args: []);
   }
+
+  /// `Something went wrong. Please try again.`
+  String get error_body_subtitle {
+    return Intl.message(
+      'Something went wrong. Please try again.',
+      name: 'error_body_subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try Again`
+  String get try_again {
+    return Intl.message('Try Again', name: 'try_again', desc: '', args: []);
+  }
+
+  /// `Go to Home`
+  String get go_to_home {
+    return Intl.message('Go to Home', name: 'go_to_home', desc: '', args: []);
+  }
+
+  /// `No addresses`
+  String get no_addresses {
+    return Intl.message(
+      'No addresses',
+      name: 'no_addresses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Region`
+  String get region {
+    return Intl.message('Region', name: 'region', desc: '', args: []);
+  }
+
+  /// `Governorate`
+  String get governorate {
+    return Intl.message('Governorate', name: 'governorate', desc: '', args: []);
+  }
+
+  /// `District`
+  String get district {
+    return Intl.message('District', name: 'district', desc: '', args: []);
+  }
+
+  /// `Building Details`
+  String get building_details {
+    return Intl.message(
+      'Building Details',
+      name: 'building_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Street`
+  String get street {
+    return Intl.message('Street', name: 'street', desc: '', args: []);
+  }
+
+  /// `Building`
+  String get building {
+    return Intl.message('Building', name: 'building', desc: '', args: []);
+  }
+
+  /// `Floor`
+  String get floor {
+    return Intl.message('Floor', name: 'floor', desc: '', args: []);
+  }
+
+  /// `Apartment number`
+  String get apartment_number {
+    return Intl.message(
+      'Apartment number',
+      name: 'apartment_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Additional Notes`
+  String get additional_notes {
+    return Intl.message(
+      'Additional Notes',
+      name: 'additional_notes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write any additional details to help the delivery person easily reach the address.`
+  String get additional_notes_hint_text {
+    return Intl.message(
+      'Write any additional details to help the delivery person easily reach the address.',
+      name: 'additional_notes_hint_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Address Added Successfully`
+  String get address_added_successfully {
+    return Intl.message(
+      'Address Added Successfully',
+      name: 'address_added_successfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Address updated successfully`
+  String get address_updated_successfully {
+    return Intl.message(
+      'Address updated successfully',
+      name: 'address_updated_successfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

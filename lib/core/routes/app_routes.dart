@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:e_commerce/core/dependency_injection/di.dart';
 import 'package:e_commerce/core/helpers/testing_lists.dart';
 import 'package:e_commerce/core/logic/image_picker_cubit/image_picker_cubit.dart';
+import 'package:e_commerce/features/addresses/presentation/logic/addresses_cubit/addresses_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/views/add_address_view.dart';
 import 'package:e_commerce/features/addresses/presentation/views/edit_address_view.dart';
 import 'package:e_commerce/features/addresses/presentation/views/saved_addresses_view.dart';
@@ -132,17 +133,25 @@ GoRouter createRouter(AuthCubit authCubit) {
         path: ProductDetailsView.routeName,
         builder: (context, state) => const ProductDetailsView(),
       ),
-      GoRoute(
-        path: SavedAddressesView.routeName,
-        builder: (context, state) => const SavedAddressesView(),
-      ),
-      GoRoute(
-        path: AddAddressView.routeName,
-        builder: (context, state) => const AddAddressView(),
-      ),
-      GoRoute(
-        path: EditAddressView.routeName,
-        builder: (context, state) => const EditAddressView(),
+      ShellRoute(
+        builder: (context, state, child) => BlocProvider(
+          create: (context) => getIt<AddressesCubit>()..getAddresses(),
+          child: child,
+        ),
+        routes: [
+          GoRoute(
+            path: SavedAddressesView.routeName,
+            builder: (context, state) => const SavedAddressesView(),
+          ),
+          GoRoute(
+            path: AddAddressView.routeName,
+            builder: (context, state) => const AddAddressView(),
+          ),
+          GoRoute(
+            path: EditAddressView.routeName,
+            builder: (context, state) => const EditAddressView(),
+          ),
+        ],
       ),
       GoRoute(
         path: PaymentMethodsView.routeName,
@@ -180,15 +189,14 @@ GoRouter createRouter(AuthCubit authCubit) {
         builder: (context, state) => MultiBlocProvider(
           providers: [
             BlocProvider(
-              create: (context) => getIt<CheckoutCubit>()..initDefaults(
-                addresses: TestingLists.addresses,
-                paymentMethods: TestingLists.paymentMethods,
-                orderItems: TestingLists.orderItems,
-              ),
+              create: (context) => getIt<CheckoutCubit>()
+                ..initDefaults(
+                  addresses: TestingLists.addresses,
+                  paymentMethods: TestingLists.paymentMethods,
+                  orderItems: TestingLists.orderItems,
+                ),
             ),
-            BlocProvider(
-              create: (context) => getIt<CheckoutFlowCubit>(),
-            ),
+            BlocProvider(create: (context) => getIt<CheckoutFlowCubit>()),
           ],
           child: const CheckoutView(),
         ),
