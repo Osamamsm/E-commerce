@@ -3,8 +3,7 @@ import 'package:e_commerce/core/widgets/custom_modal_progress.dart';
 import 'package:e_commerce/core/widgets/custom_scaffold.dart';
 import 'package:e_commerce/core/widgets/show_error_dialog.dart';
 import 'package:e_commerce/features/addresses/domain/entities/address_entity.dart';
-import 'package:e_commerce/features/addresses/presentation/logic/update_address_cubit/update_address_cubit.dart';
-import 'package:e_commerce/features/addresses/presentation/logic/update_address_cubit/update_address_state.dart';
+import 'package:e_commerce/features/addresses/presentation/logic/addresses_cubit/addresses_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/edit_address_view_body.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +16,7 @@ class EditAddressView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final address = GoRouterState.of(context).extra as AddressEntity;
-    return BlocConsumer<UpdateAddressCubit, UpdateAddressState>(
+    return BlocConsumer<AddressesCubit, AddressesState>(
       listener: (context, state) {
         if (state is UpdateAddressFailure) {
           showCustomDialog(

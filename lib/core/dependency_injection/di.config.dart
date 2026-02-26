@@ -35,16 +35,8 @@ import 'package:e_commerce/features/addresses/domain/use_cases/set_default_addre
     as _i811;
 import 'package:e_commerce/features/addresses/domain/use_cases/update_address_use_case.dart'
     as _i886;
-import 'package:e_commerce/features/addresses/presentation/logic/add_new_address_cubit/add_new_address_cubit.dart'
-    as _i560;
-import 'package:e_commerce/features/addresses/presentation/logic/delete_address_cubit/delete_address_cubit.dart'
-    as _i462;
-import 'package:e_commerce/features/addresses/presentation/logic/get_addresses_cubit/get_addresses_cubit.dart'
-    as _i28;
-import 'package:e_commerce/features/addresses/presentation/logic/set_default_address_cubit/set_default_address_cubit.dart'
-    as _i326;
-import 'package:e_commerce/features/addresses/presentation/logic/update_address_cubit/update_address_cubit.dart'
-    as _i530;
+import 'package:e_commerce/features/addresses/presentation/logic/addresses_cubit/addresses_cubit.dart'
+    as _i155;
 import 'package:e_commerce/features/auth/data/data_sources/auth_remote_data_source.dart'
     as _i254;
 import 'package:e_commerce/features/auth/data/repos/auth_repo_impl.dart'
@@ -164,15 +156,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i764.UpdateProfileWithAvatarUseCase>(
       () => _i764.UpdateProfileWithAvatarUseCase(gh<_i245.ProfileRepo>()),
     );
-    gh.factory<_i326.SetDefaultAddressCubit>(
-      () => _i326.SetDefaultAddressCubit(gh<_i811.SetDefaultAddressUseCase>()),
-    );
-    gh.factory<_i462.DeleteAddressCubit>(
-      () => _i462.DeleteAddressCubit(gh<_i991.DeleteAddressUseCase>()),
-    );
-    gh.factory<_i28.GetAddressesCubit>(
-      () => _i28.GetAddressesCubit(gh<_i298.GetAddressesUseCase>()),
-    );
     gh.factory<_i817.ResetPasswordUseCase>(
       () => _i817.ResetPasswordUseCase(gh<_i380.AuthRepo>()),
     );
@@ -191,11 +174,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i330.ResetPasswordCubit>(
       () => _i330.ResetPasswordCubit(gh<_i817.ResetPasswordUseCase>()),
     );
-    gh.factory<_i560.AddNewAddressCubit>(
-      () => _i560.AddNewAddressCubit(gh<_i708.AddNewAddressUseCase>()),
-    );
-    gh.factory<_i530.UpdateAddressCubit>(
-      () => _i530.UpdateAddressCubit(gh<_i886.UpdateAddressUseCase>()),
+    gh.factory<_i155.AddressesCubit>(
+      () => _i155.AddressesCubit(
+        gh<_i298.GetAddressesUseCase>(),
+        gh<_i708.AddNewAddressUseCase>(),
+        gh<_i991.DeleteAddressUseCase>(),
+        gh<_i811.SetDefaultAddressUseCase>(),
+        gh<_i886.UpdateAddressUseCase>(),
+      ),
     );
     gh.factory<_i725.ProfileCubit>(
       () => _i725.ProfileCubit(

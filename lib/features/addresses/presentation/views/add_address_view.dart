@@ -2,8 +2,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:e_commerce/core/widgets/custom_modal_progress.dart';
 import 'package:e_commerce/core/widgets/custom_scaffold.dart';
 import 'package:e_commerce/core/widgets/show_error_dialog.dart';
-import 'package:e_commerce/features/addresses/presentation/logic/add_new_address_cubit/add_new_address_cubit.dart';
-import 'package:e_commerce/features/addresses/presentation/logic/add_new_address_cubit/add_new_address_state.dart';
+import 'package:e_commerce/features/addresses/presentation/logic/addresses_cubit/addresses_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/add_address_view_body.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +16,7 @@ class AddAddressView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AddNewAddressCubit, AddNewAddressState>(
+    return BlocConsumer<AddressesCubit, AddressesState>(
       listener: (context, state) {
         if (state is AddNewAddressFailure) {
           showCustomDialog(

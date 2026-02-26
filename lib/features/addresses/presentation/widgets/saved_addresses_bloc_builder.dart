@@ -1,8 +1,7 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/widgets/error_body.dart';
 import 'package:e_commerce/features/addresses/domain/entities/address_entity.dart';
-import 'package:e_commerce/features/addresses/presentation/logic/get_addresses_cubit/get_addresses_cubit.dart';
-import 'package:e_commerce/features/addresses/presentation/logic/get_addresses_cubit/get_addresses_state.dart';
+import 'package:e_commerce/features/addresses/presentation/logic/addresses_cubit/addresses_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/address_card.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/saved_addresses_view_body.dart';
 import 'package:e_commerce/generated/l10n.dart';
@@ -15,12 +14,12 @@ class SavedAddressesBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GetAddressesCubit, GetAddressesState>(
+    return BlocBuilder<AddressesCubit, AddressesState>(
       builder: (context, state) {
         if (state is GetAddressesFailure) {
           return ErrorBody(
             onRetry: () {
-              context.read<GetAddressesCubit>().getAddresses();
+              context.read<AddressesCubit>().getAddresses();
             },
             errMessage: state.message,
             goHomeEnabled: true,

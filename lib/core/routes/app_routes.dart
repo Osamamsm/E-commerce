@@ -2,11 +2,7 @@ import 'dart:async';
 import 'package:e_commerce/core/dependency_injection/di.dart';
 import 'package:e_commerce/core/helpers/testing_lists.dart';
 import 'package:e_commerce/core/logic/image_picker_cubit/image_picker_cubit.dart';
-import 'package:e_commerce/features/addresses/presentation/logic/add_new_address_cubit/add_new_address_cubit.dart';
-import 'package:e_commerce/features/addresses/presentation/logic/delete_address_cubit/delete_address_cubit.dart';
-import 'package:e_commerce/features/addresses/presentation/logic/get_addresses_cubit/get_addresses_cubit.dart';
-import 'package:e_commerce/features/addresses/presentation/logic/set_default_address_cubit/set_default_address_cubit.dart';
-import 'package:e_commerce/features/addresses/presentation/logic/update_address_cubit/update_address_cubit.dart';
+import 'package:e_commerce/features/addresses/presentation/logic/addresses_cubit/addresses_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/views/add_address_view.dart';
 import 'package:e_commerce/features/addresses/presentation/views/edit_address_view.dart';
 import 'package:e_commerce/features/addresses/presentation/views/saved_addresses_view.dart';
@@ -139,29 +135,22 @@ GoRouter createRouter(AuthCubit authCubit) {
       ),
       GoRoute(
         path: SavedAddressesView.routeName,
-        builder: (context, state) => MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) => getIt<GetAddressesCubit>()..getAddresses(),
-            ),
-            BlocProvider(create: (context) => getIt<SetDefaultAddressCubit>()),
-            BlocProvider(create: (context) => getIt<DeleteAddressCubit>()),
-          ],
-
+        builder: (context, state) => BlocProvider(
+          create: (context) => getIt<AddressesCubit>()..getAddresses(),
           child: const SavedAddressesView(),
         ),
       ),
       GoRoute(
         path: AddAddressView.routeName,
         builder: (context, state) => BlocProvider(
-          create: (context) => getIt<AddNewAddressCubit>(),
+          create: (context) => getIt<AddressesCubit>(),
           child: const AddAddressView(),
         ),
       ),
       GoRoute(
         path: EditAddressView.routeName,
         builder: (context, state) => BlocProvider(
-          create: (context) => getIt<UpdateAddressCubit>(),
+          create: (context) => getIt<AddressesCubit>(),
           child: const EditAddressView(),
         ),
       ),

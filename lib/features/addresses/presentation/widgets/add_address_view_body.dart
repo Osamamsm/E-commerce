@@ -1,7 +1,7 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/helpers/validators.dart';
 import 'package:e_commerce/features/addresses/domain/entities/address_entity.dart';
-import 'package:e_commerce/features/addresses/presentation/logic/add_new_address_cubit/add_new_address_cubit.dart';
+import 'package:e_commerce/features/addresses/presentation/logic/addresses_cubit/addresses_cubit.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/address_type_selector.dart';
 import 'package:e_commerce/core/widgets/default_toggle.dart';
 import 'package:e_commerce/features/addresses/presentation/widgets/form_section.dart';
@@ -159,7 +159,7 @@ class _AddAddressViewBodyState extends State<AddAddressViewBody> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
-                        context.read<AddNewAddressCubit>().addNewAddress(
+                        context.read<AddressesCubit>().addNewAddress(
                           AddressEntity(
                             governorate: governorate,
                             city: city,
