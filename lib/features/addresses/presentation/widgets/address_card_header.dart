@@ -15,13 +15,23 @@ class AddressCardHeader extends StatelessWidget {
   const AddressCardHeader({
     super.key,
     required this.address,
-    required this.icon,
-    required this.isDefault,
   });
 
   final AddressEntity address;
-  final IconData icon;
-  final bool isDefault;
+
+
+ IconData _getIconForType(String type) {
+    switch (type) {
+      case 'Home':
+        return Icons.home;
+      case 'Work':
+        return Icons.business;
+      case 'Other':
+      default:
+        return Icons.location_on;
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -33,14 +43,15 @@ class AddressCardHeader extends StatelessWidget {
             color: const Color(0xFF7e22ce).withValues(alpha: 0.5),
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Icon(icon, color: const Color(0xFFe9d5ff), size: 20),
+          child: Icon(_getIconForType(address.label), color: const Color(0xFFe9d5ff), size: 20),
         ),
         hGap(12),
         Text(address.label, style: Theme.of(context).textTheme.titleMedium),
         hGap(8),
-        if (isDefault) DefaultFlagWidget(),
+        if (address.isDefault) DefaultFlagWidget(),
         const Spacer(),
         CustomPopupMenuButton(
+          isDefault: address.isDefault,
           onEdit: () {
             context.push(EditAddressView.routeName, extra: address);
           },

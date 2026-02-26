@@ -10,18 +10,6 @@ class AddressCard extends StatelessWidget {
 
   final AddressEntity address;
 
-  IconData _getIconForType(String type) {
-    switch (type) {
-      case 'Home':
-        return Icons.home;
-      case 'Work':
-        return Icons.business;
-      case 'Other':
-      default:
-        return Icons.location_on;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -40,9 +28,7 @@ class AddressCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AddressCardHeader(
-              icon: _getIconForType(address.label),
               address: address,
-              isDefault: address.isDefault,
             ),
             vGap(16),
             Text(

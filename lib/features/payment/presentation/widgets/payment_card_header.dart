@@ -35,6 +35,7 @@ class PaymentCardHeader extends StatelessWidget {
             if (isDefault) DefaultFlagWidget(),
             hGap(8),
             CustomPopupMenuButton(
+              isDefault: true,
               onEdit: () {},
               onDelete: () {},
               onSetAsDefault: () {},
