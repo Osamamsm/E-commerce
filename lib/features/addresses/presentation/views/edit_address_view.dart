@@ -17,16 +17,20 @@ class EditAddressView extends StatelessWidget {
   Widget build(BuildContext context) {
     final address = GoRouterState.of(context).extra as AddressEntity;
     return BlocConsumer<AddressesCubit, AddressesState>(
+      listenWhen: (previous, current) =>
+          current.action == AddressesAction.updateAddress,
+      buildWhen: (previous, current) =>
+          current.action == AddressesAction.updateAddress,
       listener: (context, state) {
-        if (state is UpdateAddressFailure) {
+        if (state.status == AddressesStatus.failure) {
           showCustomDialog(
             context: context,
-            message: state.message,
+            message: state.errorMessage ?? '',
             dialogType: DialogType.error,
             onOkPressed: () {},
           );
         }
-        if (state is UpdateAddressSuccess) {
+        if (state.status == AddressesStatus.success) {
           showCustomDialog(
             context: context,
             message: S.of(context).address_updated_successfully,
@@ -39,7 +43,9 @@ class EditAddressView extends StatelessWidget {
       },
       builder: (context, state) {
         return CustomModalProgress(
-          isLoading: state is UpdateAddressLoading,
+          isLoading:
+              state.status == AddressesStatus.loading &&
+              state.action == AddressesAction.updateAddress,
           child: CustomScaffold(
             title: S.of(context).edit_address,
             child: EditAddressViewBody(address: address),

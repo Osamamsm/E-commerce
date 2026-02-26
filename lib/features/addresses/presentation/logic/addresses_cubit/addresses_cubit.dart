@@ -24,51 +24,114 @@ class AddressesCubit extends Cubit<AddressesState> {
     this._deleteAddressUseCase,
     this._setDefaultAddressUseCase,
     this._updateAddressUseCase,
-  ) : super(AddressesInitial());
+  ) : super(const AddressesState());
 
   Future<void> getAddresses() async {
-    emit(GetAddressesLoading());
-    final result = await _getAddressesUseCase();
+    emit(
+      state.copyWith(
+        status: AddressesStatus.loading,
+        action: AddressesAction.getAddresses,
+      ),
+    );
+    final result = await _getAddressesUseCase.call();
     result.fold(
-      (failure) => emit(GetAddressesFailure(failure.message)),
-      (addresses) => emit(GetAddressesSuccess(addresses)),
+      (failure) => emit(
+        state.copyWith(
+          status: AddressesStatus.failure,
+          errorMessage: failure.message,
+        ),
+      ),
+      (addresses) => emit(
+        state.copyWith(status: AddressesStatus.success, addresses: addresses),
+      ),
     );
   }
 
   Future<void> addNewAddress(AddressEntity address) async {
-    emit(AddNewAddressLoading());
+    emit(
+      state.copyWith(
+        status: AddressesStatus.loading,
+        action: AddressesAction.addAddress,
+      ),
+    );
     final result = await _addNewAddressUseCase.call(address);
-    result.fold((failure) => emit(AddNewAddressFailure(failure.message)), (_) {
-      emit(AddNewAddressSuccess());
-    });
+    result.fold(
+      (failure) => emit(
+        state.copyWith(
+          status: AddressesStatus.failure,
+          errorMessage: failure.message,
+        ),
+      ),
+      (_) {
+        emit(state.copyWith(status: AddressesStatus.success));
+        getAddresses();
+      },
+    );
   }
 
   Future<void> deleteAddress(String addressId) async {
-    emit(DeleteAddressLoading());
+    emit(
+      state.copyWith(
+        status: AddressesStatus.loading,
+        action: AddressesAction.deleteAddress,
+      ),
+    );
     final result = await _deleteAddressUseCase.call(addressId);
-    result.fold((failure) => emit(DeleteAddressFailure(failure.message)), (_) {
-      emit(DeleteAddressSuccess());
-      getAddresses();
-    });
+    result.fold(
+      (failure) => emit(
+        state.copyWith(
+          status: AddressesStatus.failure,
+          errorMessage: failure.message,
+        ),
+      ),
+      (_) {
+        emit(state.copyWith(status: AddressesStatus.success));
+        getAddresses();
+      },
+    );
   }
 
   Future<void> setDefaultAddress(String addressId) async {
-    emit(SetDefaultAddressLoading());
+    emit(
+      state.copyWith(
+        status: AddressesStatus.loading,
+        action: AddressesAction.setDefault,
+      ),
+    );
     final result = await _setDefaultAddressUseCase.call(addressId);
-    result.fold((failure) => emit(SetDefaultAddressFailure(failure.message)), (
-      _,
-    ) {
-      emit(SetDefaultAddressSuccess());
-      getAddresses();
-    });
+    result.fold(
+      (failure) => emit(
+        state.copyWith(
+          status: AddressesStatus.failure,
+          errorMessage: failure.message,
+        ),
+      ),
+      (_) {
+        emit(state.copyWith(status: AddressesStatus.success));
+        getAddresses();
+      },
+    );
   }
 
   Future<void> updateAddress(AddressEntity address) async {
-    emit(UpdateAddressLoading());
+    emit(
+      state.copyWith(
+        status: AddressesStatus.loading,
+        action: AddressesAction.updateAddress,
+      ),
+    );
     final result = await _updateAddressUseCase.call(address);
     result.fold(
-      (failure) => emit(UpdateAddressFailure(failure.message)),
-      (_) => emit(UpdateAddressSuccess()),
+      (failure) => emit(
+        state.copyWith(
+          status: AddressesStatus.failure,
+          errorMessage: failure.message,
+        ),
+      ),
+      (_) {
+        emit(state.copyWith(status: AddressesStatus.success));
+        getAddresses();
+      },
     );
   }
 }

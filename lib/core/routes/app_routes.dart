@@ -133,26 +133,25 @@ GoRouter createRouter(AuthCubit authCubit) {
         path: ProductDetailsView.routeName,
         builder: (context, state) => const ProductDetailsView(),
       ),
-      GoRoute(
-        path: SavedAddressesView.routeName,
-        builder: (context, state) => BlocProvider(
+      ShellRoute(
+        builder: (context, state, child) => BlocProvider(
           create: (context) => getIt<AddressesCubit>()..getAddresses(),
-          child: const SavedAddressesView(),
+          child: child,
         ),
-      ),
-      GoRoute(
-        path: AddAddressView.routeName,
-        builder: (context, state) => BlocProvider(
-          create: (context) => getIt<AddressesCubit>(),
-          child: const AddAddressView(),
-        ),
-      ),
-      GoRoute(
-        path: EditAddressView.routeName,
-        builder: (context, state) => BlocProvider(
-          create: (context) => getIt<AddressesCubit>(),
-          child: const EditAddressView(),
-        ),
+        routes: [
+          GoRoute(
+            path: SavedAddressesView.routeName,
+            builder: (context, state) => const SavedAddressesView(),
+          ),
+          GoRoute(
+            path: AddAddressView.routeName,
+            builder: (context, state) => const AddAddressView(),
+          ),
+          GoRoute(
+            path: EditAddressView.routeName,
+            builder: (context, state) => const EditAddressView(),
+          ),
+        ],
       ),
       GoRoute(
         path: PaymentMethodsView.routeName,

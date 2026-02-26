@@ -15,26 +15,31 @@ class SavedAddressesBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AddressesCubit, AddressesState>(
+      buildWhen: (previous, current) =>
+          current.action == AddressesAction.getAddresses,
       builder: (context, state) {
-        if (state is GetAddressesFailure) {
+        if (state.status == AddressesStatus.failure &&
+            state.action == AddressesAction.getAddresses) {
           return ErrorBody(
             onRetry: () {
               context.read<AddressesCubit>().getAddresses();
             },
-            errMessage: state.message,
+            errMessage: state.errorMessage ?? '',
             goHomeEnabled: true,
           );
         }
-        if (state is GetAddressesSuccess) {
-          if (state.addresses.isEmpty) {
-            return Center(
-              child: Text(
-                S.of(context).no_addresses,
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-            );
-          }
+        if (state.addresses.isNotEmpty) {
           return SavedAddressesViewBody(addresses: state.addresses);
+        }
+        if (state.status == AddressesStatus.success &&
+            state.action == AddressesAction.getAddresses &&
+            state.addresses.isEmpty) {
+          return Center(
+            child: Text(
+              S.of(context).no_addresses,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+          );
         }
         return _LoadingBody();
       },

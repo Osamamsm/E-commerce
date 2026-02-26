@@ -17,16 +17,20 @@ class AddAddressView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AddressesCubit, AddressesState>(
+      listenWhen: (previous, current) =>
+          current.action == AddressesAction.addAddress,
+      buildWhen: (previous, current) =>
+          current.action == AddressesAction.addAddress,
       listener: (context, state) {
-        if (state is AddNewAddressFailure) {
+        if (state.status == AddressesStatus.failure) {
           showCustomDialog(
             context: context,
-            message: state.message,
+            message: state.errorMessage ?? '',
             dialogType: DialogType.error,
             onOkPressed: () {},
           );
         }
-        if (state is AddNewAddressSuccess) {
+        if (state.status == AddressesStatus.success) {
           showCustomDialog(
             context: context,
             message: S.of(context).address_added_successfully,
@@ -38,7 +42,9 @@ class AddAddressView extends StatelessWidget {
         }
       },
       builder: (context, state) => CustomModalProgress(
-        isLoading: state is AddNewAddressLoading,
+        isLoading:
+            state.status == AddressesStatus.loading &&
+            state.action == AddressesAction.addAddress,
         child: CustomScaffold(
           title: S.of(context).add_new_address,
           child: const AddAddressViewBody(),
