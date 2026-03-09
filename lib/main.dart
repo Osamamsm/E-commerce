@@ -8,7 +8,9 @@ import 'package:e_commerce/features/auth/presentation/logic/sign_out_cubit/sign_
 import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart';
 import 'package:e_commerce/features/settings/presentation/logic/cubit/app_settings_cubit.dart';
 import 'package:e_commerce/features/settings/presentation/logic/cubit/app_settings_state.dart';
+import 'package:e_commerce/firebase_options.dart';
 import 'package:e_commerce/generated/l10n.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -17,6 +19,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await Supabase.initialize(
     url: SupabaseConfig.supabaseUrl,
     anonKey: SupabaseConfig.anonKey,
