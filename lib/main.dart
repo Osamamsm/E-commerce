@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/dependency_injection/di.dart';
+import 'package:e_commerce/core/notifications_service/push_notifications_service.dart';
 import 'package:e_commerce/core/routes/app_routes.dart';
 import 'package:e_commerce/core/supabase/supabase_config.dart';
 import 'package:e_commerce/core/theme/app_theme.dart';
@@ -20,6 +21,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await PushNotificationsService.init();
   await Supabase.initialize(
     url: SupabaseConfig.supabaseUrl,
     anonKey: SupabaseConfig.anonKey,
