@@ -22,8 +22,10 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  await PushNotificationsService.init();
-  await LocalNotificationsService.init();
+  Future.wait([
+    PushNotificationsService.init(),
+    LocalNotificationsService.init(),
+  ]);
   await Supabase.initialize(
     url: SupabaseConfig.supabaseUrl,
     anonKey: SupabaseConfig.anonKey,
