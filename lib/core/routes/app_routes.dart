@@ -21,6 +21,7 @@ import 'package:e_commerce/features/checkout/presentation/logic/checkout_cubit/c
 import 'package:e_commerce/features/checkout/presentation/logic/checkout_flow_cubit/checkout_flow_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/views/checkout_view.dart';
 import 'package:e_commerce/features/home/presentation/views/home_view.dart';
+import 'package:e_commerce/features/notifications/logic/cubit/notifications_settings_cubit.dart';
 import 'package:e_commerce/features/payment/presentation/views/add_payment_method_view.dart';
 import 'package:e_commerce/features/payment/presentation/views/payment_methods_view.dart';
 import 'package:e_commerce/features/product_details/presentation/views/product_details_view.dart';
@@ -182,7 +183,11 @@ GoRouter createRouter(AuthCubit authCubit) {
       ),
       GoRoute(
         path: SettingsView.routeName,
-        builder: (context, state) => const SettingsView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) =>
+              getIt<NotificationsSettingsCubit>(),
+          child: const SettingsView(),
+        ),
       ),
       GoRoute(
         path: CheckoutView.routeName,

@@ -22,4 +22,12 @@ class UserPreferencesHelper {
   String getTheme() {
     return _preferences.getString('theme') ?? "system";
   }
+
+  Future<void> setTopicSubscription(String topic, bool value) async {
+  await _preferences.setBool('topic_$topic', value);
+}
+
+bool getTopicSubscription(String topic) {
+  return _preferences.getBool('topic_$topic') ?? false;
+}
 }

@@ -13,6 +13,8 @@ import 'package:e_commerce/core/logic/deep_link_cubit/deep_link_cubit.dart'
     as _i457;
 import 'package:e_commerce/core/logic/image_picker_cubit/image_picker_cubit.dart'
     as _i594;
+import 'package:e_commerce/core/notifications_service/push_notifications_service.dart'
+    as _i164;
 import 'package:e_commerce/core/preferences/shared_preferences_module.dart'
     as _i459;
 import 'package:e_commerce/core/preferences/user_preferences_helper.dart'
@@ -68,6 +70,8 @@ import 'package:e_commerce/features/checkout/presentation/logic/checkout_cubit/c
     as _i555;
 import 'package:e_commerce/features/checkout/presentation/logic/checkout_flow_cubit/checkout_flow_cubit.dart'
     as _i517;
+import 'package:e_commerce/features/notifications/logic/cubit/notifications_settings_cubit.dart'
+    as _i382;
 import 'package:e_commerce/features/profile/data/data_source/profile_remote_data_source.dart'
     as _i1063;
 import 'package:e_commerce/features/profile/data/repo/profile_repo_impl.dart'
@@ -117,6 +121,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i1063.ProfileRemoteDataSource>(
       () => _i1063.ProfileRemoteDataSourceImpl(gh<_i74.SupabaseService>()),
     );
+    gh.lazySingleton<_i164.PushNotificationsService>(
+      () => _i164.PushNotificationsService(gh<_i78.UserPreferencesHelper>()),
+    );
     gh.factory<_i259.AppSettingsCubit>(
       () => _i259.AppSettingsCubit(gh<_i78.UserPreferencesHelper>()),
     );
@@ -125,6 +132,11 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i56.AddressRepo>(
       () => _i920.AddressRepoImpl(gh<_i295.AddressRemoteDataSource>()),
+    );
+    gh.factory<_i382.NotificationsSettingsCubit>(
+      () => _i382.NotificationsSettingsCubit(
+        gh<_i164.PushNotificationsService>(),
+      ),
     );
     gh.lazySingleton<_i380.AuthRepo>(
       () => _i562.AuthRepoImpl(gh<_i254.AuthRemoteDataSource>()),
