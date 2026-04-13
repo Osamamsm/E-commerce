@@ -3,7 +3,6 @@ import 'package:e_commerce/core/error/failure.dart';
 import 'package:e_commerce/features/product/data/models/category.dart';
 import 'package:e_commerce/features/product/data/models/product.dart';
 import 'package:e_commerce/features/product/data/models/product_details.dart';
-
 abstract class ProductRepo {
   Future<Either<Failure, List<Product>>> getProducts();
   Future<Either<Failure, List<Category>>> getCategories();
