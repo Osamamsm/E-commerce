@@ -70,8 +70,16 @@ import 'package:e_commerce/features/checkout/presentation/logic/checkout_cubit/c
     as _i555;
 import 'package:e_commerce/features/checkout/presentation/logic/checkout_flow_cubit/checkout_flow_cubit.dart'
     as _i517;
+import 'package:e_commerce/features/home/presentation/logic/cubit/product_feed_cubit.dart'
+    as _i1048;
 import 'package:e_commerce/features/notifications/logic/cubit/notifications_settings_cubit.dart'
     as _i382;
+import 'package:e_commerce/features/product/data/data_source/remote_data_source/products_remote_data_source.dart'
+    as _i651;
+import 'package:e_commerce/features/product/data/repos/product_repo_impl.dart'
+    as _i977;
+import 'package:e_commerce/features/product/domain/repos/product_repo.dart'
+    as _i1005;
 import 'package:e_commerce/features/profile/data/data_source/profile_remote_data_source.dart'
     as _i1063;
 import 'package:e_commerce/features/profile/data/repo/profile_repo_impl.dart'
@@ -133,6 +141,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i56.AddressRepo>(
       () => _i920.AddressRepoImpl(gh<_i295.AddressRemoteDataSource>()),
     );
+    gh.lazySingleton<_i651.ProductRemoteDataSource>(
+      () => _i651.ProductSupabaseDataSourceImpl(gh<_i74.SupabaseService>()),
+    );
+    gh.lazySingleton<_i1005.ProductRepo>(
+      () => _i977.ProductRepoImpl(gh<_i651.ProductRemoteDataSource>()),
+    );
     gh.factory<_i382.NotificationsSettingsCubit>(
       () => _i382.NotificationsSettingsCubit(
         gh<_i164.PushNotificationsService>(),
@@ -164,6 +178,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i350.GetProfileDataUseCase>(
       () => _i350.GetProfileDataUseCase(gh<_i245.ProfileRepo>()),
+    );
+    gh.factory<_i1048.ProductFeedCubit>(
+      () => _i1048.ProductFeedCubit(gh<_i1005.ProductRepo>()),
     );
     gh.factory<_i764.UpdateProfileWithAvatarUseCase>(
       () => _i764.UpdateProfileWithAvatarUseCase(gh<_i245.ProfileRepo>()),

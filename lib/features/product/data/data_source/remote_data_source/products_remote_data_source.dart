@@ -2,6 +2,7 @@ import 'package:e_commerce/core/supabase/supabase_service.dart';
 import 'package:e_commerce/features/product/data/models/category.dart';
 import 'package:e_commerce/features/product/data/models/product.dart';
 import 'package:e_commerce/features/product/data/models/product_details.dart';
+import 'package:injectable/injectable.dart';
 
 abstract class ProductRemoteDataSource {
   Future<List<Product>> getProducts();
@@ -12,6 +13,7 @@ abstract class ProductRemoteDataSource {
   Future<List<Product>> getRelatedProducts(String productId);
 }
 
+@LazySingleton(as: ProductRemoteDataSource)
 class ProductSupabaseDataSourceImpl implements ProductRemoteDataSource {
   final SupabaseService _service;
 
