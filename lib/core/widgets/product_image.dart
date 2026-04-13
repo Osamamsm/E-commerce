@@ -1,17 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-
 //TODO: refactor this widget to be consistent with all the pictures across the app
 class ProductImage extends StatelessWidget {
   const ProductImage({
     super.key,
-    required this.imageUrl,
+    this.imageUrl,
     required this.height,
     required this.width,
   });
 
-  final String imageUrl;
+  final String? imageUrl;
   final double height;
   final double width;
 
@@ -20,7 +19,9 @@ class ProductImage extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
       child: CachedNetworkImage(
-        imageUrl: imageUrl,
+        imageUrl:
+            imageUrl ??
+            'https://m.media-amazon.com/images/I/61QIwXhA0fL._AC_SY741_.jpg',
         width: width,
         height: height,
         fit: BoxFit.cover,

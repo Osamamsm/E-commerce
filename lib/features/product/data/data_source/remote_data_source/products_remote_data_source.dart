@@ -33,9 +33,7 @@ class ProductSupabaseDataSourceImpl implements ProductRemoteDataSource {
 
   @override
   Future<List<Product>> getProducts() async {
-    final List<Map<String, dynamic>> response = await _service.rpc(
-      function: 'get_products',
-    );
+    final List<dynamic> response = await _service.rpc(function: 'get_products');
     final List<Product> products = response
         .map((row) => Product.fromSupabaseRow(row))
         .toList();
