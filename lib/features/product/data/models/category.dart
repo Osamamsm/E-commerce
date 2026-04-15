@@ -16,7 +16,7 @@ class Category {
   });
 
   factory Category.fromSupabaseRow(Map<String, dynamic> row) {
-    final childrenRaw = row['subcategories'];
+    final childrenRaw = row['sub_categories'];
     return Category(
       id: row['category_id'] as String,
       enName: row['en_name'] as String,

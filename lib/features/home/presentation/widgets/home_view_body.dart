@@ -35,7 +35,10 @@ class HomeViewBody extends StatelessWidget {
                 BlocBuilder<CategoriesCubit, CategoriesState>(
                   builder: (context, state) {
                     if (state is CategoriesLoaded) {
-                      return CategoriesListView();
+                      return CategoriesListView(
+                        categories: state.categories,
+                        onCategorySelected: (category) {},
+                      );
                     } else if (state is CategoriesError) {
                       return Center(child: Text(state.message));
                     }
