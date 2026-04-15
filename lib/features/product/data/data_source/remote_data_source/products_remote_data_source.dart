@@ -53,8 +53,14 @@ class ProductSupabaseDataSourceImpl implements ProductRemoteDataSource {
   }
 
   @override
-  Future<List<Product>> searchProducts(String query) {
-    // TODO: implement searchProducts
-    throw UnimplementedError();
+  Future<List<Product>> searchProducts(String query) async {
+    final List<dynamic> response = await _service.rpc(
+      function: 'search_products',
+      params: {'p_search_term': query},
+    );
+    final List<Product> products = response
+        .map((row) => Product.fromSupabaseRow(row))
+        .toList();
+    return products;
   }
 }
