@@ -8,7 +8,7 @@ abstract class ProductRemoteDataSource {
   Future<List<Product>> getProducts();
   Future<List<Category>> getCategories();
   Future<ProductDetails> getProductDetails(String productId);
-  Future<List<Product>> getProductsByCategory(String category);
+  Future<List<Product>> getProductsByCategory(String categoryId);
   Future<List<Product>> searchProducts(String query);
   Future<List<Product>> getRelatedProducts(String productId);
 }
@@ -43,9 +43,13 @@ class ProductSupabaseDataSourceImpl implements ProductRemoteDataSource {
   }
 
   @override
-  Future<List<Product>> getProductsByCategory(String category) {
-    // TODO: implement getProductsByCategory
-    throw UnimplementedError();
+  Future<List<Product>> getProductsByCategory(String categoryId) async{
+   final List<dynamic> response = await _service.rpc(
+      function: 'get_products',
+      params: {'p_category_id': categoryId},
+    );
+    return response.map((row) => Product.fromSupabaseRow(row)).toList();
+
   }
 
   @override

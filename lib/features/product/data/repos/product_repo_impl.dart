@@ -42,10 +42,16 @@ class ProductRepoImpl implements ProductRepo {
 
   @override
   Future<Either<Failure, List<Product>>> getProductsByCategory(
-    String category,
-  ) {
-    // TODO: implement getProductsByCategory
-    throw UnimplementedError();
+    String categoryId,
+  ) async {
+    try {
+      final products = await _remoteDataSource.getProductsByCategory(
+        categoryId,
+      );
+      return Right(products);
+    } catch (e) {
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
+    }
   }
 
   @override

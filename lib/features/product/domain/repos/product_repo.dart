@@ -7,7 +7,7 @@ abstract class ProductRepo {
   Future<Either<Failure, List<Product>>> getProducts();
   Future<Either<Failure, List<Category>>> getCategories();
   Future<Either<Failure, ProductDetails>> getProductDetails(String productId);
-  Future<Either<Failure, List<Product>>> getProductsByCategory(String category);
+  Future<Either<Failure, List<Product>>> getProductsByCategory(String categoryId);
   Future<Either<Failure, List<Product>>> searchProducts(String query);
   Future<Either<Failure, List<Product>>> getRelatedProducts(String productId);
 }
