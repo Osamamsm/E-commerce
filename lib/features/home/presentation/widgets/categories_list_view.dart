@@ -4,7 +4,11 @@ import 'package:e_commerce/features/product/data/models/category.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesListView extends StatelessWidget {
-  const CategoriesListView({super.key, required this.categories, required this.onCategorySelected});
+  const CategoriesListView({
+    super.key,
+    required this.categories,
+    required this.onCategorySelected,
+  });
 
   final List<Category> categories;
   final void Function(Category category) onCategorySelected;
@@ -20,7 +24,10 @@ class CategoriesListView extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: .horizontal,
         itemBuilder: (context, index) {
-          return CategoryWidget(category: categories[index]);
+          return CategoryWidget(
+            category: categories[index],
+            onCategorySelected: onCategorySelected,
+          );
         },
         separatorBuilder: (context, index) {
           return hGap(14);
