@@ -21,7 +21,9 @@ import 'package:e_commerce/features/checkout/presentation/logic/checkout_cubit/c
 import 'package:e_commerce/features/checkout/presentation/logic/checkout_flow_cubit/checkout_flow_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/views/checkout_view.dart';
 import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_cubit.dart';
+import 'package:e_commerce/features/home/presentation/logic/product_search_cubit/product_search_cubit.dart';
 import 'package:e_commerce/features/home/presentation/views/home_view.dart';
+import 'package:e_commerce/features/home/presentation/views/search_results_view.dart';
 import 'package:e_commerce/features/notifications/logic/cubit/notifications_settings_cubit.dart';
 import 'package:e_commerce/features/payment/presentation/views/add_payment_method_view.dart';
 import 'package:e_commerce/features/payment/presentation/views/payment_methods_view.dart';
@@ -208,6 +210,17 @@ GoRouter createRouter(AuthCubit authCubit) {
           ],
           child: const CheckoutView(),
         ),
+      ),
+      GoRoute(
+        path: SearchResultsView.routeName,
+        builder: (context, state) {
+          final String query = state.extra as String? ?? '';
+          return BlocProvider(
+            create: (context) =>
+                getIt<ProductSearchCubit>()..searchProducts(query),
+            child: SearchResultsView(query: query),
+          );
+        },
       ),
     ],
   );

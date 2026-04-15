@@ -10,6 +10,7 @@ class CustomScaffold extends StatelessWidget {
     this.customBottomNavigationBar,
     this.drawer,
     this.floatingActionButton,
+    this.titleWidget,
   });
 
   final String? title;
@@ -18,6 +19,7 @@ class CustomScaffold extends StatelessWidget {
   final Widget? customBottomNavigationBar;
   final Widget? drawer;
   final Widget? floatingActionButton;
+  final Widget? titleWidget;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +31,7 @@ class CustomScaffold extends StatelessWidget {
             children: [
               AppBar(
                 backgroundColor: Colors.transparent,
-                title: Text(title ?? ''),
+                title: titleWidget ?? (title != null ? Text(title!) : null),
                 centerTitle: true,
                 actions: actionWidgets,
               ),
