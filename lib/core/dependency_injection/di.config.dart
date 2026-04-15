@@ -71,7 +71,9 @@ import 'package:e_commerce/features/checkout/presentation/logic/checkout_cubit/c
 import 'package:e_commerce/features/checkout/presentation/logic/checkout_flow_cubit/checkout_flow_cubit.dart'
     as _i517;
 import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_cubit.dart'
-    as _i1048;
+    as _i654;
+import 'package:e_commerce/features/home/presentation/logic/product_search_cubit/product_search_cubit.dart'
+    as _i831;
 import 'package:e_commerce/features/notifications/logic/cubit/notifications_settings_cubit.dart'
     as _i382;
 import 'package:e_commerce/features/product/data/data_source/remote_data_source/products_remote_data_source.dart'
@@ -179,8 +181,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i350.GetProfileDataUseCase>(
       () => _i350.GetProfileDataUseCase(gh<_i245.ProfileRepo>()),
     );
-    gh.factory<_i1048.ProductFeedCubit>(
-      () => _i1048.ProductFeedCubit(gh<_i1005.ProductRepo>()),
+    gh.factory<_i654.ProductFeedCubit>(
+      () => _i654.ProductFeedCubit(gh<_i1005.ProductRepo>()),
+    );
+    gh.factory<_i831.ProductSearchCubit>(
+      () => _i831.ProductSearchCubit(gh<_i1005.ProductRepo>()),
     );
     gh.factory<_i764.UpdateProfileWithAvatarUseCase>(
       () => _i764.UpdateProfileWithAvatarUseCase(gh<_i245.ProfileRepo>()),
