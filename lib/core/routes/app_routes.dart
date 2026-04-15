@@ -21,6 +21,7 @@ import 'package:e_commerce/features/checkout/presentation/logic/checkout_cubit/c
 import 'package:e_commerce/features/checkout/presentation/logic/checkout_flow_cubit/checkout_flow_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/views/checkout_view.dart';
 import 'package:e_commerce/features/home/presentation/logic/categories_cubit/categories_cubit.dart';
+import 'package:e_commerce/features/home/presentation/logic/get_products_by_category_cubit/get_products_by_category_cubit.dart';
 import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_cubit.dart';
 import 'package:e_commerce/features/home/presentation/logic/product_search_cubit/product_search_cubit.dart';
 import 'package:e_commerce/features/home/presentation/views/category_products_view.dart';
@@ -29,6 +30,7 @@ import 'package:e_commerce/features/home/presentation/views/search_results_view.
 import 'package:e_commerce/features/notifications/logic/cubit/notifications_settings_cubit.dart';
 import 'package:e_commerce/features/payment/presentation/views/add_payment_method_view.dart';
 import 'package:e_commerce/features/payment/presentation/views/payment_methods_view.dart';
+import 'package:e_commerce/features/product/data/models/category.dart';
 import 'package:e_commerce/features/product_details/presentation/views/product_details_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/edit_profile_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/personal_details_view.dart';
@@ -233,7 +235,15 @@ GoRouter createRouter(AuthCubit authCubit) {
       ),
       GoRoute(
         path: CategoryProductsView.routeName,
-        builder: (context, state) => const CategoryProductsView(),
+        builder: (context, state) {
+          final category = state.extra as Category;
+          return BlocProvider(
+            create: (context) =>
+                getIt<GetProductsByCategoryCubit>()
+                  ..getProductsByCategory(category.id),
+            child: const CategoryProductsView(),
+          );
+        },
       ),
     ],
   );
