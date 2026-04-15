@@ -72,6 +72,8 @@ import 'package:e_commerce/features/checkout/presentation/logic/checkout_flow_cu
     as _i517;
 import 'package:e_commerce/features/home/presentation/logic/categories_cubit/categories_cubit.dart'
     as _i531;
+import 'package:e_commerce/features/home/presentation/logic/get_products_by_category_cubit/get_products_by_category_cubit.dart'
+    as _i109;
 import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_cubit.dart'
     as _i654;
 import 'package:e_commerce/features/home/presentation/logic/product_search_cubit/product_search_cubit.dart'
@@ -185,6 +187,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i531.CategoriesCubit>(
       () => _i531.CategoriesCubit(gh<_i1005.ProductRepo>()),
+    );
+    gh.factory<_i109.GetProductsByCategoryCubit>(
+      () => _i109.GetProductsByCategoryCubit(gh<_i1005.ProductRepo>()),
     );
     gh.factory<_i654.ProductFeedCubit>(
       () => _i654.ProductFeedCubit(gh<_i1005.ProductRepo>()),
