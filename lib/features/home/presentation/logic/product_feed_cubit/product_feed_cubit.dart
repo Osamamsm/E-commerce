@@ -1,4 +1,4 @@
-import 'package:e_commerce/features/home/presentation/logic/cubit/product_feed_state.dart';
+import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_state.dart';
 import 'package:e_commerce/features/product/domain/repos/product_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';

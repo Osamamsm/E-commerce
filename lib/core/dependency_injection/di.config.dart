@@ -70,7 +70,7 @@ import 'package:e_commerce/features/checkout/presentation/logic/checkout_cubit/c
     as _i555;
 import 'package:e_commerce/features/checkout/presentation/logic/checkout_flow_cubit/checkout_flow_cubit.dart'
     as _i517;
-import 'package:e_commerce/features/home/presentation/logic/cubit/product_feed_cubit.dart'
+import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_cubit.dart'
     as _i1048;
 import 'package:e_commerce/features/notifications/logic/cubit/notifications_settings_cubit.dart'
     as _i382;

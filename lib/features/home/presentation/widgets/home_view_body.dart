@@ -1,7 +1,7 @@
 import 'package:e_commerce/core/helpers/constants.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
-import 'package:e_commerce/features/home/presentation/logic/cubit/product_feed_cubit.dart';
-import 'package:e_commerce/features/home/presentation/logic/cubit/product_feed_state.dart';
+import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_cubit.dart';
+import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_state.dart';
 import 'package:e_commerce/features/home/presentation/widgets/categories_list_view.dart';
 import 'package:e_commerce/features/home/presentation/widgets/custom_search_text_field.dart';
 import 'package:e_commerce/features/home/presentation/widgets/products_grid_view.dart';

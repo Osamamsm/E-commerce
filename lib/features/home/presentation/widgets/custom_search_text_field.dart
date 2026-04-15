@@ -7,14 +7,11 @@ class CustomSearchTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      onChanged: (value) {},
+      onSubmitted: (value) => {},
       maxLines: 1,
       decoration: InputDecoration(
         hintText: S.of(context).search_hint,
-        prefixIcon: IconButton(
-          icon: Icon(Icons.search_sharp),
-          onPressed: () {},
-        ),
+        prefixIcon: Icon(Icons.search_sharp),
       ),
     );
   }
