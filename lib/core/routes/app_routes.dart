@@ -23,6 +23,7 @@ import 'package:e_commerce/features/checkout/presentation/views/checkout_view.da
 import 'package:e_commerce/features/home/presentation/logic/categories_cubit/categories_cubit.dart';
 import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_cubit.dart';
 import 'package:e_commerce/features/home/presentation/logic/product_search_cubit/product_search_cubit.dart';
+import 'package:e_commerce/features/home/presentation/views/category_products_view.dart';
 import 'package:e_commerce/features/home/presentation/views/home_view.dart';
 import 'package:e_commerce/features/home/presentation/views/search_results_view.dart';
 import 'package:e_commerce/features/notifications/logic/cubit/notifications_settings_cubit.dart';
@@ -229,6 +230,10 @@ GoRouter createRouter(AuthCubit authCubit) {
             child: SearchResultsView(query: query),
           );
         },
+      ),
+      GoRoute(
+        path: CategoryProductsView.routeName,
+        builder: (context, state) => const CategoryProductsView(),
       ),
     ],
   );

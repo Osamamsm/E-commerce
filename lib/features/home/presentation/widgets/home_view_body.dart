@@ -4,12 +4,14 @@ import 'package:e_commerce/features/home/presentation/logic/categories_cubit/cat
 import 'package:e_commerce/features/home/presentation/logic/categories_cubit/categories_state.dart';
 import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_cubit.dart';
 import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_state.dart';
+import 'package:e_commerce/features/home/presentation/views/category_products_view.dart';
 import 'package:e_commerce/features/home/presentation/widgets/categories_list_view.dart';
 import 'package:e_commerce/features/home/presentation/widgets/custom_search_text_field.dart';
 import 'package:e_commerce/features/home/presentation/widgets/products_grid_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -37,7 +39,12 @@ class HomeViewBody extends StatelessWidget {
                     if (state is CategoriesLoaded) {
                       return CategoriesListView(
                         categories: state.categories,
-                        onCategorySelected: (category) {},
+                        onCategorySelected: (category) {
+                          context.push(
+                            CategoryProductsView.routeName,
+                            extra: category,
+                          );
+                        },
                       );
                     } else if (state is CategoriesError) {
                       return Center(child: Text(state.message));
