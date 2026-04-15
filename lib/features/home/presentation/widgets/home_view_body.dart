@@ -1,5 +1,7 @@
 import 'package:e_commerce/core/helpers/constants.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
+import 'package:e_commerce/features/home/presentation/logic/categories_cubit/categories_cubit.dart';
+import 'package:e_commerce/features/home/presentation/logic/categories_cubit/categories_state.dart';
 import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_cubit.dart';
 import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_state.dart';
 import 'package:e_commerce/features/home/presentation/widgets/categories_list_view.dart';
@@ -30,7 +32,16 @@ class HomeViewBody extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 vGap(12),
-                CategoriesListView(),
+                BlocBuilder<CategoriesCubit, CategoriesState>(
+                  builder: (context, state) {
+                    if (state is CategoriesLoaded) {
+                      return CategoriesListView();
+                    } else if (state is CategoriesError) {
+                      return Center(child: Text(state.message));
+                    }
+                    return Center(child: CircularProgressIndicator());
+                  },
+                ),
                 vGap(12),
                 Text(
                   S.of(context).featured_products,

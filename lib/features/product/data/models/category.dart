@@ -16,15 +16,19 @@ class Category {
   });
 
   factory Category.fromSupabaseRow(Map<String, dynamic> row) {
+    final childrenRaw = row['subcategories'];
     return Category(
       id: row['category_id'] as String,
       enName: row['en_name'] as String,
       arName: row['ar_name'] as String,
       imageUrl: row['image_url'] as String,
       parentCategoryId: row['parent_category_id'] as String?,
-      subcategories: (row['children'] as List<dynamic>)
-          .map((child) => Category.fromSupabaseRow(child))
-          .toList(),
+      subcategories: (childrenRaw is List)
+          ? childrenRaw
+              .whereType<Map<String, dynamic>>()
+              .map(Category.fromSupabaseRow)
+              .toList()
+          : <Category>[],
     );
   }
 }

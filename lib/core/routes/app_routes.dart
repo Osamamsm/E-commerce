@@ -20,6 +20,7 @@ import 'package:e_commerce/features/cart/presentation/views/cart_view.dart';
 import 'package:e_commerce/features/checkout/presentation/logic/checkout_cubit/checkout_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/logic/checkout_flow_cubit/checkout_flow_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/views/checkout_view.dart';
+import 'package:e_commerce/features/home/presentation/logic/categories_cubit/categories_cubit.dart';
 import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_cubit.dart';
 import 'package:e_commerce/features/home/presentation/logic/product_search_cubit/product_search_cubit.dart';
 import 'package:e_commerce/features/home/presentation/views/home_view.dart';
@@ -99,8 +100,15 @@ GoRouter createRouter(AuthCubit authCubit) {
       ),
       GoRoute(
         path: HomeView.routeName,
-        builder: (context, state) => BlocProvider(
-          create: (context) => getIt<ProductFeedCubit>()..loadProducts(),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => getIt<CategoriesCubit>()..loadCategories(),
+            ),
+            BlocProvider(
+              create: (context) => getIt<ProductFeedCubit>()..loadProducts(),
+            ),
+          ],
           child: const HomeView(),
         ),
       ),
