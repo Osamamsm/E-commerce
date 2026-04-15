@@ -15,9 +15,13 @@ class ProductRepoImpl implements ProductRepo {
   ProductRepoImpl(this._remoteDataSource);
 
   @override
-  Future<Either<Failure, List<Category>>> getCategories() {
-    // TODO: implement getCategories
-    throw UnimplementedError();
+  Future<Either<Failure, List<Category>>> getCategories() async {
+    try {
+      final categories = await _remoteDataSource.getCategories();
+      return Right(categories);
+    } catch (e) {
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
+    }
   }
 
   @override

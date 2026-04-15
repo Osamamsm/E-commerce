@@ -20,9 +20,11 @@ class ProductSupabaseDataSourceImpl implements ProductRemoteDataSource {
   ProductSupabaseDataSourceImpl(this._service);
 
   @override
-  Future<List<Category>> getCategories() {
-    // TODO: implement getCategories
-    throw UnimplementedError();
+  Future<List<Category>> getCategories() async {
+    final List<dynamic> response = await _service.rpc(
+      function: 'get_categories',
+    );
+    return response.map((row) => Category.fromSupabaseRow(row)).toList();
   }
 
   @override

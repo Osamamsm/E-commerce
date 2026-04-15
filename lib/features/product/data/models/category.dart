@@ -1,1 +1,30 @@
-class Category {}
+class Category {
+  final String id;
+  final String enName;
+  final String arName;
+  final String imageUrl;
+  final String? parentCategoryId;
+  final List<Category> subcategories;
+
+  Category({
+    required this.id,
+    required this.enName,
+    required this.arName,
+    required this.imageUrl,
+    this.parentCategoryId,
+    required this.subcategories,
+  });
+
+  factory Category.fromSupabaseRow(Map<String, dynamic> row) {
+    return Category(
+      id: row['category_id'] as String,
+      enName: row['en_name'] as String,
+      arName: row['ar_name'] as String,
+      imageUrl: row['image_url'] as String,
+      parentCategoryId: row['parent_category_id'] as String?,
+      subcategories: (row['children'] as List<dynamic>)
+          .map((child) => Category.fromSupabaseRow(child))
+          .toList(),
+    );
+  }
+}
