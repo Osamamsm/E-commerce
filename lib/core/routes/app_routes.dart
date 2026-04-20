@@ -31,7 +31,7 @@ import 'package:e_commerce/features/notifications/logic/cubit/notifications_sett
 import 'package:e_commerce/features/payment/presentation/views/add_payment_method_view.dart';
 import 'package:e_commerce/features/payment/presentation/views/payment_methods_view.dart';
 import 'package:e_commerce/features/product/data/models/category.dart';
-import 'package:e_commerce/features/product_details/presentation/views/product_details_view.dart';
+import 'package:e_commerce/features/product/product_details/presentation/views/product_details_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/edit_profile_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/personal_details_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/profile_view.dart';

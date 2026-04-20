@@ -1,7 +1,7 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/core/widgets/product_image.dart';
 import 'package:e_commerce/features/product/data/models/product.dart';
-import 'package:e_commerce/features/product_details/presentation/views/product_details_view.dart';
+import 'package:e_commerce/features/product/product_details/presentation/views/product_details_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

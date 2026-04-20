@@ -1,5 +1,5 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:e_commerce/features/product_details/presentation/widgets/size_drop_down_trigger.dart';
+import 'package:e_commerce/features/product/product_details/presentation/widgets/size_drop_down_trigger.dart';
 import 'package:flutter/material.dart';
 
 class SizeDropDown extends StatefulWidget {

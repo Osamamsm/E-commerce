@@ -1,4 +1,4 @@
-import 'package:e_commerce/features/product_details/presentation/widgets/carousel_item.dart';
+import 'package:e_commerce/features/product/product_details/presentation/widgets/carousel_item.dart';
 import 'package:flutter/material.dart';
 
 class ProductImagesCarouselView extends StatefulWidget {

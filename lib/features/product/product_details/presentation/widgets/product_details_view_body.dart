@@ -1,10 +1,10 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
-import 'package:e_commerce/features/product_details/presentation/widgets/product_color_selector.dart';
-import 'package:e_commerce/features/product_details/presentation/widgets/product_description_section.dart';
-import 'package:e_commerce/features/product_details/presentation/widgets/product_header_section.dart';
-import 'package:e_commerce/features/product_details/presentation/widgets/product_images_carousel_view.dart';
-import 'package:e_commerce/features/product_details/presentation/widgets/product_reviews_section.dart';
-import 'package:e_commerce/features/product_details/presentation/widgets/size_selector.dart';
+import 'package:e_commerce/features/product/product_details/presentation/widgets/product_color_selector.dart';
+import 'package:e_commerce/features/product/product_details/presentation/widgets/product_description_section.dart';
+import 'package:e_commerce/features/product/product_details/presentation/widgets/product_header_section.dart';
+import 'package:e_commerce/features/product/product_details/presentation/widgets/product_images_carousel_view.dart';
+import 'package:e_commerce/features/product/product_details/presentation/widgets/product_reviews_section.dart';
+import 'package:e_commerce/features/product/product_details/presentation/widgets/size_selector.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailsViewBody extends StatelessWidget {
