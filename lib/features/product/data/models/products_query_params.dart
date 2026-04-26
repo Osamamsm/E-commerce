@@ -41,8 +41,8 @@ class ProductsQueryParams {
     );
   }
 
-  factory ProductsQueryParams.initial({String? categoryId}) {
-    return ProductsQueryParams(categoryId: categoryId);
+  factory ProductsQueryParams.initial() {
+    return ProductsQueryParams();
   }
 
   ProductsQueryParams copyWith({
