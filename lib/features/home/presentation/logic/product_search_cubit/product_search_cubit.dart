@@ -12,7 +12,7 @@ class ProductSearchCubit extends Cubit<ProductSearchState> {
     emit(ProductSearchLoading());
     final result = await _productRepo.searchProducts(query);
     result.fold(
-      (failure) => emit(ProductSearchError(failure.toString())),
+      (failure) => emit(ProductSearchError(failure.message.toString())),
       (products) => emit(ProductSearchLoaded(products)),
     );
   }

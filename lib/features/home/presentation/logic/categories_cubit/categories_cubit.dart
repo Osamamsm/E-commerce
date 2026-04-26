@@ -12,7 +12,7 @@ class CategoriesCubit extends Cubit<CategoriesState> {
     emit(CategoriesLoading());
     final result = await _productRepo.getCategories();
     result.fold(
-      (failure) => emit(CategoriesError(failure.toString())),
+      (failure) => emit(CategoriesError(failure.message.toString())),
       (categories) => emit(CategoriesLoaded(categories)),
     );
   }

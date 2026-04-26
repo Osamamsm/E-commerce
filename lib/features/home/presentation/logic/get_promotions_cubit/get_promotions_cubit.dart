@@ -12,7 +12,7 @@ class GetPromotionsCubit extends Cubit<GetPromotionsState> {
     emit(GetPromotionsLoading());
     final result = await _productRepo.getPromotions();
     result.fold(
-      (failure) => emit(GetPromotionsError(failure.toString())),
+      (failure) => emit(GetPromotionsError(failure.message.toString())),
       (promotions) => emit(GetPromotionsLoaded(promotions)),
     );
   }

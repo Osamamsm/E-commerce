@@ -13,7 +13,7 @@ class GetProductsByCategoryCubit extends Cubit<GetProductsByCategoryState> {
     emit(GetProductsByCategoryLoading());
     final result = await _productRepo.getProductsByCategory(category);
     result.fold(
-      (failure) => emit(GetProductsByCategoryError(failure.toString())),
+      (failure) => emit(GetProductsByCategoryError(failure.message.toString())),
       (products) => emit(GetProductsByCategoryLoaded(products)),
     );
   }
