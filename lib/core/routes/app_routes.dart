@@ -22,6 +22,7 @@ import 'package:e_commerce/features/checkout/presentation/logic/checkout_flow_cu
 import 'package:e_commerce/features/checkout/presentation/views/checkout_view.dart';
 import 'package:e_commerce/features/home/presentation/logic/categories_cubit/categories_cubit.dart';
 import 'package:e_commerce/features/home/presentation/logic/get_products_by_category_cubit/get_products_by_category_cubit.dart';
+import 'package:e_commerce/features/home/presentation/logic/get_promotions_cubit/get_promotions_cubit.dart';
 import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_cubit.dart';
 import 'package:e_commerce/features/home/presentation/logic/product_search_cubit/product_search_cubit.dart';
 import 'package:e_commerce/features/home/presentation/views/category_products_view.dart';
@@ -110,6 +111,9 @@ GoRouter createRouter(AuthCubit authCubit) {
             ),
             BlocProvider(
               create: (context) => getIt<ProductFeedCubit>()..loadProducts(),
+            ),
+            BlocProvider(
+              create: (context) => getIt<GetPromotionsCubit>()..loadPromotions(),
             ),
           ],
           child: const HomeView(),
