@@ -31,4 +31,15 @@ class Category {
           : <Category>[],
     );
   }
+
+  factory Category.fromPromotion(Map<String, dynamic> row) {
+  return Category(
+    id: row['category_id'] as String,
+    enName: row['en_name'] as String,
+    arName: row['ar_name'] as String,
+    imageUrl: row['image_url'] as String,
+    parentCategoryId: null,
+    subcategories: const [],
+  );
+}
 }

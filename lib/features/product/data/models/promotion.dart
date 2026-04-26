@@ -31,7 +31,7 @@ class Promotion {
       endDate: DateTime.parse(json['end_date']),
       imageUrl: json['image_url'],
       categories: (json['categories'] as List)
-          .map((e) => Category.fromSupabaseRow(e))
+          .map((promotion) => Category.fromPromotion(promotion as Map<String, dynamic>))
           .toList(),
 
     );
