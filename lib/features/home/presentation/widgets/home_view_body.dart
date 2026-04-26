@@ -7,6 +7,7 @@ import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/p
 import 'package:e_commerce/features/home/presentation/views/category_products_view.dart';
 import 'package:e_commerce/features/home/presentation/widgets/categories_list_view.dart';
 import 'package:e_commerce/features/home/presentation/widgets/custom_search_text_field.dart';
+import 'package:e_commerce/features/home/presentation/widgets/products_filter_sort_bar.dart';
 import 'package:e_commerce/features/home/presentation/widgets/products_grid_view.dart';
 import 'package:e_commerce/features/home/presentation/widgets/promotions_banner.dart';
 import 'package:e_commerce/features/product/data/models/promotion.dart';
@@ -29,7 +30,7 @@ class HomeViewBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: .start,
               children: [
-                CustomSearchTextField(),
+                SizedBox(height: 50, child: CustomSearchTextField()),
                 vGap(12),
                 PromotionsBanner(
                   promotions: [
@@ -56,7 +57,7 @@ class HomeViewBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                vGap(20),
+                vGap(10),
                 Text(
                   S.of(context).shop_by_category,
                   style: Theme.of(context).textTheme.titleMedium,
@@ -81,9 +82,9 @@ class HomeViewBody extends StatelessWidget {
                   },
                 ),
                 vGap(12),
-                Text(
-                  S.of(context).featured_products,
-                  style: Theme.of(context).textTheme.titleMedium,
+                ProductsFilterSortBar(
+                  filterState: ProductFilterState(),
+                  onFilterChanged: (state) {},
                 ),
               ],
             ),
