@@ -2,10 +2,11 @@ import 'package:e_commerce/core/supabase/supabase_service.dart';
 import 'package:e_commerce/features/product/data/models/category.dart';
 import 'package:e_commerce/features/product/data/models/product.dart';
 import 'package:e_commerce/features/product/data/models/product_details.dart';
+import 'package:e_commerce/features/product/data/models/products_query_params.dart';
 import 'package:injectable/injectable.dart';
 
 abstract class ProductRemoteDataSource {
-  Future<List<Product>> getProducts();
+  Future<List<Product>> getProducts(ProductsQueryParams params);
   Future<List<Category>> getCategories();
   Future<ProductDetails> getProductDetails(String productId);
   Future<List<Product>> getProductsByCategory(String categoryId);
@@ -34,8 +35,17 @@ class ProductSupabaseDataSourceImpl implements ProductRemoteDataSource {
   }
 
   @override
-  Future<List<Product>> getProducts() async {
-    final List<dynamic> response = await _service.rpc(function: 'get_products');
+  Future<List<Product>> getProducts(ProductsQueryParams params) async {
+    final List<dynamic> response = await _service.rpc(function: 'get_products',
+        params: {
+          'p_category_id': params.categoryId,
+          'p_min_price': params.minPrice,
+          'p_max_price': params.maxPrice,
+          'p_in_stock_only': params.inStockOnly,
+          'p_sort_by': params.sortBy.toString().split('.').last,
+          'p_on_sale_only': params.onSaleOnly,
+          'p_min_rating': params.minRating,
+        });
     final List<Product> products = response
         .map((row) => Product.fromSupabaseRow(row))
         .toList();

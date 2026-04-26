@@ -5,6 +5,7 @@ import 'package:e_commerce/features/product/data/data_source/remote_data_source/
 import 'package:e_commerce/features/product/data/models/category.dart';
 import 'package:e_commerce/features/product/data/models/product.dart';
 import 'package:e_commerce/features/product/data/models/product_details.dart';
+import 'package:e_commerce/features/product/data/models/products_query_params.dart';
 import 'package:e_commerce/features/product/domain/repos/product_repo.dart';
 import 'package:injectable/injectable.dart';
 
@@ -31,9 +32,9 @@ class ProductRepoImpl implements ProductRepo {
   }
 
   @override
-  Future<Either<Failure, List<Product>>> getProducts() async {
+  Future<Either<Failure, List<Product>>> getProducts(ProductsQueryParams params) async {
     try {
-      final products = await _remoteDataSource.getProducts();
+      final products = await _remoteDataSource.getProducts(params);
       return Right(products);
     } catch (e) {
       return Left(ExceptionMapper.mapExceptionToFailure(e));
