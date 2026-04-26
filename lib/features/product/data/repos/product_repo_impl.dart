@@ -6,6 +6,7 @@ import 'package:e_commerce/features/product/data/models/category.dart';
 import 'package:e_commerce/features/product/data/models/product.dart';
 import 'package:e_commerce/features/product/data/models/product_details.dart';
 import 'package:e_commerce/features/product/data/models/products_query_params.dart';
+import 'package:e_commerce/features/product/data/models/promotion.dart';
 import 'package:e_commerce/features/product/domain/repos/product_repo.dart';
 import 'package:injectable/injectable.dart';
 
@@ -32,7 +33,9 @@ class ProductRepoImpl implements ProductRepo {
   }
 
   @override
-  Future<Either<Failure, List<Product>>> getProducts(ProductsQueryParams params) async {
+  Future<Either<Failure, List<Product>>> getProducts(
+    ProductsQueryParams params,
+  ) async {
     try {
       final products = await _remoteDataSource.getProducts(params);
       return Right(products);
@@ -66,6 +69,16 @@ class ProductRepoImpl implements ProductRepo {
     try {
       final products = await _remoteDataSource.searchProducts(query);
       return Right(products);
+    } catch (e) {
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<Promotion>>> getPromotions() async {
+    try {
+      final promotions = await _remoteDataSource.getPromotions();
+      return Right(promotions);
     } catch (e) {
       return Left(ExceptionMapper.mapExceptionToFailure(e));
     }

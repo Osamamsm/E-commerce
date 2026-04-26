@@ -3,6 +3,7 @@ import 'package:e_commerce/features/product/data/models/category.dart';
 import 'package:e_commerce/features/product/data/models/product.dart';
 import 'package:e_commerce/features/product/data/models/product_details.dart';
 import 'package:e_commerce/features/product/data/models/products_query_params.dart';
+import 'package:e_commerce/features/product/data/models/promotion.dart';
 import 'package:injectable/injectable.dart';
 
 abstract class ProductRemoteDataSource {
@@ -12,6 +13,7 @@ abstract class ProductRemoteDataSource {
   Future<List<Product>> getProductsByCategory(String categoryId);
   Future<List<Product>> searchProducts(String query);
   Future<List<Product>> getRelatedProducts(String productId);
+    Future<List<Promotion>> getPromotions();
 }
 
 @LazySingleton(as: ProductRemoteDataSource)
@@ -78,5 +80,17 @@ class ProductSupabaseDataSourceImpl implements ProductRemoteDataSource {
         .map((row) => Product.fromSupabaseRow(row))
         .toList();
     return products;
+  }
+  
+  @override
+  Future<List<Promotion>> getPromotions() async {
+    final List<dynamic> response = await _service.rpc(
+      function: 'get_promotions',
+      params: {},
+    );
+    final List<Promotion> promotions = response
+        .map((row) => Promotion.fromJson(row))
+        .toList();
+    return promotions;
   }
 }
