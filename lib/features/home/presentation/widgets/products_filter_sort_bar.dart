@@ -1,5 +1,7 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
+import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 enum SortOption {
   newest('Newest', Icons.fiber_new_outlined),
@@ -50,35 +52,21 @@ class ProductFilterState {
   ProductFilterState clearFilters() => ProductFilterState(sortBy: sortBy);
 }
 
-// ─────────────────────────────────────────────
-// Main widget — reusable across all product screens
-// ─────────────────────────────────────────────
-
-/// A horizontally scrollable filter + sort bar.
-///
-/// Usage:
-/// ```dart
-/// ProductsFilterSortBar(
-///   filterState: _filterState,
-///   onFilterChanged: (updated) => setState(() => _filterState = updated),
-/// )
-/// ```
-///
-/// Drop this widget in:
-/// - Home screen (above the Featured Products grid)
-/// - Category products screen
-/// - Search results screen
-class ProductsFilterSortBar extends StatelessWidget {
-  final ProductFilterState filterState;
-  final void Function(ProductFilterState updated) onFilterChanged;
+class ProductsFilterSortBar extends StatefulWidget {
   final double maxPrice;
+  const ProductsFilterSortBar({super.key, this.maxPrice = 500});
 
-  const ProductsFilterSortBar({
-    super.key,
-    required this.filterState,
-    required this.onFilterChanged,
-    this.maxPrice = 500,
-  });
+  @override
+  State<ProductsFilterSortBar> createState() => _ProductsFilterSortBarState();
+}
+
+class _ProductsFilterSortBarState extends State<ProductsFilterSortBar> {
+  ProductFilterState _filters = const ProductFilterState();
+
+  void _apply(ProductFilterState updated) {
+    setState(() => _filters = updated);
+    context.read<ProductFeedCubit>().setFilters(updated);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -89,41 +77,38 @@ class ProductsFilterSortBar extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         children: [
           _SortChip(
-            currentSort: filterState.sortBy,
+            currentSort: _filters.sortBy,
             onTap: () => _showSortSheet(context),
           ),
-          hGap(8),
+          const SizedBox(width: 8),
           _FilterChip(
             label: 'On Sale',
             icon: Icons.local_offer_outlined,
-            isActive: filterState.onSaleOnly,
-            onTap: () => onFilterChanged(
-              filterState.copyWith(onSaleOnly: !filterState.onSaleOnly),
-            ),
+            isActive: _filters.onSaleOnly,
+            onTap: () =>
+                _apply(_filters.copyWith(onSaleOnly: !_filters.onSaleOnly)),
           ),
           hGap(8),
           _FilterChip(
-            label: filterState.minRating != null
-                ? '${filterState.minRating!.toStringAsFixed(0)}★ & up'
+            label: _filters.minRating != null
+                ? '${_filters.minRating!.toStringAsFixed(0)}★ & up'
                 : 'Rating',
             icon: Icons.star_outline,
-            isActive: filterState.minRating != null,
+            isActive: _filters.minRating != null,
             onTap: () => _showRatingSheet(context),
           ),
           hGap(8),
           _FilterChip(
-            label: filterState.priceRange != null
-                ? '\$${filterState.priceRange!.start.toInt()}–\$${filterState.priceRange!.end.toInt()}'
+            label: _filters.priceRange != null
+                ? '\$${_filters.priceRange!.start.toInt()}–\$${_filters.priceRange!.end.toInt()}'
                 : 'Price',
             icon: Icons.attach_money,
-            isActive: filterState.priceRange != null,
+            isActive: _filters.priceRange != null,
             onTap: () => _showPriceSheet(context),
           ),
-          if (filterState.hasActiveFilters) ...[
+          if (_filters.hasActiveFilters) ...[
             hGap(8),
-            _ClearChip(
-              onTap: () => onFilterChanged(filterState.clearFilters()),
-            ),
+            _ClearChip(onTap: () => _apply(_filters.clearFilters())),
           ],
         ],
       ),
@@ -138,11 +123,10 @@ class ProductsFilterSortBar extends StatelessWidget {
         borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
       ),
       builder: (_) => _SortBottomSheet(
-        current: filterState.sortBy,
+        current: _filters.sortBy,
         onSelected: (selected) {
           Navigator.pop(context);
-          onFilterChanged(filterState.copyWith(sortBy: selected));
-          // TODO: trigger cubit
+          _apply(_filters.copyWith(sortBy: selected));
         },
       ),
     );
@@ -156,19 +140,19 @@ class ProductsFilterSortBar extends StatelessWidget {
         borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
       ),
       builder: (_) => _RatingBottomSheet(
-        currentRating: filterState.minRating,
+        currentRating: _filters.minRating,
         onSelected: (rating) {
           Navigator.pop(context);
-          onFilterChanged(filterState.copyWith(minRating: rating));
+          _apply(_filters.copyWith(minRating: rating));
         },
         onCleared: () {
           Navigator.pop(context);
-          onFilterChanged(filterState.copyWith(clearMinRating: true));
+          _apply(_filters.copyWith(clearMinRating: true));
         },
       ),
     );
   }
- 
+
   void _showPriceSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -178,15 +162,15 @@ class ProductsFilterSortBar extends StatelessWidget {
       ),
       isScrollControlled: true,
       builder: (_) => _PriceRangeBottomSheet(
-        maxPrice: maxPrice,
-        currentRange: filterState.priceRange,
+        maxPrice: widget.maxPrice,
+        currentRange: _filters.priceRange,
         onApplied: (range) {
           Navigator.pop(context);
-          onFilterChanged(filterState.copyWith(priceRange: range));
+          _apply(_filters.copyWith(priceRange: range));
         },
         onCleared: () {
           Navigator.pop(context);
-          onFilterChanged(filterState.copyWith(clearPriceRange: true));
+          _apply(_filters.copyWith(clearPriceRange: true));
         },
       ),
     );
@@ -220,7 +204,7 @@ class _SortChip extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             const Icon(Icons.sort_rounded, color: Colors.white, size: 15),
-            hGap(6),
+            const SizedBox(width: 6),
             Text(
               currentSort.shortLabel,
               style: const TextStyle(
@@ -229,7 +213,7 @@ class _SortChip extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            hGap(3),
+            const SizedBox(width: 3),
             const Icon(
               Icons.keyboard_arrow_down_rounded,
               color: Colors.white,
@@ -278,7 +262,7 @@ class _FilterChip extends StatelessWidget {
               color: isActive ? Colors.white : Colors.white54,
               size: 14,
             ),
-            hGap(5),
+            const SizedBox(width: 5),
             Text(
               label,
               style: TextStyle(
@@ -311,9 +295,9 @@ class _ClearChip extends StatelessWidget {
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
-          children:  [
+          children: const [
             Icon(Icons.close_rounded, color: Colors.redAccent, size: 14),
-            hGap(4),
+            SizedBox(width: 4),
             Text(
               'Clear',
               style: TextStyle(
@@ -343,7 +327,8 @@ class _SortBottomSheet extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          vGap(12),
+          const SizedBox(height: 12),
+          // Handle
           Container(
             width: 40,
             height: 4,
@@ -352,7 +337,7 @@ class _SortBottomSheet extends StatelessWidget {
               borderRadius: BorderRadius.circular(2),
             ),
           ),
-          vGap(16),
+          const SizedBox(height: 16),
           const Text(
             'Sort By',
             style: TextStyle(
@@ -361,7 +346,7 @@ class _SortBottomSheet extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          vGap(8),
+          const SizedBox(height: 8),
           ...SortOption.values.map((option) {
             final isSelected = option == current;
             return ListTile(
@@ -384,48 +369,41 @@ class _SortBottomSheet extends StatelessWidget {
               onTap: () => onSelected(option),
             );
           }),
-          vGap(8),
+          const SizedBox(height: 8),
         ],
       ),
     );
   }
 }
 
-
-// ─────────────────────────────────────────────
-// Rating bottom sheet
-// ─────────────────────────────────────────────
- 
 class _RatingBottomSheet extends StatefulWidget {
   final double? currentRating;
   final void Function(double rating) onSelected;
   final VoidCallback onCleared;
- 
+
   const _RatingBottomSheet({
     required this.currentRating,
     required this.onSelected,
     required this.onCleared,
   });
- 
+
   @override
   State<_RatingBottomSheet> createState() => _RatingBottomSheetState();
 }
- 
+
 class _RatingBottomSheetState extends State<_RatingBottomSheet> {
   double? _selected;
- 
+
   static const _purple = Color(0xFF7C3AED);
-  static const _starColor = Color(0xFFFBBF24); // amber-400
- 
-  // Rating options: each means "this value and up"
+  static const _starColor = Color(0xFFFBBF24);
   static const _options = [1.0, 2.0, 3.0, 4.0];
- 
+
   @override
   void initState() {
     super.initState();
     _selected = widget.currentRating;
   }
- 
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -444,7 +422,7 @@ class _RatingBottomSheetState extends State<_RatingBottomSheet> {
               ),
             ),
             const SizedBox(height: 20),
- 
+
             const Text(
               'Minimum Rating',
               style: TextStyle(
@@ -459,7 +437,7 @@ class _RatingBottomSheetState extends State<_RatingBottomSheet> {
               style: TextStyle(color: Colors.white38, fontSize: 12),
             ),
             const SizedBox(height: 24),
- 
+
             // Star option cards
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -481,10 +459,10 @@ class _RatingBottomSheetState extends State<_RatingBottomSheet> {
                       boxShadow: isSelected
                           ? [
                               BoxShadow(
-                                color: _purple.withOpacity(0.4),
+                                color: _purple.withValues(alpha: 0.4),
                                 blurRadius: 10,
                                 offset: const Offset(0, 4),
-                              )
+                              ),
                             ]
                           : [],
                     ),
@@ -520,9 +498,9 @@ class _RatingBottomSheetState extends State<_RatingBottomSheet> {
                 );
               }).toList(),
             ),
- 
+
             const SizedBox(height: 28),
- 
+
             // Action buttons
             Row(
               children: [
@@ -554,46 +532,41 @@ class _RatingBottomSheetState extends State<_RatingBottomSheet> {
     );
   }
 }
- 
-// ─────────────────────────────────────────────
-// Price range bottom sheet
-// ─────────────────────────────────────────────
- 
+
 class _PriceRangeBottomSheet extends StatefulWidget {
   final double maxPrice;
   final RangeValues? currentRange;
   final void Function(RangeValues range) onApplied;
   final VoidCallback onCleared;
- 
+
   const _PriceRangeBottomSheet({
     required this.maxPrice,
     required this.currentRange,
     required this.onApplied,
     required this.onCleared,
   });
- 
+
   @override
-  State<_PriceRangeBottomSheet> createState() =>
-      _PriceRangeBottomSheetState();
+  State<_PriceRangeBottomSheet> createState() => _PriceRangeBottomSheetState();
 }
- 
+
 class _PriceRangeBottomSheetState extends State<_PriceRangeBottomSheet> {
   late RangeValues _range;
- 
+
   static const _purple = Color(0xFF7C3AED);
- 
+
   @override
   void initState() {
     super.initState();
     _range = widget.currentRange ?? RangeValues(0, widget.maxPrice);
   }
- 
+
   String _fmt(double value) => '\$${value.toInt()}';
- 
+
   @override
   Widget build(BuildContext context) {
     final bool isDirty = _range.start != 0 || _range.end != widget.maxPrice;
- 
+
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
@@ -610,7 +583,7 @@ class _PriceRangeBottomSheetState extends State<_PriceRangeBottomSheet> {
               ),
             ),
             const SizedBox(height: 20),
- 
+
             const Text(
               'Price Range',
               style: TextStyle(
@@ -620,7 +593,7 @@ class _PriceRangeBottomSheetState extends State<_PriceRangeBottomSheet> {
               ),
             ),
             const SizedBox(height: 28),
- 
+
             // Min / Max labels
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -636,14 +609,14 @@ class _PriceRangeBottomSheetState extends State<_PriceRangeBottomSheet> {
               ],
             ),
             const SizedBox(height: 8),
- 
+
             // Range slider
             SliderTheme(
               data: SliderTheme.of(context).copyWith(
                 activeTrackColor: _purple,
                 inactiveTrackColor: Colors.white12,
                 thumbColor: Colors.white,
-                overlayColor: _purple.withOpacity(0.2),
+                overlayColor: _purple.withValues(alpha: 0.2),
                 rangeThumbShape: const RoundRangeSliderThumbShape(
                   enabledThumbRadius: 10,
                 ),
@@ -658,24 +631,26 @@ class _PriceRangeBottomSheetState extends State<_PriceRangeBottomSheet> {
                 onChanged: (v) => setState(() => _range = v),
               ),
             ),
- 
+
             const SizedBox(height: 8),
- 
+
             // Min / Max extremes hint
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(_fmt(0),
-                    style: const TextStyle(
-                        color: Colors.white30, fontSize: 11)),
-                Text('${_fmt(widget.maxPrice)}+',
-                    style: const TextStyle(
-                        color: Colors.white30, fontSize: 11)),
+                Text(
+                  _fmt(0),
+                  style: const TextStyle(color: Colors.white30, fontSize: 11),
+                ),
+                Text(
+                  '${_fmt(widget.maxPrice)}+',
+                  style: const TextStyle(color: Colors.white30, fontSize: 11),
+                ),
               ],
             ),
- 
+
             const SizedBox(height: 28),
- 
+
             // Action buttons
             Row(
               children: [
@@ -704,24 +679,20 @@ class _PriceRangeBottomSheetState extends State<_PriceRangeBottomSheet> {
     );
   }
 }
- 
-// ─────────────────────────────────────────────
-// Shared sheet button widgets
-// ─────────────────────────────────────────────
- 
+
 class _SheetFilledButton extends StatelessWidget {
   final String label;
   final bool enabled;
   final VoidCallback? onTap;
- 
+
   const _SheetFilledButton({
     required this.label,
     required this.enabled,
     required this.onTap,
   });
- 
+
   static const _purple = Color(0xFF7C3AED);
- 
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -735,10 +706,10 @@ class _SheetFilledButton extends StatelessWidget {
           boxShadow: enabled
               ? [
                   BoxShadow(
-                    color: _purple.withOpacity(0.4),
+                    color: _purple.withValues(alpha: 0.4),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
-                  )
+                  ),
                 ]
               : [],
         ),
@@ -755,13 +726,13 @@ class _SheetFilledButton extends StatelessWidget {
     );
   }
 }
- 
+
 class _SheetOutlineButton extends StatelessWidget {
   final String label;
   final VoidCallback onTap;
- 
+
   const _SheetOutlineButton({required this.label, required this.onTap});
- 
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -785,27 +756,29 @@ class _SheetOutlineButton extends StatelessWidget {
     );
   }
 }
- 
+
 class _PriceLabel extends StatelessWidget {
   final String title;
   final String value;
   final bool alignRight;
- 
+
   const _PriceLabel({
     required this.title,
     required this.value,
     this.alignRight = false,
   });
- 
+
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment:
-          alignRight ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+      crossAxisAlignment: alignRight
+          ? CrossAxisAlignment.end
+          : CrossAxisAlignment.start,
       children: [
-        Text(title,
-            style:
-                const TextStyle(color: Colors.white38, fontSize: 11)),
+        Text(
+          title,
+          style: const TextStyle(color: Colors.white38, fontSize: 11),
+        ),
         const SizedBox(height: 2),
         Text(
           value,

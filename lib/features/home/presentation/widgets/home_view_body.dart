@@ -82,10 +82,7 @@ class HomeViewBody extends StatelessWidget {
                   },
                 ),
                 vGap(12),
-                ProductsFilterSortBar(
-                  filterState: ProductFilterState(),
-                  onFilterChanged: (state) {},
-                ),
+                ProductsFilterSortBar(),
               ],
             ),
           ),
