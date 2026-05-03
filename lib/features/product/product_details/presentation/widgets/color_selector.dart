@@ -1,23 +1,25 @@
 import 'package:e_commerce/core/helpers/spacing.dart';
+import 'package:e_commerce/features/product/data/models/variation_option.dart';
 import 'package:e_commerce/features/product/product_details/presentation/widgets/color_selector_item.dart';
 import 'package:flutter/material.dart';
 
 class ColorSelector extends StatelessWidget {
   const ColorSelector({
     super.key,
-    required this.colors,
-    required this.selectedIndex,
+    required this.options,
+    required this.selectedOptionEn,
     required this.onChanged,
     required this.size,
     required this.activeBorderColor,
+    required this.isOutOfStock,
   });
 
-  final List<Map<String, dynamic>> colors;
-  final int selectedIndex;
-  final ValueChanged<int> onChanged;
-
+  final List<VariationOption> options;
+  final String? selectedOptionEn;
+  final ValueChanged<String> onChanged;
   final double size;
   final Color activeBorderColor;
+  final bool Function(String optionEn) isOutOfStock;
 
   @override
   Widget build(BuildContext context) {
@@ -29,17 +31,17 @@ class ColorSelector extends StatelessWidget {
           Expanded(
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
-              itemCount: colors.length,
-              separatorBuilder: (context, index) => hGap(8),
+              itemCount: options.length,
+              separatorBuilder: (_, __) => hGap(8),
               itemBuilder: (context, index) {
-                final isSelected = index == selectedIndex;
+                final option = options[index];
                 return ColorSelectorItem(
-                  onChanged: onChanged,
+                  option: option,
+                  isSelected: selectedOptionEn == option.optionEn,
+                  outOfStock: isOutOfStock(option.optionEn),
                   size: size,
-                  isSelected: isSelected,
                   activeBorderColor: activeBorderColor,
-                  colors: colors,
-                  index: index,
+                  onTap: () => onChanged(option.optionEn),
                 );
               },
             ),

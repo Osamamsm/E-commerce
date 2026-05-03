@@ -6,8 +6,16 @@ import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class ProductReviewsSection extends StatelessWidget {
-  const ProductReviewsSection({super.key});
+  const ProductReviewsSection({
+    super.key,
+    required this.productId,
+    required this.reviewsCount,
+    required this.avgRating,
+  });
 
+  final String productId;
+  final int reviewsCount;
+  final double avgRating;
   @override
   Widget build(BuildContext context) {
     return ExpandableSection(
@@ -20,7 +28,7 @@ class ProductReviewsSection extends StatelessWidget {
           Divider(color: Theme.of(context).colorScheme.outline),
           vGap(10),
           Text(
-            S.of(context).review(121),
+            S.of(context).review(reviewsCount),
             style: Theme.of(context).textTheme.labelLarge,
           ),
           //TODO: remove the shrinkWrap and physics to improve performance
