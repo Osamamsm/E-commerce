@@ -27,9 +27,15 @@ class ProductRepoImpl implements ProductRepo {
   }
 
   @override
-  Future<Either<Failure, ProductDetails>> getProductDetails(String productId) {
-    // TODO: implement getProductDetails
-    throw UnimplementedError();
+  Future<Either<Failure, ProductDetails>> getProductDetails(
+    String productId,
+  ) async {
+    try {
+      final details = await _remoteDataSource.getProductDetails(productId);
+      return Right(details);
+    } catch (e) {
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
+    }
   }
 
   @override

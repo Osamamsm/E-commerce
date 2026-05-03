@@ -13,7 +13,7 @@ abstract class ProductRemoteDataSource {
   Future<List<Product>> getProductsByCategory(String categoryId);
   Future<List<Product>> searchProducts(String query);
   Future<List<Product>> getRelatedProducts(String productId);
-    Future<List<Promotion>> getPromotions();
+  Future<List<Promotion>> getPromotions();
 }
 
 @LazySingleton(as: ProductRemoteDataSource)
@@ -31,23 +31,28 @@ class ProductSupabaseDataSourceImpl implements ProductRemoteDataSource {
   }
 
   @override
-  Future<ProductDetails> getProductDetails(String productId) {
-    // TODO: implement getProductDetails
-    throw UnimplementedError();
+  Future<ProductDetails> getProductDetails(String productId) async {
+    final response = await _service.rpc(
+      function: 'get_product_details',
+      params: {'p_product_id': productId},
+    );
+    return ProductDetails.fromJson(response);
   }
 
   @override
   Future<List<Product>> getProducts(ProductsQueryParams params) async {
-    final List<dynamic> response = await _service.rpc(function: 'get_products',
-        params: {
-          'p_category_id': params.categoryId,
-          'p_min_price': params.minPrice,
-          'p_max_price': params.maxPrice,
-          'p_in_stock_only': params.inStockOnly,
-          'p_sort_by': params.sortBy.toString().split('.').last,
-          'p_on_sale_only': params.onSaleOnly,
-          'p_min_rating': params.minRating,
-        });
+    final List<dynamic> response = await _service.rpc(
+      function: 'get_products',
+      params: {
+        'p_category_id': params.categoryId,
+        'p_min_price': params.minPrice,
+        'p_max_price': params.maxPrice,
+        'p_in_stock_only': params.inStockOnly,
+        'p_sort_by': params.sortBy.toString().split('.').last,
+        'p_on_sale_only': params.onSaleOnly,
+        'p_min_rating': params.minRating,
+      },
+    );
     final List<Product> products = response
         .map((row) => Product.fromSupabaseRow(row))
         .toList();
@@ -55,13 +60,12 @@ class ProductSupabaseDataSourceImpl implements ProductRemoteDataSource {
   }
 
   @override
-  Future<List<Product>> getProductsByCategory(String categoryId) async{
-   final List<dynamic> response = await _service.rpc(
+  Future<List<Product>> getProductsByCategory(String categoryId) async {
+    final List<dynamic> response = await _service.rpc(
       function: 'get_products',
       params: {'p_category_id': categoryId},
     );
     return response.map((row) => Product.fromSupabaseRow(row)).toList();
-
   }
 
   @override
@@ -81,7 +85,7 @@ class ProductSupabaseDataSourceImpl implements ProductRemoteDataSource {
         .toList();
     return products;
   }
-  
+
   @override
   Future<List<Promotion>> getPromotions() async {
     final List<dynamic> response = await _service.rpc(
