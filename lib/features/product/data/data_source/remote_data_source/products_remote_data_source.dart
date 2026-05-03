@@ -32,11 +32,11 @@ class ProductSupabaseDataSourceImpl implements ProductRemoteDataSource {
 
   @override
   Future<ProductDetails> getProductDetails(String productId) async {
-    final response = await _service.rpc(
+    final List<dynamic> response = await _service.rpc(
       function: 'get_product_details',
       params: {'p_product_id': productId},
     );
-    return ProductDetails.fromJson(response);
+    return ProductDetails.fromJson(response .first);
   }
 
   @override
