@@ -88,6 +88,8 @@ import 'package:e_commerce/features/product/data/repos/product_repo_impl.dart'
     as _i977;
 import 'package:e_commerce/features/product/domain/repos/product_repo.dart'
     as _i1005;
+import 'package:e_commerce/features/product/product_details/presentation/logic/product_details_cubit/product_details_cubit.dart'
+    as _i158;
 import 'package:e_commerce/features/profile/data/data_source/profile_remote_data_source.dart'
     as _i1063;
 import 'package:e_commerce/features/profile/data/repo/profile_repo_impl.dart'
@@ -201,6 +203,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i831.ProductSearchCubit>(
       () => _i831.ProductSearchCubit(gh<_i1005.ProductRepo>()),
+    );
+    gh.factory<_i158.ProductDetailsCubit>(
+      () => _i158.ProductDetailsCubit(gh<_i1005.ProductRepo>()),
     );
     gh.factory<_i764.UpdateProfileWithAvatarUseCase>(
       () => _i764.UpdateProfileWithAvatarUseCase(gh<_i245.ProfileRepo>()),
