@@ -33,17 +33,11 @@ class ProductDetailsLoaded extends ProductDetailsState {
   }
 
   List<VariationOption> availableOptionsFor(String variationEn) {
-    final compatible = product.productItems.where((item) {
-      return selectedOptions.entries
-          .where((e) => e.key != variationEn)
-          .every((e) => item.optionFor(e.key) == e.value);
-    }).toList();
-
     final seen = <String>{};
-    return compatible
-        .expand((item) => item.variations.where((v) => v.variationEn == variationEn))
-        .where((v) => seen.add(v.optionEn))
-        .toList();
+  return product.productItems
+      .expand((item) => item.variations.where((v) => v.variationEn == variationEn))
+      .where((v) => seen.add(v.optionEn))
+      .toList();
   }
 
   bool isOptionOutOfStock(String variationEn, String optionEn) {
