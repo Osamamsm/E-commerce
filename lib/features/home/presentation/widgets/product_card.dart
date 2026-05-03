@@ -18,7 +18,7 @@ class ProductCard extends StatelessWidget {
     final hasDiscount = product.discountPercentage != null && product.discountPercentage! > 0;
 
     return InkWell(
-      onTap: () => context.push(ProductDetailsView.routeName),
+      onTap: () => context.push(ProductDetailsView.routeName,extra: product.id),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

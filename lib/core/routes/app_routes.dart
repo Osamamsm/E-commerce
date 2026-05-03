@@ -32,6 +32,7 @@ import 'package:e_commerce/features/notifications/logic/cubit/notifications_sett
 import 'package:e_commerce/features/payment/presentation/views/add_payment_method_view.dart';
 import 'package:e_commerce/features/payment/presentation/views/payment_methods_view.dart';
 import 'package:e_commerce/features/product/data/models/category.dart';
+import 'package:e_commerce/features/product/product_details/presentation/logic/product_details_cubit/product_details_cubit.dart';
 import 'package:e_commerce/features/product/product_details/presentation/views/product_details_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/edit_profile_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/personal_details_view.dart';
@@ -113,7 +114,8 @@ GoRouter createRouter(AuthCubit authCubit) {
               create: (context) => getIt<ProductFeedCubit>()..loadProducts(),
             ),
             BlocProvider(
-              create: (context) => getIt<GetPromotionsCubit>()..loadPromotions(),
+              create: (context) =>
+                  getIt<GetPromotionsCubit>()..loadPromotions(),
             ),
           ],
           child: const HomeView(),
@@ -153,7 +155,14 @@ GoRouter createRouter(AuthCubit authCubit) {
       ),
       GoRoute(
         path: ProductDetailsView.routeName,
-        builder: (context, state) => const ProductDetailsView(),
+        builder: (context, state) {
+          final productId = state.extra as String;
+          return BlocProvider(
+            create: (context) =>
+                getIt<ProductDetailsCubit>()..loadProductDetails(productId),
+            child: const ProductDetailsView(),
+          );
+        },
       ),
       ShellRoute(
         builder: (context, state, child) => BlocProvider(
