@@ -1,8 +1,9 @@
+import 'package:e_commerce/core/helpers/constants.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
-import 'package:e_commerce/features/home/presentation/widgets/custom_drawer_footer.dart';
+import 'package:e_commerce/features/home/presentation/widgets/custom_menu_item.dart';
 import 'package:e_commerce/features/home/presentation/widgets/drawer_buttons_row.dart';
 import 'package:e_commerce/features/home/presentation/widgets/drawer_header_bloc_builder.dart';
-import 'package:e_commerce/features/home/presentation/widgets/drawer_quick_access_menu.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -32,17 +33,84 @@ class CustomDrawer extends StatelessWidget {
                 padding: const EdgeInsets.all(24),
                 child: Column(
                   children: [
-                   const DrawerHeaderBlocBuilder(),
+                    const DrawerHeaderBlocBuilder(),
                     vGap(16),
                     const DrawerButtonsRow(),
                   ],
                 ),
               ),
             ),
-            const DrawerQuickAccessMenu(),
-            const CustomDrawerFooter(),
+            const _DrawerQuickAccessMenu(),
+            const _CustomDrawerFooter(),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _DrawerQuickAccessMenu extends StatelessWidget {
+  const _DrawerQuickAccessMenu();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return DecoratedBox(
+      decoration: BoxDecoration(color: theme.colorScheme.secondary),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Text(
+              S.of(context).quick_access,
+              style: theme.textTheme.labelSmall,
+            ),
+          ),
+          ...Constants.getMenuItems(context)
+              .map(
+                (e) => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: CustomMenuItem(
+                    icon: e.icon,
+                    label: e.label,
+                    onTap: e.onTap,
+                  ),
+                ),
+              )
+              .toList(),
+        ],
+      ),
+    );
+  }
+}
+
+class _CustomDrawerFooter extends StatelessWidget {
+  const _CustomDrawerFooter();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(
+            color: theme.colorScheme.onSurface.withValues(alpha: 0.1),
+            width: 1,
+          ),
+        ),
+      ),
+      child: Row(
+        children: [
+          Icon(
+            Icons.shopping_bag_outlined,
+            size: 20,
+            color: theme.colorScheme.primary,
+          ),
+          hGap(8),
+          Text(S.of(context).app_name, style: theme.textTheme.bodySmall),
+        ],
       ),
     );
   }
