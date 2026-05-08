@@ -48,4 +48,18 @@ class Promotion {
       'image_url': imageUrl,
     };
   }
+
+
+  factory Promotion.placeholder() {
+    return Promotion(
+      id: 'placeholder',
+      title: 'Placeholder Promotion',
+      description: 'This is a placeholder promotion.',
+      discountRate: 0.0,
+      startDate: DateTime.now(),
+      endDate: DateTime.now().add(Duration(days: 30)),
+      imageUrl:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOBI40yHJnZKP__Q7dSsrUmwifv4rApRJVtQ&s',
+    );
+  }
 }
