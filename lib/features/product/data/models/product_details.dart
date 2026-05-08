@@ -59,4 +59,22 @@ class ProductDetails {
     avgRating: (j['avg_rating'] as num).toDouble(),
     reviewCount: j['review_count'],
   );
+
+  factory ProductDetails.placeholder() => ProductDetails(
+    productId: '0',
+    enName: 'Loading...',
+    arName: 'جار التحميل...',
+    enDescription: 'Loading description...',
+    arDescription: 'جار تحميل الوصف...',
+    categoryId: '0',
+    categoryEnName: 'Loading category...',
+    categoryArName: 'جار تحميل التصنيف...',
+    images: [],
+    productItems: [],
+    basePrice: 0.0,
+    discountedPrice: null,
+    discountRate: null,
+    avgRating: 0.0,
+    reviewCount: 0,
+  );
 }
