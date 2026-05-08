@@ -1,6 +1,7 @@
 import 'package:e_commerce/features/home/presentation/logic/categories_cubit/categories_cubit.dart';
 import 'package:e_commerce/features/home/presentation/logic/categories_cubit/categories_state.dart';
 import 'package:e_commerce/features/home/presentation/views/category_products_view.dart';
+import 'package:e_commerce/features/home/presentation/widgets/categories_error_widget.dart';
 import 'package:e_commerce/features/home/presentation/widgets/categories_list_view.dart';
 import 'package:e_commerce/features/product/data/models/category.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,12 @@ class CategoriesBlocBuilder extends StatelessWidget {
             },
           );
         } else if (state is CategoriesError) {
-          return Center(child: Text(state.message));
+          return CategoriesErrorWidget(
+            message: state.message,
+            onRetry: () {
+              context.read<CategoriesCubit>().loadCategories();
+            },
+          );
         }
         return Skeletonizer(
           child: CategoriesListView(
