@@ -21,7 +21,7 @@ class CategoryWidget extends StatelessWidget {
         child: Column(
           children: [
             CircleAvatar(
-              backgroundColor: Theme.of(context).colorScheme.onPrimary,
+              backgroundColor: Colors.grey[200],
               backgroundImage: NetworkImage(category.imageUrl),
               radius: 30,
             ),

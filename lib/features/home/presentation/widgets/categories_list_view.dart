@@ -14,13 +14,8 @@ class CategoriesListView extends StatelessWidget {
   final void Function(Category category) onCategorySelected;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: .symmetric(horizontal: 12, vertical: 8),
-      height: 110,
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.secondary,
-        borderRadius: .circular(20),
-      ),
+    return SizedBox(
+      height: 90,
       child: ListView.separated(
         scrollDirection: .horizontal,
         itemBuilder: (context, index) {
