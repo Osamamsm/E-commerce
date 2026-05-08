@@ -1,15 +1,12 @@
 import 'package:e_commerce/core/helpers/constants.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
-import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_cubit.dart';
-import 'package:e_commerce/features/home/presentation/logic/product_feed_cubit/product_feed_state.dart';
 import 'package:e_commerce/features/home/presentation/widgets/categories_bloc_builder.dart';
 import 'package:e_commerce/features/home/presentation/widgets/custom_search_text_field.dart';
+import 'package:e_commerce/features/home/presentation/widgets/products_bloc_builder.dart';
 import 'package:e_commerce/features/home/presentation/widgets/products_filter_sort_bar.dart';
-import 'package:e_commerce/features/home/presentation/widgets/products_grid_view.dart';
 import 'package:e_commerce/features/home/presentation/widgets/promotions_bloc_builder.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -41,20 +38,7 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(child: vGap(12)),
-          BlocBuilder<ProductFeedCubit, ProductFeedState>(
-            builder: (context, state) {
-              if (state is ProductFeedError) {
-                return SliverToBoxAdapter(
-                  child: Center(child: Text(state.message)),
-                );
-              } else if (state is ProductFeedLoaded) {
-                return ProductsGridView(products: state.products);
-              }
-              return const SliverToBoxAdapter(
-                child: Center(child: CircularProgressIndicator()),
-              );
-            },
-          ),
+          ProductsBlocBuilder(),
         ],
       ),
     );

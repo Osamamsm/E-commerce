@@ -51,4 +51,24 @@ class Product {
       totalCount: row['total_count'] as int,
     );
   }
+
+  factory Product.placeholder() {
+    return Product(
+      id: 'placeholder',
+      enName: 'Placeholder Product',
+      arName: 'منتج تجريبي',
+      categoryId: 'placeholder_category',
+      categoryEnName: 'Placeholder Category',
+      categoryArName: 'فئة تجريبية',
+      basePrice: 0.0,
+      discountedPrice: 0.0,
+      discountPercentage: null,
+      rating: 0.0,
+      reviewsCount: 0,
+      imageUrl:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOBI40yHJnZKP__Q7dSsrUmwifv4rApRJVtQ&s',
+      totalStock: 0,
+      totalCount: 0,
+    );
+  }
 }
