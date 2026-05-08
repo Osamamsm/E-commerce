@@ -1,8 +1,10 @@
 import 'package:e_commerce/core/helpers/constants.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
-import 'package:e_commerce/features/home/presentation/widgets/categories_list_view.dart';
+import 'package:e_commerce/features/home/presentation/widgets/categories_bloc_builder.dart';
 import 'package:e_commerce/features/home/presentation/widgets/custom_search_text_field.dart';
-import 'package:e_commerce/features/home/presentation/widgets/products_grid_view.dart';
+import 'package:e_commerce/features/home/presentation/widgets/products_bloc_builder.dart';
+import 'package:e_commerce/features/home/presentation/widgets/products_filter_sort_bar.dart';
+import 'package:e_commerce/features/home/presentation/widgets/promotions_bloc_builder.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -20,24 +22,23 @@ class HomeViewBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: .start,
               children: [
-                CustomSearchTextField(),
+                SizedBox(height: 50, child: CustomSearchTextField()),
                 vGap(12),
+                PromotionsBlocBuilder(),
+                vGap(10),
                 Text(
                   S.of(context).shop_by_category,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 vGap(12),
-                CategoriesListView(),
+                CategoriesBlocBuilder(),
                 vGap(12),
-                Text(
-                  S.of(context).featured_products,
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
+                ProductsFilterSortBar(),
               ],
             ),
           ),
           SliverToBoxAdapter(child: vGap(12)),
-          ProductsGridView(),
+          ProductsBlocBuilder(),
         ],
       ),
     );
