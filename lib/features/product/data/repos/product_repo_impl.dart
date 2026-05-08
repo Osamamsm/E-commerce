@@ -65,12 +65,6 @@ class ProductRepoImpl implements ProductRepo {
   }
 
   @override
-  Future<Either<Failure, List<Product>>> getRelatedProducts(String productId) {
-    // TODO: implement getRelatedProducts
-    throw UnimplementedError();
-  }
-
-  @override
   Future<Either<Failure, List<Product>>> searchProducts(String query) async {
     try {
       final products = await _remoteDataSource.searchProducts(query);
