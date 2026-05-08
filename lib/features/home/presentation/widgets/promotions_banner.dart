@@ -127,7 +127,8 @@ class _PromotionCard extends StatelessWidget {
               Image.network(
                 promotion.imageUrl!,
                 fit: BoxFit.cover,
-                errorBuilder: (context, object, stackTrace) => const SizedBox.shrink(),
+                errorBuilder: (context, object, stackTrace) =>
+                    const SizedBox.shrink(),
               ),
             Container(
               decoration: const BoxDecoration(
@@ -177,5 +178,3 @@ class _PromotionCard extends StatelessWidget {
     );
   }
 }
-
-
