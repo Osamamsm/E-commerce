@@ -1,3 +1,6 @@
+import 'package:dartz/dartz.dart';
+import 'package:e_commerce/core/error/exception_mapper.dart';
+import 'package:e_commerce/core/error/failure.dart';
 import 'package:e_commerce/features/product/data/models/product.dart';
 import 'package:e_commerce/features/wish_list/data/data_sources/wishlist_remote_data_source.dart';
 import 'package:e_commerce/features/wish_list/data/repos/wishlist_repo.dart';
@@ -9,20 +12,28 @@ class WishlistRepoImpl implements WishListRepo {
 
   WishlistRepoImpl(this._remoteDataSource);
   @override
-  Future<void> addToWishList(String productId) {
-    // TODO: implement addToWishList
-    throw UnimplementedError();
+  Future<Either<Failure, void>> addToWishList(String productId) async {
+    try {
+      await _remoteDataSource.addToWishList(productId);
+      return Right(null);
+    } catch (e) {
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
+    }
   }
 
   @override
-  Future<List<Product>> getWishList() {
+  Future<Either<Failure, List<Product>>> getWishList() {
     // TODO: implement getWishList
     throw UnimplementedError();
   }
 
   @override
-  Future<void> removeFromWishList(String productId) {
-    // TODO: implement removeFromWishList
-    throw UnimplementedError();
+  Future<Either<Failure, void>> removeFromWishList(String productId) async {
+    try {
+      await _remoteDataSource.removeFromWishList(productId);
+      return Right(null);
+    } catch (e) {
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
+    }
   }
 }

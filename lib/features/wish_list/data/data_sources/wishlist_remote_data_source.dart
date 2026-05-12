@@ -9,15 +9,21 @@ abstract class WishlistRemoteDataSource {
 
 @LazySingleton(as: WishlistRemoteDataSource)
 class WishlistRemoteDataSourceImpl implements WishlistRemoteDataSource {
-
   final SupabaseService _supabaseService;
 
   WishlistRemoteDataSourceImpl(this._supabaseService);
 
   @override
-  Future<void> addToWishList(String productId) {
-    // TODO: implement addToWishList
-    throw UnimplementedError();
+  Future<void> addToWishList(String productId) async {
+    final currentUser = _supabaseService.currentUser;
+    if (currentUser == null) {
+      throw Exception('User not authenticated');
+    }
+
+    return await _supabaseService.from('wish_list').insert({
+      'user_id': currentUser.id,
+      'product_id': productId,
+    });
   }
 
   @override
@@ -27,8 +33,16 @@ class WishlistRemoteDataSourceImpl implements WishlistRemoteDataSource {
   }
 
   @override
-  Future<void> removeFromWishList(String productId) {
-    // TODO: implement removeFromWishList
-    throw UnimplementedError();
+  Future<void> removeFromWishList(String productId) async {
+    final currentUser = _supabaseService.currentUser;
+    if (currentUser == null) {
+      throw Exception('User not authenticated');
+    }
+
+    return await _supabaseService
+        .from('wish_list')
+        .delete()
+        .eq('user_id', currentUser.id)
+        .eq('product_id', productId);
   }
 }
