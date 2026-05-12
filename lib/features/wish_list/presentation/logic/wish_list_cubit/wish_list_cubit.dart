@@ -9,7 +9,7 @@ class WishlistCubit extends Cubit<WishlistState> {
 
   WishlistCubit(this._repository) : super(WishlistState.initial());
 
-  Future<void> loadIds(String userId) async {
+  Future<void> getWishListedIds() async {
     emit(state.copyWith(isLoading: true));
 
     final result = await _repository.getWishlistIds();
@@ -23,7 +23,7 @@ class WishlistCubit extends Cubit<WishlistState> {
     );
   }
 
-  Future<void> toggle(String userId, String productId) async {
+  Future<void> toggle(String productId) async {
     final updated = Set<String>.from(state.wishListedIds);
 
     if (updated.contains(productId)) {

@@ -112,6 +112,8 @@ import 'package:e_commerce/features/wish_list/data/repos/wishlist_repo_impl.dart
     as _i796;
 import 'package:e_commerce/features/wish_list/presentation/logic/get_wish_list_cubit/get_wish_list_cubit.dart'
     as _i699;
+import 'package:e_commerce/features/wish_list/presentation/logic/wish_list_cubit/wish_list_cubit.dart'
+    as _i756;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
@@ -178,6 +180,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i380.AuthRepo>(
       () => _i562.AuthRepoImpl(gh<_i254.AuthRemoteDataSource>()),
+    );
+    gh.factory<_i756.WishlistCubit>(
+      () => _i756.WishlistCubit(gh<_i733.WishListRepo>()),
     );
     gh.lazySingleton<_i245.ProfileRepo>(
       () => _i22.ProfileRepoImpl(gh<_i1063.ProfileRemoteDataSource>()),

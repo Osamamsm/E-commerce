@@ -40,6 +40,7 @@ import 'package:e_commerce/features/profile/presentation/views/profile_view.dart
 import 'package:e_commerce/features/settings/presentation/views/settings_view.dart';
 import 'package:e_commerce/features/splash/views/splash_view.dart';
 import 'package:e_commerce/features/wish_list/presentation/logic/get_wish_list_cubit/get_wish_list_cubit.dart';
+import 'package:e_commerce/features/wish_list/presentation/logic/wish_list_cubit/wish_list_cubit.dart';
 import 'package:e_commerce/features/wish_list/presentation/views/wish_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -108,6 +109,9 @@ GoRouter createRouter(AuthCubit authCubit) {
         path: HomeView.routeName,
         builder: (context, state) => MultiBlocProvider(
           providers: [
+            BlocProvider(
+              create: (context) => getIt<WishlistCubit>()..getWishListedIds(),
+            ),
             BlocProvider(
               create: (context) => getIt<CategoriesCubit>()..loadCategories(),
             ),
@@ -210,8 +214,15 @@ GoRouter createRouter(AuthCubit authCubit) {
       ),
       GoRoute(
         path: WishListView.routeName,
-        builder: (context, state) => BlocProvider(
-          create: (context) => getIt<GetWishListCubit>()..getWishList(),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => getIt<GetWishListCubit>()..getWishList(),
+            ),
+            BlocProvider(
+              create: (context) => getIt<WishlistCubit>()..getWishListedIds(),
+            ),
+          ],
           child: const WishListView(),
         ),
       ),

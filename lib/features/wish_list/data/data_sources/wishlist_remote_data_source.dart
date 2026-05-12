@@ -22,7 +22,7 @@ class WishlistRemoteDataSourceImpl implements WishlistRemoteDataSource {
       throw Exception('User not authenticated');
     }
 
-    return await _supabaseService.from('wish_list').insert({
+    return await _supabaseService.from('wishlist').insert({
       'user_id': currentUser.id,
       'product_id': productId,
     });
@@ -52,7 +52,7 @@ class WishlistRemoteDataSourceImpl implements WishlistRemoteDataSource {
     }
 
     return await _supabaseService
-        .from('wish_list')
+        .from('wishlist')
         .delete()
         .eq('user_id', currentUser.id)
         .eq('product_id', productId);
@@ -70,7 +70,7 @@ class WishlistRemoteDataSourceImpl implements WishlistRemoteDataSource {
       params: {'p_user_id': currentUser.id},
     );
 
-    final List<String> ids = (response.data as List)
+    final ids = (response as List)
       .map((item) => item['product_id'] as String)
       .toList();
 
