@@ -27,7 +27,7 @@ class ProductCard extends StatelessWidget {
             height: 220,
             width: double.infinity,
           ),
-          vGap(12),
+          vGap(8),
           Text(
             product.enName,
             style: Theme.of(context).textTheme.titleSmall,
@@ -82,7 +82,7 @@ class ProductCard extends StatelessWidget {
                 ),
             ],
           ),
-          vGap(12),
+          vGap(8),
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(

@@ -39,6 +39,7 @@ import 'package:e_commerce/features/profile/presentation/views/personal_details_
 import 'package:e_commerce/features/profile/presentation/views/profile_view.dart';
 import 'package:e_commerce/features/settings/presentation/views/settings_view.dart';
 import 'package:e_commerce/features/splash/views/splash_view.dart';
+import 'package:e_commerce/features/wish_list/presentation/logic/get_wish_list_cubit/get_wish_list_cubit.dart';
 import 'package:e_commerce/features/wish_list/presentation/views/wish_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -209,7 +210,10 @@ GoRouter createRouter(AuthCubit authCubit) {
       ),
       GoRoute(
         path: WishListView.routeName,
-        builder: (context, state) => const WishListView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => getIt<GetWishListCubit>()..getWishList(),
+          child: const WishListView(),
+        ),
       ),
       GoRoute(
         path: SettingsView.routeName,
