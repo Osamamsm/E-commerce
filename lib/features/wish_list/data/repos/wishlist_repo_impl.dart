@@ -22,9 +22,13 @@ class WishlistRepoImpl implements WishListRepo {
   }
 
   @override
-  Future<Either<Failure, List<Product>>> getWishList() {
-    // TODO: implement getWishList
-    throw UnimplementedError();
+  Future<Either<Failure, List<Product>>> getWishList() async {
+    try {
+      final products = await _remoteDataSource.getWishList();
+      return Right(products);
+    } catch (e) {
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
+    }
   }
 
   @override

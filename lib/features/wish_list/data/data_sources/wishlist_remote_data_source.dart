@@ -1,10 +1,11 @@
 import 'package:e_commerce/core/supabase/supabase_service.dart';
+import 'package:e_commerce/features/product/data/models/product.dart';
 import 'package:injectable/injectable.dart';
 
 abstract class WishlistRemoteDataSource {
   Future<void> addToWishList(String productId);
   Future<void> removeFromWishList(String productId);
-  Future<List<String>> getWishList();
+  Future<List<Product>> getWishList();
 }
 
 @LazySingleton(as: WishlistRemoteDataSource)
@@ -27,9 +28,19 @@ class WishlistRemoteDataSourceImpl implements WishlistRemoteDataSource {
   }
 
   @override
-  Future<List<String>> getWishList() {
-    // TODO: implement getWishList
-    throw UnimplementedError();
+  Future<List<Product>> getWishList() async {
+    final currentUser = _supabaseService.currentUser;
+    if (currentUser == null) {
+      throw Exception('User not authenticated');
+    }
+    final List<dynamic> response = await _supabaseService.rpc(
+      function: 'get_wishlist',
+      params: {'p_user_id': currentUser.id},
+    );
+    final List<Product> products = response
+        .map((row) => Product.fromSupabaseRow(row))
+        .toList();
+    return products;
   }
 
   @override
