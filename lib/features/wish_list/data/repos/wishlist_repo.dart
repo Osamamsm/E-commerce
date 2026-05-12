@@ -6,4 +6,5 @@ abstract class WishListRepo {
   Future<Either<Failure, void>> addToWishList(String productId);
   Future<Either<Failure, void>> removeFromWishList(String productId);
   Future<Either<Failure, List<Product>>> getWishList();
+  Future<Either<Failure, List<String>>> getWishlistIds();
 }

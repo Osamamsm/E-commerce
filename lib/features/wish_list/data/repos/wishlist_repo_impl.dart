@@ -40,4 +40,14 @@ class WishlistRepoImpl implements WishListRepo {
       return Left(ExceptionMapper.mapExceptionToFailure(e));
     }
   }
+  
+  @override
+  Future<Either<Failure, List<String>>> getWishlistIds() async {
+    try {
+      final ids = await _remoteDataSource.getWishlistIds();
+      return Right(ids);
+    } catch (e) {
+      return Left(ExceptionMapper.mapExceptionToFailure(e));
+    }
+  }
 }

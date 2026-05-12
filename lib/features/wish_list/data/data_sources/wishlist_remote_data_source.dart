@@ -6,6 +6,7 @@ abstract class WishlistRemoteDataSource {
   Future<void> addToWishList(String productId);
   Future<void> removeFromWishList(String productId);
   Future<List<Product>> getWishList();
+  Future<List<String>> getWishlistIds();
 }
 
 @LazySingleton(as: WishlistRemoteDataSource)
@@ -55,5 +56,24 @@ class WishlistRemoteDataSourceImpl implements WishlistRemoteDataSource {
         .delete()
         .eq('user_id', currentUser.id)
         .eq('product_id', productId);
+  }
+
+  @override
+  Future<List<String>> getWishlistIds() async {
+    final currentUser = _supabaseService.currentUser;
+    if (currentUser == null) {
+      throw Exception('User not authenticated');
+    }
+
+    final response = await _supabaseService.rpc(
+      function: 'get_wishlist_ids',
+      params: {'p_user_id': currentUser.id},
+    );
+
+    final List<String> ids = (response.data as List)
+      .map((item) => item['product_id'] as String)
+      .toList();
+
+    return ids;
   }
 }
