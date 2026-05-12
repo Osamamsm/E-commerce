@@ -10,6 +10,7 @@ import 'package:e_commerce/features/auth/presentation/logic/sign_out_cubit/sign_
 import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cubit.dart';
 import 'package:e_commerce/features/settings/presentation/logic/cubit/app_settings_cubit.dart';
 import 'package:e_commerce/features/settings/presentation/logic/cubit/app_settings_state.dart';
+import 'package:e_commerce/features/wish_list/presentation/logic/wish_list_cubit/wish_list_cubit.dart';
 import 'package:e_commerce/firebase_options.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -47,6 +48,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<SignOutCubit>()),
         BlocProvider(create: (context) => getIt<ProfileCubit>()),
         BlocProvider(create: (context) => getIt<AppSettingsCubit>()),
+        BlocProvider(
+          create: (context) => getIt<WishlistCubit>()..getWishListedIds(),
+        ),
       ],
       child: BlocListener<AuthCubit, AppAuthState>(
         listener: (context, state) {
