@@ -104,6 +104,12 @@ import 'package:e_commerce/features/profile/presentation/logic/cubit/profile_cub
     as _i725;
 import 'package:e_commerce/features/settings/presentation/logic/cubit/app_settings_cubit.dart'
     as _i259;
+import 'package:e_commerce/features/wish_list/data/data_sources/wishlist_remote_data_source.dart'
+    as _i696;
+import 'package:e_commerce/features/wish_list/data/repos/wishlist_repo.dart'
+    as _i733;
+import 'package:e_commerce/features/wish_list/data/repos/wishlist_repo_impl.dart'
+    as _i796;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
@@ -145,6 +151,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i259.AppSettingsCubit>(
       () => _i259.AppSettingsCubit(gh<_i78.UserPreferencesHelper>()),
     );
+    gh.lazySingleton<_i696.WishlistRemoteDataSource>(
+      () => _i696.WishlistRemoteDataSourceImpl(gh<_i74.SupabaseService>()),
+    );
     gh.lazySingleton<_i295.AddressRemoteDataSource>(
       () => _i295.AddressRemoteDataSourceImpl(gh<_i74.SupabaseService>()),
     );
@@ -153,6 +162,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i651.ProductRemoteDataSource>(
       () => _i651.ProductSupabaseDataSourceImpl(gh<_i74.SupabaseService>()),
+    );
+    gh.lazySingleton<_i733.WishListRepo>(
+      () => _i796.WishlistRepoImpl(gh<_i696.WishlistRemoteDataSource>()),
     );
     gh.lazySingleton<_i1005.ProductRepo>(
       () => _i977.ProductRepoImpl(gh<_i651.ProductRemoteDataSource>()),
