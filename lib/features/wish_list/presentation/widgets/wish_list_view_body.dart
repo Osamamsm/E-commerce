@@ -2,6 +2,8 @@ import 'package:e_commerce/core/helpers/constants.dart';
 import 'package:e_commerce/features/product/data/models/product.dart';
 import 'package:e_commerce/features/wish_list/presentation/logic/get_wish_list_cubit/get_wish_list_cubit.dart';
 import 'package:e_commerce/features/wish_list/presentation/logic/get_wish_list_cubit/get_wish_list_state.dart';
+import 'package:e_commerce/features/wish_list/presentation/logic/wish_list_cubit/wish_list_cubit.dart';
+import 'package:e_commerce/features/wish_list/presentation/logic/wish_list_cubit/wish_list_state.dart';
 import 'package:e_commerce/features/wish_list/presentation/widgets/wish_list_grid_view.dart';
 import 'package:e_commerce/features/wish_list/presentation/widgets/wishlist_empty_body.dart';
 import 'package:e_commerce/features/wish_list/presentation/widgets/wishlist_failure_body.dart';
@@ -15,27 +17,34 @@ class WishListViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: Constants.kHorizontalPaddingMedium,
-      child: BlocBuilder<GetWishListCubit, GetWishListState>(
-        builder: (context, state) {
-          if (state is GetWishListFailure) {
-            return WishlistFailureBody(message: state.message);
-          } else if (state is GetWishListSuccess) {
-            final products = state.products;
-            if (products.isEmpty) {
-              return WishlistEmptyBody(onBrowse: () {});
-            } else {
-              return WishListGridView(products: products);
-            }
-          }
-          return WishListGridView(
-            isLoading: true,
-            products: [
-              Product.placeholder(),
-              Product.placeholder(),
-              Product.placeholder(),
-            ],
+      child: BlocListener<WishlistCubit, WishlistState>(
+        listener: (context, state) {
+          context.read<GetWishListCubit>().removeIfNotInWishlist(
+            state.wishListedIds,
           );
         },
+        child: BlocBuilder<GetWishListCubit, GetWishListState>(
+          builder: (context, state) {
+            if (state is GetWishListFailure) {
+              return WishlistFailureBody(message: state.message);
+            } else if (state is GetWishListSuccess) {
+              final products = state.products;
+              if (products.isEmpty) {
+                return WishlistEmptyBody(onBrowse: () {});
+              } else {
+                return WishListGridView(products: products);
+              }
+            }
+            return WishListGridView(
+              isLoading: true,
+              products: [
+                Product.placeholder(),
+                Product.placeholder(),
+                Product.placeholder(),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

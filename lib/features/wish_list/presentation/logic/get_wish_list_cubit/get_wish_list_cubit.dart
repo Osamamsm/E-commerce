@@ -17,4 +17,17 @@ class GetWishListCubit extends Cubit<GetWishListState> {
       (products) => emit(GetWishListSuccess(products)),
     );
   }
+
+  void removeIfNotInWishlist(Set<String> wishListedIds) {
+    final currentState = state;
+    if (currentState is! GetWishListSuccess) return;
+
+    final updated = currentState.products
+        .where((p) => wishListedIds.contains(p.id))
+        .toList();
+
+    if (updated.length != currentState.products.length) {
+      emit(GetWishListSuccess(updated));
+    }
+  }
 }

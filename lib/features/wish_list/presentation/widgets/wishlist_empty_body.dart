@@ -1,4 +1,6 @@
+import 'package:e_commerce/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class WishlistEmptyBody extends StatelessWidget {
   final VoidCallback onBrowse;
@@ -48,7 +50,9 @@ class WishlistEmptyBody extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: FilledButton(
-                onPressed: onBrowse,
+                onPressed: () {
+                  context.go(HomeView.routeName);
+                },
                 child: const Text('Browse Products'),
               ),
             ),
