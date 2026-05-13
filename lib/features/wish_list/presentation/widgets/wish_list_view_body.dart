@@ -1,36 +1,51 @@
-import 'package:e_commerce/features/wish_list/presentation/widgets/wishlist_product_card.dart';
+import 'package:e_commerce/core/helpers/constants.dart';
+import 'package:e_commerce/features/product/data/models/product.dart';
+import 'package:e_commerce/features/wish_list/presentation/logic/get_wish_list_cubit/get_wish_list_cubit.dart';
+import 'package:e_commerce/features/wish_list/presentation/logic/get_wish_list_cubit/get_wish_list_state.dart';
+import 'package:e_commerce/features/wish_list/presentation/logic/wish_list_cubit/wish_list_cubit.dart';
+import 'package:e_commerce/features/wish_list/presentation/logic/wish_list_cubit/wish_list_state.dart';
+import 'package:e_commerce/features/wish_list/presentation/widgets/wish_list_grid_view.dart';
+import 'package:e_commerce/features/wish_list/presentation/widgets/wishlist_empty_body.dart';
+import 'package:e_commerce/features/wish_list/presentation/widgets/wishlist_failure_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WishListViewBody extends StatelessWidget {
   const WishListViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 16,
-                childAspectRatio: 0.63,
-              ),
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return const WishlistProductCard(
-                  imageUrl:
-                      "https://lh3.googleusercontent.com/aida-public/AB6AXuA6OOJUU2d11VuboNdsbW9NU-MCDa87jpdLKCOgoocimgPT16CoHYnRUVijhvGE7esI_-cc5oKo909tR_9icPiA-e3sbKNTKp_xX6DAtJ9G69H_ENMNw2fw8KtJfIQp2RhiUtNx5zJChh9VMLPbccA_0OUNJwyeLy0ytWNj083-LcCfSKRFV4K7y-BX-Ay38vVE-NX_QcGuD3-mh8WPQPa-_-n0KjdoZErkZr4zFqlCHfGq0tdfUR2uV7MilntwOQddNwMaX6Xb99w",
-                  title: 'Classic Leather Jacket',
-                  price: '199.99',
-                );
-              },
-            ),
-          ),
+    return Padding(
+      padding: Constants.kHorizontalPaddingMedium,
+      child: BlocListener<WishlistCubit, WishlistState>(
+        listener: (context, state) {
+          context.read<GetWishListCubit>().removeIfNotInWishlist(
+            state.wishListedIds,
+          );
+        },
+        child: BlocBuilder<GetWishListCubit, GetWishListState>(
+          builder: (context, state) {
+            if (state is GetWishListFailure) {
+              return WishlistFailureBody(message: state.message);
+            } else if (state is GetWishListSuccess) {
+              final products = state.products;
+              if (products.isEmpty) {
+                return WishlistEmptyBody(onBrowse: () {});
+              } else {
+                return WishListGridView(products: products);
+              }
+            }
+            return WishListGridView(
+              isLoading: true,
+              products: [
+                Product.placeholder(),
+                Product.placeholder(),
+                Product.placeholder(),
+              ],
+            );
+          },
         ),
-      ],
+      ),
     );
   }
 }

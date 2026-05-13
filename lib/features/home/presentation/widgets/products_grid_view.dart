@@ -20,7 +20,7 @@ class ProductsGridView extends StatelessWidget {
         crossAxisCount: 2,
         crossAxisSpacing: 25,
         mainAxisSpacing: 20,
-        childAspectRatio: .4,
+        childAspectRatio: .44,
       ),
       delegate: SliverChildBuilderDelegate((context, index) {
         return Skeletonizer(
