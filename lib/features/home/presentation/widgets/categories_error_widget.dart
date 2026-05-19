@@ -12,7 +12,7 @@ class CategoriesErrorWidget extends StatelessWidget {
       height: 90,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: const Color(0xFF18181B),
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(18),
         border: Border.all(color: Colors.white.withValues(alpha: .06)),
       ),

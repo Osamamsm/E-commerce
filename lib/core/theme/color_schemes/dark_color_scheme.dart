@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 
 const ColorScheme darkColorScheme = ColorScheme(
   brightness: Brightness.dark,
-  primary: Color(0xFF581c87),
-  onPrimary: Colors.white,
-  secondary: Color(0xFF212148),
-  onSecondary: Colors.white,
-  surface: Colors.black,
-  onSurface: Colors.white,
-  primaryContainer: Color.fromARGB(255, 24, 24, 36),
-  onPrimaryContainer: Colors.white,
-  error: Color(0xFFF2B8B5),
-  onError: Colors.white,
-  outline: Color.fromARGB(255, 44, 44, 45),
+  primary: Color(0xFF60A5FA), // Blue-400 — bright enough on dark bg
+  onPrimary: Color(0xFF0F172A), // Dark navy text on primary
+  secondary: Color(0xFF1E3A5F), // Dark navy — secondary fills
+  onSecondary: Color(0xFFE2E8F0), // Slate-200 text on secondary
+  surface: Color(0xFF0F172A), // Slate-900 — main background
+  onSurface: Color(0xFFF1F5F9), // Slate-100 — primary text
+  primaryContainer: Color(0xFF1E293B), // Slate-800 — cards, containers
+  onPrimaryContainer: Color(0xFFE2E8F0),
+  surfaceContainerHighest: Color(0xFF1E293B),
+  error: Color(0xFFFCA5A5), // Red-300 — softer on dark bg
+  onError: Color(0xFF7F1D1D),
+  outline: Color(0xFF334155), // Slate-700 — subtle borders
 );

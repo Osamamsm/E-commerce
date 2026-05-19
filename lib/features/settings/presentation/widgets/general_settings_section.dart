@@ -33,7 +33,7 @@ class GeneralSettingsSection extends StatelessWidget {
               onChanged: (value) {
                 context.read<AppSettingsCubit>().setLocale(Locale(value));
               },
-              colors: [Color(0xFF3B82F6), Color(0xFF7C3AED)],
+              colors: [Theme.of(context).colorScheme.secondary, Theme.of(context).colorScheme.primary],
             ),
             SettingsItem(
               title: S.of(context).theme,
@@ -48,7 +48,7 @@ class GeneralSettingsSection extends StatelessWidget {
                   ThemeMode.values.firstWhere((e) => e.name == value),
                 );
               },
-              colors: [Color.fromARGB(255, 77, 10, 150), Color(0xFF7C3AED)],
+              colors: [Theme.of(context).colorScheme.primary, Theme.of(context).colorScheme.primary],
             ),
           ],
         );

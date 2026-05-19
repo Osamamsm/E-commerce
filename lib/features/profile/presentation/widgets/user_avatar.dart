@@ -15,7 +15,7 @@ class UserAvatar extends StatelessWidget {
           height: 100,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            border: Border.all(color: const Color(0xFF9333ea), width: 3),
+            border: Border.all(color: Theme.of(context).colorScheme.primary, width: 3),
           ),
           child: CircleAvatar(
             radius: 50,

@@ -15,19 +15,19 @@ class SettingsSupportSection extends StatelessWidget {
         LinkItem(
           label: S.of(context).help_center,
           icon: Icons.help,
-          colors: [Color(0xFF3B82F6), Color(0xFF7C3AED)],
+          colors: [Theme.of(context).colorScheme.secondary, Theme.of(context).colorScheme.primary],
           onTap: () {},
         ),
         LinkItem(
           label: S.of(context).contact_us,
           icon: Icons.contact_support,
-          colors: [Color(0xFF3B82F6), Color(0xFF7C3AED)],
+          colors: [Theme.of(context).colorScheme.secondary, Theme.of(context).colorScheme.primary],
           onTap: () {},
         ),
         LinkItem(
           label: 'App Version 2.4.1',
           icon: Icons.mobile_friendly,
-          colors: [Color(0xFF3B82F6), Color(0xFF7C3AED)],
+          colors: [Theme.of(context).colorScheme.secondary, Theme.of(context).colorScheme.primary],
           onTap: () {},
         ),
       ],

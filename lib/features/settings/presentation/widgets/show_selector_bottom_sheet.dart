@@ -1,34 +1,51 @@
 import 'package:flutter/material.dart';
 
-void showSelectorBottomSheet(BuildContext context,String title,List<Map<String, dynamic>> items,String selectedItem,Function(String) onSelected) {
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: const Color(0xFF1F1534),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) => Container(
+void showSelectorBottomSheet(
+  BuildContext context,
+  String title,
+  List<Map<String, dynamic>> items,
+  String selectedItem,
+  Function(String) onSelected,
+) {
+  showModalBottomSheet(
+    context: context,
+    backgroundColor: Theme.of(context).colorScheme.surfaceContainer,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+    ),
+    builder: (context) {
+      final cs = Theme.of(context).colorScheme;
+      return Container(
         padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              title,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+            // Drag handle
+            Container(
+              width: 40,
+              height: 4,
+              margin: const EdgeInsets.only(bottom: 16),
+              decoration: BoxDecoration(
+                color: cs.onSurface.withValues(alpha: 0.2),
+                borderRadius: BorderRadius.circular(2),
               ),
             ),
-            const SizedBox(height: 20),
+            Text(
+              title,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: 16),
             ...items.map((item) => ListTile(
               title: Text(
                 item['label'],
-                style: const TextStyle(color: Colors.white),
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
               trailing: selectedItem == item['value']
-                  ? const Icon(Icons.check, color: Color(0xFF7C3AED))
+                  ? Icon(Icons.check_rounded, color: cs.primary)
                   : null,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
               onTap: () {
                 onSelected(item['value']);
                 Navigator.pop(context);
@@ -36,6 +53,7 @@ void showSelectorBottomSheet(BuildContext context,String title,List<Map<String, 
             )),
           ],
         ),
-      ),
-    );
-  }
+      );
+    },
+  );
+}

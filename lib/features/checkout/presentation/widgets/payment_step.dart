@@ -36,7 +36,7 @@ class _PaymentStepState extends State<PaymentStep> {
                       Text(
                         S.of(context).payment_method,
                         style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          color: const Color(0xFF6B6B7B),
+                          color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
                           letterSpacing: 1.2,
                         ),
                       ),
@@ -84,7 +84,7 @@ class _PaymentStepState extends State<PaymentStep> {
               },
               child: Text(
                 S.of(context).back_to_address,
-                style: TextStyle(color: Color(0xFF9B9BA5), fontSize: 14),
+                style: TextStyle(color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5), fontSize: 14),
               ),
             ),
             vGap(8),

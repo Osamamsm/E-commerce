@@ -1,65 +1,52 @@
 import 'package:flutter/material.dart';
 
 class InputThemes {
-  static final OutlineInputBorder _glassBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(16),
-    borderSide: BorderSide(
-      color: const Color(0xFF7e22ce).withValues(alpha: .3),
-      width: 1,
-    ),
-  );
+  static OutlineInputBorder _border(Color color, {double width = 1}) =>
+      OutlineInputBorder(
+        borderRadius: BorderRadius.circular(14),
+        borderSide: BorderSide(color: color, width: width),
+      );
 
-  static final OutlineInputBorder _glassFocusedBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(16),
-    borderSide: BorderSide(
-      color: const Color(0xFF9333ea).withValues(alpha: .6),
-      width: 2,
-    ),
-  );
-
-  static final EdgeInsets _padding = EdgeInsets.symmetric(
+  static const EdgeInsets _padding = EdgeInsets.symmetric(
     horizontal: 16,
     vertical: 16,
   );
 
   static InputDecorationTheme _buildTheme({
     required Color fillColor,
-    TextStyle? hintStyle,
+    required Color borderColor,
+    required Color focusedBorderColor,
+    required TextStyle hintStyle,
   }) {
     return InputDecorationTheme(
       filled: true,
       fillColor: fillColor,
       hintStyle: hintStyle,
       contentPadding: _padding,
-      border: _glassBorder,
-      enabledBorder: _glassBorder,
-      focusedBorder: _glassFocusedBorder,
-      errorBorder: _glassBorder,
-      focusedErrorBorder: _glassFocusedBorder,
+      border: _border(borderColor),
+      enabledBorder: _border(borderColor),
+      focusedBorder: _border(focusedBorderColor, width: 2),
+      errorBorder: _border(const Color(0xFFDC2626)),
+      focusedErrorBorder: _border(const Color(0xFFDC2626), width: 2),
     );
   }
 
   static final InputDecorationTheme lightInputTheme = _buildTheme(
-    fillColor: Colors.white.withValues(alpha: .1),
-    hintStyle: TextStyle(
-      color: Colors.white.withValues(alpha: .5),
+    fillColor: Colors.white,
+    borderColor: const Color(0xFFCBD5E1), // Slate-300
+    focusedBorderColor: const Color(0xFF2563EB), // Blue-600
+    hintStyle: const TextStyle(
+      color: Color(0xFF94A3B8), // Slate-400
       fontSize: 14,
     ),
   );
 
   static final InputDecorationTheme darkInputTheme = _buildTheme(
-    fillColor: const Color(0xFF581c87).withValues(alpha: .3),
-    hintStyle: TextStyle(
-      color: Colors.white.withValues(alpha: .5),
-      fontSize: 14,
-    ),
-  );
-
-  // Glass input theme specifically for the purple gradient background
-  static final InputDecorationTheme glassInputTheme = _buildTheme(
-    fillColor: const Color(0xFF581c87).withValues(alpha: .3),
-    hintStyle: TextStyle(
-      color: Colors.white.withValues(alpha: .5),
+    fillColor: const Color(0xFF1E293B), // Slate-800
+    borderColor: const Color(0xFF334155), // Slate-700
+    focusedBorderColor: const Color(0xFF60A5FA), // Blue-400
+    hintStyle: const TextStyle(
+      color: Color(0xFF64748B), // Slate-500
       fontSize: 14,
     ),
   );

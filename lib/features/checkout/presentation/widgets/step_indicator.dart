@@ -34,7 +34,7 @@ class StepIndicator extends StatelessWidget {
                           Theme.of(context).colorScheme.primary,
                           Theme.of(context).colorScheme.primary,
                         ]
-                      : [const Color(0xFF2D2440), const Color(0xFF2D2440)],
+                      : [Theme.of(context).colorScheme.surface, Theme.of(context).colorScheme.surface],
                 ),
               ),
             ),
@@ -79,15 +79,15 @@ class _StepCircle extends StatelessWidget {
                 ? Theme.of(context).colorScheme.primary
                 : isCompleted
                 ? Theme.of(context).colorScheme.primary
-                : const Color(0xFF2D2440),
+                : Theme.of(context).colorScheme.surface,
             border: Border.all(
-              color: isUpcoming ? const Color(0xFF2D2440) : Colors.transparent,
+              color: isUpcoming ? Theme.of(context).colorScheme.surface : Colors.transparent,
               width: 2,
             ),
           ),
           child: Icon(
             isCompleted ? Icons.check : _getIcon(),
-            color: isUpcoming ? const Color(0xFF6B6B7B) : Colors.white,
+            color: isUpcoming ? Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5) : Colors.white,
             size: 24,
           ),
         ),
@@ -95,7 +95,7 @@ class _StepCircle extends StatelessWidget {
         Text(
           label,
           style: TextStyle(
-            color: isUpcoming ? const Color(0xFF6B6B7B) : Colors.white,
+            color: isUpcoming ? Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5) : Colors.white,
             fontSize: 12,
             fontWeight: isCurrent ? FontWeight.w600 : FontWeight.w400,
           ),

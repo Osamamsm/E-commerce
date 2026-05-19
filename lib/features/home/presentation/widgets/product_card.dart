@@ -99,6 +99,7 @@ class ProductCard extends StatelessWidget {
           vGap(8),
           SizedBox(
             width: double.infinity,
+            height: 45,
             child: ElevatedButton(
               onPressed: () {},
               child: Text(S.of(context).add_to_cart),

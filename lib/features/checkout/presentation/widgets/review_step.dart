@@ -38,7 +38,7 @@ class ReviewStep extends StatelessWidget {
                 Text(
                   S.of(context).delivery_address,
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                    color: const Color(0xFF6B6B7B),
+                    color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
                     letterSpacing: 1.2,
                   ),
                 ),
@@ -48,7 +48,7 @@ class ReviewStep extends StatelessWidget {
                 Text(
                   S.of(context).payment_method,
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                    color: const Color(0xFF6B6B7B),
+                    color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
                     letterSpacing: 1.2,
                   ),
                 ),
@@ -58,7 +58,7 @@ class ReviewStep extends StatelessWidget {
                 Text(
                   S.of(context).order_summary,
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                    color: const Color(0xFF6B6B7B),
+                    color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
                     letterSpacing: 1.2,
                   ),
                 ),
@@ -100,7 +100,7 @@ class ReviewStep extends StatelessWidget {
                 },
                 child: Text(
                   S.of(context).back_to_payment,
-                  style: TextStyle(color: Color(0xFF9B9BA5), fontSize: 14),
+                  style: TextStyle(color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5), fontSize: 14),
                 ),
               ),
               vGap(8),
@@ -122,7 +122,7 @@ class _AddressSummary extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1330),
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -131,12 +131,12 @@ class _AddressSummary extends StatelessWidget {
             width: 36,
             height: 36,
             decoration: BoxDecoration(
-              color: const Color(0xFF2D2440),
+              color: Theme.of(context).colorScheme.surface,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Icon(
               address.type == 'Home' ? Icons.home : Icons.business,
-              color: const Color(0xFF7C3AED),
+              color: Theme.of(context).colorScheme.primary,
               size: 18,
             ),
           ),
@@ -158,7 +158,7 @@ class _PaymentSummary extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1330),
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -168,8 +168,8 @@ class _PaymentSummary extends StatelessWidget {
             height: 24,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
-              gradient: const LinearGradient(
-                colors: [Color(0xFFEB001B), Color(0xFFF79E1B)],
+              gradient: LinearGradient(
+                colors: [Theme.of(context).colorScheme.error, Theme.of(context).colorScheme.secondary],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
               ),
@@ -193,7 +193,7 @@ class _OrderItemCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1330),
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -202,12 +202,12 @@ class _OrderItemCard extends StatelessWidget {
             width: 60,
             height: 60,
             decoration: BoxDecoration(
-              color: const Color(0xFF2D2440),
+              color: Theme.of(context).colorScheme.surface,
               borderRadius: BorderRadius.circular(12),
             ),
-            child: const Icon(
+            child: Icon(
               Icons.shopping_bag,
-              color: Color(0xFF7C3AED),
+              color: Theme.of(context).colorScheme.primary,
               size: 24,
             ),
           ),
@@ -227,8 +227,8 @@ class _OrderItemCard extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   item.color,
-                  style: const TextStyle(
-                    color: Color(0xFF6B6B7B),
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
                     fontSize: 12,
                   ),
                 ),
@@ -268,7 +268,7 @@ class _PriceSummary extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1330),
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(

@@ -22,7 +22,7 @@ class ProductDetailsView extends StatelessWidget {
             return IconButton(
               icon: Icon(
                 isWishListed ? Icons.favorite : Icons.favorite_border,
-                color: const Color(0xFFd946ef),
+                color: Theme.of(context).colorScheme.primary,
               ),
               onPressed: () => context.read<WishlistCubit>().toggle(productId),
             );

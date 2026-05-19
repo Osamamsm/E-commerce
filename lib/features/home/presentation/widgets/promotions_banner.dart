@@ -88,7 +88,9 @@ class _PromotionsBannerState extends State<PromotionsBanner> {
                 height: 6,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(3),
-                  color: isActive ? const Color(0xFF7C3AED) : Colors.white24,
+                  color: isActive
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.2),
                 ),
               );
             }),
@@ -115,7 +117,7 @@ class _PromotionCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(18),
           gradient: LinearGradient(
-            colors: const [Color(0xFF7C3AED), Color(0xFF4C1D95)],
+            colors: [Theme.of(context).colorScheme.primary, Color(0xFF4C1D95)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -131,11 +133,11 @@ class _PromotionCard extends StatelessWidget {
                     const SizedBox.shrink(),
               ),
             Container(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
-                  colors: [Color(0xCC000000), Color(0x33000000)],
+                  colors: [Colors.black.withValues(alpha: 0.8), Colors.black.withValues(alpha: 0.2)],
                 ),
               ),
             ),

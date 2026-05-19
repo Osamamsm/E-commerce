@@ -118,7 +118,7 @@ class _ProductsFilterSortBarState extends State<ProductsFilterSortBar> {
   void _showSortSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF120830),
+      backgroundColor: Theme.of(context).colorScheme.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
       ),
@@ -135,7 +135,7 @@ class _ProductsFilterSortBarState extends State<ProductsFilterSortBar> {
   void _showRatingSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF120830),
+      backgroundColor: Theme.of(context).colorScheme.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
       ),
@@ -156,7 +156,7 @@ class _ProductsFilterSortBarState extends State<ProductsFilterSortBar> {
   void _showPriceSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF120830),
+      backgroundColor: Theme.of(context).colorScheme.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
       ),
@@ -190,11 +190,13 @@ class _SortChip extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         decoration: BoxDecoration(
-          color: const Color(0xFF7C3AED),
+          color: Theme.of(context).colorScheme.primary,
           borderRadius: BorderRadius.circular(22),
           boxShadow: [
             BoxShadow(
-              color: const Color(0xFF7C3AED).withValues(alpha: .35),
+              color: Theme.of(
+                context,
+              ).colorScheme.primary.withValues(alpha: .35),
               blurRadius: 6,
               offset: const Offset(0, 2),
             ),
@@ -247,10 +249,14 @@ class _FilterChip extends StatelessWidget {
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         decoration: BoxDecoration(
-          color: isActive ? const Color(0xFF7C3AED) : const Color(0xFF1E1040),
+          color: isActive
+              ? Theme.of(context).colorScheme.primary
+              : Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(22),
           border: Border.all(
-            color: isActive ? const Color(0xFF7C3AED) : const Color(0x44FFFFFF),
+            color: isActive
+                ? Theme.of(context).colorScheme.primary
+                : Colors.white.withValues(alpha: 0.26),
             width: 1,
           ),
         ),
@@ -319,10 +325,9 @@ class _SortBottomSheet extends StatelessWidget {
 
   const _SortBottomSheet({required this.current, required this.onSelected});
 
-  static const _purple = Color(0xFF7C3AED);
-
   @override
   Widget build(BuildContext context) {
+    final primary = Theme.of(context).colorScheme.primary;
     return SafeArea(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -352,19 +357,19 @@ class _SortBottomSheet extends StatelessWidget {
             return ListTile(
               leading: Icon(
                 option.icon,
-                color: isSelected ? _purple : Colors.white54,
+                color: isSelected ? primary : Colors.white54,
                 size: 20,
               ),
               title: Text(
                 option.label,
                 style: TextStyle(
-                  color: isSelected ? _purple : Colors.white,
+                  color: isSelected ? primary : Colors.white,
                   fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
                   fontSize: 14,
                 ),
               ),
               trailing: isSelected
-                  ? const Icon(Icons.check_rounded, color: _purple, size: 18)
+                  ? Icon(Icons.check_rounded, color: primary, size: 18)
                   : null,
               onTap: () => onSelected(option),
             );
@@ -394,7 +399,6 @@ class _RatingBottomSheet extends StatefulWidget {
 class _RatingBottomSheetState extends State<_RatingBottomSheet> {
   double? _selected;
 
-  static const _purple = Color(0xFF7C3AED);
   static const _starColor = Color(0xFFFBBF24);
   static const _options = [1.0, 2.0, 3.0, 4.0];
 
@@ -406,6 +410,7 @@ class _RatingBottomSheetState extends State<_RatingBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final primary = Theme.of(context).colorScheme.primary;
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
@@ -450,16 +455,18 @@ class _RatingBottomSheetState extends State<_RatingBottomSheet> {
                     width: 72,
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     decoration: BoxDecoration(
-                      color: isSelected ? _purple : const Color(0xFF1E1040),
+                      color: isSelected
+                          ? primary
+                          : Theme.of(context).colorScheme.surface,
                       borderRadius: BorderRadius.circular(14),
                       border: Border.all(
-                        color: isSelected ? _purple : Colors.white12,
+                        color: isSelected ? primary : Colors.white12,
                         width: 1.5,
                       ),
                       boxShadow: isSelected
                           ? [
                               BoxShadow(
-                                color: _purple.withValues(alpha: 0.4),
+                                color: primary.withValues(alpha: 0.4),
                                 blurRadius: 10,
                                 offset: const Offset(0, 4),
                               ),
@@ -553,8 +560,6 @@ class _PriceRangeBottomSheet extends StatefulWidget {
 class _PriceRangeBottomSheetState extends State<_PriceRangeBottomSheet> {
   late RangeValues _range;
 
-  static const _purple = Color(0xFF7C3AED);
-
   @override
   void initState() {
     super.initState();
@@ -566,6 +571,7 @@ class _PriceRangeBottomSheetState extends State<_PriceRangeBottomSheet> {
   @override
   Widget build(BuildContext context) {
     final bool isDirty = _range.start != 0 || _range.end != widget.maxPrice;
+    final primary = Theme.of(context).colorScheme.primary;
 
     return SafeArea(
       child: Padding(
@@ -613,15 +619,15 @@ class _PriceRangeBottomSheetState extends State<_PriceRangeBottomSheet> {
             // Range slider
             SliderTheme(
               data: SliderTheme.of(context).copyWith(
-                activeTrackColor: _purple,
+                activeTrackColor: primary,
                 inactiveTrackColor: Colors.white12,
                 thumbColor: Colors.white,
-                overlayColor: _purple.withValues(alpha: 0.2),
+                overlayColor: primary.withValues(alpha: 0.2),
                 rangeThumbShape: const RoundRangeSliderThumbShape(
                   enabledThumbRadius: 10,
                 ),
                 trackHeight: 4,
-                overlappingShapeStrokeColor: _purple,
+                overlappingShapeStrokeColor: primary,
               ),
               child: RangeSlider(
                 values: _range,
@@ -691,22 +697,21 @@ class _SheetFilledButton extends StatelessWidget {
     required this.onTap,
   });
 
-  static const _purple = Color(0xFF7C3AED);
-
   @override
   Widget build(BuildContext context) {
+    final primary = Theme.of(context).colorScheme.primary;
     return GestureDetector(
       onTap: onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         height: 50,
         decoration: BoxDecoration(
-          color: enabled ? _purple : Colors.white12,
+          color: enabled ? primary : Colors.white12,
           borderRadius: BorderRadius.circular(14),
           boxShadow: enabled
               ? [
                   BoxShadow(
-                    color: _purple.withValues(alpha: 0.4),
+                    color: primary.withValues(alpha: 0.4),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),

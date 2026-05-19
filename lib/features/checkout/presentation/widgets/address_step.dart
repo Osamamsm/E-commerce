@@ -38,7 +38,7 @@ class _AddressStepState extends State<AddressStep> {
                       Text(
                         S.of(context).shipping_to,
                         style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          color: const Color(0xFF6B6B7B),
+                          color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
                           letterSpacing: 1.2,
                         ),
                       ),

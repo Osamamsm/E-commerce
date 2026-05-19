@@ -40,7 +40,9 @@ class LinkItem extends StatelessWidget {
               ),
               Icon(
                 Icons.open_in_new,
-                color: const Color(0xFFA78BFA).withValues(alpha: 0.8),
+                color: Theme.of(
+                  context,
+                ).colorScheme.primary.withValues(alpha: 0.8),
                 size: 18,
               ),
             ],

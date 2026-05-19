@@ -26,7 +26,9 @@ class SettingsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.transparent,
+      color: Theme.of(
+        context,
+      ).colorScheme.primaryContainer.withValues(alpha: 0.3),
       child: InkWell(
         onTap: () => showSelectorBottomSheet(
           context,
@@ -50,7 +52,9 @@ class SettingsItem extends StatelessWidget {
               Text(
                 value,
                 style: TextStyle(
-                  color: const Color(0xFFA78BFA).withValues(alpha: 0.8),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.primary.withValues(alpha: 0.8),
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                 ),
@@ -58,7 +62,9 @@ class SettingsItem extends StatelessWidget {
               hGap(8),
               Icon(
                 Icons.chevron_right,
-                color: const Color(0xFFA78BFA).withValues(alpha: 0.8),
+                color: Theme.of(
+                  context,
+                ).colorScheme.primary.withValues(alpha: 0.8),
                 size: 20,
               ),
             ],

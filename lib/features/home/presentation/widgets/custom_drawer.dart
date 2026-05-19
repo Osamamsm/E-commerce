@@ -67,18 +67,16 @@ class _DrawerQuickAccessMenu extends StatelessWidget {
               style: theme.textTheme.labelSmall,
             ),
           ),
-          ...Constants.getMenuItems(context)
-              .map(
-                (e) => Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: CustomMenuItem(
-                    icon: e.icon,
-                    label: e.label,
-                    onTap: e.onTap,
-                  ),
-                ),
-              )
-              .toList(),
+          ...Constants.getMenuItems(context).map(
+            (e) => Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: CustomMenuItem(
+                icon: e.icon,
+                label: e.label,
+                onTap: e.onTap,
+              ),
+            ),
+          ),
         ],
       ),
     );

@@ -34,12 +34,12 @@ class AddressCardHeader extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: const Color(0xFF7e22ce).withValues(alpha: 0.5),
+            color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.5),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Icon(
             _getIconForType(address.label),
-            color: const Color(0xFFe9d5ff),
+            color: Theme.of(context).colorScheme.onPrimary,
             size: 20,
           ),
         ),

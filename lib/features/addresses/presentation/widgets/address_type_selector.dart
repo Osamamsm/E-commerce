@@ -23,7 +23,7 @@ class AddressTypeSelector extends StatelessWidget {
           child: Text(
             S.of(context).label_as,
             style: TextStyle(
-              color: Color(0xFF9ca3af),
+              color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
               fontSize: 12,
               fontWeight: FontWeight.w500,
               letterSpacing: 0.5,

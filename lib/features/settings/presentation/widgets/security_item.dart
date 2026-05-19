@@ -36,7 +36,7 @@ class SecurityItem extends StatelessWidget {
               ),
               Icon(
                 Icons.chevron_right,
-                color: const Color(0xFFA78BFA).withValues(alpha: 0.8),
+                color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.8),
                 size: 20,
               ),
             ],

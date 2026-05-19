@@ -4,9 +4,7 @@ import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class SecuritySettingsSection extends StatelessWidget {
-  const SecuritySettingsSection({
-    super.key,
-  });
+  const SecuritySettingsSection({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -23,13 +23,13 @@ class AddressTypeChip extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 16),
           decoration: BoxDecoration(
             color: isSelected
-                ? const Color(0xFF9333ea).withValues(alpha: 0.6)
-                : const Color(0xFF581c87).withValues(alpha: 0.3),
+                ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.6)
+                : Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
               color: isSelected
-                  ? const Color(0xFF9333ea)
-                  : const Color(0xFF7e22ce).withValues(alpha: 0.3),
+                  ? Theme.of(context).colorScheme.primary
+                  : Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
               width: isSelected ? 2 : 1,
             ),
           ),

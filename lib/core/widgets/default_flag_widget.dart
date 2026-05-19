@@ -9,7 +9,7 @@ class DefaultFlagWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       decoration: BoxDecoration(
-        color: const Color(0xFF7e22ce).withValues(alpha: 0.5),
+        color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Text(

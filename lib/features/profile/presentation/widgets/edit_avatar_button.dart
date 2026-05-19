@@ -14,9 +14,9 @@ class EditAvatarButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(6),
         decoration: BoxDecoration(
-          color: const Color(0xFF9333ea),
+          color: Theme.of(context).colorScheme.primary,
           shape: BoxShape.circle,
-          border: Border.all(color: const Color(0xFF1e1b4b), width: 2),
+          border: Border.all(color: Theme.of(context).colorScheme.surface, width: 2),
         ),
         child: const Icon(Icons.edit, size: 16, color: Colors.white),
       ),

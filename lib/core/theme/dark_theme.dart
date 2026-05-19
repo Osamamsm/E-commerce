@@ -9,14 +9,22 @@ ThemeData buildDarkTheme() {
   return ThemeData(
     useMaterial3: true,
     colorScheme: darkColorScheme,
-    textTheme: AppTypography.textTheme,
+    scaffoldBackgroundColor: const Color(0xFF0F172A),
     inputDecorationTheme: InputThemes.darkInputTheme,
     elevatedButtonTheme: ButtonThemes.elevatedButtonTheme(darkColorScheme),
     textButtonTheme: ButtonThemes.textButtonTheme(darkColorScheme),
+    dividerTheme: const DividerThemeData(
+      color: Color(0xFF1E293B), // Slate-800
+      thickness: 1,
+    ),
+    textTheme: AppTypography.textTheme.apply(
+  bodyColor: darkColorScheme.onSurface,      // Color(0xFFF1F5F9)
+      displayColor: darkColorScheme.onSurface,
+    ),
     extensions: const [
       BlurryBackgroundTheme(
-        primaryBlob: Color.fromARGB(255, 108, 1, 189),
-        secondaryBlob: Color.fromARGB(255, 84, 16, 148),
+        primaryBlob: Color(0xFF1E3A5F),   // Deep navy
+        secondaryBlob: Color(0xFF1E293B), // Slate-800
       ),
     ],
   );

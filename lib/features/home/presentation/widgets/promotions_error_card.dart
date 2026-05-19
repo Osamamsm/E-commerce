@@ -4,22 +4,24 @@ class PromotionsErrorCard extends StatelessWidget {
   final String message;
   final VoidCallback? onRetry;
 
-  const PromotionsErrorCard({
-    super.key,
-    required this.message,
-    this.onRetry,
-  });
+  const PromotionsErrorCard({super.key, required this.message, this.onRetry});
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+
     return Container(
       height: 160,
       margin: const EdgeInsets.symmetric(horizontal: 16),
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
-        gradient: const LinearGradient(
-          colors: [Color(0xFF3F3F46), Color(0xFF18181B)],
+        // Use error color as the dominant gradient — works in both themes
+        gradient: LinearGradient(
+          colors: [
+            cs.error.withValues(alpha: 0.85),
+            Color.lerp(cs.error, Colors.black, 0.35)!,
+          ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -27,35 +29,42 @@ class PromotionsErrorCard extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: [
+          // Decorative background icon
           Positioned(
             right: -20,
             top: -20,
             child: Icon(
               Icons.wifi_off_rounded,
               size: 120,
-              color: Colors.white.withValues(alpha: .05),
+              color: Colors.white.withValues(alpha: 0.08),
             ),
           ),
 
+          // Subtle dark-left scrim for text legibility
           Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
-                colors: [Color(0xCC000000), Color(0x22000000)],
+                colors: [
+                  Colors.black.withValues(alpha: 0.25),
+                  Colors.transparent,
+                ],
               ),
             ),
           ),
 
+          // Content
           Padding(
             padding: const EdgeInsets.all(20),
             child: Row(
               children: [
+                // Icon badge
                 Container(
                   width: 52,
                   height: 52,
                   decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: .08),
+                    color: Colors.white.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: const Icon(
@@ -89,7 +98,7 @@ class PromotionsErrorCard extends StatelessWidget {
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          color: Colors.white.withValues(alpha: .75),
+                          color: Colors.white.withValues(alpha: 0.82),
                           fontSize: 13,
                           height: 1.4,
                         ),
@@ -108,11 +117,11 @@ class PromotionsErrorCard extends StatelessWidget {
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(12),
                             ),
-                            child: const Text(
+                            child: Text(
                               'Retry',
                               style: TextStyle(
-                                color: Color(0xFF18181B),
-                                fontWeight: FontWeight.w600,
+                                color: cs.error,
+                                fontWeight: FontWeight.w700,
                               ),
                             ),
                           ),
@@ -129,4 +138,3 @@ class PromotionsErrorCard extends StatelessWidget {
     );
   }
 }
-

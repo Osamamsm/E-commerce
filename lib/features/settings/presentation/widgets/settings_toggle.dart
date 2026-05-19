@@ -36,7 +36,7 @@ class SettingsToggle extends StatelessWidget {
                 Text(
                   subtitle ?? '',
                   style: TextStyle(
-                    color: Color(0xFFA78BFA),
+                    color: Theme.of(context).colorScheme.primary,
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                   ),

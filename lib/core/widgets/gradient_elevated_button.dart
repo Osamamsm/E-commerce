@@ -26,7 +26,7 @@ class GradientElevatedButton extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [Color(0xFF8856f7), Color.fromARGB(255, 26, 198, 180)],
+            colors: [Theme.of(context).colorScheme.primary, Theme.of(context).colorScheme.secondary],
           ),
           borderRadius: BorderRadius.circular(50),
         ),

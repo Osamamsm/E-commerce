@@ -9,6 +9,8 @@ class AddNewAddressButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).push(AddAddressView.routeName);
@@ -16,11 +18,11 @@ class AddNewAddressButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 16),
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surface.withValues(alpha: 0.2),
+          color: cs.primaryContainer.withValues(alpha: 0.5),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: const Color(0xFF2D2440),
-            width: 1,
+            color: cs.outline,
+            width: 1.5,
             style: BorderStyle.solid,
           ),
         ),
@@ -30,22 +32,22 @@ class AddNewAddressButton extends StatelessWidget {
             Container(
               width: 24,
               height: 24,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Color(0xFF6B6B7B),
+                color: cs.primary,
               ),
               child: Icon(
                 Icons.add,
-                color: Theme.of(context).colorScheme.surface,
+                color: cs.onPrimary,
                 size: 16,
               ),
             ),
             hGap(12),
             Text(
               S.of(context).add_new_address,
-              style: Theme.of(
-                context,
-              ).textTheme.titleSmall!.copyWith(color: const Color(0xFF6B6B7B)),
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                color: cs.primary,
+              ),
             ),
           ],
         ),

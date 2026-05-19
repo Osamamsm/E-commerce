@@ -57,10 +57,10 @@ String getFormattedAddress({required AddressEntity address}) {
       : null;
 
   final lines = [
-    if (line1 != null) line1,
-    if (line2 != null) line2,
-    if (line3 != null) line3,
-    if (line4 != null) line4,
+    ?line1,
+    ?line2,
+    ?line3,
+    ?line4,
   ];
 
   final formattedAddress = lines.join('\n');

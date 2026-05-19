@@ -15,13 +15,13 @@ class SettingsAboutSection extends StatelessWidget {
         LinkItem(
           label: S.of(context).privacy_policy,
           icon: Icons.privacy_tip,
-          colors: [Color(0xFF3B82F6), Color(0xFF7C3AED)],
+          colors: [Theme.of(context).colorScheme.secondary, Theme.of(context).colorScheme.primary],
           onTap: () {},
         ),
         LinkItem(
           label: S.of(context).terms_of_service,
           icon: Icons.description,
-          colors: [Color(0xFF3B82F6), Color(0xFF7C3AED)],
+          colors: [Theme.of(context).colorScheme.secondary, Theme.of(context).colorScheme.primary],
           onTap: () {},
         ),
       ],

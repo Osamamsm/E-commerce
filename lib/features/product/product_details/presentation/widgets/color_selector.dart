@@ -32,7 +32,7 @@ class ColorSelector extends StatelessWidget {
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemCount: options.length,
-              separatorBuilder: (_, __) => hGap(8),
+              separatorBuilder: (_, _) => hGap(8),
               itemBuilder: (context, index) {
                 final option = options[index];
                 return ColorSelectorItem(

@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:e_commerce/core/helpers/functions.dart';
 import 'package:e_commerce/core/helpers/spacing.dart';
 import 'package:e_commerce/features/addresses/domain/entities/address_entity.dart';
@@ -17,10 +16,10 @@ class AddressCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         decoration: BoxDecoration(
-          color: Color(0xFF581c87).withValues(alpha: 0.4),
+          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.4),
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: Color(0xFF7e22ce).withValues(alpha: 0.3),
+            color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
             width: 1,
           ),
         ),

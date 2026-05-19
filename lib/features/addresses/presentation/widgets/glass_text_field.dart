@@ -32,7 +32,7 @@ class GlassTextField extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         suffixIcon: suffixIcon != null
-            ? Icon(suffixIcon, color: const Color(0xFF9ca3af), size: 20)
+            ? Icon(suffixIcon, color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5), size: 20)
             : null,
       ),
     );

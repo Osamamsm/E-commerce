@@ -72,7 +72,7 @@ class _CircleCheckbox extends StatelessWidget {
         border: Border.all(
           color: isSelected
               ? Theme.of(context).colorScheme.primary
-              : const Color(0xFF2D2440),
+              : Theme.of(context).colorScheme.surface,
           width: 2,
         ),
         color: isSelected
